@@ -1,6 +1,8 @@
-import styled from '@emotion/styled';
+
 import { useState, useEffect } from 'react';
 import avatar from "./avatar/avatar.jpg"
+
+import { Container, UserContainer, UserTitle, UserPhotoContainer, UserPhoto, EditInput, EditInputBtn, UserLogOutBtn, UserForm } from './styles/UserData.styles';
 
 
 const UserData = (data) => {
@@ -74,42 +76,47 @@ const handleInputChange = evt => {
 
 
   return (
-    <div>
-      <img src={avatar} alt="img" width="250px" height="250px"/>
-      <input type="file"/>
-      <form>
+    <Container>
+      <UserTitle>My information</UserTitle>
+      <UserContainer>
+        <UserPhotoContainer>
+          <UserPhoto src={avatar} alt="img" width="250px" height="250px"/>
+          <input type="file"/>
+        </UserPhotoContainer>
+      <UserForm>
         <label>Name:
-        <input type={"text"} name="userName" onInput={handleInputChange} disabled={isNameDisabled} value={userName}/>
+        <EditInput type={"text"} name="userName" onInput={handleInputChange} disabled={isNameDisabled} value={userName}/>
         </label>
-        <button name="name" type="submit" onClick={e => {handleButtonClick(e, userName, isNameDisabled, setIsNameDisabled)}}>кнопка</button>
-      </form>
-      <form>
+        <EditInputBtn name="name" type="submit" onClick={e => {handleButtonClick(e, userName, isNameDisabled, setIsNameDisabled)}}>кнопка</EditInputBtn>
+      </UserForm>
+      <UserForm>
         <label>Email:
-        <input type={"text"} name="userEmail" onInput={handleInputChange} disabled={isEmaillDisabled} value={userEmail}/>
+        <EditInput type={"text"} name="userEmail" onInput={handleInputChange} disabled={isEmaillDisabled} value={userEmail}/>
         </label>
-        <button name="email" type="submit" onClick={e => {handleButtonClick(e, userEmail, isEmaillDisabled, setIsEmailDisabled)}}>кнопка</button>
-      </form>
-      <form>
+        <EditInputBtn name="email" type="submit" onClick={e => {handleButtonClick(e, userEmail, isEmaillDisabled, setIsEmailDisabled)}}>кнопка</EditInputBtn>
+      </UserForm>
+      <UserForm>
         <label>Birthday:
-        <input type={"text"} name="userBirthday" onInput={handleInputChange} disabled={isBirthdayDisabled} value={userBirthday}/>
+        <EditInput type={"text"} name="userBirthday" onInput={handleInputChange} disabled={isBirthdayDisabled} value={userBirthday}/>
         </label>
-        <button name="birthday" type="submit" onClick={e => {handleButtonClick(e, userBirthday, isBirthdayDisabled, setIsBirthdayDisabled)}}>кнопка</button>
-      </form>
-      <form>
+        <EditInputBtn name="birthday" type="submit" onClick={e => {handleButtonClick(e, userBirthday, isBirthdayDisabled, setIsBirthdayDisabled)}}>кнопка</EditInputBtn>
+      </UserForm>
+      <UserForm>
         <label>Phone:
-        <input type={"text"} name="userPhone" onInput={handleInputChange} disabled={isPhoneDisabled} value={userPhone}/>
+        <EditInput type={"text"} name="userPhone" onInput={handleInputChange} disabled={isPhoneDisabled} value={userPhone}/>
         </label>
         <button name="phone" type="submit" onClick={e => {handleButtonClick(e, userPhone, isPhoneDisabled, setIsPhoneDisabled)}} >кнопка</button>
-      </form>
-      <form>
+      </UserForm>
+      <UserForm>
         <label>City:
-        <input type={"text"} name="userCity" onInput={handleInputChange} disabled={isCityDisabled} value={userCity}/>
+        <EditInput type={"text"} name="userCity" onInput={handleInputChange} disabled={isCityDisabled} value={userCity}/>
         </label>
-        <button name="city" type="submit" onClick={e => {handleButtonClick(e, userCity, isCityDisabled, setIsCityDisabled)}} >кнопка</button>
-      </form>
+        <EditInputBtn name="city" type="submit" onClick={e => {handleButtonClick(e, userCity, isCityDisabled, setIsCityDisabled)}} >кнопка</EditInputBtn>
+      </UserForm>
 
-      <button type='button'> Log Out</button>
-    </div>
+      <UserLogOutBtn type='button'> Log Out</UserLogOutBtn>
+      </UserContainer>
+    </Container>
   )
 }
 
