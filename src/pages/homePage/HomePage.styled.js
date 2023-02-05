@@ -1,19 +1,19 @@
 import styled from '@emotion/styled';
 import { theme } from 'styles';
-import portraitM from '../../images/homePage/HomepageM.webp';
-import portraitM2x from '../../images/homePage/HomepageM@2x.webp';
-import portraitT from '../../images/homePage/HomepageT.webp';
-import portraitT2x from '../../images/homePage/HomepageT@2x.webp';
-import portraitD from '../../images/homePage/HomepageD.webp';
-import portraitD2x from '../../images/homePage/HomepageD@2x.webp';
-import BgM from '../../images/homePage/BgM.png';
-import BgM2x from '../../images/homePage/BgM@2x.png';
-import BgT from '../../images/homePage/BgT.png';
-import BgT2x from '../../images/homePage/BgT@2x.png';
-import BgD from '../../images/homePage/BgD.png';
-import BgD2x from '../../images/homePage/BgD@2x.png';
-import Union from '../../images/homePage/Union.png';
-import Union2x from '../../images/homePage/Union@2x.png';
+import portraitM from '../../images/home/HomepageM.webp';
+import portraitM2x from '../../images/home/HomepageM@2x.webp';
+import portraitT from '../../images/home/HomepageT.webp';
+import portraitT2x from '../../images/home/HomepageT@2x.webp';
+import portraitD from '../../images/home/HomepageD.webp';
+import portraitD2x from '../../images/home/HomepageD@2x.webp';
+import BgM from '../../images/home/BgM.png';
+import BgM2x from '../../images/home/BgM@2x.png';
+import BgT from '../../images/home/BgT.png';
+import BgT2x from '../../images/home/BgT@2x.png';
+import BgD from '../../images/home/BgD.png';
+import BgD2x from '../../images/home/BgD@2x.png';
+import Union from '../../images/home/Union.png';
+import Union2x from '../../images/home/Union@2x.png';
 
 export const Title = styled.h1`
   max-width: 280px;
