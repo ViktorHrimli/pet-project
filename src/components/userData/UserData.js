@@ -20,18 +20,6 @@ const [userCity, setUserCity] = useState('');
 
 // const [togle, setTogle] = useState(false)
 
-// const handeTogle = () => {
-//   setIsNameDisabled(prev => {return !prev})
-// }
-
-// const handleBtnClick = e => {
-//   const { value } = e.currentTarget.attributes.name;
-//    setUserName(value);
-//    if(isNameDisabled) {
-//     setIsNameDisabled(false)
-//    }
-
-// }
 
 const handleButtonClick = (e, userValue, isDisabled, setIsDisabled) => {
   e.preventDefault()
