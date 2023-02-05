@@ -1,7 +1,3 @@
-import { FriendsList } from "components/ourFriendsPage/friendsList/FriendsList";
+export const OurFriendsPage = () => {
 
-const OurFriendsPage = () => {
-  return <FriendsList/>
 };
-
-export default OurFriendsPage;

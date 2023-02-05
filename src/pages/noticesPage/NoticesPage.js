@@ -1,5 +1,3 @@
-const NoticesPage = () => {
-  return <div>NoticesPage</div>;
-};
+export const NoticesPage = () => {
 
-export default NoticesPage;
+};
