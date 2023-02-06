@@ -1,5 +1,9 @@
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return (
+    <AuthSection>
+      <LoginForm />
+    </AuthSection>
+  );
 };
 
 export default LoginPage;
