@@ -9,10 +9,14 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+
 import storage from 'redux-persist/lib/storage';
 import {authReducer} from './auth/slice';
 import { patsReducer } from './pats/slice';
 import { noticesReducer } from './notices/slice';
+import { userApi } from './user/UserApi';
+import { userPetsApi } from './user/userPetsApi';
+import userReducer from "./user/UserSlice";
 
 const authPersistConfig = {
   key: 'auth',
@@ -25,13 +29,17 @@ export const store = configureStore({
   auth: persistReducer(authPersistConfig, authReducer),
   pats: patsReducer,
 	notices: noticesReducer,
+  [userApi.reducerPath]: userApi.reducer,
+  [userPetsApi.reducerPath]: userPetsApi.reducer,
+  user: userReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    });
+    }).concat(userPetsApi.middleware)
+    .concat(userApi.middleware)
   },
 });
 

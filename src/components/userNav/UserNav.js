@@ -1,6 +1,6 @@
 import { StyledNavLink, AvatarIconEl } from 'components/userNav/UserNav.styled';
 
-import avatarIcon from 'images/svg/default-avatar.png';
+import avatarIcon from '../../images/noImage/noImage.jpg';
 
 export const UserNav = () => {
   return (

@@ -1,15 +1,15 @@
 
 import UserData from "components/userData/UserData";
+import PetsData from "components/petsData/PetsData";
+import { UserPageContainer } from "./UserPage.styles";
 
  const UserPage = () => {
   return (
 
-    <div>
-      <div>
-        UserPage
-      </div>
+    <UserPageContainer>
       <UserData/>
-    </div>
+      <PetsData/>
+    </UserPageContainer>
   )
 };
 
