@@ -1,7 +1,10 @@
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
 
-export const SectionWrapper = styled.div`
+export const SectionWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+
   @media screen and (max-width: 767px) {
     padding-top: 100px;
   }
