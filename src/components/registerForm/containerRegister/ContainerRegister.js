@@ -1,4 +1,4 @@
-import { Container } from 'components/registerForm/ContainerRegister/ContainerRegister.styled';
+import { Container } from 'components/registerForm/containerRegister/ContainerRegister.styled';
 
 const ContainerRegister = ({ children }) => {
   return <Container>{children}</Container>;

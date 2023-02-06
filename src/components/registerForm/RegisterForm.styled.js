@@ -17,7 +17,7 @@ export const Container = styled.div`
   border-radius: 10px;
 `;
 
-export const PageTitle = styled.h1`
+export const PageTitle = styled.h2`
   margin: 0;
   margin-bottom: 40px;
   font-size: 24px;

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Formik } from "formik";
-import { FormData } from "./MultiStepForm.styled";
-import FormNavigation from "../FormNavigation/FormNavigation";
+import React, { useState } from 'react';
+import { Formik } from 'formik';
+import { FormData } from './MultiStepForm.styled';
+import FormNavigation from '../formNavigation/FormNavigation';
 
 export default function MultiStepForm({ children, initialValues, onSubmit }) {
   const [stepNumber, setStepNumber] = useState(0);
@@ -13,12 +13,12 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
   const totalSteps = steps.length;
   const isLastStep = stepNumber === totalSteps - 1;
 
-  const next = (values) => {
+  const next = values => {
     setSnapshot(values);
     setStepNumber(stepNumber + 1);
   };
 
-  const previous = (values) => {
+  const previous = values => {
     setSnapshot(values);
     setStepNumber(stepNumber - 1);
   };
@@ -43,7 +43,7 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
         onSubmit={handleSubmit}
         validationSchema={step.props.validationSchema}
       >
-        {(formik) => (
+        {formik => (
           <FormData onSubmit={formik.handleSubmit}>
             {step}
 
@@ -59,4 +59,4 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
   );
 }
 
-export const FormStep = ({ stepName = "", children }) => children;
+export const FormStep = ({ stepName = '', children }) => children;

@@ -1,16 +1,16 @@
 import { ErrorMessage } from 'formik';
 
 import * as yup from 'yup';
-import InputField from './InputField/InputField';
+import InputField from './inputField/InputField';
 import { nanoid } from 'nanoid';
-import MultiStepForm, { FormStep } from './MultiStepForm/MultiStepForm';
+import MultiStepForm, { FormStep } from './multiStepForm/MultiStepForm';
 // import { RxEyeOpen, RxEyeClosed } from "react-icons/rx";
 // import {
 //   passwordVisibility,
 //   rightIcon,
 //   handlePasswordVisibility,
 // } from "../../hooks/useTogglePasswordVisibility";
-import ContainerRegister from './ContainerRegister/ContainerRegister';
+import ContainerRegister from './containerRegister/ContainerRegister';
 import {
   PageTitle,
   EntryFieldLabel,
