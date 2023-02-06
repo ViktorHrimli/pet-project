@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { Form, Field } from "formik";
+import styled from '@emotion/styled';
+import { Form, Field } from 'formik';
 
 export const Container = styled.div`
   /* position: absolute; */
@@ -34,7 +34,18 @@ export const FormData = styled(Form)`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  margin: 0 auto;
+  /* width: 100%; */
+  @media screen and (min-width: 320px) {
+    width: 320px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 618px;
+  }
+  /* @media screen and (min-width: 1280px) {
+    margin: 0 auto;
+    width: 618px;
+  } */
   /* margin-bottom: 50px; */
 `;
 
@@ -42,7 +53,20 @@ export const EntryFieldLabel = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
-  width: 280px;
+
+  @media screen and (max-width: 319px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 320px) {
+    width: 280px;
+  }
+  @media screen and (min-width: 767px) {
+    width: 448px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 458px;
+  }
+
   /* & :last-child {
     margin-bottom: 40px;
   } */

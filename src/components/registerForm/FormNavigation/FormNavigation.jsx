@@ -34,7 +34,7 @@ export default function FormNavigation(props) {
           <LinkOnLogin to="/login">Login</LinkOnLogin>
         </TextForm>
       </WrapperText>
-      <WaveImg src={wave} />
+      {/* <WaveImg src={wave} /> */}
     </Wrapper>
   );
 }

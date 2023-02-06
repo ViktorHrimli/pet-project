@@ -10,8 +10,8 @@ import MultiStepForm, { FormStep } from './MultiStepForm/MultiStepForm';
 //   rightIcon,
 //   handlePasswordVisibility,
 // } from "../../hooks/useTogglePasswordVisibility";
+import ContainerRegister from './ContainerRegister/ContainerRegister';
 import {
-  Container,
   PageTitle,
   EntryFieldLabel,
   ErrorBox,
@@ -59,7 +59,7 @@ console.log('validationSchema', validationSchema);
 export default function RegisterForm() {
   return (
     <>
-      <Container>
+      <ContainerRegister>
         <PageTitle>Registration</PageTitle>
         <MultiStepForm
           initialValues={initialValues}
@@ -164,7 +164,7 @@ export default function RegisterForm() {
             </EntryFieldLabel>
           </FormStep>
         </MultiStepForm>
-      </Container>
+      </ContainerRegister>
     </>
   );
 }
