@@ -2,7 +2,7 @@ import {
   Wrapper,
   ButtonBack,
   Submit,
-  WaveImg,
+  // WaveImg,
   Register1,
   Register2,
   WrapperText,
@@ -10,7 +10,7 @@ import {
   LinkOnLogin,
 } from './FormNavigation.styled';
 
-import wave from '../../../images/registration/wave.png';
+// import wave from '../../../images/registration/wave.png';
 
 export default function FormNavigation(props) {
   console.log('props', props);
