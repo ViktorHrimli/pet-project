@@ -3,27 +3,25 @@ import React, { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
-import UserPage from '../pages/userPage/UserPage';
+
 
 import { SharedLayout } from './sharedLayout/SharedLayout';
-import PetsData from './petsData/PetsData';
 
-// const HomePage = React.lazy(() => import('pages/homePage/HomePage.js'));
-// const RegisterPage = lazy(() => import('../pages/registerPage/RegisterPage'));
-// const LoginPage = lazy(() => import('../pages/loginPage/LoginPage'));
-// const NewsPage = lazy(() => import('../pages/newsPage/NewsPage'));
-// const NoticesPage = lazy(() => import('../pages/noticesPage/NoticesPage'));
-// const OurFriendsPage = lazy(() =>
-//   import('../pages/ourFriendsPage/OurFriendsPage')
-// );
-// const UserPage = lazy(() => import('../pages/userPage/UserPage'));
-// const NotFoundPage = lazy(() => import('../pages/notFoundPage/NotFoundPage'));
+const HomePage = React.lazy(() => import('pages/homePage/HomePage.js'));
+const RegisterPage = lazy(() => import('../pages/registerPage/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/loginPage/LoginPage'));
+const NewsPage = lazy(() => import('../pages/newsPage/NewsPage'));
+const NoticesPage = lazy(() => import('../pages/noticesPage/NoticesPage'));
+const OurFriendsPage = lazy(() =>
+  import('../pages/ourFriendsPage/OurFriendsPage')
+);
+const UserPage = lazy(() => import('../pages/userPage/UserPage'));
+const NotFoundPage = lazy(() => import('../pages/notFoundPage/NotFoundPage'));
 
 const App = () => {
   return (
     <>
-    <UserPage/>
-      {/* <Routes>
+      <Routes>
         <Route path={ROUTES.home} element={<SharedLayout />}>
           <Route index element={<HomePage />} />
 
@@ -72,7 +70,7 @@ const App = () => {
           />
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.home} />} />
-      </Routes> */}
+      </Routes>
     </>
   );
 };
