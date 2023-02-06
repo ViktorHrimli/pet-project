@@ -1,14 +1,14 @@
 import { NAV_LIST } from './constants';
-import { NavLink } from 'react-router-dom';
+import { StyledNavLink, NavigationWrapper } from 'components/nav/Nav.styled';
 
 export const Nav = () => {
   return (
-    <>
+    <NavigationWrapper>
       {NAV_LIST.map(item => (
-        <NavLink to={`/${item.link}`} key={item.label}>
+        <StyledNavLink to={`/${item.link}`} key={item.label}>
           {item.label}
-        </NavLink>
+        </StyledNavLink>
       ))}
-    </>
+    </NavigationWrapper>
   );
 };
