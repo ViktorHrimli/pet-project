@@ -141,6 +141,29 @@ const AddPhoto = styled.label`
   :hover {
     cursor: pointer;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 182px;
+    height: 182px;
+  }
+`;
+
+const ImageSss = styled.img`
+  display: block;
+
+  width: 208px;
+  height: 208px;
+
+  border-radius: ${p => p.theme.radii.normal};
+
+  :hover {
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 182px;
+    height: 182px;
+  }
 `;
 
 const AddIconsPhoto = styled(VscAdd)`
@@ -154,6 +177,15 @@ const AddIconsPhoto = styled(VscAdd)`
   left: 50%;
 
   transform: translate(-50%, -50%);
+`;
+
+const AddErrorMessage = styled.span`
+  position: absolute;
+
+  bottom: -17px;
+  left: 18px;
+
+  color: red;
 `;
 
 const AddComments = styled(Field)`
@@ -183,6 +215,11 @@ const AddComments = styled(Field)`
   :focus::placeholder {
     color: transparent;
   }
+
+  @media screen and (min-width: 768px) {
+    width: 394px;
+    height: 116px;
+  }
 `;
 
 export {
@@ -197,4 +234,6 @@ export {
   AddComments,
   AddStepTwoParagraph,
   AddIconsPhoto,
+  AddErrorMessage,
+  ImageSss,
 };

@@ -1,11 +1,5 @@
-import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
-
 const HomePage = () => {
-  return (
-    <div>
-      <ModalAddPet />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default HomePage;
