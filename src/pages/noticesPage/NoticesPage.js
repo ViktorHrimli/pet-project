@@ -5,14 +5,15 @@ import Section from "components/section/Section";
 import { TitleSection } from "components/section/Section.styled";
 
 const NoticesPage = () => {
-  return 
-  <Container>
+  return <>
     <Section>
+      <Container>
       <TitleSection>Find your favorite pet</TitleSection>
       <NoticesSearch/>
       <NoticeCategoriesNav/>
+      </Container>
     </Section>
-  </Container>
+    </>
 };
 
 export default NoticesPage;
