@@ -17,12 +17,4 @@ const ConteinerIconsClose = styled.div`
   background-color: ${p => p.theme.colors.background};
 `;
 
-const BackgroundModal = styled.div`
-  width: 100vw;
-  height: 100vh;
-
-  background: rgba(17, 17, 17, 0.6);
-  backdrop-filter: blur(10px);
-`;
-
-export { ConteinerIconsClose, BackgroundModal };
+export { ConteinerIconsClose };

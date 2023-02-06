@@ -2,25 +2,9 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import { AiOutlineClose } from 'react-icons/ai';
 
-import { ConteinerIconsClose, BackgroundModal } from './ModalLayout.styled';
+import { ConteinerIconsClose } from './ModalLayout.styled';
 
-const customStyles = {
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minWidth: '280px',
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    // marginRight: '-50%',
-    borderRadius: '20px',
-    backgroundColor: '#fff',
-    transform: 'translate(-50%, -50%)',
-  },
-};
+import './styled.css';
 
 ReactModal.setAppElement('#root');
 
@@ -34,19 +18,34 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
   };
 
   return (
-    <div>
+    <>
       <button
+        type="button"
         onClick={openModal}
-        style={{ position: 'absolute', top: '166px', left: '50%' }}
+        style={{ position: 'absolute', zIndex: 100 }}
       >
-        Open Modal
+        Open
       </button>
       <ReactModal
         isOpen={isOpen}
         onRequestClose={closeModal}
-        style={customStyles}
+        className="bodyModal"
+        style={{
+          overlay: {
+            position: 'fixed',
+            width: '100vw',
+            height: '100vh',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(17, 17, 17, 0.6)',
+            padding: '20px',
+            zIndex: 20,
+          },
+        }}
         contentLabel="Example Modal"
-        onAfterOpen={'rgba(17, 17, 17, 0.6)'}
+        aria={{ modal: 'true' }}
       >
         <ConteinerIconsClose>
           <AiOutlineClose size={20} onClick={closeModal} />
@@ -54,6 +53,6 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
 
         {children}
       </ReactModal>
-    </div>
+    </>
   );
 };
