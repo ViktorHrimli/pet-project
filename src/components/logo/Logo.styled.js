@@ -1,11 +1,13 @@
 import styled from '@emotion/styled';
 
-export const Logo = styled.img`
+export const LogoEl = styled.img`
   width: 82px;
-  height: 42px;
+  z-index: 100;
 
   @media screen and (min-width: 767.99px) {
     width: 94px;
-    height: 48px;
+    height: 35px;
+    /* margin-right: 300px; */
+    margin-right: auto;
   }
 `;
