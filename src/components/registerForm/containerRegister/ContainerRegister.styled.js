@@ -8,9 +8,6 @@ export const Container = styled.div`
   align-items: center;
   text-align: center;
   margin: 0 auto;
-  border: 2px solid #84a4ce;
-  box-shadow: 0px 2px 10px rgb(139 162 191);
-  border-radius: 10px;
 
   @media screen and (max-width: 319px) {
     padding: 100px 10px;
@@ -19,14 +16,22 @@ export const Container = styled.div`
     padding: 100px 20px;
   }
   @media screen and (min-width: 768px) {
-    margin: 0 80px;
+    width: 608px;
+    margin: 0 auto;
     padding-top: 60px;
     padding-right: 80px;
     padding-left: 80px;
     padding-bottom: 40px;
+    background-color: #ffffff;
+    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+    border-radius: 40px;
   }
   @media screen and (min-width: 1280px) {
-    margin: 0 331px;
-    padding: 0 16px;
+    margin: 0 auto;
+    padding: 60px 80px;
+    /* padding-top: 60px;
+    padding-right: 80px;
+    padding-left: 80px;
+    padding-bottom: 60px; */
   }
 `;
