@@ -1,3 +1,4 @@
+import { NoticeCategoryList } from "components/noticesCategoryList/NoticesCategoryList";
 import { NoticesSearch } from "components/noticesSearch/NoticesSearch";
 import { NoticeCategoriesNav } from "components/notisesCategoriesNav/NoticesCategoriesNav";
 import Section from "components/section/Section";
@@ -7,8 +8,9 @@ const NoticesPage = () => {
   return <>
     <Section>
       <TitleSection>Find your favorite pet</TitleSection>
-        <NoticesSearch/>
+      <NoticesSearch/>
       <NoticeCategoriesNav/>
+      <NoticeCategoryList/>
     </Section>
   </>
 };

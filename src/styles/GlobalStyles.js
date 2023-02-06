@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import {theme} from './theme'
 
 export const GlobalStyles = css`
   html {
@@ -9,6 +10,8 @@ export const GlobalStyles = css`
     margin: 0;
     min-height: 100vh;
     font-style: normal;
+    font-family: ${theme.fonts.body};
+    background: ${theme.colors.background};
   }
 
   h1,
