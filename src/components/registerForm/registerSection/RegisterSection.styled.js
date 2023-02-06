@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const BgImageBox = styled.div`
   /* position: absolute; */
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@ export const Container = styled.div`
   text-align: center;
   margin: 0 auto;
 
-  @media screen and (max-width: 319px) {
+  /* @media screen and (max-width: 319px) {
     padding: 100px 10px;
   }
   @media screen and (min-width: 320px) {
@@ -28,7 +28,7 @@ export const Container = styled.div`
   }
   @media screen and (min-width: 1280px) {
     margin: 0 auto;
-    padding: 60px 80px;
+    padding: 60px 80px; */
     /* padding-top: 60px;
     padding-right: 80px;
     padding-left: 80px;

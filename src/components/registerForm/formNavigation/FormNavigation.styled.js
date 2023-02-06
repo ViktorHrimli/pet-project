@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
+import styled from '@emotion/styled';
+import { NavLink } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -75,13 +75,6 @@ export const LinkOnLogin = styled(NavLink)`
   margin-left: 5px;
 
   color: #3091eb;
-`;
-export const WaveImg = styled.img`
-  /* position: relative;
-  bottom: 97px; */
-
-  /* width: 100%; */
-  height: auto;
 `;
 
 export const Register1 = styled.div`

@@ -2,15 +2,12 @@ import {
   Wrapper,
   ButtonBack,
   Submit,
-  // WaveImg,
   Register1,
   Register2,
   WrapperText,
   TextForm,
   LinkOnLogin,
 } from './FormNavigation.styled';
-
-// import wave from '../../../images/registration/wave.png';
 
 export default function FormNavigation(props) {
   console.log('props', props);
@@ -34,7 +31,6 @@ export default function FormNavigation(props) {
           <LinkOnLogin to="/login">Login</LinkOnLogin>
         </TextForm>
       </WrapperText>
-      {/* <WaveImg src={wave} /> */}
     </Wrapper>
   );
 }
