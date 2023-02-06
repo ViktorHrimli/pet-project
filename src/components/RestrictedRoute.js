@@ -17,3 +17,11 @@ const RestrictedRoute = ({ children }) => {
 };
 
 export default RestrictedRoute;
+
+// const RestrictedRoute = ({ component: Component, redirectTo = '/' }) => {
+//   const { isLoggedIn } = useAuth();
+//   const location = useLocation();
+//   return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
+// };
+
+// export default RestrictedRoute;

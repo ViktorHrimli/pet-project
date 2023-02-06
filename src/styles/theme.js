@@ -78,4 +78,16 @@ export const theme = {
     round: '50%',
     card: '0px 0px 40px 40px;',
   },
+
+  screens: {
+    xs: 319, // => no min-width
+    mobil: 320,
+    // => @media (min-width: 320px) { ... }
+
+    tablet: 768,
+    // => @media (min-width: 768px) { ... }
+
+    desktop: 1280,
+    // => @media (min-width: 1280px) { ... }
+  },
 };
