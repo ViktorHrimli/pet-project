@@ -5,50 +5,36 @@ import { useAuth } from 'hooks/useAuth';
 
 import { NavMain } from 'components/navigation/Navigation.styled';
 import { BurgerZone } from 'components/burger/Burger';
-import { useEffect, useState } from 'react';
+
+import { useBreakpoint } from 'hooks/useBreakpoint';
+// import { useEffect, useState } from 'react';
 
 export const Navigation = () => {
   const { token } = useAuth();
-
-  const [isNarrowScreen, setIsNarrowScreen] = useState(false);
-
-  useEffect(() => {
-    // set initial value
-    const mediaWatcher = window.matchMedia('(max-width: 767.99px)');
-    setIsNarrowScreen(mediaWatcher.matches);
-
-    //watch for updates
-    function updateIsNarrowScreen(e) {
-      setIsNarrowScreen(e.matches);
-    }
-    mediaWatcher.addEventListener('change', updateIsNarrowScreen);
-
-    // clean up after ourselves
-    return function cleanup() {
-      mediaWatcher.removeEventListener('change', updateIsNarrowScreen);
-    };
-  }, []);
-
-  console.log(isNarrowScreen);
+  const { isMobileScreen, isTabletScreen } = useBreakpoint();
 
   return (
     <NavMain>
-      {isNarrowScreen ? (
+      {isMobileScreen ? (
         <BurgerZone>
           <Nav />
           {!token ? <AuthNav /> : <UserNav />}
         </BurgerZone>
       ) : (
         <>
-          {/* {isTablet ? (
-            <></>
-            ): (
-              
-            )} */}
-          <BurgerZone>
-            <Nav />
-          </BurgerZone>
-          {!token ? <AuthNav /> : <UserNav />}
+          {isTabletScreen ? (
+            <>
+              <BurgerZone>
+                <Nav />
+              </BurgerZone>
+              {!token ? <AuthNav /> : <UserNav />}
+            </>
+          ) : (
+            <>
+              <Nav />
+              {!token ? <AuthNav /> : <UserNav />}
+            </>
+          )}
         </>
       )}
     </NavMain>
