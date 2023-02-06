@@ -15,5 +15,5 @@ export const Header = () => {
         </ContainerNav>
       </Container>
     </HeaderEl>
-  );
+	)
 };
