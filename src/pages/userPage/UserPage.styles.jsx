@@ -1,6 +1,14 @@
 import styled from '@emotion/styled';
 
 export const UserPageContainer = styled.div`
-display: flex;
+
+@media screen and (min-width: 768px) {
+
+}
+@media screen and (min-width: 1280px) {
+  display: flex;
+
+}
+
 
 `

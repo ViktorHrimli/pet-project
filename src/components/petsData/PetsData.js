@@ -29,8 +29,7 @@ export const PetsData = () => {
             <AddButtonCircleLink />
           </AddButton>
         </PetsDataContainer>
-        <HeadPetsData>
-        </HeadPetsData>
+
         {data && <PetsList data={data} />}
         {data.length === 0 && (
           <div>

@@ -21,6 +21,7 @@ const NotFoundPage = lazy(() => import('../pages/notFoundPage/NotFoundPage'));
 const App = () => {
   return (
     <>
+
       <Routes>
         <Route path={ROUTES.home} element={<SharedLayout />}>
           <Route index element={<HomePage />} />

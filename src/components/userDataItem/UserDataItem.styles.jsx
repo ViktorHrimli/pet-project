@@ -35,19 +35,17 @@ export const User = styled.div`
 
 export const Title = styled.h3`
   font-family: 'Manrope';
-  padding-bottom: 18px;
-  padding-top: 60px;
+
   font-weight: 500;
   font-size: 20px;
   line-height: 135%;
   color: #111111;
   @media screen and (min-width: 768px) {
-    padding: 0 20px 40px 34px;
     font-size: 28px;
     line-height: 135%;
   }
   @media screen and (min-width: 1280px) {
-    padding: 0 20px 28px 17px;
+
     font-size: 28px;
     line-height: 135%;
   }
