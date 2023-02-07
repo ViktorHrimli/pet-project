@@ -1,5 +1,6 @@
 import { CURRENT_LIST, ONLINE_LIST } from './CurrentList';
 import { useAuth } from 'hooks/useAuth';
+
 import Container from 'components/container/Container';
 import {
   NavWrapper,
@@ -18,19 +19,15 @@ export const NoticeCategoriesNav = () => {
         <NavWrapper>
           <ButtonList>
             {CURRENT_LIST.map(item => (
-              <ButtonItem>
-                <Button to={`/${item.link}`} key={item.label}>
-                  {item.label}
-                </Button>
+              <ButtonItem key={item.label}>
+                <Button to={`/${item.link}`}>{item.label}</Button>
               </ButtonItem>
             ))}
           </ButtonList>
           <ButtonUserList>
             {ONLINE_LIST.map(item => (
-              <OnlineItem>
-                <Button to={`/${item.link}`} key={item.label}>
-                  {item.label}
-                </Button>
+              <OnlineItem key={item.label}>
+                <Button to={`/${item.link}`}>{item.label}</Button>
               </OnlineItem>
             ))}
           </ButtonUserList>
@@ -43,10 +40,8 @@ export const NoticeCategoriesNav = () => {
       <NavWrapper>
         <ButtonList>
           {CURRENT_LIST.map(item => (
-            <ButtonItem>
-              <Button to={`/${item.link}`} key={item.label}>
-                {item.label}
-              </Button>
+            <ButtonItem key={item.label}>
+              <Button to={`/${item.link}`}>{item.label}</Button>
             </ButtonItem>
           ))}
         </ButtonList>

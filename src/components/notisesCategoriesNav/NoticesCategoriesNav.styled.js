@@ -22,13 +22,13 @@ export const ButtonUserList = styled.ul`
 export const ButtonItem = styled.li`
   display: flex;
   @media screen and (max-width: 1279px) {
-    &:nth-child(1) {
+    &:nth-of-type(1) {
       order: 3;
     }
-    &:nth-child(2) {
+    &:nth-of-type(2) {
       order: 1;
     }
-    &:nth-child(3) {
+    &:nth-of-type(3) {
       order: 2;
     }
   }
