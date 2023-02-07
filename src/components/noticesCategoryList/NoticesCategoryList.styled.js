@@ -84,7 +84,6 @@ export const Pick = styled.button`
 export const PickIcon = styled(FaHeart)`
   height: 28px;
   width: 28px;
-  /* background-color: rgba(255, 255, 255, 0.6); */
   stroke-width: 20px;
   stroke: ${p => p.theme.colors.primary};
 

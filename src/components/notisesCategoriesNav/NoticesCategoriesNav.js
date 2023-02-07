@@ -1,6 +1,5 @@
 import { CURRENT_LIST, ONLINE_LIST } from './CurrentList';
 import { useAuth } from 'hooks/useAuth';
-
 import Container from 'components/container/Container';
 import {
   NavWrapper,
