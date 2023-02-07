@@ -11,8 +11,10 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {authReducer} from './auth/slice';
-import { patsReducer } from './pats/slice';
+import { petsReducer } from './pets/slice';
 import { noticesReducer } from './notices/slice';
+import { newsReducer } from './news/slice';
+import { filterNoticesReducer } from './notices/filterSlice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -23,8 +25,10 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
   auth: persistReducer(authPersistConfig, authReducer),
-  pats: patsReducer,
-	notices: noticesReducer,
+  pets: petsReducer,
+  notices: noticesReducer,
+  news: newsReducer,
+  filterNotices: filterNoticesReducer,
   },
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
