@@ -44,7 +44,7 @@ export const StyledMenu = styled.nav`
 
 export const StyledBurger = styled.button`
   position: absolute;
-  top: 30%;
+  top: 32%;
   right: 20px;
   display: flex;
   flex-direction: column;
@@ -67,8 +67,7 @@ export const StyledBurger = styled.button`
 
   @media screen and (min-width: 768px) {
     right: 32px;
-    top: 36%;
-    /* margin-left: 25px; */
+    top: 39%;
   }
 
   div {

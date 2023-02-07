@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import {authReducer} from './auth/slice';
-import { patsReducer } from './pats/slice';
+import { petsReducer } from './pets/slice';
 import { noticesReducer } from './notices/slice';
 import { newsReducer } from './news/slice';
 

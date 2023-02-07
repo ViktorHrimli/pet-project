@@ -1,21 +1,6 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
-
-export const Container = styled.div`
-  /* position: absolute; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 320px;
-  margin: 0 auto;
-  padding: 42px 20px;
-
-  border: 2px solid #84a4ce;
-  box-shadow: 0px 2px 10px rgb(139 162 191);
-  border-radius: 10px;
-`;
+import wave from '../../images/background/part-1.png';
 
 export const PageTitle = styled.h2`
   margin: 0;
@@ -134,14 +119,6 @@ export const LinkOnLogin = styled.span`
   color: #3091eb;
 `;
 
-export const WaveImg = styled.img`
-  position: relative;
-  bottom: 0px;
-
-  max-width: 100%;
-  height: auto;
-`;
-
 export const ErrorBox = styled.div`
   height: 12px;
 `;
@@ -150,4 +127,19 @@ export const Message = styled.div`
   margin-bottom: 10px;
   font-size: 10px;
   color: #8b0000;
+`;
+
+export const BgImageBox = styled.div`
+  /* display: flex;
+
+  max-width: 100%;
+  height: auto; */
+  /* background-image: url(${wave}); */
+`;
+export const WaveImg = styled.img`
+  position: relative;
+  bottom: 0px;
+  max-width: 100hv;
+  height: 100hv;
+  object-fit: cover;
 `;

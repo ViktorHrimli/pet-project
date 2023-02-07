@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/auth/operations';
 import { ErrorMessage } from 'formik';
 
 import * as yup from 'yup';
@@ -16,11 +18,16 @@ import {
   EntryFieldLabel,
   ErrorBox,
   Message,
+  // BgImageBox,
+  // WaveImg,
 } from './RegisterForm.styled';
+// import wave from '../../images/background/part-1.png';
+
+// const wave = new URL('../../images/background/part-1.png');
 
 const EmailInputId = nanoid();
 const PasswordInputId = nanoid();
-const ConfirmPasswordInputId = nanoid();
+// const ConfirmPasswordInputId = nanoid();
 const NameInputId = nanoid();
 const AddressInputId = nanoid();
 const PhoneInputId = nanoid();
@@ -28,7 +35,6 @@ const PhoneInputId = nanoid();
 const initialValues = {
   email: '',
   password: '',
-  // confirm_password: "",
   name: '',
   address: '',
   phone: '',
@@ -57,16 +63,43 @@ const validationSchema = yup.object().shape({
 console.log('validationSchema', validationSchema);
 
 export default function RegisterForm() {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(register(values));
+    resetForm();
+    alert(JSON.stringify(values, null, 2));
+    console.log('data send', values);
+  };
+
+  // const handleSubmit = e => {
+  //   e.preventDefault();
+  //   const form = e.currentTarget;
+  //   dispatch(
+  //     register({
+  //       email: form.elements.email.value,
+  //       password: form.elements.password.value,
+  //       name: form.elements.name.value,
+  //       address: form.elements.address.value,
+  //       phone: form.elements.phone.value,
+  //     })
+  //   );
+  //   form.reset();
+  //   console.log('form', form);
+  //   console.log('register', register);
+  // };
+
   return (
     <>
       <ContainerRegister>
         <PageTitle>Registration</PageTitle>
         <MultiStepForm
           initialValues={initialValues}
-          onSubmit={values => {
-            console.log(values);
-            alert(JSON.stringify(values, null, 2));
-          }}
+          onSubmit={handleSubmit}
+          // onSubmit={values => {
+          //   console.log(values);
+          //   alert(JSON.stringify(values, null, 2));
+          // }}
         >
           <FormStep
             stepName="Person"
@@ -101,12 +134,11 @@ export default function RegisterForm() {
                 />
               </ErrorBox>
             </EntryFieldLabel>
-            <EntryFieldLabel htmlFor={ConfirmPasswordInputId}>
+            <EntryFieldLabel>
               <InputField
                 type="password"
                 name="confirm_password"
                 placeholder="Confirm Password"
-                // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
               />
               <ErrorBox>
                 <ErrorMessage
@@ -164,6 +196,9 @@ export default function RegisterForm() {
             </EntryFieldLabel>
           </FormStep>
         </MultiStepForm>
+        {/* <BgImageBox>
+          <WaveImg src={wave} />
+        </BgImageBox> */}
       </ContainerRegister>
     </>
   );
