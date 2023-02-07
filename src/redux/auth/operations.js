@@ -27,6 +27,19 @@ export const register = createAsyncThunk(
     }
   }
 );
+export const login = createAsyncThunk(
+  'auth/login',
+  async (userData, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/auth/signin', userData);
+      token.set(data.token);
+      return data;
+    } catch (e) {
+      console.log(e.message);
+      return thunkAPI.rejectWithValue('Email not found!');
+    }
+  }
+);
 
 export const logOut = createAsyncThunk(
   'auth/logOut',
