@@ -22,23 +22,7 @@ export const StyledMenu = styled.nav`
   }
 
   a {
-    /* font-size: 32px;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    font-weight: ${p => theme.fontWeights.medium};
-    letter-spacing: 0.04rem;
-    color: #181c27;
-    text-decoration: none; */
     transition: all 0.3s linear;
-
-    /* @media (max-width: 768px) {
-      font-size: 32px;
-      text-align: center;
-    } */
-
-    /* &:hover {
-      color: #f59256;
-    } */
   }
 `;
 
@@ -50,9 +34,7 @@ export const StyledBurger = styled.button`
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
-  /* 2rem; */
   height: 30px;
-  /* 2rem; */
 
   background: transparent;
 
@@ -72,11 +54,8 @@ export const StyledBurger = styled.button`
 
   div {
     width: 30px;
-    /* 2rem; */
     height: 3.5px;
-    /* 0.25rem; */
     background: black;
-    /* ${({ open }) => (open ? 'black' : 'black')}; */
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
