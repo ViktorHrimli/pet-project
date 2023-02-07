@@ -23,6 +23,7 @@ export const StyledNavLink = styled(NavLink)`
   font-weight: ${p => theme.fontWeights.medium};
   line-height: 1.37;
   color: #181c27;
+  transition: all 0.3s linear;
 
   &.active {
     font-weight: ${p => theme.fontWeights.bold};
