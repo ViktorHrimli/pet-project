@@ -18,8 +18,8 @@ import {
   EntryFieldLabel,
   ErrorBox,
   Message,
-  BgImageBox,
-  WaveImg,
+  // BgImageBox,
+  // WaveImg,
 } from './RegisterForm.styled';
 // import wave from '../../images/background/part-1.png';
 
