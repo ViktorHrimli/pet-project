@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
-import { theme } from 'styles';
 
 export const NavigationWrapper = styled.div`
   display: flex;
@@ -15,18 +14,18 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const StyledNavLink = styled(NavLink)`
-  font-family: ${p => theme.fonts.body};
+  font-family: ${p => p.theme.fonts.body};
   padding-top: 40px;
   padding-bottom: 40px;
   text-decoration: none;
   font-size: 32px;
-  font-weight: ${p => theme.fontWeights.medium};
+  font-weight: ${p => p.theme.fontWeights.medium};
   line-height: 1.37;
   color: #181c27;
   transition: all 0.3s linear;
 
   &.active {
-    font-weight: ${p => theme.fontWeights.bold};
+    font-weight: ${p => p.theme.fontWeights.bold};
     color: #f59256;
     text-decoration-line: underline;
   }
