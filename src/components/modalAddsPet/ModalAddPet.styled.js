@@ -11,6 +11,11 @@ const AddFormPets = styled(Form)`
   margin-top: ${p => p.theme.space[5]};
   margin-bottom: 0;
   grid-gap: ${p => p.theme.space[3]};
+
+  @media screen and (min-width: 768px) {
+    /* margin-top: ${p => p.theme.space[7]}; */
+    grid-gap: ${p => p.theme.space[5]};
+  }
 `;
 
 const AddInputPets = styled(Field)`
@@ -18,7 +23,7 @@ const AddInputPets = styled(Field)`
 
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.normal};
-  font-size: ${p => p.theme.fontSizes.xs};
+  font-size: ${p => p.theme.fontSizes.xxs};
   line-height: ${p => p.theme.lineHeights.normal};
 
   padding: 11px 14px;
@@ -39,10 +44,16 @@ const AddInputPets = styled(Field)`
 
   ::placeholder {
     color: ${p => p.theme.colors.muted};
+    font-size: ${p => p.theme.fontSizes.xxs};
   }
 
   @media screen and (min-width: 768px) {
     line-height: 1.55;
+
+    ::placeholder {
+      color: ${p => p.theme.colors.muted};
+      font-size: ${p => p.theme.fontSizes.xs};
+    }
   }
 `;
 
@@ -57,6 +68,12 @@ const AddLablePets = styled.label`
   line-height: ${p => p.theme.lineHeights.normal};
 
   grid-gap: ${p => p.theme.space[2]};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.m};
+    line-height: ${p => p.theme.lineHeights.normal};
+    grid-gap: 12px;
+  }
 `;
 
 const AddTextPets = styled.h3`
@@ -66,15 +83,24 @@ const AddTextPets = styled.h3`
   line-height: ${p => p.theme.lineHeights.normal};
 
   margin-top: ${p => p.theme.space[4]};
-  margin-bottom: 0;
+  margin-bottom: 20px;
 
   color: ${p => p.theme.colors.black};
+
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.xl};
+    line-height: ${p => p.theme.lineHeights.normal};
+  }
 `;
 
 const AddButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  font-weight: ${p => p.theme.fontWeights.medium};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: ${p => p.theme.lineHeights.normal};
 
   width: 240px;
 
@@ -90,6 +116,7 @@ const AddButton = styled.button`
 
   @media screen and (min-width: 768px) {
     width: 180px;
+    font-size: ${p => p.theme.fontSizes.s};
   }
 `;
 
@@ -128,6 +155,10 @@ const AddStepTwoParagraph = styled.p`
 
   margin-top: ${p => p.theme.space[4]};
   margin-bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.s};
+  }
 `;
 
 const AddPhoto = styled.label`
@@ -181,11 +212,20 @@ const AddIconsPhoto = styled(VscAdd)`
 
 const AddErrorMessage = styled.span`
   position: absolute;
+  width: 100%;
 
-  bottom: -17px;
+  font-size: ${p => p.theme.fontSizes.xxs};
+  font-weight: ${p => p.theme.fontWeights.normal};
+  line-height: ${p => p.theme.lineHeights.normal};
+
+  bottom: -18px;
   left: 18px;
-
   color: red;
+
+  @media screen and (min-width: 768px) {
+    bottom: -26px;
+    font-size: ${p => p.theme.fontSizes.xs};
+  }
 `;
 
 const AddComments = styled(Field)`
