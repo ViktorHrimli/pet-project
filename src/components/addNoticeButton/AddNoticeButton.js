@@ -1,20 +1,12 @@
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { addNotice } from '../../redux/notices/operations';
 import { AddButton, IconCross, ButtonName, Circle } from './AddNoticeButton.styled';
-import iconCross from '../../images/svg/icon-cross-white.svg'
 
 export const AddNoticeButton = () => {
-	const dispatch = useDispatch();
-
-	const handleAddNotice = () => {
-		dispatch(addNotice());
-	}
 
 	return (
-		<AddButton onClick={handleAddNotice}>
+		<AddButton>
 			<Circle>
-			<IconCross src={iconCross} alt=''/>
+			<IconCross />
 			</Circle>
 			<ButtonName>Add pet</ButtonName>
 		</AddButton>
