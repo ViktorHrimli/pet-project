@@ -1,1 +1,1 @@
-export const selectorNews = state => state.news.news
+export const selectorNews = state => state.news.news;
