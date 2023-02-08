@@ -121,7 +121,13 @@ const StepOne = ({ step, state, setIsOpen }) => {
             </div>
 
             <AddButtonConteiner>
-              <AddButtonsCancel onClick={() => setIsOpen(false)} type="button">
+              <AddButtonsCancel
+                onClick={() => {
+                  setIsOpen(false);
+                  localStorage.removeItem('prev');
+                }}
+                type="button"
+              >
                 Cancel
               </AddButtonsCancel>
               <AddButtonsNext type="submit" disabled={!isValid}>
