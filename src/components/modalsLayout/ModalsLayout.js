@@ -12,7 +12,6 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-
   return (
     <>
       <ReactModal
@@ -36,7 +35,8 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
           <AiOutlineClose size={20} onClick={closeModal} />
         </ConteinerIconsClose>
 
-      {children}
-    </ReactModal>
+        {children}
+      </ReactModal>
+    </>
   );
 };
