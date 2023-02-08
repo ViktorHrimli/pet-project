@@ -2,7 +2,8 @@ import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
-import { HiEye, HiEyeSlash } from 'react-icons/hi2';
+import { RxEyeOpen, RxEyeClosed } from 'react-icons/rx';
+// import { HiEye, HiEyeSlash } from 'react-icons/hi2';
 import { useNavigate } from 'react-router-dom';
 import { login } from 'redux/auth/operations';
 import {
@@ -93,7 +94,7 @@ export const LoginForm = () => {
                   placeholder="Password"
                 />
                 <Icon onClick={togglePassword}>
-                  {passwordShown ? <HiEye /> : <HiEyeSlash />}
+                  {passwordShown ? <RxEyeOpen /> : <RxEyeClosed />}
                 </Icon>
                 <FormError name="password" />
               </Label>
