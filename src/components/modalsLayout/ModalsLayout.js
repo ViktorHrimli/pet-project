@@ -20,13 +20,9 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
       className="bodyModal"
       style={{
         overlay: {
-          position: 'fixed',
+          position: 'absolute',
           width: '100vw',
-          height: '100vh',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
+          height: '130vh',
           backgroundColor: 'rgba(17, 17, 17, 0.6)',
           padding: '20px',
           zIndex: 20,
