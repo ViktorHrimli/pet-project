@@ -3,17 +3,14 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
 
-export const getAll = createAsyncThunk(
-  'notices/getAll',
-  async (_, thunkAPI) => {
-    try {
-      const { data } = await axios.get('/notices/getAll/:category');
-      return data;
-    } catch ({ message }) {
-      return thunkAPI.rejectWithValue(message);
-    }
+export const getAll = createAsyncThunk('notices/sell', async (_, thunkAPI) => {
+  try {
+    const { data } = await axios.get('/notices/getAll/sell');
+    return data;
+  } catch ({ message }) {
+    return thunkAPI.rejectWithValue(message);
   }
-);
+});
 
 export const getNoticesById = createAsyncThunk(
   'notices/getNoticesById',
@@ -72,13 +69,33 @@ export const removeFavoriteNotices = createAsyncThunk(
 
 export const addNotices = createAsyncThunk(
   'notices/addNotices',
-  async ({ breed, place, age, price }, thunkAPI) => {
+  async (
+    {
+      photo,
+      category,
+      title,
+      name,
+      birthday,
+      breed,
+      sex,
+      location,
+      price,
+      comments,
+    },
+    thunkAPI
+  ) => {
     try {
       const { data } = await axios.post('/notices/current/add', {
+        photo,
+        category,
+        title,
+        name,
+        birthday,
         breed,
-        place,
-        age,
+        sex,
+        location,
         price,
+        comments,
       });
       return data;
     } catch ({ message }) {

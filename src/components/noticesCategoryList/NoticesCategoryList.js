@@ -1,28 +1,48 @@
 // import { useAuth } from 'hooks/useAuth';
+import { NoticeCategoryItem } from 'components/noticesCategoryItem/NoticesCategoryItem';
+
+import { selectItems } from 'redux/notices/selectors';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getAll } from 'redux/notices/operations';
+
+import { useSelector } from 'react-redux';
 
 import {
   CardList,
-  CardItem,
-  CardImage,
-  CardTitle,
-  InfoList,
-  InfoItem,
-  CardButton,
-  DeleteButton,
-  Notiece,
-  Pick,
-  PickIcon,
-  Try,
+  // CardItem,
+  // CardImage,
+  // CardTitle,
+  // InfoList,
+  // InfoItem,
+  // CardButton,
+  // DeleteButton,
+  // Notiece,
+  // Pick,
+  // PickIcon,
+  // Try,
 } from './NoticesCategoryList.styled';
 import Container from 'components/container/Container';
 
 export const NoticeCategoryList = () => {
-  // const { token } = useAuth();
+  const toRender = useSelector(selectItems);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAll());
+  }, [dispatch]);
+
+  // const { token } = useAuth();
+  console.log(toRender);
+  const render = toRender.data;
+  console.log(render);
   return (
     <Container>
       <CardList>
-        <CardItem>
+        {toRender.map(item => {
+          return <NoticeCategoryItem key={item._id} item={item} />;
+        })}
+        {/* <CardItem>
           <CardImage
             src="https://www.8newsnow.com/wp-content/uploads/sites/59/2022/08/husky_eyes.jpg?w=1988&h=1440&crop=1"
             alt="Pet photo"
@@ -153,7 +173,7 @@ export const NoticeCategoryList = () => {
           </InfoList>
           <CardButton>Learn more</CardButton>
           <DeleteButton>Delete</DeleteButton>
-        </CardItem>
+        </CardItem> */}
       </CardList>
     </Container>
   );

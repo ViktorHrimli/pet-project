@@ -9,6 +9,7 @@ import {
   getUserNotices,
   deleteNotices,
 } from './operations';
+
 const handlePending = state => {
   state.isLoading = true;
 };
@@ -42,17 +43,17 @@ const noticesSlice = createSlice({
 
     [deleteNotices.pending]: handlePending,
 
-    [getAll.pending]: handleRejected,
-    [getUserNotices.pending]: handleRejected,
-    [getNoticesById.pending]: handleRejected,
+    [getAll.rejected]: handleRejected,
+    [getUserNotices.rejected]: handleRejected,
+    [getNoticesById.rejected]: handleRejected,
 
-    [addNotices.pending]: handleRejected,
-    [addFavoriteNotices.pending]: handleRejected,
+    [addNotices.rejected]: handleRejected,
+    [addFavoriteNotices.rejected]: handleRejected,
 
-    [favoriteNotices.pending]: handleRejected,
-    [removeFavoriteNotices.pending]: handleRejected,
+    [favoriteNotices.rejected]: handleRejected,
+    [removeFavoriteNotices.rejected]: handleRejected,
 
-    [deleteNotices.pending]: handleRejected,
+    [deleteNotices.rejected]: handleRejected,
 
     [getAll.fulfilled](state, action) {
       state.isLoading = false;
@@ -60,11 +61,11 @@ const noticesSlice = createSlice({
     },
     [favoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
-      state.favoriteItems = action.payload;
+      state.selectFavoriteItems = action.payload;
     },
     [getUserNotices.fulfilled](state, action) {
       state.isLoading = false;
-      state.userItems = action.payload;
+      state.selectUserItems = action.payload;
     },
 
     [addNotices.fulfilled](state, action) {
@@ -75,7 +76,7 @@ const noticesSlice = createSlice({
     [addFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.favoriteItems.unshift(action.payload);
+      state.selectFavoriteItems.unshift(action.payload);
     },
 
     [deleteNotices.fulfilled](state, action) {
@@ -90,7 +91,7 @@ const noticesSlice = createSlice({
       const index = state.favoriteItems.findIndex(
         task => task.id === action.payload.id
       );
-      state.favoriteItems.splice(index, 1);
+      state.selectFavoriteItems.splice(index, 1);
     },
   },
 });
