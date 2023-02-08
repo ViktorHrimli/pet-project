@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
-
 export const addPet = createAsyncThunk(
   'pets/addPet',
   async ({ name, breed, comments, date, photo, token }, thunkAPI) => {
@@ -18,7 +16,6 @@ export const addPet = createAsyncThunk(
       const { data } = await axios.post('/pets/add', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      console.log(data);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
