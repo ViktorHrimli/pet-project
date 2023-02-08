@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Field, Formik } from 'formik';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
 import {
   AddTextPets,
   AddFormPets,
@@ -18,56 +17,66 @@ import {
   AddIconsPhoto,
   AddErrorMessage,
   ImageSss,
+  AddStepTwoFormPets,
 } from './ModalAddPet.styled';
+
+import { addPet } from '../../redux/pets/operations';
+import { selectToken } from '../../redux/auth/selectors';
 
 const initialState = {
   name: '',
   breed: '',
   date: '',
   comments: '',
-  avatar: null,
+  photo: null,
 };
 
 const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
 
 const schema = Yup.object().shape({
-  name: Yup.string().min(2).max(16).required(),
+  name: Yup.string()
+    .min(2)
+    .max(16)
+    .required()
+    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/),
   breed: Yup.string().min(2).max(16).required(),
   date: Yup.string()
-    .matches(regexDate, 'The value must be a date (DD.MM.yyyy)')
-    .typeError('The value must be a date (DD.MM.yyyy)')
+    .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
     .required('This field is required'),
 });
 
-export const ModalAddPet = () => {
-  const [isOpen, setisOpen] = useState(false);
+export const ModalAddPet = ({ setIsOpen }) => {
   const [state, setState] = useState(initialState);
-  console.log(state);
   const [isStepNext, setIsStepNext] = useState(false);
 
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+
   useEffect(() => {
-    return () => {};
-  }, []);
+    if (state.photo) {
+      localStorage.removeItem('prev');
+      dispatch(addPet({ ...state, token }));
+    }
+  }, [dispatch, state, token]);
 
   return (
-    <ModalsLayout setIsOpen={setisOpen} isOpen={isOpen}>
+    <>
       {isStepNext ? (
-        <StepTwo step={setIsStepNext} state={setState} isOpen={setisOpen} />
+        <StepTwo step={setIsStepNext} state={setState} setIsOpen={setIsOpen} />
       ) : (
-        <StepOne step={setIsStepNext} state={setState} isOpen={setisOpen} />
+        <StepOne step={setIsStepNext} state={setState} setIsOpen={setIsOpen} />
       )}
-    </ModalsLayout>
+    </>
   );
 };
 
-const StepOne = ({ step, state, isOpen }) => {
-  const [stateStepOne, setStateStepOne] = useState();
-
-  console.log(stateStepOne);
+const StepOne = ({ step, state, setIsOpen }) => {
+  const [prevDate] = useState(JSON.parse(localStorage.getItem('prev')) || '');
 
   const handleSubmit = (values, action) => {
+    localStorage.setItem('prev', JSON.stringify(values));
+
     state(prev => ({ ...prev, ...values }));
-    setStateStepOne(values);
     step(true);
     action.resetForm();
   };
@@ -77,16 +86,16 @@ const StepOne = ({ step, state, isOpen }) => {
       <AddTextPets>Add pet</AddTextPets>
 
       <Formik
-        initialValues={{ name: '', date: '', breed: '' }}
+        initialValues={prevDate || { name: '', date: '', breed: '' }}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        {({ touched, errors, isSubmitting }) => (
+        {({ touched, errors, isValid }) => (
           <AddFormPets>
             <div style={{ position: 'relative' }}>
               <AddLablePets>
                 Name pet
-                <AddInputPets placeholder="Type name pet" name="name" />
+                <AddInputPets placeholder="Enter name pet" name="name" />
               </AddLablePets>
               {touched.name && errors.name && (
                 <AddErrorMessage>{errors?.name}</AddErrorMessage>
@@ -95,7 +104,7 @@ const StepOne = ({ step, state, isOpen }) => {
             <div style={{ position: 'relative' }}>
               <AddLablePets>
                 Date of birth
-                <AddInputPets placeholder="Type date of birth" name="date" />
+                <AddInputPets placeholder="Enter date of birth" name="date" />
               </AddLablePets>
               {touched.date && errors.date && (
                 <AddErrorMessage>{errors?.date}</AddErrorMessage>
@@ -104,7 +113,7 @@ const StepOne = ({ step, state, isOpen }) => {
             <div style={{ position: 'relative' }}>
               <AddLablePets>
                 Breed
-                <AddInputPets placeholder="Type breed" name="breed" />
+                <AddInputPets placeholder="Enter breed" name="breed" />
               </AddLablePets>
               {touched.breed && errors.breed && (
                 <AddErrorMessage>{errors?.breed || 'Errors'}</AddErrorMessage>
@@ -112,10 +121,16 @@ const StepOne = ({ step, state, isOpen }) => {
             </div>
 
             <AddButtonConteiner>
-              <AddButtonsCancel onClick={() => isOpen(false)} type="button">
+              <AddButtonsCancel
+                onClick={() => {
+                  setIsOpen(false);
+                  localStorage.removeItem('prev');
+                }}
+                type="button"
+              >
                 Cancel
               </AddButtonsCancel>
-              <AddButtonsNext type="submit" disabled={isSubmitting}>
+              <AddButtonsNext type="submit" disabled={!isValid}>
                 Next
               </AddButtonsNext>
             </AddButtonConteiner>
@@ -127,17 +142,28 @@ const StepOne = ({ step, state, isOpen }) => {
 };
 
 const shamaStepTwo = Yup.object().shape({
-  comments: Yup.string().required().min(8).max(120),
+  comments: Yup.string()
+    .required()
+    .min(8, 'Should be at 8 characters')
+    .max(120),
 });
 
-const StepTwo = ({ step, state, isOpen }) => {
+const StepTwo = ({ step, state, setIsOpen }) => {
   const [file, setFile] = useState(null);
-  const handleSubmit = (values, action) => {
-    state(prev => ({ ...prev, ...values, avatar: file.avatar }));
+  const [isErrorFile, setIsErrorFile] = useState(true);
 
-    action.resetForm();
-    isOpen(false);
+  const handleSubmit = (values, action) => {
+    if (file) {
+      state(prev => ({ ...prev, ...values, photo: file.avatar }));
+
+      action.resetForm();
+      setIsErrorFile(true);
+      setIsOpen(false);
+    } else {
+      setIsErrorFile(false);
+    }
   };
+
   return (
     <>
       <AddTextPets>Add pet</AddTextPets>
@@ -149,12 +175,12 @@ const StepTwo = ({ step, state, isOpen }) => {
         initialValues={{ comments: '' }}
         validationSchema={shamaStepTwo}
       >
-        {({ errors, touched, isSubmitting }) => (
-          <AddFormPets>
+        {({ errors, touched, isValid }) => (
+          <AddStepTwoFormPets>
             {!file ? (
               <AddPhoto>
                 <AddIconsPhoto />
-                <Field
+                <input
                   as="input"
                   type="file"
                   name="avatar"
@@ -173,12 +199,16 @@ const StepTwo = ({ step, state, isOpen }) => {
               <ImageSss src={file.url} alt="pet" width="208" height="208" />
             )}
 
+            {!isErrorFile && !file && (
+              <div style={{ color: 'red' }}>{'Field reqiured!'}</div>
+            )}
+
             <div style={{ position: 'relative' }}>
               <AddLablePets>
                 Comments
                 <AddComments
                   as="textarea"
-                  placeholder="Type comments"
+                  placeholder="Enter comments"
                   rows={4}
                   name="comments"
                 />
@@ -194,11 +224,11 @@ const StepTwo = ({ step, state, isOpen }) => {
               <AddButtonsCancel onClick={() => step(false)} type="button">
                 Back
               </AddButtonsCancel>
-              <AddButtonsNext type="submit" disabled={!isSubmitting}>
+              <AddButtonsNext type="submit" disabled={!isValid}>
                 Done
               </AddButtonsNext>
             </AddButtonConteiner>
-          </AddFormPets>
+          </AddStepTwoFormPets>
         )}
       </Formik>
     </>
