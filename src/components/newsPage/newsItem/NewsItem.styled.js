@@ -67,13 +67,15 @@ font-weight: 400;
 font-size: 16px;
 line-height: 22px;
 
+
 color: #111321;
 
 margin: 0; 
--webkit-line-clamp: 7; /* Число отображаемых строк */
-display: -webkit-box; /* Включаем флексбоксы */
--webkit-box-orient: vertical; /* Вертикальная ориентация */
+-webkit-line-clamp: 6; 
+display: -webkit-box; 
+-webkit-box-orient: vertical; 
 overflow: hidden;
+
 
 @media screen and (min-width: 1280px) {
     -webkit-line-clamp: 5;
