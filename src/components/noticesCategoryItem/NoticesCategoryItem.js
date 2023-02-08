@@ -14,10 +14,8 @@ import {
 
 //   import Container from 'components/container/Container';
 
-export const NoticeCategoryItem = item => {
-  const { _id, category, title, birthday, breed, city, imageURL, price } =
-    item.item;
-  console.log(item);
+export const NoticeCategoryItem = ({ item }) => {
+  const { _id, category, title, birthday, breed, city, imageURL, price } = item;
   return (
     <CardItem key={_id}>
       <CardImage src={imageURL} alt="Pet photo" />

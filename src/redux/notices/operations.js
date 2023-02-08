@@ -3,14 +3,17 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
 
-export const getAll = createAsyncThunk('notices/sell', async (_, thunkAPI) => {
-  try {
-    const { data } = await axios.get('/notices/getAll/sell');
-    return data;
-  } catch ({ message }) {
-    return thunkAPI.rejectWithValue(message);
+export const getAll = createAsyncThunk(
+  'notices/sell',
+  async (result, thunkAPI) => {
+    try {
+      const { data } = await axios.get(`/notices/getAll/${result}`);
+      return data.data;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue(message);
+    }
   }
-});
+);
 
 export const getNoticesById = createAsyncThunk(
   'notices/getNoticesById',

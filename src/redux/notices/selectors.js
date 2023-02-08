@@ -10,13 +10,18 @@ export const selectIsLoading = state => state.notices.isLoading;
 
 export const selectError = state => state.notices.error;
 
-// export const selectFilterValue = state => state.filter.value;
+export const selectFilterNotices = state => state.filterNotices;
 
-// export const selectVisibilityNotice = createSelector(
-//   [selectItems, selectFilterValue],
-//   (notices, filter) => {
-//     return notices.filter(notice =>
-//         notice.name.toLowerCase().includes(filter.toLowerCase())
-//     );
+// export const selectVisibleNotices = createSelector(
+//   [selectItems, selectFilterNotices],
+//   (items, setFilterNotices) => {
+//     switch (setFilterNotices) {
+//       case setFilterNotices:
+//         return items?.filterNotices(notice =>
+//           notice.title.toLowerCase().includes(setFilterNotices)
+//         );
+//       default:
+//         return items;
+//     }
 //   }
 // );
