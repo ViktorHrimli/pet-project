@@ -1,3 +1,1 @@
-export const ModalNotice = () => {
-
-};
+export const ModalNotice = () => {};

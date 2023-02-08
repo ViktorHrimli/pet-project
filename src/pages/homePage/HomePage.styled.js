@@ -19,7 +19,7 @@ export const Title = styled.h1`
   max-width: 280px;
   font-size: 32px;
   line-height: ${p => theme.lineHeights.normal};
-  font-weight: ${p => theme.fontWeights.normal};
+  font-weight: ${p => theme.fontWeights.bold};
   color: ${p => theme.colors.black};
   @media screen and (min-width: 768px) {
     max-width: 588px;
@@ -29,7 +29,7 @@ export const Title = styled.h1`
 `;
 
 export const HomeSection = styled.section`
-  padding-top: 60px;
+  padding-top: 100px;
   min-height: 543px;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -42,7 +42,7 @@ export const HomeSection = styled.section`
   }
   @media screen and (min-width: 768px) {
     min-height: 1108px;
-    padding-top: 88px;
+    padding-top: 130px;
     background-image: url(${portraitT}), url(${BgT});
     background-size: 645px 715px, 100vw 1033px;
     @media (min-device-pixel-ratio: 2),
@@ -52,9 +52,9 @@ export const HomeSection = styled.section`
     }
   }
   @media screen and (min-width: 1280px) {
-    padding-top: 92px;
+    padding-top: 160px;
     padding-bottom: 408px;
-    min-height: calc(100vh - 64px);
+    min-height: 100vh;
     background-image: url(${portraitD}), url(${BgD}), url(${Union});
     background-size: 590px 640px, 100vw calc(100vw * 0.375), 92px 89px;
     background-position-x: calc(50% + 330px), center, calc(50% + 118px);

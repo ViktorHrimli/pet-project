@@ -1,15 +1,11 @@
 import styled from '@emotion/styled';
-import { theme } from 'styles';
 
 export const HeaderEl = styled.header`
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center; */
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 5;
-  background-color: ${p => theme.colors.background};
+  background-color: ${p => p.theme.colors.background};
   padding-top: 20px;
   padding-bottom: 15px;
   padding-left: 0;
@@ -21,6 +17,5 @@ export const HeaderEl = styled.header`
   }
   @media screen and (min-width: 1280px) {
     padding-top: 20px;
-    /* justify-content: space-between; */
   }
 `;
