@@ -23,7 +23,6 @@ color: #000000;
 `;
 
 export const ListOfFriends = styled.ul`
-position: relative;
 width: 280px;
 height: 192px;
 margin-left: auto;

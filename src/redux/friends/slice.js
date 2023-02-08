@@ -13,7 +13,7 @@ const newsFriends = createSlice({
     extraReducers: {
     [fetchFriends.fulfilled](state, action) {
     state.error = null;
-    state.news = action.payload;
+    state.friends = action.payload;
     },
     [fetchFriends.rejected](state, action) {
     state.error = action.payload;

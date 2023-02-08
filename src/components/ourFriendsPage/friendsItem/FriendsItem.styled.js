@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 
 export const FriendItem = styled.li`
+position: relative;
 list-style: none;
 border-radius: 20px;
 background-color: #FFFFFF;
