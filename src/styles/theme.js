@@ -2,7 +2,7 @@ export const theme = {
   colors: {
     black: '#111111',
     white: '#fff',
-    text: '#000000',
+    text: '#111111',
     background: '#FDF7F2',
     gradient: 'linear-gradient(90deg, #FF634E 0%, #FFDF48 105.44%)',
     muted: 'rgba(17, 17, 17, 0.6)',
