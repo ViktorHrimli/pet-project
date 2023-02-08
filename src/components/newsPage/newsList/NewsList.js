@@ -44,6 +44,7 @@ export const NewsList = () => {
     const newsList = isSearch ? filteredNews : news;
 
     return (
+        <main>
         <Section>
             <TitleSection>News</TitleSection>
             <NewsSeachInput getFindedNews={getFindedNews} value={nameNews} handlFindNews={handlFindNews} isSearch={isSearch} />
@@ -60,7 +61,8 @@ export const NewsList = () => {
                 }
             </ListOfNews>
             
-        </Section>
+            </Section>
+        </main>
     )
 }
 
