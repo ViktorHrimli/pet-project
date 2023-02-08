@@ -1,5 +1,12 @@
+import { AuthSection } from 'components/loginForm/LoginForm.styled';
+import { LoginForm } from 'components/loginForm/LoginForm';
+
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return (
+    <AuthSection>
+      <LoginForm />
+    </AuthSection>
+  );
 };
 
 export default LoginPage;

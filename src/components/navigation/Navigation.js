@@ -7,7 +7,6 @@ import { NavMain } from 'components/navigation/Navigation.styled';
 import { BurgerZone } from 'components/burger/Burger';
 
 import { useBreakpoint } from 'hooks/useBreakpoint';
-// import { useEffect, useState } from 'react';
 
 export const Navigation = () => {
   const { token } = useAuth();

@@ -1,0 +1,1 @@
+export const selectorFriends = state => state.friends.friends;

@@ -15,7 +15,6 @@ const OurFriendsPage = lazy(() =>
   import('../pages/ourFriendsPage/OurFriendsPage')
 );
 const UserPage = lazy(() => import('../pages/userPage/UserPage'));
-const NotFoundPage = lazy(() => import('../pages/notFoundPage/NotFoundPage'));
 
 const App = () => {
   return (

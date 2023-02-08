@@ -26,6 +26,7 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
   };
 
   const handleSubmit = async (values, actions) => {
+    console.log('values', values);
     if (step.props.onSubmit) {
       await step.props.onSubmit(values);
     }
