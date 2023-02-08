@@ -3,6 +3,7 @@ import { ReactComponent as search } from '../../images/svg/search.svg';
 import { ReactComponent as crossNotice } from '../../images/svg/close-line.svg';
 
 export const SearchForm = styled.form`
+
   position: relative;
   width: 100%;
   height: 40px;
@@ -10,6 +11,7 @@ export const SearchForm = styled.form`
   @media screen and (min-width: 768px) {
     margin-left: auto;
     margin-right: auto;
+
     width: 608px;
     height: 44px;
   }

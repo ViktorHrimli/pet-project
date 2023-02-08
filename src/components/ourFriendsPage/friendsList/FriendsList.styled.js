@@ -22,3 +22,18 @@ color: #000000;
 }
 `;
 
+export const ListOfFriends = styled.ul`
+width: 280px;
+height: 192px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0;
+margin-bottom: 0;
+padding: 0;
+
+@media screen and (min-width: 768px){
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+`;

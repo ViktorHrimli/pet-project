@@ -17,13 +17,25 @@ export const register = createAsyncThunk(
   async (credential, thunkAPI) => {
     try {
       const { data } = await axios.post('/auth/signup', credential);
-      console.log('data', data);
-      token.set(data.token);
-      console.log(token);
+      token.set(data.user.token);
+      console.log('data.user.token', data.user.token);
       return data;
     } catch (e) {
       console.log(e.message);
       return thunkAPI.rejectWithValue('User creation error');
+    }
+  }
+);
+export const login = createAsyncThunk(
+  'auth/login',
+  async (userData, thunkAPI) => {
+    try {
+      const { data } = await axios.post('/auth/signin', userData);
+      token.set(data.token);
+      return data;
+    } catch (e) {
+      console.log(e.message);
+      return thunkAPI.rejectWithValue('Email not found!');
     }
   }
 );

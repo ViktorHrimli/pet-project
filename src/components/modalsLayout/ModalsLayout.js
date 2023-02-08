@@ -9,50 +9,33 @@ import './styled.css';
 ReactModal.setAppElement('#root');
 
 export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
-  const openModal = () => {
-    setIsOpen(true);
-  };
-
   const closeModal = () => {
     setIsOpen(false);
   };
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={openModal}
-        style={{ position: 'absolute', zIndex: 100 }}
-      >
-        Open
-      </button>
-      <ReactModal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
-        className="bodyModal"
-        style={{
-          overlay: {
-            position: 'fixed',
-            width: '100vw',
-            height: '100vh',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(17, 17, 17, 0.6)',
-            padding: '20px',
-            zIndex: 20,
-          },
-        }}
-        contentLabel="Example Modal"
-        aria={{ modal: 'true' }}
-      >
-        <ConteinerIconsClose>
-          <AiOutlineClose size={20} onClick={closeModal} />
-        </ConteinerIconsClose>
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={closeModal}
+      className="bodyModal"
+      style={{
+        overlay: {
+          position: 'absolute',
+          width: '100vw',
+          height: '130vh',
+          backgroundColor: 'rgba(17, 17, 17, 0.6)',
+          padding: '20px',
+          zIndex: 20,
+        },
+      }}
+      contentLabel="Example Modal"
+      aria={{ modal: 'true' }}
+    >
+      <ConteinerIconsClose>
+        <AiOutlineClose size={20} onClick={closeModal} />
+      </ConteinerIconsClose>
 
-        {children}
-      </ReactModal>
-    </>
+      {children}
+    </ReactModal>
   );
 };

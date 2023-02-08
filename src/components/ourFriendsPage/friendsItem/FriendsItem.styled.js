@@ -1,23 +1,8 @@
 import styled from '@emotion/styled';
 
-export const ListOfFriends = styled.ul`
-position: relative;
-width: 280px;
-height: 192px;
-margin-left: auto;
-margin-right: auto;
-margin-top: 0;
-margin-bottom: 0;
-padding: 0;
-
-@media screen and (min-width: 768px){
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-}
-`;
 
 export const FriendItem = styled.li`
+position: relative;
 list-style: none;
 border-radius: 20px;
 background-color: #FFFFFF;

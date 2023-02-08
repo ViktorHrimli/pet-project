@@ -20,11 +20,13 @@ const handleRejected = (state, action) => {
 };
 
 const noticesInitialState = {
+
   items: [],
   userItems: [],
   favoriteItems: [],
   isLoading: false,
   error: null,
+
 };
 
 const noticesSlice = createSlice({
