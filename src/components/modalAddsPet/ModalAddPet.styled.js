@@ -13,9 +13,12 @@ const AddFormPets = styled(Form)`
   grid-gap: ${p => p.theme.space[3]};
 
   @media screen and (min-width: 768px) {
-    /* margin-top: ${p => p.theme.space[7]}; */
     grid-gap: ${p => p.theme.space[5]};
   }
+`;
+
+const AddStepTwoFormPets = styled(AddFormPets)`
+  margin-top: 20px;
 `;
 
 const AddInputPets = styled(Field)`
@@ -153,7 +156,6 @@ const AddStepTwoParagraph = styled.p`
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: ${p => p.theme.lineHeights.normal};
 
-  margin-top: ${p => p.theme.space[4]};
   margin-bottom: 0;
 
   @media screen and (min-width: 768px) {
@@ -265,6 +267,7 @@ const AddComments = styled(Field)`
 export {
   AddTextPets,
   AddFormPets,
+  AddStepTwoFormPets,
   AddLablePets,
   AddInputPets,
   AddButtonsCancel,

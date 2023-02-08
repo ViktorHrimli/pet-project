@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
-
 import * as Yup from 'yup';
 
 import {
@@ -17,20 +17,28 @@ import {
   AddIconsPhoto,
   AddErrorMessage,
   ImageSss,
+  AddStepTwoFormPets,
 } from './ModalAddPet.styled';
+
+import { addPet } from '../../redux/pets/operations';
+import { selectToken } from '../../redux/auth/selectors';
 
 const initialState = {
   name: '',
   breed: '',
   date: '',
   comments: '',
-  avatar: null,
+  photo: null,
 };
 
 const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
 
 const schema = Yup.object().shape({
-  name: Yup.string().min(2).max(16).required(),
+  name: Yup.string()
+    .min(2)
+    .max(16)
+    .required()
+    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/),
   breed: Yup.string().min(2).max(16).required(),
   date: Yup.string()
     .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
@@ -39,9 +47,17 @@ const schema = Yup.object().shape({
 
 export const ModalAddPet = ({ setIsOpen }) => {
   const [state, setState] = useState(initialState);
-
-  console.log(state);
   const [isStepNext, setIsStepNext] = useState(false);
+
+  const dispatch = useDispatch();
+  const token = useSelector(selectToken);
+
+  useEffect(() => {
+    if (state.photo) {
+      localStorage.removeItem('prev');
+      dispatch(addPet({ ...state, token }));
+    }
+  }, [dispatch, state, token]);
 
   return (
     <>
@@ -55,13 +71,12 @@ export const ModalAddPet = ({ setIsOpen }) => {
 };
 
 const StepOne = ({ step, state, setIsOpen }) => {
-  const [stateStepOne, setStateStepOne] = useState(null);
-
-  console.log(stateStepOne);
+  const [prevDate] = useState(JSON.parse(localStorage.getItem('prev')) || '');
 
   const handleSubmit = (values, action) => {
+    localStorage.setItem('prev', JSON.stringify(values));
+
     state(prev => ({ ...prev, ...values }));
-    setStateStepOne(values);
     step(true);
     action.resetForm();
   };
@@ -71,7 +86,7 @@ const StepOne = ({ step, state, setIsOpen }) => {
       <AddTextPets>Add pet</AddTextPets>
 
       <Formik
-        initialValues={{ name: '', date: '', breed: '' }}
+        initialValues={prevDate || { name: '', date: '', breed: '' }}
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
@@ -80,7 +95,7 @@ const StepOne = ({ step, state, setIsOpen }) => {
             <div style={{ position: 'relative' }}>
               <AddLablePets>
                 Name pet
-                <AddInputPets placeholder="Type name pet" name="name" />
+                <AddInputPets placeholder="Enter name pet" name="name" />
               </AddLablePets>
               {touched.name && errors.name && (
                 <AddErrorMessage>{errors?.name}</AddErrorMessage>
@@ -89,7 +104,7 @@ const StepOne = ({ step, state, setIsOpen }) => {
             <div style={{ position: 'relative' }}>
               <AddLablePets>
                 Date of birth
-                <AddInputPets placeholder="Type date of birth" name="date" />
+                <AddInputPets placeholder="Enter date of birth" name="date" />
               </AddLablePets>
               {touched.date && errors.date && (
                 <AddErrorMessage>{errors?.date}</AddErrorMessage>
@@ -98,7 +113,7 @@ const StepOne = ({ step, state, setIsOpen }) => {
             <div style={{ position: 'relative' }}>
               <AddLablePets>
                 Breed
-                <AddInputPets placeholder="Type breed" name="breed" />
+                <AddInputPets placeholder="Enter breed" name="breed" />
               </AddLablePets>
               {touched.breed && errors.breed && (
                 <AddErrorMessage>{errors?.breed || 'Errors'}</AddErrorMessage>
@@ -133,8 +148,7 @@ const StepTwo = ({ step, state, setIsOpen }) => {
 
   const handleSubmit = (values, action) => {
     if (file) {
-      console.log(values);
-      state(prev => ({ ...prev, ...values, avatar: file.avatar }));
+      state(prev => ({ ...prev, ...values, photo: file.avatar }));
 
       action.resetForm();
       setIsErrorFile(true);
@@ -156,7 +170,7 @@ const StepTwo = ({ step, state, setIsOpen }) => {
         validationSchema={shamaStepTwo}
       >
         {({ errors, touched, isValid }) => (
-          <AddFormPets>
+          <AddStepTwoFormPets>
             {!file ? (
               <AddPhoto>
                 <AddIconsPhoto />
@@ -188,7 +202,7 @@ const StepTwo = ({ step, state, setIsOpen }) => {
                 Comments
                 <AddComments
                   as="textarea"
-                  placeholder="Type comments"
+                  placeholder="Enter comments"
                   rows={4}
                   name="comments"
                 />
@@ -208,7 +222,7 @@ const StepTwo = ({ step, state, setIsOpen }) => {
                 Done
               </AddButtonsNext>
             </AddButtonConteiner>
-          </AddFormPets>
+          </AddStepTwoFormPets>
         )}
       </Formik>
     </>
