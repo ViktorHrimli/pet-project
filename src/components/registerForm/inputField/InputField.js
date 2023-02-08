@@ -1,7 +1,5 @@
 import { useField } from 'formik';
-import { InputArea,
-  //  Message 
-  } from './InputField.styled';
+import { InputArea, Message } from './InputField.styled';
 
 export default function InputField(props) {
   const [field, meta] = useField(props);
@@ -11,7 +9,7 @@ export default function InputField(props) {
   return (
     <>
       <InputArea {...field} {...props} />
-      {/* {meta.error && meta.touched && <Message>{meta.error}</Message>} */}
+      {meta.error && meta.touched && <Message>{meta.error}</Message>}
     </>
   );
 }

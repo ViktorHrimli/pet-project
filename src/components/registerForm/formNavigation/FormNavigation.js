@@ -1,5 +1,3 @@
-// import { useState } from 'react';
-
 import {
   Wrapper,
   ButtonBack,
@@ -12,13 +10,6 @@ import {
 } from './FormNavigation.styled';
 
 export default function FormNavigation(props) {
-  // const [text, setText] = useState('');
-  // console.log('props', props);
-  // const [showButton, setShowButton] = useState('');
-
-  // const complete = e => {
-  //   setShowButton(e.target.value);
-  // };
   return (
     <Wrapper>
       <Register1>

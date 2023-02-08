@@ -43,6 +43,7 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
   return (
     <>
       <Formik
+        // isValidating={true}
         initialValues={snapshot}
         onSubmit={handleSubmit}
         validationSchema={step.props.validationSchema}

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import { useNavigate } from 'react-router-dom';
 import { ErrorMessage } from 'formik';
 
-import { validationSchema } from './validationSchema';
+import { validationSchema1, validationSchema2 } from './validationSchema';
+
 import InputField from './inputField/InputField';
 import { nanoid } from 'nanoid';
 import MultiStepForm, { FormStep } from './multiStepForm/MultiStepForm';
@@ -18,8 +20,6 @@ import {
   ButtonIconConfirmPass,
   ErrorBox,
   Message,
-  // BgImageBox,
-  // WaveImg,
 } from './RegisterForm.styled';
 
 const EmailInputId = nanoid();
@@ -30,6 +30,7 @@ const LocationInputId = nanoid();
 const PhoneInputId = nanoid();
 
 const initialValues = {
+  // isValidating: true,
   email: '',
   password: '',
   confirm_password: '',
@@ -43,10 +44,11 @@ export default function RegisterForm() {
   const [confirmPasswordType, setConfirmPasswordType] = useState('password');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, password, confirm_password, name, location, phone } = values;
-    console.log('values', values);
+
     if (password === confirm_password) {
       dispatch(
         register({
@@ -56,7 +58,12 @@ export default function RegisterForm() {
           location: location,
           phone: phone,
         })
-      );
+      ).then(res => {
+        if (res.meta.requestStatus === 'fulfilled') {
+          navigate('/user', { replace: true });
+        }
+        return;
+      });
     }
     resetForm();
     alert(JSON.stringify(values, null, 2));
@@ -87,7 +94,7 @@ export default function RegisterForm() {
           <FormStep
             stepName="Person"
             onSubmit={() => console.log('Step1')}
-            validationSchema={validationSchema}
+            validationSchema={validationSchema1}
           >
             <EntryFieldLabel htmlFor={EmailInputId}>
               <InputField
@@ -158,7 +165,7 @@ export default function RegisterForm() {
           <FormStep
             stepName="Address"
             onSubmit={() => console.log('Step2 - Register')}
-            validationSchema={validationSchema}
+            validationSchema={validationSchema2}
           >
             <EntryFieldLabel htmlFor={NameInputId}>
               <InputField
@@ -167,6 +174,7 @@ export default function RegisterForm() {
                 placeholder="Name"
                 // pattern="/^[a-zA-zа-яіїєА-ЯІЇЄ ]+$/"
                 title="Name may contain any letters. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                required
               />
               <ErrorBox>
                 <ErrorMessage

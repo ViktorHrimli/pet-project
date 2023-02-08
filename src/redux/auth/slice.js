@@ -18,6 +18,7 @@ export const handleRejected = (state, { payload }) => {
   // state.isLoading = false;
   state.error = payload;
 };
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: authInitialState,
@@ -29,9 +30,7 @@ const authSlice = createSlice({
       state.isLoggedIn = true;
       state.error = null;
     },
-    [register.rejected](state, action) {
-      state.error = action.payload;
-    },
+    [register.rejected]: handleRejected,
     [login.rejected]: handleRejected,
     [login.fulfilled]: (state, { payload: { user, token } }) => {
       state.token = token;
@@ -47,5 +46,7 @@ const authSlice = createSlice({
     },
   },
 });
+
+console.log('token', authInitialState.token);
 
 export const authReducer = authSlice.reducer;

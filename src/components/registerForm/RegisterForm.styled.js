@@ -33,6 +33,7 @@ export const FormData = styled(Form)`
 `;
 
 export const EntryFieldLabel = styled.label`
+  position: relative;
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
@@ -65,7 +66,6 @@ export const LabelConfirmPass = styled.label`
   position: relative;
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 40px; */
   width: 100%;
 
   @media screen and (max-width: 767px) {
@@ -77,21 +77,35 @@ export const LabelConfirmPass = styled.label`
 `;
 
 export const InputArea = styled(Field)`
-  height: 40px;
+  width: 100%;
   padding: 0 10px 0 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+  color: #111111;
   background-color: #fdf7f2;
-
   border: 1px solid rgba(245, 146, 86, 0.5);
   border-radius: 40px;
   outline: none;
-
-  font-size: 14px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 25px;
+  }
 
   &:focus {
-    border: 2px solid rgba(245, 146, 86, 0.5);
+    border-color: '#f59256';
   }
   &::placeholder {
-    font-size: 12px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.04em;
+    color: rgba(17, 17, 17, 0.6);
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+      line-height: 25px;
+    }
   }
 `;
 
@@ -140,7 +154,7 @@ export const WaveImg = styled.img`
 
 export const ButtonIconPass = styled.button`
   position: absolute;
-  top: 2px;
+  top: 5px;
   right: 5px;
   display: inline-flex;
   align-items: center;
@@ -164,7 +178,7 @@ export const ButtonIconPass = styled.button`
 
 export const ButtonIconConfirmPass = styled.button`
   position: absolute;
-  top: 2px;
+  top: 5px;
   right: 5px;
   display: inline-flex;
   align-items: center;
