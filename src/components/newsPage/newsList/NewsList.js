@@ -33,8 +33,12 @@ export const NewsList = () => {
         const normalizedNameNews = nameNews.toLowerCase();
         const filteredNews = news.filter(item => item.title.toLowerCase().includes(normalizedNameNews));
         setFilteredNews(filteredNews);
-        setNameNews("");
         setIsSearch(prevState => !prevState);
+
+        if (isSearch) {
+            setNameNews("");
+        }
+
         if (filteredNews.length === 0) {
             setEmptyAnswer(true)
         }

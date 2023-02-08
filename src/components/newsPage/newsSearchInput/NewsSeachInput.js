@@ -13,6 +13,7 @@ return (
                 name="find"
                 value={value}
                 onChange={handlFindNews}
+                disabled={isSearch}
             />
             <FindNewsBtn type="submit" >
                 <ButtonImg src={isSearch ? crossNotice : search} alt='Search'/>
