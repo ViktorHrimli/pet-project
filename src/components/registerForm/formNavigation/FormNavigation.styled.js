@@ -16,9 +16,7 @@ export const ButtonBack = styled.button`
 
   width: 100%;
   height: 44px;
-  /* @media screen and (max-width: 319px) {
-    max-width: 280px;
-  } */
+
   font-weight: 500;
   font-size: 20px;
   line-height: 1.35;
@@ -44,9 +42,6 @@ export const Submit = styled.button`
 
   width: 100%;
   height: 44px;
-  /* @media only screen and (max-width: 319px) {
-    max-width: 280px;
-  } */
 
   font-weight: 500;
   font-size: 20px;
@@ -80,7 +75,7 @@ export const LinkOnLogin = styled(NavLink)`
   font-size: 12px;
   font-weight: 400;
   margin-left: 5px;
-
+  text-decoration-line: underline;
   color: #3091eb;
 `;
 
@@ -94,9 +89,6 @@ export const Register1 = styled.div`
   @media screen and (min-width: 498px) {
     width: 458px;
   }
-  /* @media screen and (min-width: 458px) {
-    width: 458px;
-  } */
 `;
 
 export const Register2 = styled.div`
@@ -110,7 +102,4 @@ export const Register2 = styled.div`
   @media screen and (min-width: 498px) {
     width: 458px;
   }
-  /* @media screen and (min-width: 458px) {
-    width: 458px;
-  } */
 `;
