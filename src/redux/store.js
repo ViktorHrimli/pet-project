@@ -12,11 +12,10 @@ import {
 
 import storage from 'redux-persist/lib/storage';
 import {authReducer} from './auth/slice';
-import { patsReducer } from './pats/slice';
+import { petsReducer } from './pets/slice';
 import { noticesReducer } from './notices/slice';
-import { userApi } from './user/UserApi';
-import { userPetsApi } from './user/userPetsApi';
-import userReducer from "./user/UserSlice";
+import userReducer from "../redux/user/slice";
+import { newsReducer } from './news/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -27,10 +26,8 @@ const authPersistConfig = {
 export const store = configureStore({
   reducer: {
   auth: persistReducer(authPersistConfig, authReducer),
-  pats: patsReducer,
+  pats: petsReducer,
 	notices: noticesReducer,
-  [userApi.reducerPath]: userApi.reducer,
-  [userPetsApi.reducerPath]: userPetsApi.reducer,
   user: userReducer,
   },
   middleware(getDefaultMiddleware) {
@@ -38,9 +35,8 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(userPetsApi.middleware)
-    .concat(userApi.middleware)
+    })
   },
-});
+})
 
 export const persistor = persistStore(store);

@@ -4,7 +4,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 
-
 import { SharedLayout } from './sharedLayout/SharedLayout';
 
 const HomePage = React.lazy(() => import('pages/homePage/HomePage.js'));
@@ -21,7 +20,6 @@ const NotFoundPage = lazy(() => import('../pages/notFoundPage/NotFoundPage'));
 const App = () => {
   return (
     <>
-
       <Routes>
         <Route path={ROUTES.home} element={<SharedLayout />}>
           <Route index element={<HomePage />} />
