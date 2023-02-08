@@ -19,7 +19,7 @@ margin-bottom: 60px;
   gap: 60px 32px;
   margin-bottom: 200px;
   }
-
+`
 export const EmptyRequestText = styled.p`
 font-family: 'Manrope';
 font-style: normal;
