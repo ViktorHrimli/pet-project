@@ -6,7 +6,7 @@ const authInitialState = {
     email: null,
     password: null,
     name: null,
-    address: null,
+    location: null,
     phone: null,
   },
   token: null,

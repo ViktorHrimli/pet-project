@@ -24,37 +24,56 @@ export const FormData = styled(Form)`
   @media screen and (min-width: 320px) {
     width: 320px;
   }
-  @media screen and (min-width: 768px) {
-    width: 618px;
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
   }
-  /* @media screen and (min-width: 1280px) {
-    margin: 0 auto;
-    width: 618px;
-  } */
-  /* margin-bottom: 50px; */
+  @media screen and (min-width: 1280px) {
+    width: 458px;
+  }
 `;
 
 export const EntryFieldLabel = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
+  width: 100%;
 
-  @media screen and (max-width: 319px) {
-    width: 100%;
-  }
-  @media screen and (min-width: 320px) {
-    width: 280px;
-  }
-  @media screen and (min-width: 767px) {
-    width: 448px;
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
   }
   @media screen and (min-width: 1280px) {
     width: 458px;
   }
+`;
 
-  /* & :last-child {
-    margin-bottom: 40px;
-  } */
+export const LabelPass = styled.label`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 458px;
+  }
+`;
+
+export const LabelConfirmPass = styled.label`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 40px; */
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 458px;
+  }
 `;
 
 export const InputArea = styled(Field)`
@@ -73,31 +92,6 @@ export const InputArea = styled(Field)`
   }
   &::placeholder {
     font-size: 12px;
-  }
-`;
-
-export const ButtonNext = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-  width: 280px;
-  height: 44px;
-
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.35;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  background-color: #f59256;
-  border: none;
-  border-radius: 40px;
-
-  cursor: pointer;
-  transition: background-color 300ms linear;
-  &:hover,
-  &:focus {
-    background-color: #f47d32;
   }
 `;
 
@@ -137,9 +131,61 @@ export const BgImageBox = styled.div`
   /* background-image: url(${wave}); */
 `;
 export const WaveImg = styled.img`
-  position: relative;
+  /* position: relative; */
   bottom: 0px;
   max-width: 100hv;
   height: 100hv;
   object-fit: cover;
+`;
+
+export const ButtonIconPass = styled.button`
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+
+  border: none;
+  border-radius: 20px;
+  background-color: #fdf7f2;
+
+  cursor: pointer;
+  transition: background-color 300ms linear;
+  &:hover *,
+  &:focus * {
+    fill: #f59256;
+  }
+`;
+
+export const ButtonIconConfirmPass = styled.button`
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+
+  border: none;
+  border-radius: 20px;
+  background-color: #fdf7f2;
+
+  cursor: pointer;
+  transition: background-color 300ms linear;
+  &:hover *,
+  &:focus * {
+    fill: #f59256;
+  }
+  /* @media screen and (min-width: 1280px) {
+    top: 2px;
+    right: 5px;
+  } */
 `;

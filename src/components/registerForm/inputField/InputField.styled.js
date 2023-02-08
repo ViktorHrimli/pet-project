@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { Field } from "formik";
+import styled from '@emotion/styled';
+import { Field } from 'formik';
 
 export const InputArea = styled(Field)`
   height: 40px;
@@ -18,4 +18,10 @@ export const InputArea = styled(Field)`
   &::placeholder {
     font-size: 12px;
   }
+`;
+
+export const Message = styled.div`
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: #8b0000;
 `;
