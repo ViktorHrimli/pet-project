@@ -6,7 +6,6 @@ const initialState = {
     error: null,
 };
 
-
 const newsSlice = createSlice({
     name: "news",
     initialState,

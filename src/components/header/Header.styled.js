@@ -17,5 +17,6 @@ export const HeaderEl = styled.header`
   }
   @media screen and (min-width: 1280px) {
     padding-top: 20px;
+    /* justify-content: space-between; */
   }
 `;

@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 
-
 export const ListOfNews = styled.ul`
 margin-bottom: 60px;
 
@@ -20,7 +19,6 @@ margin-bottom: 60px;
   gap: 60px 32px;
   margin-bottom: 200px;
   }
-`;
 
 export const EmptyRequestText = styled.p`
 font-family: 'Manrope';
