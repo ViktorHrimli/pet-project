@@ -6,7 +6,7 @@ export const Section = styled.section`
   background-color: #fdf7f2;
   margin: 0 auto;
   @media screen and (max-width: 319px) {
-    padding: 0 10px;
+    padding: 10 0px;
   }
   @media screen and (min-width: 320px) {
     padding: 42px 0;
