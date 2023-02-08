@@ -1,20 +1,29 @@
 import styled from '@emotion/styled';
-import { Form, Field, ErrorMessage } from 'formik';
 import {ReactComponent as redHeart} from '../../images/svg/icons_heart.svg';
 
-export const Container = styled.div`
+export const WrapperContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 280px;
+	margin: auto;
+	padding: 0 20px;
 	border-radius: 20px;
+	outline: 1px solid red;
 @media screen and (min-width: 768px) {
 	flex-direction: row; 
 	width: 540px;
 	border-radius: 40px;
 }
 `;
-
-export const PetPhoto = styled.div`
+export const PetPhoto = styled.img`
+width: 100%;
+height: auto;
+background-size: cover;
+background-repeat: no-repeat;
+border-bottom-left-radius: 40px;
+border-bottom-right-radius: 40px;
+`
+export const WrapperPetPhoto = styled.div`
 	margin-top: 60px;
 	width: 240px;
 	height: 240px;
@@ -22,9 +31,16 @@ export const PetPhoto = styled.div`
 	border-bottom-right-radius: 40px;
 	background-color: ${p => p.theme.colors.white}
 	@media screen and (min-width: 768px) {
+		margin-top: 32px;
+		margin-right: 20px;
 		width: 288px;
 		height: 328px;
 	}
+`;
+
+export const WrapperInfoBlock = styled.div`
+display: grid;
+
 `;
 
 export const TitleModalNotice = styled.h3`
@@ -35,19 +51,25 @@ export const TitleModalNotice = styled.h3`
 	letter-spacing: ${p => p.theme.letterSpacings.min};
 `;
 
-export const FormNotice = styled(Form)`
+export const ReferenceList = styled.div`
 	
 `;
 
-export const LableNotice = styled.label`
-
+export const InfoItem = styled.div`
+display: flex;
+outline: 1px solid green;
 `;
 
-export const InputModalNotice = styled(Field)`
+export const LableNotice = styled.p`
+outline: 1px solid blue;
+`;
+
+export const DateModalNotice = styled.p`
 width: 70%;
+outline: 1px solid black;
 `;
 
-export const AddNoticeComments = styled.textarea`
+export const NoticeComments = styled.p`
 	width: 240px
 	heiight: 95px;
 `;
@@ -66,10 +88,6 @@ export const AddToFavoriteButton = styled.button`
 	width: 240px;
 	height: 40px;
 	border-radius: 40px;
-`;
-
-export const ErrorMessageModalNotice = styled(ErrorMessage)`
-
 `;
 
 export const TitleNoticeButton = styled.p`
