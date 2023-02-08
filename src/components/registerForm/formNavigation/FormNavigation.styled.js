@@ -63,7 +63,6 @@ export const Submit = styled.button`
 
 export const WrapperText = styled.div`
   display: flex;
-  /* margin-bottom: 50px; */
 `;
 export const TextForm = styled.p`
   font-size: 12px;

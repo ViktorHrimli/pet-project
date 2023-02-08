@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-import { useNavigate } from 'react-router-dom';
+
 import { ErrorMessage } from 'formik';
 
 import { validationSchema1, validationSchema2 } from './validationSchema';
@@ -24,13 +24,11 @@ import {
 
 const EmailInputId = nanoid();
 const PasswordInputId = nanoid();
-// const ConfirmPasswordInputId = nanoid();
 const NameInputId = nanoid();
 const LocationInputId = nanoid();
 const PhoneInputId = nanoid();
 
 const initialValues = {
-  // isValidating: true,
   email: '',
   password: '',
   confirm_password: '',
@@ -44,7 +42,6 @@ export default function RegisterForm() {
   const [confirmPasswordType, setConfirmPasswordType] = useState('password');
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = (values, { resetForm }) => {
     const { email, password, confirm_password, name, location, phone } = values;
@@ -58,12 +55,7 @@ export default function RegisterForm() {
           location: location,
           phone: phone,
         })
-      ).then(res => {
-        if (res.meta.requestStatus === 'fulfilled') {
-          navigate('/user', { replace: true });
-        }
-        return;
-      });
+      );
     }
     resetForm();
     alert(JSON.stringify(values, null, 2));
@@ -102,7 +94,6 @@ export default function RegisterForm() {
                 type="text"
                 name="email"
                 placeholder="Email"
-                // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                 title="Email must contain @ . Example: your_mail@mail.com"
               />
               <ErrorBox>
@@ -120,7 +111,6 @@ export default function RegisterForm() {
                 name="password"
                 placeholder="Password"
                 title="Any letters and symbols except spaces. min 7 characters max 32"
-                // pattern="/^[^ ]{7,32}$/"
               />
               <ButtonIconPass type="button" onClick={togglePassword}>
                 {passwordType === 'password' ? <RxEyeClosed /> : <RxEyeOpen />}
@@ -172,7 +162,6 @@ export default function RegisterForm() {
                 type="text"
                 name="name"
                 placeholder="Name"
-                // pattern="/^[a-zA-zа-яіїєА-ЯІЇЄ ]+$/"
                 title="Name may contain any letters. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
               />
@@ -190,7 +179,6 @@ export default function RegisterForm() {
                 type="text"
                 name="location"
                 placeholder="City, region"
-                // pattern="/^[a-zA-Z]+[,][ ][a-zA-Z]+$/"
                 title="The location must consist of two words separated by a comma, for example: Kyiv, Kyiv"
               />
               <ErrorBox>
@@ -207,7 +195,6 @@ export default function RegisterForm() {
                 type="text"
                 name="phone"
                 placeholder="Mobile phone"
-                // pattern="/^[+]{1}[0-9]{12}$/"
                 title="The phone number must be in the format +380123456789"
               />
               <ErrorBox>
