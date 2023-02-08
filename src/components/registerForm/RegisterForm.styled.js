@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
-import wave from '../../images/background/part-1.png';
 
 export const PageTitle = styled.h2`
   margin: 0;
@@ -20,7 +19,6 @@ export const FormData = styled(Form)`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  /* width: 100%; */
   @media screen and (min-width: 320px) {
     width: 320px;
   }
@@ -111,7 +109,6 @@ export const InputArea = styled(Field)`
 
 export const WrapperText = styled.div`
   display: flex;
-  /* margin-bottom: 50px; */
 `;
 export const TextForm = styled.p`
   font-size: 12px;
@@ -135,21 +132,6 @@ export const Message = styled.div`
   margin-bottom: 10px;
   font-size: 10px;
   color: #8b0000;
-`;
-
-export const BgImageBox = styled.div`
-  /* display: flex;
-
-  max-width: 100%;
-  height: auto; */
-  /* background-image: url(${wave}); */
-`;
-export const WaveImg = styled.img`
-  /* position: relative; */
-  bottom: 0px;
-  max-width: 100hv;
-  height: 100hv;
-  object-fit: cover;
 `;
 
 export const ButtonIconPass = styled.button`

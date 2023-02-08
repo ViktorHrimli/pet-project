@@ -12,7 +12,7 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
   const step = steps[stepNumber];
   const totalSteps = steps.length;
   const isLastStep = stepNumber === totalSteps - 1;
-  console.log('step', step);
+
   const next = values => {
     console.log('values', values);
     console.log('next', next);
@@ -43,7 +43,6 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
   return (
     <>
       <Formik
-        // isValidating={true}
         initialValues={snapshot}
         onSubmit={handleSubmit}
         validationSchema={step.props.validationSchema}

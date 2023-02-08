@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { Form } from "formik";
+import styled from '@emotion/styled';
+import { Form } from 'formik';
 
 export const FormData = styled(Form)`
   display: flex;
@@ -8,7 +8,6 @@ export const FormData = styled(Form)`
   justify-content: center;
   align-items: center;
   width: 100%;
-  /* margin-bottom: 50px; */
 `;
 
 export const WaveImg = styled.img`
