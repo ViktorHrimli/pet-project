@@ -1,5 +1,3 @@
-
-
 export const CardMarkUp = ({ cardData, id }) => {
 	return (
 		<ul >

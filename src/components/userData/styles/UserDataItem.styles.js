@@ -47,7 +47,6 @@ display: flex;
 export const Form = styled.form`
   width: 100%;
   display: flex;
-
 `;
 
 export const EditInputBtn = styled.span`

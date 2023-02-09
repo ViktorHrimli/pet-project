@@ -1,7 +1,7 @@
-import API from '../../redux/user/api';
+import * as API from '../../redux/auth/operations';
 
 export const getUserData = async () => {
-	const { data } = await API.get('/user');
+	const { data } = await API.get('/user/get');
 	return data;
 };
 

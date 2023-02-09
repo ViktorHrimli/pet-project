@@ -7,9 +7,9 @@ import { selectors } from './selectors';
 
 import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
-import { Title } from 'components/userData/Title';
 
-import { UserPageContainer, UserContainer, UserInfo, PetTitle, UserCardWrapper } from './UserPage.styles';
+import { UserPageContainer, UserContainer, PetsContainerWrapper, UserInfo, PetTitle, UserCardWrapper, Title, AddPetBtnContainer, DataWrapper } from './UserPage.styles';
+import { AddNoticeButton } from 'components/addNoticeButton/AddNoticeButton';
 
 const UserPage = () => {
 	const dispatch = useDispatch();
@@ -28,10 +28,8 @@ const UserPage = () => {
 
 	useEffect(() => {
 		if (isAddedPetSuccess) {
-
 			dispatch(resetIsAddedPetSuccess());
 		}
-
 		if (error) {
 
 		}
@@ -47,7 +45,7 @@ const UserPage = () => {
 	return (
     <UserPageContainer>
       <UserCardWrapper>
-      <Title title="My information:"  />
+      <Title>My information</Title>
       <UserInfo>
 
 			    <UserContainer >
@@ -56,14 +54,20 @@ const UserPage = () => {
       </UserInfo>
       </UserCardWrapper>
 
+    <PetsContainerWrapper>
       <div>
         <PetTitle>My pets</PetTitle>
 				<PetCard cardData={cardData} />
 			</div>
+        <AddPetBtnContainer>
+          <AddNoticeButton/>
+        </AddPetBtnContainer>
+    </PetsContainerWrapper>
 		</UserPageContainer>
-
-
 	);
 };
 
 export default UserPage;
+
+
+
