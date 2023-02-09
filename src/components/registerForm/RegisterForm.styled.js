@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Form, Field } from 'formik';
+import { Form } from 'formik';
 
 export const PageTitle = styled.h2`
   margin: 0;
@@ -107,16 +107,6 @@ export const LinkOnLogin = styled.span`
   color: ${p => p.theme.colors.secondary};
 `;
 
-// export const ErrorBox = styled.div`
-//   height: 12px;
-// `;
-
-// export const Message = styled.div`
-//   margin-bottom: 10px;
-//   font-size: 10px;
-//   color: #8b0000;
-// `;
-
 export const ButtonIconPass = styled.button`
   position: absolute;
   top: 2px;
@@ -164,8 +154,4 @@ export const ButtonIconConfirmPass = styled.button`
   &:focus * {
     fill: ${p => p.theme.colors.primary};
   }
-  /* @media screen and (min-width: 1280px) {
-    top: 2px;
-    right: 5px;
-  } */
 `;

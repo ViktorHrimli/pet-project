@@ -17,7 +17,7 @@ export const Section = styled.section`
 
   @media screen and (min-width: 768px) {
     padding: 241px 0;
-    background-position: 25% 75%;
+
     background-image: url(${bgLoginTab});
     min-height: calc(100vh - 75px);
   }

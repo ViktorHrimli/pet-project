@@ -95,11 +95,7 @@ export const LinkOnLogin = styled(NavLink)`
 export const Register1 = styled.div`
   display: flex;
   flex-direction: column;
-  /* margin-bottom: 12px; */
   width: 100%;
-  /* @media screen and (max-width: 497px) {
-    width: 100%;
-  } */
   @media screen and (min-width: 498px) {
     width: 458px;
   }
@@ -111,9 +107,6 @@ export const Register2 = styled.div`
   align-items: center;
   margin-top: 12px;
   width: 100%;
-  /* @media screen and (max-width: 497px) {
-    width: 100%;
-  } */
   @media screen and (min-width: 498px) {
     width: 458px;
   }
