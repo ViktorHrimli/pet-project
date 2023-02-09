@@ -11,12 +11,14 @@ export const validationSchema1 = yup.object().shape({
   email: yup
     .string()
     .required('Email is required')
-    .matches(emailRegexp, 'Please, enter a valid e-mail')
+    .matches(emailRegexp, 'Email must contain @ Example: yourmail@mail.com')
     .email(),
   password: yup
-    .string('any letters and symbols except spaces. min 7 characters max 32')
-    .matches(/^[^ ]{7,32}$/)
-    .matches(passwordRegexp, 'Please, enter a valid password')
+    .string()
+    .matches(
+      passwordRegexp,
+      'Any letters and symbols except spaces. min 7 characters max 32'
+    )
     .max(32, 'Must be 15 characters or less')
     .min(7, 'Must be at least 7 characters')
     .required('Password is required'),
@@ -43,10 +45,11 @@ export const validationSchema2 = yup.object().shape({
 
   location: yup
     .string()
-    .matches(locationRegexp)
-    .required(
-      'The location  is required. Must consist of two words separated by a comma, for example: Kyiv, Kyiv'
-    ),
+    .matches(
+      locationRegexp,
+      'The location must consist of two words separated by a comma, for example: Kyiv, Kyiv'
+    )
+    .required('Location is required'),
 
   phone: yup
     .string()
@@ -54,5 +57,5 @@ export const validationSchema2 = yup.object().shape({
       phoneRegexp,
       'The phone number must be in the format +380123456789'
     )
-    .required('phone number is required'),
+    .required('Phone number is required'),
 });

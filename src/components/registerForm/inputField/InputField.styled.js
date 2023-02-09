@@ -5,33 +5,36 @@ export const InputArea = styled(Field)`
   width: 100%;
   height: 40px;
   padding: 0 10px 0 10px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  letter-spacing: 0.04em;
-  color: #111111;
-  background-color: #fdf7f2;
-  border: 1px solid rgba(245, 146, 86, 0.5);
-  border-radius: 40px;
+  font-weight: ${p => p.theme.fontWeights.normal};
+  font-size: ${p => p.theme.fontSizes.xxs};
+  line-height: ${p => p.theme.lineHeights.normal};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
+  color: ${p => p.theme.colors.black};
+  background-color: ${p => p.theme.colors.background};
+  border: ${p => p.theme.borders.normal};
+  border-color: ${p => p.theme.colors.inputAuthForm};
+  border-radius: ${p => p.theme.radii.big};
   outline: none;
   @media screen and (min-width: 768px) {
-    font-size: 18px;
-    line-height: 25px;
+    font-size: ${p => p.theme.fontSizes.ms};
+    line-height: ${p => p.theme.lineHeights.max};
     height: 52px;
   }
 
   &:focus {
-    border-color: '#f59256';
+    border: ${p => p.theme.borders.medium};
+    border-color: ${p => p.theme.colors.primary};
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   &::placeholder {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    letter-spacing: 0.04em;
-    color: rgba(17, 17, 17, 0.6);
+    font-weight: ${p => p.theme.fontWeights.normal};
+    font-size: ${p => p.theme.fontSizes.xxs};
+    line-height: ${p => p.theme.lineHeights.normal};
+    letter-spacing: ${p => p.theme.letterSpacings.normal};
+    color: ${p => p.theme.colors.muted};
     @media screen and (min-width: 768px) {
-      font-size: 18px;
-      line-height: 25px;
+      font-size: ${p => p.theme.fontSizes.ms};
+      line-height: ${p => p.theme.lineHeights.max};
     }
   }
 `;
