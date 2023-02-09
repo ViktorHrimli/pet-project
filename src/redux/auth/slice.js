@@ -9,7 +9,7 @@ const authInitialState = {
     location: null,
     phone: null,
   },
-  token: null,
+  token: 'null',
   isLoggedIn: false,
   isRefreshing: false,
   error: null,
@@ -48,5 +48,3 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-
-
