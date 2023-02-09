@@ -1,4 +1,3 @@
-
 import Container from 'components/container/Container';
 import { AddNoticeButton } from 'components/addNoticeButton/AddNoticeButton';
 import { NoticeCategoryList } from 'components/noticesCategoryList/NoticesCategoryList';

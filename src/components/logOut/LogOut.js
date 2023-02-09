@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
 import { logOut } from '../../redux/auth/operations';
@@ -13,8 +13,4 @@ return (
   	<ButtonName>Log out</ButtonName>
   </ButtonLogOut>
 )
-};
-
-LogOut.propTypes = {
-	onClick: PropTypes.func,
 };
