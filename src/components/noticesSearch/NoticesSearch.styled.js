@@ -11,24 +11,23 @@ export const SearchForm = styled.form`
   @media screen and (min-width: 768px) {
     margin-left: auto;
     margin-right: auto;
-
     width: 608px;
     height: 44px;
   }
 `;
 
 export const SearchInput = styled.input`
-	font-family: ${p => p.theme.fonts.body};,
-	font-size: ${p => p.theme.fontSizes.xs};
-	line-height: ${p => p.theme.lineHeights.max};
-	font-weight: ${p => p.theme.fontWeights.medium};
-	width: 100%;
-	height: 40px;
-	padding: 0 0 0 12px;
-	border: none;
-	border-radius: 20px;
-	cursor: pointer;
-	transition-property: background-color;
+  font-family: ${p => p.theme.fonts.body};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: ${p => p.theme.lineHeights.max};
+  font-weight: ${p => p.theme.fontWeights.medium};
+  width: 100%;
+  height: 40px;
+  padding: 0 0 0 12px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition-property: background-color;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
@@ -37,16 +36,17 @@ export const SearchInput = styled.input`
   &:focus {
     ::placeholder {
       color: ${p => p.theme.colors.white};
-    }}
-	outline: none;
+    }
+  }
+  outline: none;
   color: ${p => p.theme.colors.muted};
   @media screen and (min-width: 768px) {
-		line-height: ${p => p.theme.lineHeights.normal};
-		font-size: ${p => p.theme.fontSizes.s};
-		border-radius: 40px;
-		padding-left: 20px;
+    line-height: ${p => p.theme.lineHeights.normal};
+    font-size: ${p => p.theme.fontSizes.s};
+    border-radius: 40px;
+    padding-left: 20px;
     width: 608px;
-		height: 44px;
+    height: 44px;
   }
 	&::placeholder,
   ::-webkit-input-placeholder {
@@ -54,7 +54,7 @@ export const SearchInput = styled.input`
   }
   :-ms-input-placeholder {
     color: #535353;
-	}
+  }
 `;
 
 export const BtnSearch = styled.button`
@@ -78,7 +78,6 @@ export const IconSearch = styled(search)`
   height: 15px;
   &:hover {
     fill: ${p => p.theme.colors.focus};
-  }
   @media screen and (min-width: 768px) {
     width: 18px;
     height: 18px;

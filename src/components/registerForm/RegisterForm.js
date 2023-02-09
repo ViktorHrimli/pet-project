@@ -1,9 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-
-import { ErrorMessage } from 'formik';
-
 import { validationSchema1, validationSchema2 } from './validationSchema';
 
 import InputField from './inputField/InputField';
@@ -18,8 +15,7 @@ import {
   LabelConfirmPass,
   ButtonIconPass,
   ButtonIconConfirmPass,
-  ErrorBox,
-  Message,
+  LabelPhone,
 } from './RegisterForm.styled';
 
 const EmailInputId = nanoid();
@@ -58,8 +54,6 @@ export default function RegisterForm() {
       );
     }
     resetForm();
-    alert(JSON.stringify(values, null, 2));
-    console.log('data send', values);
   };
 
   const togglePassword = () => {
@@ -94,35 +88,21 @@ export default function RegisterForm() {
                 type="text"
                 name="email"
                 placeholder="Email"
-                title="Email must contain @ . Example: your_mail@mail.com"
               />
-              <ErrorBox>
-                <ErrorMessage
-                  name="email"
-                  render={msg => (
-                    <Message>{`Email must contain @ Example: yourmail@mail.com`}</Message>
-                  )}
-                />
-              </ErrorBox>
             </EntryFieldLabel>
             <LabelPass htmlFor={PasswordInputId}>
               <InputField
                 type={passwordType}
                 name="password"
                 placeholder="Password"
-                title="Any letters and symbols except spaces. min 7 characters max 32"
               />
               <ButtonIconPass type="button" onClick={togglePassword}>
-                {passwordType === 'password' ? <RxEyeClosed /> : <RxEyeOpen />}
+                {passwordType === 'password' ? (
+                  <RxEyeClosed style={{ color: 'rgba(17, 17, 17, 0.6)' }} />
+                ) : (
+                  <RxEyeOpen style={{ color: 'rgba(17, 17, 17, 0.6)' }} />
+                )}
               </ButtonIconPass>
-              <ErrorBox>
-                <ErrorMessage
-                  name="password"
-                  render={msg => (
-                    <Message>{`Any letters and symbols except spaces. min 7 characters max 32`}</Message>
-                  )}
-                />
-              </ErrorBox>
             </LabelPass>
             <LabelConfirmPass>
               <InputField
@@ -135,19 +115,11 @@ export default function RegisterForm() {
                 onClick={toggleConfirmPassword}
               >
                 {confirmPasswordType === 'password' ? (
-                  <RxEyeClosed />
+                  <RxEyeClosed style={{ color: 'rgba(17, 17, 17, 0.6)' }} />
                 ) : (
-                  <RxEyeOpen />
+                  <RxEyeOpen style={{ color: 'rgba(17, 17, 17, 0.6)' }} />
                 )}
               </ButtonIconConfirmPass>
-              <ErrorBox>
-                <ErrorMessage
-                  name="password"
-                  render={msg => (
-                    <Message>{`Both password need to be the same. Please, сonfirm  Password`}</Message>
-                  )}
-                />
-              </ErrorBox>
             </LabelConfirmPass>
           </FormStep>
 
@@ -165,14 +137,6 @@ export default function RegisterForm() {
                 title="Name may contain any letters. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                 required
               />
-              <ErrorBox>
-                <ErrorMessage
-                  name="name"
-                  render={msg => (
-                    <Message>{`Name may contain any letters. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan`}</Message>
-                  )}
-                />
-              </ErrorBox>
             </EntryFieldLabel>
             <EntryFieldLabel htmlFor={LocationInputId}>
               <InputField
@@ -181,31 +145,15 @@ export default function RegisterForm() {
                 placeholder="City, region"
                 title="The location must consist of two words separated by a comma, for example: Kyiv, Kyiv"
               />
-              <ErrorBox>
-                <ErrorMessage
-                  name="location"
-                  render={msg => (
-                    <Message>{`The location must consist of two words separated by a comma, for example: Kyiv, Kyiv`}</Message>
-                  )}
-                />
-              </ErrorBox>
             </EntryFieldLabel>
-            <EntryFieldLabel htmlFor={PhoneInputId}>
+            <LabelPhone htmlFor={PhoneInputId}>
               <InputField
                 type="text"
                 name="phone"
                 placeholder="Mobile phone"
                 title="The phone number must be in the format +380123456789"
               />
-              <ErrorBox>
-                <ErrorMessage
-                  name="phone"
-                  render={msg => (
-                    <Message>{`The phone number must be in the format +380123456789`}</Message>
-                  )}
-                />
-              </ErrorBox>
-            </EntryFieldLabel>
+            </LabelPhone>
           </FormStep>
         </MultiStepForm>
       </ContainerRegister>

@@ -1,15 +1,15 @@
 import styled from '@emotion/styled';
-import { Form, Field } from 'formik';
+import { Form } from 'formik';
 
 export const PageTitle = styled.h2`
   margin: 0;
   margin-bottom: 40px;
-  font-size: 24px;
-  text-transform: uppercase;
-  font-weight: 700;
-  line-height: 1.38;
-  letter-spacing: 0.04em;
-  color: #111111;
+  font-family: ${p => p.theme.fonts.body};
+  font-size: ${p => p.theme.fontSizes.m};
+  font-weight: ${p => p.theme.fontWeights.bold};
+  line-height: ${p => p.theme.lineHeights.max};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
+  color: ${p => p.theme.colors.black};
 `;
 
 export const FormData = styled(Form)`
@@ -19,13 +19,13 @@ export const FormData = styled(Form)`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: ${p => p.theme.screens.mobil}) {
     width: 320px;
   }
   @media screen and (max-width: 767px) {
     max-width: 448px;
   }
-  @media screen and (min-width: 1280px) {
+  @media screen and (min-width: ${p => p.theme.screens.desktop}) {
     width: 458px;
   }
 `;
@@ -64,6 +64,7 @@ export const LabelConfirmPass = styled.label`
   position: relative;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
   width: 100%;
 
   @media screen and (max-width: 767px) {
@@ -74,36 +75,18 @@ export const LabelConfirmPass = styled.label`
   }
 `;
 
-export const InputArea = styled(Field)`
+export const LabelPhone = styled.label`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 28px;
   width: 100%;
-  padding: 0 10px 0 10px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  letter-spacing: 0.04em;
-  color: #111111;
-  background-color: #fdf7f2;
-  border: 1px solid rgba(245, 146, 86, 0.5);
-  border-radius: 40px;
-  outline: none;
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-    line-height: 25px;
-  }
 
-  &:focus {
-    border-color: '#f59256';
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
   }
-  &::placeholder {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    letter-spacing: 0.04em;
-    color: rgba(17, 17, 17, 0.6);
-    @media screen and (min-width: 768px) {
-      font-size: 18px;
-      line-height: 25px;
-    }
+  @media screen and (min-width: 1280px) {
+    width: 458px;
   }
 `;
 
@@ -111,32 +94,22 @@ export const WrapperText = styled.div`
   display: flex;
 `;
 export const TextForm = styled.p`
-  font-size: 12px;
-  font-weight: 400;
+  font-size: ${p => p.theme.fontSizes.xxxs};
+  font-weight: ${p => p.theme.fontWeights.normal};
 
-  color: rgba(17, 17, 17, 0.6);
+  color: ${p => p.theme.colors.muted};
 `;
 export const LinkOnLogin = styled.span`
-  font-size: 12px;
-  font-weight: 400;
+  font-size: ${p => p.theme.fontSizes.xxxs};
+  font-weight: ${p => p.theme.fontWeights.normal};
   margin-left: 5px;
   margin-bottom: 5px;
-  color: #3091eb;
-`;
-
-export const ErrorBox = styled.div`
-  height: 12px;
-`;
-
-export const Message = styled.div`
-  margin-bottom: 10px;
-  font-size: 10px;
-  color: #8b0000;
+  color: ${p => p.theme.colors.secondary};
 `;
 
 export const ButtonIconPass = styled.button`
   position: absolute;
-  top: 5px;
+  top: 2px;
   right: 5px;
   display: inline-flex;
   align-items: center;
@@ -145,22 +118,23 @@ export const ButtonIconPass = styled.button`
   width: 35px;
   height: 35px;
   padding: 5px;
-
+  stroke: ${p => p.theme.colors.muted};
+  fill: ${p => p.theme.colors.muted};
   border: none;
-  border-radius: 20px;
-  background-color: #fdf7f2;
+  border-radius: ${p => p.theme.radii.normal};
+  background-color: ${p => p.theme.colors.background};
 
   cursor: pointer;
-  transition: background-color 300ms linear;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover *,
   &:focus * {
-    fill: #f59256;
+    fill: ${p => p.theme.colors.primary};
   }
 `;
 
 export const ButtonIconConfirmPass = styled.button`
   position: absolute;
-  top: 5px;
+  top: 2px;
   right: 5px;
   display: inline-flex;
   align-items: center;
@@ -171,17 +145,13 @@ export const ButtonIconConfirmPass = styled.button`
   padding: 5px;
 
   border: none;
-  border-radius: 20px;
-  background-color: #fdf7f2;
+  border-radius: ${p => p.theme.radii.normal};
+  background-color: ${p => p.theme.colors.background};
 
   cursor: pointer;
-  transition: background-color 300ms linear;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover *,
   &:focus * {
-    fill: #f59256;
+    fill: ${p => p.theme.colors.primary};
   }
-  /* @media screen and (min-width: 1280px) {
-    top: 2px;
-    right: 5px;
-  } */
 `;

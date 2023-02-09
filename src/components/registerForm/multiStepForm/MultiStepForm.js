@@ -14,8 +14,6 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
   const isLastStep = stepNumber === totalSteps - 1;
 
   const next = values => {
-    console.log('values', values);
-    console.log('next', next);
     setSnapshot(values);
     setStepNumber(stepNumber + 1);
   };
@@ -26,7 +24,6 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
   };
 
   const handleSubmit = async (values, actions) => {
-    console.log('values', values);
     if (step.props.onSubmit) {
       await step.props.onSubmit(values);
     }
@@ -37,7 +34,6 @@ export default function MultiStepForm({ children, initialValues, onSubmit }) {
       actions.setTouched({});
       next(values);
     }
-    console.log('values', values);
   };
 
   return (
