@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 
-export const SectionFriends = styled.section`
-background-color:  #FDF7F2;
-padding-top: 40px;
-padding-bottom: 100px;
-`;
+// export const SectionFriends = styled.section`
+// background-color:  #FDF7F2;
+// padding-top: 40px;
+// padding-bottom: 100px;
+// `;
 
 export const Title = styled.h2`
 font-family: 'Manrope';
@@ -23,8 +23,6 @@ color: #000000;
 `;
 
 export const ListOfFriends = styled.ul`
-width: 280px;
-height: 192px;
 margin-left: auto;
 margin-right: auto;
 margin-top: 0;
@@ -32,8 +30,19 @@ margin-bottom: 0;
 padding: 0;
 
 @media screen and (min-width: 768px){
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-}
+    max-width: 768px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
+    gap: 32px 32px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    margin-bottom: 100px;
+
+};
+
+@media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    grid-template-columns: repeat(auto-fit, minmax(395px, 1fr));
+    
+  }
 `;

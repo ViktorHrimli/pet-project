@@ -2,13 +2,14 @@ export const theme = {
   colors: {
     black: '#111111',
     white: '#fff',
-    text: '#000000',
+    text: '#111111',
     background: '#FDF7F2',
     gradient: 'linear-gradient(90deg, #FF634E 0%, #FFDF48 105.44%)',
     muted: 'rgba(17, 17, 17, 0.6)',
     primary: '#F59256',
     secondary: '#3091EB',
     focus: '#FF6101',
+    inputAuthForm: 'rgba(245, 146, 86, 0.5)',
   },
 
   space: [
@@ -36,6 +37,7 @@ export const theme = {
     xxxs: '12px',
     xxs: '14px',
     xs: '16px',
+    ms: '18px',
     s: '20px',
     m: '24px',
     l: '28px',
@@ -65,10 +67,12 @@ export const theme = {
   borders: {
     none: 'none',
     normal: '1px solid',
+    medium: '2px solid',
   },
 
   shadows: {
     normal: '7px 4px 14px rgba(49, 21, 4, 0.07)',
+    form: '7px 4px 14px rgba(0, 0, 0, 0.11)',
   },
 
   radii: {

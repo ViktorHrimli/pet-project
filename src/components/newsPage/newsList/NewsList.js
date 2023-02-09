@@ -53,15 +53,15 @@ export const NewsList = () => {
             <TitleSection>News</TitleSection>
             <NewsSeachInput getFindedNews={getFindedNews} value={nameNews} handlFindNews={handlFindNews} isSearch={isSearch} />
             <ListOfNews>
-                {
+                { 
                     !emptyAnswer ?
                         newsList.map(({ date, description, title, url, _id }) =>
                             <NewsItem key={_id} date={date} description={description} title={title} url={url} />)
-                        : <div>
+                        : <li>
                             <EmptyRequestText >I don't see any news on your request</EmptyRequestText>
                             <EmptyRequestText >Try again!</EmptyRequestText>
                             <EmptyRequestImg style={{borderRadius: "50%", width: "40%", marginLeft: 'auto', marginRight: "auto"}} src={dog} alt='No news'/>
-                        </div>
+                        </li>
                 }
             </ListOfNews>
             

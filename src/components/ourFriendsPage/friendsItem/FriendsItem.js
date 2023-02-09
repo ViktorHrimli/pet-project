@@ -1,9 +1,10 @@
-import {  FriendName, FriendItem, DataFriendCont, FriendImg, ItemData, Button, FriendsText, TimeList, TimeItem, Span} from './FriendsItem.styled'
+import {  FriendName, FriendItem, DataFriendCont, ContImg, FriendImg, ContData, ItemData, Button, FriendsText, TimeList, TimeItem, Span} from './FriendsItem.styled'
 import { useState } from 'react';
 
-export const FiendsItem = ({photo, name,email,time,adress,phone}) => {
+
+export const FiendsItem = ({image, name,email,time,adress,phone}) => {
     const [timeSchedule, setTimeSchedule] = useState(false);
-// console.log(key)
+
     const handleToggle = () => {
         setTimeSchedule(state => !state)
     };
@@ -12,19 +13,19 @@ export const FiendsItem = ({photo, name,email,time,adress,phone}) => {
             <FriendItem>
                 <FriendName>{name}</FriendName>
                 <DataFriendCont>
-                    <div style={{width: '110px', height: '78'}}>
-                        <FriendImg src={photo} alt={name}></FriendImg>
-                    </div>
-                    <div>
+                    <ContImg>
+                        <FriendImg src={image} alt={name}></FriendImg>
+                    </ContImg>
+                    <ContData>
                         <ul>
                             <ItemData>
                                 Time:
-                                <Button onClick={handleToggle}>{time}</Button>
+                                {!time ? <Button onClick={handleToggle}>---------------------------------</Button> : <Button onClick={handleToggle}>{time[0].monday}</Button>}
+                                
                             </ItemData>
                             <ItemData>
                                 Adress:
                                 {!adress ?<FriendsText>---------------------------------</FriendsText> :<FriendsText>{adress}</FriendsText> }
-                                {/* <FriendsText>{adress}</FriendsText> */}
                             </ItemData>
                             <ItemData>
                                 Email:
@@ -35,22 +36,22 @@ export const FiendsItem = ({photo, name,email,time,adress,phone}) => {
                                 <FriendsText>{phone}</FriendsText>
                             </ItemData>
                         </ul>
-                    </div>
+                    </ContData>
                 </DataFriendCont>
                 {
-                    timeSchedule && <TimeList>
-                        <TimeItem>MN<Span>8:00-19:00</Span></TimeItem>
-                        <TimeItem>MN<Span>8:00-19:00</Span></TimeItem>
-                        <TimeItem>MN<Span>8:00-19:00</Span></TimeItem>
-                        <TimeItem>MN<Span>8:00-19:00</Span></TimeItem>
-                        <TimeItem>MN<Span>8:00-19:00</Span></TimeItem>
-                        <TimeItem>MN<Span>8:00-19:00</Span></TimeItem>
-                        <TimeItem>MN<Span>8:00-19:00</Span></TimeItem>
+                    timeSchedule && 
+                    <TimeList>
+                        <TimeItem>MN<Span>{time[0].monday}</Span></TimeItem>
+                        <TimeItem>TU<Span>{time[0].tuesday}</Span></TimeItem>
+                        <TimeItem>WE<Span>{time[0].wednesday}</Span></TimeItem>
+                        <TimeItem>TH<Span>{time[0].thursday}</Span></TimeItem>
+                        <TimeItem>FR<Span>{time[0].friday}</Span></TimeItem>
+                        <TimeItem>SA<Span>{time[0].saturday}</Span></TimeItem>
+                        <TimeItem>SU<Span>{time[0].sunday}</Span></TimeItem>
                     </TimeList>
                 }           
             
             </FriendItem>
-            
         </>
     )
 }
