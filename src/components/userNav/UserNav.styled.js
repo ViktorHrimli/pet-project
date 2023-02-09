@@ -34,8 +34,6 @@ export const StyledNavLink = styled(NavLink)`
     font-size: 16px;
     margin-right: 55px;
     margin-bottom: 0;
-    /* padding: 10px; */
-    /* pad: 10px; */
   }
 
   @media screen and (min-width: 1280px) {

@@ -18,7 +18,7 @@ export const SearchForm = styled.form`
 `;
 
 export const SearchInput = styled.input`
-	font-family: ${p => p.theme.fonts.body};
+	font-family: ${p => p.theme.fonts.body};,
 	font-size: ${p => p.theme.fontSizes.xs};
 	line-height: ${p => p.theme.lineHeights.max};
 	font-weight: ${p => p.theme.fontWeights.medium};
