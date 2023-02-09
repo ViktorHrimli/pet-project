@@ -1,4 +1,4 @@
-import { ROUTES, ROUTES_CATEGORY_NAMES } from 'constants/routes';
+import { ROUTES, ROUTES_CATEGORY_NAMES } from 'constants/ROUTES';
 
 export const CURRENT_LIST = [
   {
@@ -22,8 +22,5 @@ export const ONLINE_LIST = [
   {
     label: 'my ads',
     link: `${ROUTES.notices}/${ROUTES_CATEGORY_NAMES.own}`,
-  },
-  // {
-  //   label;
-  // }
+  }
 ];
