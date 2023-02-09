@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const StyledMenu = styled.nav`
+export const StyledMenu = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;

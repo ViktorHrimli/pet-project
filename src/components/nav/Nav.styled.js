@@ -8,7 +8,6 @@ export const NavigationWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     flex-direction: row;
     justify-content: space-between;
-    /* gap: 80px; */
     width: 50%;
   }
 `;
