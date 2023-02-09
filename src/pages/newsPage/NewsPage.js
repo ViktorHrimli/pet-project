@@ -1,6 +1,3 @@
-import { NewsList } from 'components/newsPage/newsList/NewsList';
+export const NewsPage = () => {
 
-const NewsPage = () => {
-  return <NewsList/>;
 };
-export default NewsPage;
