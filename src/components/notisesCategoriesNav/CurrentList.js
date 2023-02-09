@@ -1,4 +1,4 @@
-import { ROUTES, ROUTES_CATEGORY_NAMES } from 'constants/ROUTES';
+import { ROUTES, ROUTES_CATEGORY_NAMES } from '../../constants/routes';
 
 export const CURRENT_LIST = [
   {
