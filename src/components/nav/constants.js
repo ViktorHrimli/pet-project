@@ -1,4 +1,4 @@
-import { ROUTES, ROUTES_CATEGORY_NAMES } from 'constants/routes';
+import { ROUTES } from 'constants/routes';
 
 export const NAV_LIST = [
   {
@@ -7,7 +7,7 @@ export const NAV_LIST = [
   },
   {
     label: 'Find pet',
-    link: `${ROUTES.notices}/${ROUTES_CATEGORY_NAMES.sell}`,
+    link: `${ROUTES.notices}`,
   },
   {
     label: 'Our friends',
