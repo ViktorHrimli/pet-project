@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import {
 	WrapperContainer,
@@ -8,6 +9,7 @@ import {
   TitleModalNotice,
 	ReferenceList,
   InfoItem,
+  CommentsItem,
   LableNotice,
   DateModalNotice,
 	NoticeComments,
@@ -29,27 +31,27 @@ export const ModalNotice = ({
   email,
   phone,
   comments,
-  favorite
-  }) => {
+  favorite,
+  isOpenModalNotice}) => {
 
-  const [isOpenModalNotice, setIsOpenModalNotice] = useState(false);
+  const dispath = useDispatch();
 
   useEffect(() => {
     return () => {};
-  }, []);
+  }, [isOpenModalNotice]);
 
   return (
     <>
     <WrapperContainer>
-			<WrapperPetPhoto>
-        {image ? (
-        <PetPhoto src={image} alt='Pet photo'/>
-        ) : (
-        <PetPhoto src={defaultPetPhoto} alt='Not pet photo'/>)}
-      </WrapperPetPhoto>
       <WrapperInfoBlock>
-        <TitleModalNotice>Сute dog looking for a home</TitleModalNotice>
+        <WrapperPetPhoto>
+          {image ? (
+          <PetPhoto src={image} alt='Pet photo'/>
+          ) : (
+          <PetPhoto src={defaultPetPhoto} alt='Not pet photo'/>)}
+        </WrapperPetPhoto>
         <ReferenceList>
+        <TitleModalNotice>Сute dog looking for a home</TitleModalNotice>
           <InfoItem>
             <LableNotice>Name:</LableNotice>
             <DateModalNotice>{name}</DateModalNotice>
@@ -75,27 +77,28 @@ export const ModalNotice = ({
             <a href={email} ><DateModalNotice>{email}</DateModalNotice></a>
           </InfoItem>
 					<InfoItem>
-            <LableNotice>Phone</LableNotice>
+            <LableNotice>Phone:</LableNotice>
             <a href={phone}><DateModalNotice>{phone}</DateModalNotice></a>
           </InfoItem>
-					<InfoItem>
-            <LableNotice>Comments</LableNotice>
-            <NoticeComments>{comments}</NoticeComments>
-          </InfoItem>
         </ReferenceList>
-        <ButtonModalWrapper>
-          <ContactButton type="button"
-          onClick={() => setIsOpenModalNotice(false)}
-          >
-            Contact
-          </ContactButton>
-					<AddToFavoriteButton type="button"
-          onClick={() => setIsOpenModalNotice(false)}>
-            <p>Add to</p>
-						<IconRedHeart/>
-          </AddToFavoriteButton>
-        </ButtonModalWrapper>
       </WrapperInfoBlock>
+      <CommentsItem>
+        <LableNotice>Comments:</LableNotice>
+        <NoticeComments>{comments}</NoticeComments>
+      </CommentsItem>
+      <ButtonModalWrapper>
+        <ContactButton type="button"
+          onClick={() => dispath(isOpenModalNotice(false))}
+        >
+        Contact
+        </ContactButton>
+				<AddToFavoriteButton type="button"
+          onClick={() => dispath(isOpenModalNotice(false))}
+        >
+          Add to
+					<IconRedHeart/>
+        </AddToFavoriteButton>
+      </ButtonModalWrapper>
     </WrapperContainer>
     </>
   );
