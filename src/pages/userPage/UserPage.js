@@ -8,7 +8,9 @@ import { selectors } from './selectors';
 import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
 
-import { UserPageContainer, UserContainer, PetsContainerWrapper, UserInfo, PetTitle, UserCardWrapper, Title, AddPetBtnContainer, DataWrapper } from './UserPage.styles';
+import { UserPageContainer, UserContainer, PetsContainerWrapper, UserInfo, PetTitle, UserCardWrapper, Title, AddPetBtnContainer,
+	// DataWrapper
+} from './UserPage.styles';
 import { AddNoticeButton } from 'components/addNoticeButton/AddNoticeButton';
 
 const UserPage = () => {
