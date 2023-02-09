@@ -10,7 +10,6 @@ import {
 } from './FormNavigation.styled';
 
 export default function FormNavigation(props) {
-  console.log('props', props);
   return (
     <Wrapper>
       <Register1>

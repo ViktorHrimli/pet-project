@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
-import { theme } from 'styles';
 
-export const StyledMenu = styled.nav`
+export const StyledMenu = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
   justify-content: center;
-  background: ${p => theme.colors.background};
+  background: ${p => p.theme.colors.background};
   transform: ${({ open }) => (!open ? 'translateX(100%)' : 'translateX(0)')};
   height: 100vh;
   width: -webkit-fill-available;

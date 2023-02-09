@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 40px;
+  width: 100%;
 `;
 
 export const ButtonBack = styled.button`
@@ -12,7 +14,7 @@ export const ButtonBack = styled.button`
   align-items: center;
   justify-content: center;
 
-  width: 280px;
+  width: 100%;
   height: 44px;
 
   font-weight: 500;
@@ -38,7 +40,7 @@ export const Submit = styled.button`
   align-items: center;
   justify-content: center;
 
-  width: 280px;
+  width: 100%;
   height: 44px;
 
   font-weight: 500;
@@ -61,7 +63,6 @@ export const Submit = styled.button`
 
 export const WrapperText = styled.div`
   display: flex;
-  /* margin-bottom: 50px; */
 `;
 export const TextForm = styled.p`
   font-size: 12px;
@@ -73,7 +74,7 @@ export const LinkOnLogin = styled(NavLink)`
   font-size: 12px;
   font-weight: 400;
   margin-left: 5px;
-
+  text-decoration-line: underline;
   color: #3091eb;
 `;
 
@@ -81,6 +82,12 @@ export const Register1 = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 12px;
+  @media screen and (max-width: 497px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 498px) {
+    width: 458px;
+  }
 `;
 
 export const Register2 = styled.div`
@@ -88,4 +95,10 @@ export const Register2 = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 40px;
+  @media screen and (max-width: 497px) {
+    width: 100%;
+  }
+  @media screen and (min-width: 498px) {
+    width: 458px;
+  }
 `;

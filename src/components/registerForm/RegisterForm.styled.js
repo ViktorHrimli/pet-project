@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Form, Field } from 'formik';
-import wave from '../../images/background/part-1.png';
 
 export const PageTitle = styled.h2`
   margin: 0;
@@ -20,90 +19,96 @@ export const FormData = styled(Form)`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  /* width: 100%; */
   @media screen and (min-width: 320px) {
     width: 320px;
   }
-  @media screen and (min-width: 768px) {
-    width: 618px;
-  }
-  /* @media screen and (min-width: 1280px) {
-    margin: 0 auto;
-    width: 618px;
-  } */
-  /* margin-bottom: 50px; */
-`;
-
-export const EntryFieldLabel = styled.label`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
-
-  @media screen and (max-width: 319px) {
-    width: 100%;
-  }
-  @media screen and (min-width: 320px) {
-    width: 280px;
-  }
-  @media screen and (min-width: 767px) {
-    width: 448px;
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
   }
   @media screen and (min-width: 1280px) {
     width: 458px;
   }
+`;
 
-  /* & :last-child {
-    margin-bottom: 40px;
-  } */
+export const EntryFieldLabel = styled.label`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 458px;
+  }
+`;
+
+export const LabelPass = styled.label`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 458px;
+  }
+`;
+
+export const LabelConfirmPass = styled.label`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    max-width: 448px;
+  }
+  @media screen and (min-width: 1280px) {
+    width: 458px;
+  }
 `;
 
 export const InputArea = styled(Field)`
-  height: 40px;
+  width: 100%;
   padding: 0 10px 0 10px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+  color: #111111;
   background-color: #fdf7f2;
-
   border: 1px solid rgba(245, 146, 86, 0.5);
   border-radius: 40px;
   outline: none;
-
-  font-size: 14px;
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 25px;
+  }
 
   &:focus {
-    border: 2px solid rgba(245, 146, 86, 0.5);
+    border-color: '#f59256';
   }
   &::placeholder {
-    font-size: 12px;
-  }
-`;
-
-export const ButtonNext = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-  width: 280px;
-  height: 44px;
-
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.35;
-  letter-spacing: 0.04em;
-  color: #ffffff;
-  background-color: #f59256;
-  border: none;
-  border-radius: 40px;
-
-  cursor: pointer;
-  transition: background-color 300ms linear;
-  &:hover,
-  &:focus {
-    background-color: #f47d32;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.04em;
+    color: rgba(17, 17, 17, 0.6);
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+      line-height: 25px;
+    }
   }
 `;
 
 export const WrapperText = styled.div`
   display: flex;
-  /* margin-bottom: 50px; */
 `;
 export const TextForm = styled.p`
   font-size: 12px;
@@ -129,17 +134,54 @@ export const Message = styled.div`
   color: #8b0000;
 `;
 
-export const BgImageBox = styled.div`
-  /* display: flex;
+export const ButtonIconPass = styled.button`
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  max-width: 100%;
-  height: auto; */
-  /* background-image: url(${wave}); */
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+
+  border: none;
+  border-radius: 20px;
+  background-color: #fdf7f2;
+
+  cursor: pointer;
+  transition: background-color 300ms linear;
+  &:hover *,
+  &:focus * {
+    fill: #f59256;
+  }
 `;
-export const WaveImg = styled.img`
-  position: relative;
-  bottom: 0px;
-  max-width: 100hv;
-  height: 100hv;
-  object-fit: cover;
+
+export const ButtonIconConfirmPass = styled.button`
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+
+  border: none;
+  border-radius: 20px;
+  background-color: #fdf7f2;
+
+  cursor: pointer;
+  transition: background-color 300ms linear;
+  &:hover *,
+  &:focus * {
+    fill: #f59256;
+  }
+  /* @media screen and (min-width: 1280px) {
+    top: 2px;
+    right: 5px;
+  } */
 `;

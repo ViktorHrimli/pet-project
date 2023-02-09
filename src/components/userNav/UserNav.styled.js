@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
-import { theme } from 'styles';
 
 export const StyledNavLink = styled(NavLink)`
   display: flex;
@@ -9,25 +8,25 @@ export const StyledNavLink = styled(NavLink)`
 
   text-align: center;
   width: 164px;
-  font-family: ${p => theme.fonts.body};
+  font-family: ${p => p.theme.fonts.body};
   text-decoration: none;
   font-size: 14px;
-  font-weight: ${p => theme.fontWeights.medium};
+  font-weight: ${p => p.theme.fontWeights.medium};
   color: white;
   padding: 8px 37px;
   border: 2px solid #f59256;
   border-radius: 40px;
   line-height: 1.35;
-  background-color: ${p => theme.colors.primary};
+  background-color: ${p => p.theme.colors.primary};
   transition: all 0.3s linear;
 
   &:hover {
-    color: ${p => theme.colors.black};
+    background-color: ${p => p.theme.colors.focus};
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
-    color: ${p => theme.colors.black};
+    background-color: ${p => p.theme.colors.focus};
   }
 
   @media screen and (min-width: 768px) {

@@ -32,7 +32,7 @@ export const AuthSection = styled.section`
     padding-top: 210px;
     padding-bottom: 250px;
     background-image: url(${bgLoginTab});
-    min-height: calc(100vh - 75px);
+    /* min-height: 100vh; */
   }
   @media screen and (min-width: 1280px) {
     padding-top: 160px;

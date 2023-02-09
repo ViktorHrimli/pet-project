@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const filterNoticesInitialState = '';
 
 const filterNoticesSlice = createSlice({
+
     name: 'filterNotices',
     initialState: filterNoticesInitialState,
     reducers: {
