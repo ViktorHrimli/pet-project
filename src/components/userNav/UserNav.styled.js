@@ -21,13 +21,11 @@ export const StyledNavLink = styled(NavLink)`
   transition: all 0.3s linear;
 
   &:hover {
-    /* color: ${p => p.theme.colors.black}; */
     background-color: ${p => p.theme.colors.focus};
   }
 
   :hover:not(.active),
   :focus-visible:not(.active) {
-    /* color: ${p => p.theme.colors.black}; */
     background-color: ${p => p.theme.colors.focus};
   }
 
