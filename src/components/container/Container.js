@@ -1,12 +1,7 @@
 import { ContainerDiv } from 'components/container/Container.styled';
 
 const Container = ({ children }) => {
-  return (
-    <ContainerDiv>
-      {children}
-      {/* <hey></hey> */}
-    </ContainerDiv>
-  );
+  return <ContainerDiv>{children}</ContainerDiv>;
 };
 
 export default Container;

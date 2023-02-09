@@ -8,4 +8,5 @@ const LoginPage = () => {
     </AuthSection>
   );
 };
- export default LoginPage;
+
+export default LoginPage;
