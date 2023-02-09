@@ -69,4 +69,3 @@ export const NewsList = () => {
         </main>
     )
 }
-

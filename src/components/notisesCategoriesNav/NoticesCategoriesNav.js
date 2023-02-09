@@ -20,14 +20,14 @@ export const NoticeCategoriesNav = () => {
           <ButtonList>
             {CURRENT_LIST.map(item => (
               <ButtonItem key={item.label}>
-                <Button to={`/${item.link}`}>{item.label}</Button>
+                <Button to={/${item.link}}>{item.label}</Button>
               </ButtonItem>
             ))}
           </ButtonList>
           <ButtonUserList>
             {ONLINE_LIST.map(item => (
               <OnlineItem key={item.label}>
-                <Button to={`/${item.link}`}>{item.label}</Button>
+                <Button to={/${item.link}}>{item.label}</Button>
               </OnlineItem>
             ))}
           </ButtonUserList>
@@ -41,7 +41,7 @@ export const NoticeCategoriesNav = () => {
         <ButtonList>
           {CURRENT_LIST.map(item => (
             <ButtonItem key={item.label}>
-              <Button to={`/${item.link}`}>{item.label}</Button>
+              <Button to={/${item.link}}>{item.label}</Button>
             </ButtonItem>
           ))}
         </ButtonList>

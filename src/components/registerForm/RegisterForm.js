@@ -122,7 +122,6 @@ export default function RegisterForm() {
               </ButtonIconConfirmPass>
             </LabelConfirmPass>
           </FormStep>
-
           {/* step 2 */}
           <FormStep
             stepName="Address"
