@@ -5,6 +5,7 @@ export const NewsItem = ({ date, description, title, url}) => {
     const newDate = new Date(date);
     const formattedDate = newDate.getDate() + '/' + newDate.getMonth() + '/' + newDate.getFullYear()
 
+    
     return (
         <>
         <ItemNews>
