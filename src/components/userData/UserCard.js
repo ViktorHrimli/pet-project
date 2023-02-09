@@ -7,7 +7,7 @@ import { itemInfo } from './itemInfo';
 import { UserItem } from './UserItem/UserItem';
 import { UserPhoto } from './UserPhoto/UserPhoto';
 import { LogOut } from '../LogOut/LogOut';
-import { UserSkeletonMobile } from 'components/Reuse/Loaders/Skeleton/UserSkeletonMobile';
+import { UserInfoWrapper } from './styles/UserData.styles';
 
 export const UserForm = ({ formData }) => {
 	const {
@@ -41,12 +41,12 @@ export const UserForm = ({ formData }) => {
 	};
 
 	return (
-		<div >
-			<div >
+		<div>
+			<div>
 				{isUserLoading || isCurrentLoading ? (
-					<UserSkeletonMobile />
+					<div>is loading...</div>
 				) : (
-					<>
+					<div>
 						<UserPhoto
 							onSubmit={handleSubmit(onSubmit)}
 							watch={watch}
@@ -70,7 +70,7 @@ export const UserForm = ({ formData }) => {
 								/>
 							))}
 						</div>
-					</>
+					</div>
 				)}
 			</div>
 			{!isUserLoading && !isCurrentLoading && <LogOut />}

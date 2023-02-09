@@ -6,7 +6,7 @@ import { createFormData } from './FormData';
 import { itemInfo } from './ItemInfo';
 import { UserItem } from './UserItem';
 import { UserPhoto } from './UserPhoto';
-import { LogOut } from './LogOut';
+import { LogOut } from '../userData/LogOut';
 
 export const UserForm = ({ formData }) => {
 	const {

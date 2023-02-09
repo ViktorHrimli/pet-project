@@ -4,7 +4,7 @@ import { getLoadingUpdate } from 'redux/user/selectors';
 import { toggleIsDisablet } from 'redux/user/slice';
 import { ReactComponent as UploadIcon } from '../../images/svg/camera.svg';
 import { ReactComponent as UploadSubmit } from '../../images/svg/ci_edit.svg';
-import { Photo, PhotoEdit } from './styles/UserData.styles';
+import { Photo, PhotoEdit, PhotoEditLab, PhotoEditText, PhotoContainer } from './styles/UserData.styles';
 
 export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 	const [edited, setEdited] = useState(false);
@@ -30,7 +30,7 @@ export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 
 	return (
 		<form onSubmit={onSubmit}>
-			<div >
+			<PhotoContainer >
 				<div >
 					<Photo
 						src={
@@ -44,14 +44,14 @@ export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 					{newImage && newImage[0] && edited ? (
 						<button type="submit" >
 							<UploadSubmit fill="#F59256" width={23} height={23} />
-							<p >submit</p>
+							<p>submit</p>
 						</button>
 					) : (
 						<div>
-							<label htmlFor="avatar">
-								<UploadIcon fill="#F59256" width={18} height={18} />
-								<p >edit Photo</p>
-							</label>
+							<PhotoEditLab htmlFor="avatar">
+								  <UploadIcon fill="#F59256" width={18} height={18} />
+								  <PhotoEditText >Edit photo</PhotoEditText>
+							</PhotoEditLab>
 							<PhotoEdit
 								type="file"
 								name="avatar"
@@ -61,7 +61,7 @@ export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 						</div>
 					)}
 				</div>
-			</div>
+			</PhotoContainer>
 		</form>
 	);
 };

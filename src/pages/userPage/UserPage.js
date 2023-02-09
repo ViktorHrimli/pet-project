@@ -7,9 +7,8 @@ import { selectors } from './selectors';
 
 import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
-import { Title } from 'components/userData/Title';
 
-import { UserPageContainer, UserContainer, UserInfo, PetTitle, UserCardWrapper } from './UserPage.styles';
+import { UserPageContainer, UserContainer, UserInfo, PetTitle, UserCardWrapper, Title } from './UserPage.styles';
 
 const UserPage = () => {
 	const dispatch = useDispatch();
@@ -47,7 +46,7 @@ const UserPage = () => {
 	return (
     <UserPageContainer>
       <UserCardWrapper>
-      <Title title="My information:"  />
+      <Title>My information</Title>
       <UserInfo>
 
 			    <UserContainer >

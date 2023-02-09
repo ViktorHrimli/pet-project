@@ -10,8 +10,8 @@ export const UserInfo = styled.div`
 box-sizing: border-box;
 width: auto;
 justify-content: center;
-padding: 20px 12px 20px 16px;
-background-color: #fff;
+padding: 20px 16px 20px 16px;
+background-color: ${p => p.theme.colors.white};
 border-radius: 7%;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 @media screen and (max-width: 768px) {
@@ -20,6 +20,7 @@ box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 }
 
 @media screen and (min-width: 768px) {
+  width: 736px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
@@ -31,6 +32,8 @@ box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 
 @media screen and (min-width: 1280px) {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   justify-content: flex-start;
   padding: 24px 40px 24px 40px;
@@ -86,20 +89,21 @@ export const UserTitle = styled.h2`
 
 export const Title = styled.h2`
   font-family: 'Manrope';
-
-  font-weight: 500;
+  font-weight:  ${p => p.theme.fontWeights.medium};
   font-size: 20px;
   line-height: ${p => p.theme.lineHeights.normal};
   color: #111111;
+  margin-bottom: 18px;
   @media screen and (min-width: 768px) {
 
     font-size: 28px;
     line-height: {t => };
+    margin-bottom: 40px;
   }
   @media screen and (min-width: 1280px) {
-
     font-size: 28px;
     line-height: ${p => p.theme.lineHeights.normal};
+    margin-bottom: 24px;
   }
 `;
 
@@ -122,7 +126,8 @@ color: #111111;
 }`
 
 export const UserCardWrapper = styled.div`
-@media screen and (min-width: 1279px) {
+
+@media screen and (min-width: 1280px) {
 margin-right: 32px
 }
 `
