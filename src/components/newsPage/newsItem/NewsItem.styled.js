@@ -67,7 +67,6 @@ font-weight: 400;
 font-size: 16px;
 line-height: 22px;
 
-
 color: #111321;
 
 margin: 0; 
@@ -79,7 +78,6 @@ overflow: hidden;
 @media screen and (min-width: 768px) {
    -webkit-line-clamp: 6; 
   };
-
 @media screen and (min-width: 1280px) {
     -webkit-line-clamp: 5;
  }
