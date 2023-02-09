@@ -23,4 +23,7 @@ export const ONLINE_LIST = [
     label: 'my ads',
     link: `${ROUTES.notices}/${ROUTES_CATEGORY_NAMES.own}`,
   },
+  // {
+  //   label;
+  // }
 ];
