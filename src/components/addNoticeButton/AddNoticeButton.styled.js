@@ -52,11 +52,10 @@ export const Circle = styled.div`
 	@media screen and (min-width: 768px) {
 		width: 44px;
 		height: 44px;
-		background-color: rgba(245, 146, 86, 1);
+		background-color: ${p => p.theme.colors.primary};
 
-		&:hover,
-		&:focus: {
-		background-color: rgba(245, 146, 86, .7);
+		&:hover {
+		background-color: ${p => p.theme.colors.focus};
 	}
 }
 `;
