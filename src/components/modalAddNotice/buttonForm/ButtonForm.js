@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import {
   AddButtonConteiner,
@@ -28,36 +28,10 @@ const ButtonFormNextCancel = ({ isValid, setIsOpen }) => {
   );
 };
 
-const reducer = (state, { type, payload }) => {
-  switch (type) {
-    case 'goodHands': {
-      return { lost_found: false, sell: false, goodHands: payload };
-    }
-    case 'sell': {
-      return { lost_found: false, sell: payload, goodHands: false };
-    }
-    case 'lost/found': {
-      return { lost_found: payload, sell: false, goodHands: false };
-    }
-
-    default: {
-      return state;
-    }
-  }
-};
-
 const ButtonNoticeForm = ({ setIsUseSell }) => {
-  const [isUseGoodHands, dispatch] = useReducer(
-    reducer,
-    JSON.parse(localStorage.getItem('btn')) || {
-      goodHands: false,
-      sell: false,
-      lost_found: false,
-    }
+  const [isActiveBtn, setIsActiveBtn] = useState(
+    JSON.parse(localStorage.getItem('btn')) || { sell: true }
   );
-  useEffect(() => {
-    console.log(JSON.parse(localStorage.getItem('btn')));
-  }, [isUseGoodHands, dispatch]);
 
   const handleUsePrice = () => {
     setIsUseSell(true);
@@ -73,11 +47,12 @@ const ButtonNoticeForm = ({ setIsUseSell }) => {
         <NoticeButton
           type="button"
           onClick={() => {
-            dispatch({ type: 'lost/found', payload: true });
+            setIsActiveBtn(prev => ({ 'lost-found': true }));
             handleUseGoodHands();
-            localStorage.setItem('btn', JSON.stringify(isUseGoodHands));
+
+            localStorage.setItem('btn', JSON.stringify({ 'lost-found': true }));
           }}
-          active={isUseGoodHands.lost_found}
+          active={isActiveBtn['lost-found'] || false}
         >
           lost/found
         </NoticeButton>
@@ -85,12 +60,16 @@ const ButtonNoticeForm = ({ setIsUseSell }) => {
       <NoticeButton
         type="button"
         onClick={() => {
-          dispatch({ type: 'goodHands', payload: true });
-          localStorage.setItem('btn', JSON.stringify(isUseGoodHands));
+          setIsActiveBtn({ 'in-good-hands': true });
+
+          localStorage.setItem(
+            'btn',
+            JSON.stringify({ 'in-good-hands': true })
+          );
 
           handleUseGoodHands();
         }}
-        active={isUseGoodHands.goodHands}
+        active={isActiveBtn['in-good-hands'] || false}
       >
         In good hands
       </NoticeButton>
@@ -98,12 +77,13 @@ const ButtonNoticeForm = ({ setIsUseSell }) => {
       <NoticeButton
         type="button"
         onClick={() => {
-          dispatch({ type: 'sell', payload: true });
-          localStorage.setItem('btn', JSON.stringify(isUseGoodHands));
+          setIsActiveBtn({ sell: true });
+
+          localStorage.setItem('btn', JSON.stringify({ sell: true }));
 
           handleUsePrice();
         }}
-        active={isUseGoodHands.sell}
+        active={isActiveBtn['sell'] || false}
       >
         sell
       </NoticeButton>

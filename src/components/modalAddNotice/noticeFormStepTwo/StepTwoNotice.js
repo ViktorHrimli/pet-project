@@ -25,12 +25,17 @@ import { MaleFemale } from 'components/modalAddNotice/noticeFormStepTwo/sexConte
 const shemaMultipleModal = isPrice => {
   return Yup.object().shape({
     sex: Yup.string().required().equals(['male', 'female']),
-    location: Yup.string().required(),
+    location: Yup.string()
+      .matches(
+        /^[a-zA-Z]+[,][ ][a-zA-Z]+$/,
+        'Location should be /Region, City/'
+      )
+      .required(),
     comments: Yup.string()
       .required()
       .min(8, 'Should be at 8 characters')
       .max(120),
-    price: isPrice ? Yup.number().required() : Yup.number().notRequired(),
+    price: isPrice ? Yup.string().required() : Yup.string().notRequired(),
   });
 };
 
@@ -59,7 +64,7 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
 
       <Formik
         onSubmit={handleSubmit}
-        initialValues={{ comments: '', sex: 'male', price: 0, location: '' }}
+        initialValues={{ comments: '', sex: 'male', price: '1', location: '' }}
         validationSchema={shema}
       >
         {({ errors, touched, isValid }) => (

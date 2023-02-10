@@ -24,7 +24,7 @@ const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
 const schema = Yup.object().shape({
   title: Yup.string()
     .min(2)
-    .max(40)
+    .max(48)
     .required()
     .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/),
   name: Yup.string()

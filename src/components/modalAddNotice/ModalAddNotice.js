@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectToken } from '../../redux/auth/selectors';
+import { addNotices } from '../../redux/notices/operations';
 
 import { StepOne } from 'components/modalAddNotice/noticeFormStepOne/StepOneNotice';
 import { StepTwo } from 'components/modalAddNotice/noticeFormStepTwo/StepTwoNotice';
@@ -13,7 +14,7 @@ const initialState = {
   date: '',
   sex: '',
   comments: '',
-  price: 0,
+  price: '',
   location: '',
   photo: null,
 };
@@ -28,8 +29,12 @@ export const ModalAddNotice = ({ setIsOpen }) => {
 
   useEffect(() => {
     if (state.photo) {
+      const key = Object.keys(JSON.parse(localStorage.getItem('btn')));
+
       localStorage.removeItem('prev');
-      // dispatch(addPet({ ...state, token }));
+      localStorage.removeItem('btn');
+
+      dispatch(addNotices({ ...state, token, key }));
     }
   }, [dispatch, state, token]);
 
