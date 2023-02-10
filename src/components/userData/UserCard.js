@@ -7,7 +7,7 @@ import { itemInfo } from 'components/userData/ItemInfo';
 import { UserItem } from 'components/userData/UserItem';
 import { UserPhoto } from 'components/userData/UserPhoto';
 import { LogOut } from 'components/userData/LogOut';
-// import { UserInfoWrapper } from './styles/UserData.styles';
+import { UserPhotoWrapper } from 'components/userData/styles/UserData.styles';
 
 export const UserForm = ({ formData }) => {
 	const {

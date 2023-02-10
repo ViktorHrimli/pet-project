@@ -1,28 +1,33 @@
 import styled from '@emotion/styled';
 
 export const UserPageContainer = styled.div`
-margin-top: 130px;
+margin-top: 119px;
+padding-left: 20px;
+padding-right: 20px;
 @media screen and (min-width: 768px) {
+  padding-left: 0px;
+}
+@media screen and (min-width: 1280px) {
   display: flex;
+
 }
 `
 export const UserInfo = styled.div`
+position: relative;
 box-sizing: border-box;
-width: auto;
+
 justify-content: center;
 padding: 20px 16px 20px 16px;
 background-color: ${p => p.theme.colors.white};
 border-radius: 7%;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 @media screen and (max-width: 768px) {
-  margin-left: 20px;
-  margin-right: 20px;
+  width: auto;
 }
 
 @media screen and (min-width: 768px) {
-  width: 736px;
-  display: flex;
-  flex-direction: row-reverse;
+  padding-left: 0px;
+
   justify-content: space-between;
   padding: 24px 40px 24px 40px;
   border-bottom-left-radius: 0;
@@ -42,6 +47,7 @@ box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 `;
 
 export const UserContainer = styled.div`
+margin-bottom: 47px;
 @media screen and (min-width: 768px) {
 
 }
@@ -90,12 +96,12 @@ export const UserTitle = styled.h2`
 export const Title = styled.h2`
   font-family: 'Manrope';
   font-weight:  ${p => p.theme.fontWeights.medium};
-  font-size: 20px;
+  font-size: ${p => p.theme.fontSizes.s};
   line-height: ${p => p.theme.lineHeights.normal};
-  color: #111111;
+  color: ${p => p.theme.colors.black};
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
-
+    margin-left: 20px;
     font-size: 28px;
     line-height: {t => };
     margin-bottom: 40px;
@@ -109,7 +115,7 @@ export const Title = styled.h2`
 
 export const PetTitle = styled.h3`
 font-family: 'Manrope';
-
+margin-bottom: 32px;
 font-weight: 500;
 font-size: 20px;
 line-height: ${p => p.theme.lineHeights.normal};
@@ -136,6 +142,25 @@ export const AddPetBtnContainer = styled.div`
 
 `
 export const PetsContainerWrapper = styled.div`
+padding-left: 20px;
+padding-right: 20px;
 display: flex;
 justify-content: space-between;
+margin-top: 46px;
+@media screen and (min-width: 1280px) {
+  margin-top: 0px;
+  justify-content: space-between;
+  padding-left: 0px;
+  padding-right: 0px;
+  }
+`
+export const UserInfoContainer = styled.div`
+margin-bottom: 42px;`
+
+export const UserDataWrapper = styled.div`
+@media screen and (min-width: 768px) {
+  display: flex;
+  flex-direction: row-reverse;
+ justify-content: space-between;
+}
 `
