@@ -1,12 +1,12 @@
-
+import axios from "axios";
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import * as api from 'redux/user/apiUser'
+// import * as api from 'redux/user/apiUser'
 
 export const getUserData = createAsyncThunk(
 	'user/getUserData',
 	async (_, { rejectWithValue }) => {
 		try {
-			const result = await api.getUserData();
+			const result = await axios.getUserData();
 			return result;
 		} catch ({ response }) {
 			const { status, data } = response;
@@ -23,7 +23,7 @@ export const updateUserData = createAsyncThunk(
 	'user/updateUserData',
 	async (data, { rejectWithValue }) => {
 		try {
-			const result = await api.updateUserData(data);
+			const result = await axios.updateUserData(data);
 			return result;
 		} catch ({ response }) {
 			const { status, data } = response;
@@ -40,7 +40,7 @@ export const addUserPet = createAsyncThunk(
 	'user/addUserPet',
 	async (data, { rejectWithValue }) => {
 		try {
-			const result = await api.addUserPet(data);
+			const result = await axios.addUserPet(data);
 			return result;
 		} catch ({ response }) {
 			const { status, data } = response;
@@ -57,7 +57,7 @@ export const removeUserPet = createAsyncThunk(
 	'user/removeUserPet',
 	async (id, { rejectWithValue }) => {
 		try {
-			const result = await api.removeUserPet(id);
+			const result = await axios.removeUserPet(id);
 			return result;
 		} catch ({ response }) {
 			const { status, data } = response;
