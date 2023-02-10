@@ -120,12 +120,15 @@ flex-shrink: 1;
 export const PhotoEditText = styled.p`
 margin-bottom: 0px;
 margin-left: 5px;
+
+font-weight: ${p => p.theme.fontWeights.normal};
+font-size: ${p => p.theme.fontSizes.xxxs}
+line-height: 22px;
+color: ${p => p.theme.colors.black}
 `
 export const PhotoContainer = styled.div`
 position: relative;
-
 @media screen and (min-width: 1280px) {
-
  }
 `
 export const EditPhotoBtn = styled.button`
@@ -140,3 +143,48 @@ export const UserInfoWrapper = styled.div`
 `
 export const UserFormContainer = styled.div`
 margin-top: 100px;`
+
+export const UserPhotoWrapper = styled.div`
+margin-bottom: 68px;`
+
+export const LogOutBtn = styled.button`
+position: absolute;
+display: flex;
+gap: 8px;
+bottom: 20px;
+right: 12px;
+margin-top: 42px;
+background-color: transparent;
+border: none;
+cursor: pointer;
+color: ${p => p.theme.colors.muted}
+`
+export const LogOutText = styled.p`
+margin-bottom: 0px;
+font-weight: ${p => p.theme.fontWeights.medium};
+font-size: ${p => p.theme.fontSizes.xs};
+line-height: ${p => p.theme.lineHeights.max};
+letter-spacing: ${p => p.theme.letterSpacings.normal}
+
+`
+export const PhotoEditSubmitBtn = styled.button`
+display: flex;
+margin-bottom: 0px;
+margin-left: 5px;
+
+font-weight: ${p => p.theme.fontWeights.normal};
+font-size: ${p => p.theme.fontSizes.xxxs}
+line-height: 22px;
+color: ${p => p.theme.colors.black}
+`
+export const PhotoEditSubmitWrapper = styled.div`
+margin-left: 0px;
+margin-right: 0px;
+margin-top: 12px;
+display: flex;
+justify-content: flex-end;
+position: absolute;
+right: 24px;
+
+flex-shrink: 1;
+`

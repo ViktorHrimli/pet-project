@@ -7,6 +7,7 @@ import { itemInfo } from 'components/userData/ItemInfo';
 import { UserItem } from 'components/userData/UserItem';
 import { UserPhoto } from 'components/userData/UserPhoto';
 import { LogOut } from 'components/userData/LogOut';
+import {UserInfoContainer} from 'pages/userPage/UserPage.styles'
 
 export const UserForm = ({ formData }) => {
 	const {
@@ -53,7 +54,7 @@ export const UserForm = ({ formData }) => {
 							register={register}
 						/>
 
-						<div>
+						<UserInfoContainer>
 							{itemInfo.map((info, idx) => (
 								<UserItem
 									onSubmit={handleSubmit(onSubmit)}
@@ -68,7 +69,7 @@ export const UserForm = ({ formData }) => {
 									key={idx}
 								/>
 							))}
-						</div>
+						</UserInfoContainer>
 					</>
 				)}
 			</div>

@@ -1,12 +1,15 @@
 import styled from '@emotion/styled';
 
 export const UserPageContainer = styled.div`
-margin-top: 130px;
+margin-top: 119px;
+padding-left: 20px;
+padding-right: 20px;
 @media screen and (min-width: 768px) {
   display: flex;
 }
 `
 export const UserInfo = styled.div`
+position: relative;
 box-sizing: border-box;
 width: auto;
 justify-content: center;
@@ -15,8 +18,7 @@ background-color: ${p => p.theme.colors.white};
 border-radius: 7%;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 @media screen and (max-width: 768px) {
-  margin-left: 20px;
-  margin-right: 20px;
+
 }
 
 @media screen and (min-width: 768px) {
@@ -42,6 +44,7 @@ box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 `;
 
 export const UserContainer = styled.div`
+margin-bottom: 47px;
 @media screen and (min-width: 768px) {
 
 }
@@ -90,9 +93,9 @@ export const UserTitle = styled.h2`
 export const Title = styled.h2`
   font-family: 'Manrope';
   font-weight:  ${p => p.theme.fontWeights.medium};
-  font-size: 20px;
+  font-size: ${p => p.theme.fontSizes.s};
   line-height: ${p => p.theme.lineHeights.normal};
-  color: #111111;
+  color: ${p => p.theme.colors.black};
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
 
@@ -109,7 +112,7 @@ export const Title = styled.h2`
 
 export const PetTitle = styled.h3`
 font-family: 'Manrope';
-
+margin-bottom: 32px;
 font-weight: 500;
 font-size: 20px;
 line-height: ${p => p.theme.lineHeights.normal};
@@ -138,4 +141,8 @@ export const AddPetBtnContainer = styled.div`
 export const PetsContainerWrapper = styled.div`
 display: flex;
 justify-content: space-between;
+
+margin-top: 46px;
 `
+export const UserInfoContainer = styled.div`
+margin-bottom: 42px;`
