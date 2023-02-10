@@ -12,8 +12,10 @@ import {
 } from 'components/notisesCategoriesNav/NoticesCategoriesNav.styled';
 
 export const NoticeCategoriesNav = () => {
-  const { isLoggedIn } = useAuth();
-  if (isLoggedIn) {
+  const { token } = useAuth();
+
+  console.log(token);
+  if (token) {
     return (
       <Container>
         <NavWrapper>
