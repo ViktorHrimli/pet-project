@@ -1,6 +1,11 @@
-import { InputCont, FindNews, FindNewsBtn, ButtonImg} from "components/newsPage/newsSearchInput/NewsSearchInput.styled"
-import search from 'images/svg/search.svg';
-import crossNotice from 'images/svg/close-line.svg';
+import { 
+    InputCont,
+    FindNews,
+    FindNewsBtn,
+    ButtonImg
+} from "components/newsPage/newsSearchInput/NewsSearchInput.styled"
+import search from '../../../images/svg/search.svg';
+import crossNotice from '../../../images/svg/close-line.svg';
 
 export const NewsSeachInput = ({getFindedNews, value, handlFindNews, isSearch}) => {
 return (
