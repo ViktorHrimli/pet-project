@@ -9,7 +9,7 @@ import {
   Button,
   ButtonUserList,
   OnlineItem,
-} from './NoticesCategoriesNav.styled';
+} from 'components/notisesCategoriesNav/NoticesCategoriesNav.styled';
 
 export const NoticeCategoriesNav = () => {
   const { isLoggedIn } = useAuth();

@@ -64,8 +64,8 @@ display: block;
 background-color: transparent;
 
 &:hover {
-		fill: ${p => p.theme.colors.focus};
-	}
+    fill: ${p => p.theme.colors.focus};
+  }
 `;
 
 export const ButtonImg = styled.img`

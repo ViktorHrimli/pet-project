@@ -10,7 +10,7 @@ import {
   Pick,
   PickIcon,
   Try,
-} from './NoticesCategoryIItem.styled';
+} from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
 
 //   import Container from 'components/container/Container';
 

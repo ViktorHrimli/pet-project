@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { ReactComponent as iconLogOut} from '../../images/svg/logout.png'
+import { ReactComponent as iconLogOut} from '../../images/svg/logout.png';
 
 export const ButtonLogOut = styled.button`
 display: flex;

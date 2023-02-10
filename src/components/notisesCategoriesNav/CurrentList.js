@@ -14,6 +14,7 @@ export const CURRENT_LIST = [
     link: `${ROUTES.notices}/${ROUTES_CATEGORY_NAMES.for_free}`,
   },
 ];
+
 export const ONLINE_LIST = [
   {
     label: 'favorite ads',

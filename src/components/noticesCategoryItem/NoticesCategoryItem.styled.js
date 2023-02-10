@@ -136,8 +136,7 @@ export const CardButton = styled.button`
   transition-property: background-color, color;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-  &:hover,
+	&:hover,
   &:focus {
     background-color: ${p => p.theme.colors.primary};
     color: ${p => p.theme.colors.white};
