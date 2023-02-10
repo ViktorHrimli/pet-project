@@ -1,5 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
+// axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
 
 export const getUserData = async () => {
 	const { data } = await axios.get('/user/get');
