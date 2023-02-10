@@ -5,7 +5,7 @@ import {
 	WrapperContainer,
 	WrapperPetPhoto,
   WrapperInfoBlock,
-  PetPhoto,
+  // PetPhoto,
   TitleModalNotice,
 	ReferenceList,
   InfoItem,
@@ -19,7 +19,7 @@ import {
 	IconRedHeart
 } from 'components/modalNotice/ModalNotice.styled';
 
-import defaultPetPhoto from '../../images/defaultPetPhoto.png';
+// import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({
   image,
@@ -45,10 +45,10 @@ export const ModalNotice = ({
     <WrapperContainer>
       <WrapperInfoBlock>
         <WrapperPetPhoto>
-          {image ? (
+          {/* {image ? (
           <PetPhoto src={image} alt='Pet photo'/>
           ) : (
-          <PetPhoto src={defaultPetPhoto} alt='Not pet photo'/>)}
+          <PetPhoto src={defaultPetPhoto} alt='Not pet photo'/>)} */}
         </WrapperPetPhoto>
         <ReferenceList>
         <TitleModalNotice>Сute dog looking for a home</TitleModalNotice>
