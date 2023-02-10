@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { NoticeCategoryItem } from 'components/noticesCategoryItem/NoticesCategoryItem';
 import { getAll } from 'redux/notices/operations';
 
-import { CardList } from './NoticesCategoryList.styled';
+import { CardList } from 'components/noticesCategoryList/NoticeCategoryList.styled';
 import Container from 'components/container/Container';
 
 export const NoticeCategoryList = () => {

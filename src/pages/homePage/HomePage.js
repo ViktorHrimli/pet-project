@@ -1,5 +1,5 @@
 import Container from '../../components/container/Container';
-import { Title, HomeSection } from './HomePage.styled';
+import { Title, HomeSection } from 'pages/homePage/HomePage.styled';
 
 const HomePage = () => {
   return (

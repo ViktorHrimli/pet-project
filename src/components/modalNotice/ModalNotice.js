@@ -17,7 +17,7 @@ import {
 	ContactButton,
 	AddToFavoriteButton,
 	IconRedHeart
-} from './ModalNotice.styled';
+} from 'components/modalNotice/ModalNotice.styled';
 
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 

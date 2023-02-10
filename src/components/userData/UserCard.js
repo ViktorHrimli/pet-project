@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { updateUserData } from 'redux/user/user-operations';
 import { createFormData } from 'shared/functions/createFormData';
 
-import { itemInfo } from './itemInfo';
-import { UserItem } from './UserItem/UserItem';
-import { UserPhoto } from './UserPhoto/UserPhoto';
-import { LogOut } from '../LogOut/LogOut';
-import { UserInfoWrapper } from './styles/UserData.styles';
+import { itemInfo } from 'components/userData/ItemInfo';
+import { UserItem } from 'components/userData/UserItem';
+import { UserPhoto } from 'components/userData/UserPhoto';
+import { LogOut } from 'components/userData/LogOut';
+// import { UserInfoWrapper } from './styles/UserData.styles';
 
 export const UserForm = ({ formData }) => {
 	const {

@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 import { updateUserData } from 'redux/user/operations';
 import { createFormData } from './FormData';
 
-import { itemInfo } from './ItemInfo';
-import { UserItem } from './UserItem';
-import { UserPhoto } from './UserPhoto';
-import { LogOut } from '../userData/LogOut';
+import { itemInfo } from 'components/userData/ItemInfo';
+import { UserItem } from 'components/userData/UserItem';
+import { UserPhoto } from 'components/userData/UserPhoto';
+import { LogOut } from 'components/userData/LogOut';
 
 export const UserForm = ({ formData }) => {
 	const {

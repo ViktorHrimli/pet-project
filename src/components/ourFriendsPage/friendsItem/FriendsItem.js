@@ -1,4 +1,16 @@
-import {  FriendName, FriendItem, DataFriendCont, ContImg, FriendImg, ContData, ItemData, Button, FriendsText, TimeList, TimeItem, Span} from './FriendsItem.styled'
+import {  FriendName,
+    FriendItem,
+    DataFriendCont,
+    ContImg,
+    FriendImg,
+    ContData,
+    ItemData,
+    Button,
+    FriendsText,
+    TimeList,
+    TimeItem,
+    Span
+} from 'components/ourFriendsPage/friendsItem/FriendsItem.styled'
 import { useState } from 'react';
 
 

@@ -18,7 +18,7 @@ import {
   AddErrorMessage,
   ImageSss,
   AddStepTwoFormPets,
-} from './ModalAddPet.styled';
+} from 'components/modalAddsPet/ModalAddPet.styled';
 
 import { addPet } from '../../redux/pets/operations';
 import { selectToken } from '../../redux/auth/selectors';

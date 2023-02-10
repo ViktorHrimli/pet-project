@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { ListOfNews,EmptyRequestText, EmptyRequestImg} from "./NewsList.styled";
+import { ListOfNews,EmptyRequestText, EmptyRequestImg} from "components/newsPage/newsList/NewsList.styled";
 import Section from "components/section/Section";
 import { TitleSection } from "components/section/Section.styled";
-import { NewsItem } from "../newsItem/NewsItem";
+import { NewsItem } from "components/newsPage/newsItem/NewsItem";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchNews } from "redux/news/operations";
 import { selectorNews } from "redux/news/selectors";
-import { NewsSeachInput } from "../newsSearchInput/NewsSeachInput";
+import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
 import dog from 'images/dog.jpg';
 
 export const NewsList = () => {

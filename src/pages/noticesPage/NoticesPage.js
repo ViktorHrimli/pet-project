@@ -1,7 +1,7 @@
 
 import Container from 'components/container/Container';
 import { AddNoticeButton } from 'components/addNoticeButton/AddNoticeButton';
-import { NoticeCategoryList } from 'components/noticesCategoryList/NoticesCategoryList';
+import { NoticeCategoryList } from 'components/noticesCategoryList/NoticeCategoryList';
 import { NoticesSearch } from 'components/noticesSearch/NoticesSearch';
 import { NoticeCategoriesNav } from 'components/notisesCategoriesNav/NoticesCategoriesNav';
 import Section from 'components/section/Section';
