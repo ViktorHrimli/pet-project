@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getUserData, removeUserPet } from 'redux/user/operations';
 import { resetIsAddedPetSuccess } from 'redux/user/slice';
 import { getIsAddedPetSuccess, getUserError } from 'redux/user/selectors';
-import { selectors } from './selectors';
+import { selectors } from 'pages/userPage/selectors';
 import {AddPetButton} from 'components/petsData/AddPet'
 import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
 
 import { UserPageContainer, UserContainer, PetsContainerWrapper, UserInfo, PetTitle, UserCardWrapper, Title, AddPetBtnContainer
 } from 'pages/userPage/UserPage.styles';
-
 
 const UserPage = () => {
 	const dispatch = useDispatch();
@@ -59,9 +58,9 @@ const UserPage = () => {
         <PetTitle>My pets</PetTitle>
 				<PetCard cardData={cardData} />
 			</div>
-        <AddPetBtnContainer>
+      <AddPetBtnContainer>
           <AddPetButton/>
-        </AddPetBtnContainer>
+      </AddPetBtnContainer>
     </PetsContainerWrapper>
 		</UserPageContainer>
 	);

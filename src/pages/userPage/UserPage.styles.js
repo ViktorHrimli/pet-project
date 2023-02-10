@@ -6,6 +6,9 @@ padding-left: 20px;
 padding-right: 20px;
 @media screen and (min-width: 768px) {
   padding-left: 0px;
+}
+@media screen and (min-width: 1280px) {
+  display: flex;
 
 }
 `
@@ -143,8 +146,13 @@ padding-left: 20px;
 padding-right: 20px;
 display: flex;
 justify-content: space-between;
-
 margin-top: 46px;
+@media screen and (min-width: 1280px) {
+  margin-top: 0px;
+  justify-content: space-between;
+  padding-left: 0px;
+  padding-right: 0px;
+  }
 `
 export const UserInfoContainer = styled.div`
 margin-bottom: 42px;`
