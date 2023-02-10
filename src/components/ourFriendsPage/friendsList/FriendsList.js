@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Section from 'components/section/Section'
-import { Title, ListOfFriends } from './FriendsList.styled';
+import { Title, ListOfFriends } from 'components/ourFriendsPage/friendsList/FriendsList.styled';
 import { fetchFriends } from "redux/friends/operation";
 import { selectorFriends } from "redux/friends/selectors";
-import { FiendsItem } from '../friendsItem/FriendsItem';
+import { FiendsItem } from 'components/ourFriendsPage/friendsItem/FriendsItem';
 
 
 
