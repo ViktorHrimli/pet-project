@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+
 const AddButton = styled.button`
   display: inline-flex;
   align-items: center;
@@ -63,8 +64,8 @@ const NoticeConteinerButton = styled.div`
   max-width: 240px;
 
   @media screen and (min-width: 768px) {
-    max-width: 425px;
-    margin-right: 20px;
+    max-width: 410px;
+    margin-right: 40px;
   }
 `;
 
@@ -86,10 +87,14 @@ const NoticeButton = styled.button`
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: ${p => p.theme.lineHeights.normal};
 
-  padding: 8px 24px;
+  padding: 8px 27px;
 
-  color: ${p => p.theme.colors.text};
-  background-color: transparent;
+  color: ${p => {
+    return p.active ? p.theme.colors.white : p.theme.colors.text;
+  }};
+  background-color: ${p => {
+    return p.active ? p => p.theme.colors.primary : 'transparent';
+  }};
 
   border: 1px solid ${p => p.theme.colors.primary};
   border-radius: 40px;

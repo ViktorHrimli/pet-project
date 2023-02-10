@@ -91,4 +91,28 @@ const TextGlobal = styled.h3`
   }
 `;
 
-export { FormGlobal, InputGlobal, LabelGlobal, TextGlobal };
+const AddErrorMessageGlobal = styled.span`
+  position: absolute;
+  width: 100%;
+
+  font-size: ${p => p.theme.fontSizes.xxs};
+  font-weight: ${p => p.theme.fontWeights.normal};
+  line-height: ${p => p.theme.lineHeights.normal};
+
+  bottom: -18px;
+  left: 18px;
+  color: red;
+
+  @media screen and (min-width: 768px) {
+    bottom: -26px;
+    font-size: ${p => p.theme.fontSizes.xs};
+  }
+`;
+
+export {
+  FormGlobal,
+  InputGlobal,
+  LabelGlobal,
+  TextGlobal,
+  AddErrorMessageGlobal,
+};

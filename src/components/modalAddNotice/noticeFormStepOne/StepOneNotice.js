@@ -2,16 +2,22 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import { NoticeTextDiscription, AddErrorMessage } from './StepOneNotice.styled';
+import {
+  NoticeTextDiscription,
+  AddErrorMessage,
+} from 'components/modalAddNotice/noticeFormStepOne/StepOneNotice.styled';
 
 import {
   FormGlobal,
   TextGlobal,
   InputGlobal,
   LabelGlobal,
-} from '../GlobalForm.styled';
+} from 'components/modalAddNotice/GlobalForm.styled';
 
-import { ButtonForm, ButtonNoticeForm } from '../buttonForm/ButtonForm';
+import {
+  ButtonFormNextCancel,
+  ButtonNoticeForm,
+} from 'components/modalAddNotice/buttonForm/ButtonForm';
 
 const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
 
@@ -36,7 +42,7 @@ const schema = Yup.object().shape({
     .required('This field is required'),
 });
 
-export const StepOne = ({ step, state, setIsOpen }) => {
+export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
   const [prevDate] = useState(JSON.parse(localStorage.getItem('prev')) || '');
 
   const handleSubmit = (values, action) => {
@@ -56,7 +62,7 @@ export const StepOne = ({ step, state, setIsOpen }) => {
         consectetur
       </NoticeTextDiscription>
 
-      <ButtonNoticeForm />
+      <ButtonNoticeForm setIsUseSell={setIsUseSell} />
 
       <Formik
         initialValues={prevDate || { title: '', name: '', date: '', breed: '' }}
@@ -102,7 +108,7 @@ export const StepOne = ({ step, state, setIsOpen }) => {
               )}
             </div>
 
-            <ButtonForm isValid={isValid} setIsOpen={setIsOpen} />
+            <ButtonFormNextCancel isValid={isValid} setIsOpen={setIsOpen} />
           </FormGlobal>
         )}
       </Formik>

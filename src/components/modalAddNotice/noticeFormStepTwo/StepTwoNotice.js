@@ -3,46 +3,42 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
-import male from '../../../images/svg/male.svg';
-import famale from '../../../images/svg/female.svg';
-
 import {
   NoticeAddPhoto,
   AddComments,
   AddIconsPhoto,
-  AddErrorMessage,
   ImageSss,
   NoticeAddPhotoConteiner,
   AddStepTwoFormPets,
-  NoticeSexRadioBtnConteiner,
-  NoticeConteinerSex,
-  NoticeLableSex,
-  NoticeRadioSexBtn,
-  NoticeLableText,
-  NoticeIconFemale,
-  NoticeSexTextFemale,
-  NoticeSexTextMale,
-  NoticeIconMale,
-} from './StepTwoNotice.styled';
+} from 'components/modalAddNotice/noticeFormStepTwo/StepTwoNotice.styled';
 
-import { InputGlobal, LabelGlobal, TextGlobal } from '../GlobalForm.styled';
+import {
+  InputGlobal,
+  LabelGlobal,
+  TextGlobal,
+  AddErrorMessageGlobal,
+} from 'components/modalAddNotice/GlobalForm.styled';
 
-import { ButtonForm } from '../buttonForm/ButtonForm';
+import { ButtonFormDoneCancel } from 'components/modalAddNotice/buttonForm/ButtonForm';
+import { MaleFemale } from 'components/modalAddNotice/noticeFormStepTwo/sexConteiner/MaleFemale';
 
-const shamaStepTwo = Yup.object().shape({
-  sex: Yup.string().required().equals(['male', 'female']),
-  location: Yup.string().required(),
-  comments: Yup.string()
-    .required()
-    .min(8, 'Should be at 8 characters')
-    .max(120),
-  price: Yup.number().required(),
-});
+const shemaMultipleModal = isPrice => {
+  return Yup.object().shape({
+    sex: Yup.string().required().equals(['male', 'female']),
+    location: Yup.string().required(),
+    comments: Yup.string()
+      .required()
+      .min(8, 'Should be at 8 characters')
+      .max(120),
+    price: isPrice ? Yup.number().required() : Yup.number().notRequired(),
+  });
+};
 
-export const StepTwo = ({ step, state, setIsOpen }) => {
-  const [isEnterMale, setIsEnterMale] = useState(true);
+export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
   const [file, setFile] = useState(null);
   const [isErrorFile, setIsErrorFile] = useState(true);
+
+  const shema = shemaMultipleModal(isUseSell);
 
   const handleSubmit = (values, action) => {
     console.log(values);
@@ -63,98 +59,48 @@ export const StepTwo = ({ step, state, setIsOpen }) => {
 
       <Formik
         onSubmit={handleSubmit}
-        initialValues={{ comments: '', sex: '', price: '', location: '' }}
-        validationSchema={shamaStepTwo}
+        initialValues={{ comments: '', sex: 'male', price: 0, location: '' }}
+        validationSchema={shema}
       >
         {({ errors, touched, isValid }) => (
           <AddStepTwoFormPets>
-            <NoticeConteinerSex>
-              <NoticeLableText>The sex:</NoticeLableText>
-              <NoticeSexRadioBtnConteiner>
-                <div>
-                  <NoticeIconMale
-                    src={male}
-                    width="36"
-                    height="36"
-                    alt="icon"
-                    onClick={() => setIsEnterMale(true)}
-                  />
-
-                  <NoticeRadioSexBtn
-                    type="radio"
-                    name="sex"
-                    id="male"
-                    value="male"
-                    hidden={true}
-                  />
-                  <NoticeLableSex htmlFor="male">
-                    <NoticeSexTextMale
-                      onClick={() => setIsEnterMale(true)}
-                      isMale={isEnterMale}
-                    >
-                      Male
-                    </NoticeSexTextMale>
-                  </NoticeLableSex>
-                </div>
-                <div>
-                  <NoticeIconFemale
-                    src={famale}
-                    width="36"
-                    height="36"
-                    alt="icon"
-                    onClick={() => setIsEnterMale(false)}
-                  />
-                  <NoticeRadioSexBtn
-                    type="radio"
-                    name="sex"
-                    id="female"
-                    value="female"
-                    hidden={true}
-                  />
-                  <NoticeLableSex htmlFor="female">
-                    <NoticeSexTextFemale
-                      onClick={() => setIsEnterMale(false)}
-                      isMale={isEnterMale}
-                    >
-                      Female
-                    </NoticeSexTextFemale>
-                  </NoticeLableSex>
-                </div>
-              </NoticeSexRadioBtnConteiner>
-              {touched.sex && errors.sex && (
-                <AddErrorMessage>{errors?.sex}</AddErrorMessage>
-              )}
-            </NoticeConteinerSex>
+            <MaleFemale touched={touched} errors={errors} />
 
             <div
               style={{ marginTop: '20px', display: 'grid', gridGap: '16px' }}
             >
               <div style={{ position: 'relative' }}>
                 <LabelGlobal>
-                  <NoticeLableText>Location:</NoticeLableText>
+                  <LabelGlobal>Location:</LabelGlobal>
                   <InputGlobal
                     placeholder="Your pet location"
                     name="location"
                   />
                 </LabelGlobal>
                 {touched.location && errors.location && (
-                  <AddErrorMessage>{errors?.location}</AddErrorMessage>
+                  <AddErrorMessageGlobal>
+                    {errors?.location}
+                  </AddErrorMessageGlobal>
                 )}
               </div>
 
-              <div style={{ position: 'relative' }}>
-                <LabelGlobal>
-                  <NoticeLableText>Price:</NoticeLableText>
-                  <InputGlobal placeholder="Your pet price" name="price" />
-                </LabelGlobal>
-                {touched.price && errors.price && (
-                  <AddErrorMessage>{errors?.price}</AddErrorMessage>
-                )}
-              </div>
+              {isUseSell && (
+                <div style={{ position: 'relative' }}>
+                  <LabelGlobal>
+                    <LabelGlobal>Price:</LabelGlobal>
+                    <InputGlobal placeholder="Your pet price" name="price" />
+                  </LabelGlobal>
+                  {touched.price && errors.price && (
+                    <AddErrorMessageGlobal>
+                      {errors?.price}
+                    </AddErrorMessageGlobal>
+                  )}
+                </div>
+              )}
             </div>
 
             <NoticeAddPhotoConteiner>
-              <NoticeLableText>Load the pet’s image</NoticeLableText>
+              <LabelGlobal>Load the pet’s image</LabelGlobal>
               {!file ? (
                 <NoticeAddPhoto>
                   <AddIconsPhoto />
@@ -193,13 +139,13 @@ export const StepTwo = ({ step, state, setIsOpen }) => {
                 />
               </LabelGlobal>
               {touched.comments && errors.comments && (
-                <AddErrorMessage>
+                <AddErrorMessageGlobal>
                   {errors?.comments || 'Errors'}
-                </AddErrorMessage>
+                </AddErrorMessageGlobal>
               )}
             </div>
 
-            <ButtonForm isValid={isValid} setIsOpen={setIsOpen} />
+            <ButtonFormDoneCancel isValid={isValid} step={step} />
           </AddStepTwoFormPets>
         )}
       </Formik>
