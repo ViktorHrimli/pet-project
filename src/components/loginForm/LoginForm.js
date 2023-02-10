@@ -16,10 +16,10 @@ import {
   ErrorText,
   Label,
   Icon,
-} from './LoginForm.styled';
+} from 'components/loginForm/LoginForm.styled';
 
-import { LoginBtn } from './loginBtn/LoginBtn';
-import Container from '../container/Container';
+import { LoginBtn } from 'components/loginForm/loginBtn/LoginBtn';
+import Container from 'components/container/Container';
 
 export const FormError = ({ name }) => {
   return (
@@ -30,9 +30,9 @@ export const FormError = ({ name }) => {
   );
 };
 
-export const emailRegexp =
-  /^[^-._]{1}[A-Za-z0-9._-]{1,}@[^-._]{1}[A-Za-z0-9.-]{0,}\.[A-Za-z]{2,4}$/;
-export const passwordRegexp = /^[A-Za-z0-9!?#$%^&_\-*]{7,32}$/;
+// export const emailRegexp =
+//   /^[^-._]{1}[A-Za-z0-9._-]{1,}@[^-._]{1}[A-Za-z0-9.-]{0,}\.[A-Za-z]{2,4}$/;
+// export const passwordRegexp = /^[A-Za-z0-9!?#$%^&_\-*]{7,32}$/;
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
@@ -40,18 +40,14 @@ export const LoginForm = () => {
   const [passwordShown, setPasswordShown] = useState(false);
 
   const validationSchema = yup.object({
-    email: yup
-      .string()
-      .min(10, 'Email must consist of at least 10 symbols')
-      .max(63, 'Email must contain no more than 63 symbols')
-      .matches(emailRegexp, 'Please, enter a valid e-mail')
-      .required('E-mail is required'),
+    email: yup.string().required('Email is required').email(),
     password: yup
-      .string()
-      .min(7, 'Password must consist of at least 7 symbols')
-      .max(32, 'Password must contain no more than 32 symbols')
-      .matches(passwordRegexp, 'Please, enter a valid password')
-      .required('Password is required'),
+      .string('any letters and symbols except spaces. min 7 characters max 32')
+      .matches(/^[^ ]{7,32}$/)
+
+      .max(32, 'Must be 15 characters or less')
+      .min(7, 'Must be at least 7 characters')
+      .required('This field is required'),
   });
 
   const initialValues = {

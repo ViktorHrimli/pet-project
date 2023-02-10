@@ -18,20 +18,19 @@ export const handleRejected = (state, { payload }) => {
   // state.isLoading = false;
   state.error = payload;
 };
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: authInitialState,
   extraReducers: {
     [register.fulfilled](state, action) {
-      const { user, token } = action.payload;
+      const { user } = action.payload;
       state.user = user;
-      state.token = token;
+      state.token = user.token;
       state.isLoggedIn = true;
       state.error = null;
     },
-    [register.rejected](state, action) {
-      state.error = action.payload;
-    },
+    [register.rejected]: handleRejected,
     [login.rejected]: handleRejected,
     [login.fulfilled]: (state, { payload: { user, token } }) => {
       state.token = token;

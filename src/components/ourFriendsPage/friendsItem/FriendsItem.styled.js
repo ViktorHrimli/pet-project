@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 
 export const FriendItem = styled.li`
+position: relative;
 list-style: none;
 border-radius: 20px;
 background-color: #FFFFFF;
@@ -14,9 +15,14 @@ margin-bottom: 12px;
     };
 
 @media screen and (min-width: 768px){
-    flex-basis: calc((100% - 64px) / 2);
-}
-    
+    border-radius: 40px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+   
+    &:not(:last-child) {
+        margin-bottom: 0px;
+    };
+}    
 `;
 
 export const FriendName = styled.h3`
@@ -31,19 +37,51 @@ color: #F59256;
 @media screen and (min-width: 768px){
     font-size: 16px;
     line-height: 22px;
+    margin-bottom: 16px;
 }
+
+@media screen and (min-width: 1280px) {
+    font-size: 20px;
+    line-height: 27px;
+  }
 `;
 
 export const DataFriendCont = styled.div`
 display: flex;
-justify-content: center;
-align-items: center;
+`;
+
+export const ContImg = styled.div`
+margin-left: 4px;
+padding-top: 15px;
+padding-bottom: 5px;
+padding-left:8px;
+width: 110px;
+
+    @media screen and (min-width: 768px){
+    width: 120px;
+}
+
+@media screen and (min-width: 1280px) {
+    width: 158px;
+  }
 `;
 
 export const FriendImg = styled.img`
 display: block;
 margin-left: auto;
 margin-right: auto;
+`;
+
+export const ContData = styled.div`
+margin-left: 12px;
+
+    @media screen and (min-width: 768px){
+    margin-left: 14px;
+    }
+
+@media screen and (min-width: 1280px) {
+    margin-left: 16px;
+    }
 `;
 
 export const ItemData = styled.li`
@@ -58,6 +96,25 @@ list-style: none;
     &:not(:last-child) {
 margin-bottom: 4px;
     };
+
+@media screen and (min-width: 768px){
+    font-size: 14px;
+    line-height: 19px;
+
+    &:not(:last-child) {
+        margin-bottom: 8px;
+    };
+
+@media screen and (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 22px;
+
+    &:not(:last-child) {
+        margin-bottom: 12px;
+    };
+    }
+}
+    
 `;
 
 export const Button = styled.button`
@@ -72,10 +129,29 @@ font-weight: 500;
 font-size: 12px;
 line-height: 16px;
 color: #111111;
+
+    @media screen and (min-width: 768px){
+    font-size: 14px;
+    line-height: 19px;
+    }
+
+    @media screen and (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 22px;
+    }
 `;
 
 export const FriendsText = styled.p`
 margin: 0;
+    @media screen and (min-width: 768px){
+    font-size: 14px;
+    line-height: 19px;
+    }
+
+    @media screen and (min-width: 1280px) {
+    font-size: 16px;
+    line-height: 22px;
+    }
 `;
 
 export const TimeList = styled.ul`
@@ -83,12 +159,23 @@ list-style: none;
 padding: 12px;
 margin: 0;
 position: absolute;
-top: 84px;
-right: 8px;
+top: 76px;
+right: 13px;
 background-color: #FFFFFF;
 border: 1px solid #F59256;
 box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
+z-index: 1;
+
+@media screen and (min-width: 768px){
+    top: 92px;
+    right: 70px;
+    }
+
+@media screen and (min-width: 1280px) {
+    top: 104px;
+    right: 88px;
+    }
 `;
 
 export const TimeItem = styled.li`
@@ -96,10 +183,11 @@ font-family: 'Manrope';
 font-weight: 500;
 font-size: 12px;
 line-height: 16px;
-text-align: center;
+display: flex;
+justify-content: space-between;
 color: #000000;
 `;
 
 export const Span = styled.span`
 margin-left: 12px;
-`
+`;

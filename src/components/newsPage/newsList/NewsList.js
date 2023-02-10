@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { ListOfNews,EmptyRequestText, EmptyRequestImg} from "./NewsList.styled";
+import { ListOfNews,EmptyRequestText, EmptyRequestImg} from "components/newsPage/newsList/NewsList.styled";
 import Section from "components/section/Section";
 import { TitleSection } from "components/section/Section.styled";
-import { NewsItem } from "../newsItem/NewsItem";
+import { NewsItem } from "components/newsPage/newsItem/NewsItem";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchNews } from "redux/news/operations";
-import { selectorNews } from "redux/news/selectors";
-import { NewsSeachInput } from "../newsSearchInput/NewsSeachInput";
-import dog from 'images/dog.jpg';
+import { fetchNews } from "../../../redux/news/operations";
+import { selectorNews } from "../../../redux/news/selectors";
+import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
+// import { Loader } from "components/loader/Loader";
+import dog from '../../../images/fiends/dog.jpg';
 
 export const NewsList = () => {
     const [nameNews, setNameNews] = useState("");
@@ -33,36 +34,40 @@ export const NewsList = () => {
         const normalizedNameNews = nameNews.toLowerCase();
         const filteredNews = news.filter(item => item.title.toLowerCase().includes(normalizedNameNews));
         setFilteredNews(filteredNews);
-        setNameNews("");
-        setIsSearch(prevState => !prevState);
-        if (filteredNews.length === 0) {
+        if (filteredNews.length === 0 && !emptyAnswer) {
             setEmptyAnswer(true)
+            setFilteredNews(null)
         }
         
-    }
+        setIsSearch(prevState => !prevState);
 
-    const newsList = isSearch ? filteredNews : news;
+        if (isSearch) {
+            setNameNews("");
+        }
+    }
+    
+    const newsList = isSearch ? filteredNews : news ;
 
     return (
         <main>
-        <Section>
-            <TitleSection>News</TitleSection>
-            <NewsSeachInput getFindedNews={getFindedNews} value={nameNews} handlFindNews={handlFindNews} isSearch={isSearch} />
-            <ListOfNews>
-                {
-                    !emptyAnswer ?
-                        newsList.map(({ date, description, title, url, _id }) =>
-                            <NewsItem key={_id} date={date} description={description} title={title} url={url} />)
-                        : <div>
-                            <EmptyRequestText >I don't see any news on your request</EmptyRequestText>
-                            <EmptyRequestText >Try again!</EmptyRequestText>
-                            <EmptyRequestImg style={{borderRadius: "50%", width: "40%", marginLeft: 'auto', marginRight: "auto"}} src={dog} alt='No news'/>
-                        </div>
-                }
-            </ListOfNews>
-            
+            <Section>
+                <TitleSection>News</TitleSection>
+                <NewsSeachInput getFindedNews={getFindedNews} value={nameNews} handlFindNews={handlFindNews} isSearch={isSearch} />
+                 {/* <Loader/>    */}
+                <ListOfNews>
+                    { 
+                        !emptyAnswer ?
+                            newsList.map(({ date, description, title, url, _id }) =>
+                                <NewsItem key={_id} date={date} description={description} title={title} url={url} />)
+                            : <li>
+                                <EmptyRequestText >I don't see any news on your request</EmptyRequestText>
+                                <EmptyRequestText >Try again!</EmptyRequestText>
+                                <EmptyRequestImg style={{borderRadius: "50%", width: "40%", marginLeft: 'auto', marginRight: "auto"}} src={dog} alt='No news'/>
+                            </li>
+                    }
+                </ListOfNews>
+                
             </Section>
         </main>
     )
 }
-

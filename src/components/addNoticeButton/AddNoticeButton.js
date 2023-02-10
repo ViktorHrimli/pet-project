@@ -6,7 +6,7 @@ import {
   IconCross,
   ButtonName,
   Circle,
-} from './AddNoticeButton.styled';
+} from 'components/addNoticeButton/AddNoticeButton.styled';
 
 import { ModalAddNotice } from 'components/modalAddNotice/ModalAddNotice';
 import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';

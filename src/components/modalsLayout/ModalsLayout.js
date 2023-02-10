@@ -2,7 +2,7 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import { AiOutlineClose } from 'react-icons/ai';
 
-import { ConteinerIconsClose } from './ModalLayout.styled';
+import { ConteinerIconsClose } from 'components/modalsLayout/ModalLayout.styled';
 
 import './styled.css';
 

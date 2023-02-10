@@ -2,21 +2,40 @@ import styled from '@emotion/styled';
 import { Field } from 'formik';
 
 export const InputArea = styled(Field)`
+  width: 100%;
   height: 40px;
   padding: 0 10px 0 10px;
-  background-color: #fdf7f2;
-
-  border: 1px solid rgba(245, 146, 86, 0.5);
-  border-radius: 40px;
+  font-weight: ${p => p.theme.fontWeights.normal};
+  font-size: ${p => p.theme.fontSizes.xxs};
+  line-height: ${p => p.theme.lineHeights.normal};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
+  color: ${p => p.theme.colors.black};
+  background-color: ${p => p.theme.colors.background};
+  border: ${p => p.theme.borders.normal};
+  border-color: ${p => p.theme.colors.inputAuthForm};
+  border-radius: ${p => p.theme.radii.big};
   outline: none;
-
-  font-size: 14px;
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.ms};
+    line-height: ${p => p.theme.lineHeights.max};
+    height: 52px;
+  }
 
   &:focus {
-    border: 2px solid rgba(245, 146, 86, 0.5);
+    border: ${p => p.theme.borders.medium};
+    border-color: ${p => p.theme.colors.primary};
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
   &::placeholder {
-    font-size: 12px;
+    font-weight: ${p => p.theme.fontWeights.normal};
+    font-size: ${p => p.theme.fontSizes.xxs};
+    line-height: ${p => p.theme.lineHeights.normal};
+    letter-spacing: ${p => p.theme.letterSpacings.normal};
+    color: ${p => p.theme.colors.muted};
+    @media screen and (min-width: 768px) {
+      font-size: ${p => p.theme.fontSizes.ms};
+      line-height: ${p => p.theme.lineHeights.max};
+    }
   }
 `;
 

@@ -67,16 +67,17 @@ font-weight: 400;
 font-size: 16px;
 line-height: 22px;
 
-
 color: #111321;
 
 margin: 0; 
--webkit-line-clamp: 6; 
+-webkit-line-clamp: 7; 
 display: -webkit-box; 
 -webkit-box-orient: vertical; 
 overflow: hidden;
 
-
+@media screen and (min-width: 768px) {
+   -webkit-line-clamp: 6; 
+  };
 @media screen and (min-width: 1280px) {
     -webkit-line-clamp: 5;
  }
@@ -112,4 +113,4 @@ font-size: 16px;
 line-height: 22px;
 
 color: #F59256;
-`
+`;
