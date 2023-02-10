@@ -78,6 +78,7 @@ export const IconSearch = styled(search)`
   height: 15px;
   &:hover {
     fill: ${p => p.theme.colors.focus};
+  }
   @media screen and (min-width: 768px) {
     width: 18px;
     height: 18px;
