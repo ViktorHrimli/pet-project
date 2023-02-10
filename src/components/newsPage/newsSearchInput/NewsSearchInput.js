@@ -1,8 +1,8 @@
-<<<<<<< HEAD:src/components/newsPage/newsSearchInput/NewsSeachInput.js
-import { InputCont, FindNews, FindNewsBtn, ButtonImg} from "components/newsPage/newsSearchInput/NewsSeachInput.styled"
-=======
-import { InputCont, FindNews, FindNewsBtn, ButtonImg} from "components/newsPage/newsSearchInput/NewsSearchInput.styled"
->>>>>>> dev:src/components/newsPage/newsSearchInput/NewsSearchInput.js
+import { 
+    InputCont,
+    FindNews,
+    FindNewsBtn,
+    ButtonImg} from "components/newsPage/newsSearchInput/NewsSeachInput.styled"
 import search from 'images/svg/search.svg';
 import crossNotice from 'images/svg/close-line.svg';
 
