@@ -4,11 +4,11 @@ import Section from "components/section/Section";
 import { TitleSection } from "components/section/Section.styled";
 import { NewsItem } from "components/newsPage/newsItem/NewsItem";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchNews } from "redux/news/operations";
-import { selectorNews } from "redux/news/selectors";
-import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSeachInput";
+import { fetchNews } from "../../../redux/news/operations";
+import { selectorNews } from "../../../redux/news/selectors";
+import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
 // import { Loader } from "components/loader/Loader";
-import dog from 'images/fiends/dog.jpg';
+import dog from '../../../images/fiends/dog.jpg';
 
 export const NewsList = () => {
     const [nameNews, setNameNews] = useState("");
