@@ -34,7 +34,7 @@ export const FiendsItem = ({image, name,email,time,adress,phone}) => {
                         <ul>
                             <ItemData>
                                 Time:
-                                {!time ? <Button onClick={handleToggle}>---------------------------------</Button> : <Button onClick={handleToggle}>{time.monday}</Button>}
+                                {!time ? <Button disabled style={{cursor: "inherit"}} onClick={handleToggle}>---------------------------------</Button> : <Button onClick={handleToggle}>{time.monday}</Button>}
                                 
                             </ItemData>
                             <ItemData>
