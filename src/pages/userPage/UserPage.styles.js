@@ -5,26 +5,26 @@ margin-top: 119px;
 padding-left: 20px;
 padding-right: 20px;
 @media screen and (min-width: 768px) {
-  display: flex;
+  padding-left: 0px;
+
 }
 `
 export const UserInfo = styled.div`
 position: relative;
 box-sizing: border-box;
-width: auto;
+
 justify-content: center;
 padding: 20px 16px 20px 16px;
 background-color: ${p => p.theme.colors.white};
 border-radius: 7%;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 @media screen and (max-width: 768px) {
-
+  width: auto;
 }
 
 @media screen and (min-width: 768px) {
-  width: 736px;
-  display: flex;
-  flex-direction: row-reverse;
+  padding-left: 0px;
+
   justify-content: space-between;
   padding: 24px 40px 24px 40px;
   border-bottom-left-radius: 0;
@@ -98,7 +98,7 @@ export const Title = styled.h2`
   color: ${p => p.theme.colors.black};
   margin-bottom: 18px;
   @media screen and (min-width: 768px) {
-
+    margin-left: 20px;
     font-size: 28px;
     line-height: {t => };
     margin-bottom: 40px;
@@ -139,6 +139,8 @@ export const AddPetBtnContainer = styled.div`
 
 `
 export const PetsContainerWrapper = styled.div`
+padding-left: 20px;
+padding-right: 20px;
 display: flex;
 justify-content: space-between;
 
@@ -146,3 +148,11 @@ margin-top: 46px;
 `
 export const UserInfoContainer = styled.div`
 margin-bottom: 42px;`
+
+export const UserDataWrapper = styled.div`
+@media screen and (min-width: 768px) {
+  display: flex;
+  flex-direction: row-reverse;
+ justify-content: space-between;
+}
+`

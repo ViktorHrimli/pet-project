@@ -1,13 +1,13 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { updateUserData } from 'redux/user/operations';
-import { createFormData } from './FormData';
+import { createFormData } from 'components/userData/FormData';
 
 import { itemInfo } from 'components/userData/ItemInfo';
 import { UserItem } from 'components/userData/UserItem';
 import { UserPhoto } from 'components/userData/UserPhoto';
 import { LogOut } from 'components/userData/LogOut';
-import {UserInfoContainer} from 'pages/userPage/UserPage.styles'
+import {UserInfoContainer, UserDataWrapper} from 'pages/userPage/UserPage.styles'
 
 export const UserForm = ({ formData }) => {
 	const {
@@ -46,7 +46,7 @@ export const UserForm = ({ formData }) => {
 				{isUserLoading || isCurrentLoading ? (
 					<div>"loading" </div>
 				) : (
-					<>
+					<UserDataWrapper>
 						<UserPhoto
 							onSubmit={handleSubmit(onSubmit)}
 							watch={watch}
@@ -70,7 +70,7 @@ export const UserForm = ({ formData }) => {
 								/>
 							))}
 						</UserInfoContainer>
-					</>
+					</UserDataWrapper>
 				)}
 			</div>
 			{!isUserLoading && !isCurrentLoading && <LogOut />}

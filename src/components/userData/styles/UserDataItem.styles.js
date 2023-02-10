@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-
-
 export const InfoItem = styled.div`
 font-size: ${p => p.theme.fontSizes.xxxs};
 font-weight: ${p => p.theme.fontWeights.medium};
@@ -17,26 +15,25 @@ letter-spacing: ${p => p.theme.letterSpacings.min}
   }
 `;
 
-export const Property = styled.p`
-  min-width: 82px;
-  font-weight: 500;
-  @media screen and (min-width: 768px) {
-    min-width: 120px;
-    font-size: 18px;
-    line-height: 25px;
-  }
-`;
-
 export const Userlabel = styled.label`
 display: flex;
 justify-content: space-between;
 align-items: center;
+@media screen and (min-width: 768px) {
+
+  }
 `
 
 export const Form = styled.form`
 
 &:not(:last-child) {
   margin-bottom: 12px;
+}
+@media screen and (min-width: 768px) {
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+
 }
 `;
 
@@ -113,7 +110,9 @@ export const LogOut = styled.div`
 `;
 
 export const UserInfoWrapper = styled.div`
+
   margin-top: 32px;
 `
 export const EditInputContainer = styled.div`
-margin-left: 25px;`
+margin-left: 25px;
+`
