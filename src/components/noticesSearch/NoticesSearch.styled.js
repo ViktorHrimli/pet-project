@@ -30,6 +30,8 @@ export const SearchInput = styled.input`
   transition-property: background-color;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+  
   &:hover,
   &:focus {
   }
@@ -78,6 +80,7 @@ export const IconSearch = styled(search)`
   height: 15px;
   &:hover {
     fill: ${p => p.theme.colors.focus};
+  }
   @media screen and (min-width: 768px) {
     width: 18px;
     height: 18px;
