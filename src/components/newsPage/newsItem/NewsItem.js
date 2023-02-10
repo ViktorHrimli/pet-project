@@ -1,4 +1,11 @@
-import {ItemNews, Text, LineImg, NewsName, BottomDiv, NewsDate, NewsLink} from "./NewsItem.styled"
+import {ItemNews,
+    Text,
+    LineImg,
+    NewsName,
+    BottomDiv,
+    NewsDate,
+    NewsLink
+} from "components/newsPage/newsItem/NewsItem.styled"
 
 
 export const NewsItem = ({ date, description, title, url}) => {

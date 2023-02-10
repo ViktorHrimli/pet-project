@@ -16,10 +16,10 @@ import {
   ErrorText,
   Label,
   Icon,
-} from './LoginForm.styled';
+} from 'components/loginForm/LoginForm.styled';
 
-import { LoginBtn } from './loginBtn/LoginBtn';
-import Container from '../container/Container';
+import { LoginBtn } from 'components/loginForm/loginBtn/LoginBtn';
+import Container from 'components/container/Container';
 
 export const FormError = ({ name }) => {
   return (

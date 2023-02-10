@@ -1,4 +1,4 @@
-import { InputCont, FindNews, FindNewsBtn, ButtonImg} from "./NewsSeachInput.styled"
+import { InputCont, FindNews, FindNewsBtn, ButtonImg} from "components/newsPage/newsSearchInput/NewsSearchInput.styled"
 import search from 'images/svg/search.svg';
 import crossNotice from 'images/svg/close-line.svg';
 

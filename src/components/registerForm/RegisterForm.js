@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-import { validationSchema1, validationSchema2 } from './validationSchema';
+import { validationSchema1, validationSchema2 } from 'components/registerForm/validationSchema';
 
-import InputField from './inputField/InputField';
+import InputField from 'components/registerForm/inputField/InputField';
 import { nanoid } from 'nanoid';
-import MultiStepForm, { FormStep } from './multiStepForm/MultiStepForm';
+import MultiStepForm, { FormStep } from 'components/registerForm/multiStepForm/MultiStepForm';
 import { RxEyeOpen, RxEyeClosed } from 'react-icons/rx';
-import ContainerRegister from './containerRegister/ContainerRegister';
+import ContainerRegister from 'components/registerForm/containerRegister/ContainerRegister';
 import {
   PageTitle,
   EntryFieldLabel,
@@ -16,7 +16,7 @@ import {
   ButtonIconPass,
   ButtonIconConfirmPass,
   LabelPhone,
-} from './RegisterForm.styled';
+} from 'components/registerForm/RegisterForm.styled';
 
 const EmailInputId = nanoid();
 const PasswordInputId = nanoid();

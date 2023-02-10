@@ -1,7 +1,7 @@
 import { Container } from 'components/petsData/PetContainer';
 import  CardImg  from 'images/noImage/noImage.jpg';
-import { DeleteButton } from './DeleteButton';
-import { CardMarkUp } from './PetCardMarkup';
+import { DeleteButton } from 'components/petsData/DeleteButton';
+import { CardMarkUp } from 'components/petsData/PetCardMarkup';
 
 export const PetCard = ({ cardData }) => {
   const { userPets, onDeletePet, isPetsLoading } = cardData;

@@ -10,7 +10,7 @@ import { PetCard } from 'components/petsData/PetCard';
 
 import { UserPageContainer, UserContainer, PetsContainerWrapper, UserInfo, PetTitle, UserCardWrapper, Title, AddPetBtnContainer,
 	// DataWrapper
-} from './UserPage.styles';
+} from 'pages/userPage/UserPage.styles';
 import { AddNoticeButton } from 'components/addNoticeButton/AddNoticeButton';
 
 const UserPage = () => {

@@ -1,5 +1,5 @@
 import Container from 'components/container/Container';
-import { SectionWrapper } from './Section.styled';
+import { SectionWrapper } from 'components/section/Section.styled';
 
 const Section = ({ children }) => {
   return <section>

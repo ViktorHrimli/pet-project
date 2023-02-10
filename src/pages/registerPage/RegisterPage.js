@@ -1,6 +1,6 @@
 import RegisterForm from '../../components/registerForm/RegisterForm';
 
-import { Section } from './RegisterPage.styled';
+import { Section } from 'pages/registerPage/RegisterPage.styled';
 
 const RegisterPage = () => {
   return (
