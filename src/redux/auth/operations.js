@@ -5,7 +5,7 @@ axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
 
 const token = {
   set(token) {
-    axios.defaults.headers.common.Authorization = token;
+    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
   },
   unset() {
     axios.defaults.headers.common.Authorization = '';

@@ -1,4 +1,5 @@
-import {ItemNews,
+import {
+    ItemNews,
     Text,
     LineImg,
     NewsName,
@@ -6,7 +7,6 @@ import {ItemNews,
     NewsDate,
     NewsLink
 } from "components/newsPage/newsItem/NewsItem.styled"
-
 
 export const NewsItem = ({ date, description, title, url}) => {
     const newDate = new Date(date);

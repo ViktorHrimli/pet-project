@@ -1,6 +1,10 @@
-import { InputCont, FindNews, FindNewsBtn, ButtonImg} from "components/newsPage/newsSearchInput/NewsSearchInput.styled"
-import search from 'images/svg/search.svg';
-import crossNotice from 'images/svg/close-line.svg';
+import {
+    InputCont,
+    FindNews,
+    FindNewsBtn,
+    IconCross,
+    IconSearch
+} from "components/newsPage/newsSearchInput/NewsSearchInput.styled";
 
 export const NewsSeachInput = ({getFindedNews, value, handlFindNews, isSearch}) => {
 return (
@@ -16,7 +20,8 @@ return (
                 disabled={isSearch}
             />
             <FindNewsBtn type="submit" >
-                <ButtonImg src={isSearch ? crossNotice : search} alt='Search'/>
+                    {isSearch ? <IconCross/> : <IconSearch/>}
+                {/* <ButtonImg src={isSearch ? crossNotice : search} alt='Search'/> */}
             </FindNewsBtn>
             </form>
         </InputCont>

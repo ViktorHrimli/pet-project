@@ -1,4 +1,6 @@
 import styled from '@emotion/styled';
+import { ReactComponent as search } from '../../../images/svg/search.svg';
+import { ReactComponent as crossNotice } from '../../../images/svg/close-line.svg';
 
 export const InputCont = styled.div`
 width: 280px;
@@ -14,65 +16,79 @@ margin-right: auto;
 `;
 
 export const FindNews = styled.input`
-width: 280px;
+font-family: ${p => p.theme.fonts.body};
+font-size: ${p => p.theme.fontSizes.xs};
+line-height: ${p => p.theme.lineHeights.max};
+font-weight: ${p => p.theme.fontWeights.medium};
+letter-spacing: ${p => p.theme.letterSpacings.normal};
+width: 100%;
 height: 40px;
-box-sizing: border-box;
-padding: 0;
-padding-left: 12px;
-outline: none;
-background-color: #FFFFFF;
-box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
 border: 0;
 border-radius: 20px;
-transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+padding: 0;
+padding-left: 12px;
+cursor: pointer;
+outline: none;
+color: ${p => p.theme.colors.black};
+box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+transition-property: background-color;
+transition-duration: 0.25s;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-&::placeholder {
-  font-family: 'Manrope';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: 0.04em;
+&::placeholder,
+::-webkit-input-placeholder {
   color: #535353;
 }
-    &:focus,
-    &:hover {
-        border: 1px solid ${p => p.theme.colors.focus};
-    }
-
+:-ms-input-placeholder {
+    color: #535353;
+  }
+   
+&:focus {
+  ::placeholder {
+    color: ${p => p.theme.colors.white};
+  }
+}
   @media screen and (min-width: 768px) {
-  width: 608px;
-  height: 44px;
-  padding-left: 20px;
-  
-    &::placeholder {
-    font-size: 20px;
-    line-height: 27px;
-    
-    }
+    line-height: ${p => p.theme.lineHeights.normal};
+    font-size: ${p => p.theme.fontSizes.s};
+    border-radius: 40px;
+    padding-left: 20px;
+    width: 608px;
+    height: 44px;
 }
 `;
 
 export const FindNewsBtn = styled.button`
 position: absolute;
-bottom: 12px;
+bottom: 10px;
 right:13px;
 border: none;
 outline: none;
 display: block;
-/* padding: 10; */
-background-color: transparent;
+padding: 0;
+`;
 
-&:hover {
+export const IconSearch = styled(search)`
+  width: 15px;
+  height: 15px;
+  &:hover {
     fill: ${p => p.theme.colors.focus};
+  }
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
   }
 `;
 
-export const ButtonImg = styled.img`
-width: 15px;
-height: 15px;
+export const IconCross = styled(crossNotice)`
+  width: 15px;
+  height: 15px;
+  &:hover {
+    fill: ${p => p.theme.colors.focus};
+  }
+
   @media screen and (min-width: 768px) {
-   width: 18px;
-   height: 18px;
+    width: 18px;
+    height: 18px;
   }
 `;
