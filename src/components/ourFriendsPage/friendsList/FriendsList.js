@@ -19,7 +19,7 @@ export const FriendsList = () => {
     return (
         <main>
             <Section>
-                <Title>Our friend</Title>
+                <Title>Our friends</Title>
                 <ListOfFriends>
                     {getFriends.map(friend => <FiendsItem key={friend._id} id={friend._id} image={friend.imageURL}
                         name={friend.name} time={friend.time} email={friend.email} adress={friend.adress} phone={friend.phone} />)}
