@@ -114,8 +114,8 @@ export const LinkOnLogin = styled.span`
 
 export const ButtonIconPass = styled.button`
   position: absolute;
-  top: 2px;
-  right: 5px;
+  top: 7%;
+  right: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -132,21 +132,28 @@ export const ButtonIconPass = styled.button`
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (min-width: 768px) {
-    top: 8px;
-    right: 5px;
-  }
-
   &:hover *,
   &:focus * {
     fill: ${p => p.theme.colors.primary};
+  }
+  @media screen and (min-width: 768px) {
+    top: 14%;
+    right: 12px;
+  }
+  svg {
+    width: 16px;
+    height: 16px;
+    @media screen and (min-width: 768px) {
+      width: 35px;
+      height: 35px;
+    }
   }
 `;
 
 export const ButtonIconConfirmPass = styled.button`
   position: absolute;
-  top: 2px;
-  right: 5px;
+  top: 7%;
+  right: 8px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -162,13 +169,21 @@ export const ButtonIconConfirmPass = styled.button`
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  @media screen and (min-width: 768px) {
-    top: 8px;
-    right: 5px;
-  }
-
   &:hover *,
   &:focus * {
     fill: ${p => p.theme.colors.primary};
+  }
+  @media screen and (min-width: 768px) {
+    top: 14%;
+    right: 12px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    @media screen and (min-width: 768px) {
+      width: 35px;
+      height: 35px;
+    }
   }
 `;

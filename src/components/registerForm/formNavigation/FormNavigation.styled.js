@@ -93,6 +93,10 @@ export const LinkOnLogin = styled(NavLink)`
   margin-left: 5px;
   text-decoration-line: underline;
   color: ${p => p.theme.colors.secondary};
+
+  &:hover {
+    color: ${p => p.theme.colors.focus};
+  }
 `;
 
 export const Register1 = styled.div`
