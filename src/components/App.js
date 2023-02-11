@@ -1,9 +1,13 @@
 import { ROUTES, ROUTES_CATEGORY_NAMES, ROUTES_PARAMS } from 'constants/routes';
-import React, { lazy } from 'react';
+import React, { useEffect, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
+import { fetchCurrentUser } from 'redux/auth/operations';
+import { selectIsRefreshing } from 'redux/auth/selectors';
 
+import { Loader } from 'components/loader/Loader';
 import { SharedLayout } from './sharedLayout/SharedLayout';
 
 const HomePage = React.lazy(() => import('pages/homePage/HomePage.js'));
@@ -17,9 +21,19 @@ const OurFriendsPage = lazy(() =>
 const UserPage = lazy(() => import('../pages/userPage/UserPage'));
 
 const App = () => {
+
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
-      <Routes>
+    {isRefreshing
+        ? <Loader />
+        : <Routes>
         <Route path={ROUTES.home} element={<SharedLayout />}>
           <Route index element={<HomePage />} />
 
@@ -68,7 +82,7 @@ const App = () => {
           />
         </Route>
         <Route path="*" element={<Navigate to={ROUTES.home} />} />
-      </Routes>
+      </Routes>}
     </>
   );
 };
