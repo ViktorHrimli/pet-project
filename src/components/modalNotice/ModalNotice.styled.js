@@ -44,7 +44,8 @@ export const WrapperPetPhoto = styled.div`
 export const CategoryNotice = styled.div`
 position: absolute;
 display: flex;
-top: 40px;
+justify-content: space-around;
+top: 20px;
 left: 0;
 width: 158px;
 height: 28px;
