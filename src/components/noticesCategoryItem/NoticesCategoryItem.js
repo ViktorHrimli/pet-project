@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteItems, selectItemById } from 'redux/notices/selectors';
 import { useAuth } from 'hooks/useAuth';
@@ -21,12 +22,18 @@ import {
   PickIcon,
   Try,
   Buttonlist,
-} from 'components/noticesCategoryItem/NoticesCategoryIItem.styled';
+} from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
+
+import { ModalNoticeLayout } from 'components/modalsLayout/modalNoticeLayout/ModalNoticeLayout';
+import { ModalNotice } from 'components/modalNotice/ModalNotice';
+//   import Container from 'components/container/Container';
 
 export const NoticeCategoryItem = ({ item }) => {
   // const { token } = useAuth();
   const dispatch = useDispatch();
   const { _id, category, title, birthday, breed, city, imageURL, price } = item;
+  const [isOpenModalNotice, setIsOpenModalNotice] = useState(false);
+
   const allFavorite = useSelector(selectFavoriteItems);
   const selectItem = useSelector(selectItemById);
   const isFavorite = allFavorite.find(card => card._id === _id);
@@ -80,10 +87,15 @@ export const NoticeCategoryItem = ({ item }) => {
       <Buttonlist>
         <CardButton
           type="button"
-          onClick={() => dispatch(getNoticesById(_id))}
+          onClick={() => {
+          setIsOpenModalNotice(true),
+          dispatch(getNoticesById(_id))}
           cardInfo={selectItem}
         >
           Learn more
+          <ModalNoticeLayout isOpenModalNotice={isOpenModalNotice} setIsOpenModalNotice={setIsOpenModalNotice}>
+            <ModalNotice data={cardInfo} setIsOpenModalNotice={setIsOpenModalNotice} />
+          </ModalNoticeLayout>
         </CardButton>
         {isFavorite && (
           <DeleteButton
