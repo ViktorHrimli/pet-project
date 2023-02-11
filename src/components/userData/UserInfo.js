@@ -20,7 +20,6 @@ export const UserForm = ({ formData }) => {
     isCurrentLoading,
   } = formData;
 
-  // console.log('formData in user info', formData);
   const {
     register,
     handleSubmit,

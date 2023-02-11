@@ -29,8 +29,6 @@ const UserPage = () => {
   const isUserLoading = useSelector(selectors.getUserLoading);
   const error = useSelector(getUserError);
   const isAddedPetSuccess = useSelector(getIsAddedPetSuccess);
-  // console.log('userInfo', userInfo);
-  // console.log(userAvatar);
 
   useEffect(() => {
     dispatch(getUserData());
@@ -50,8 +48,6 @@ const UserPage = () => {
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };
-
-  // console.log('formData in user page,', formData);
 
   return (
     <UserPageContainer>

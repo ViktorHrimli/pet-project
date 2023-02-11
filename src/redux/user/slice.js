@@ -8,7 +8,7 @@ import {
 } from './operations';
 
 const initialState = {
-  user: { avatarURL: null, userInfo: {} },
+  user: {},
   loading: false,
   userLoading: false,
   error: null,
