@@ -4,16 +4,23 @@ export const SectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media screen and (max-width: 319px) {
+    padding: 0 10px;
+  }
+
   @media screen and (max-width: 767px) {
     padding-top: 127px;
+    padding: 0 20px;
   }
 
   @media screen and (min-width: 768px) {
     padding-top: 160px;
+    padding: 0 32px;
   }
 
   @media screen and (min-width: 1280px) {
     padding-top: 130px;
+    padding: 0 16px;
   }
 `;
 
