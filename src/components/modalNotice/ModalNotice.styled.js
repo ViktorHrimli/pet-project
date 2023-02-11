@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
-import {ReactComponent as redHeart} from '../../images/svg/icons_heart.svg';
+import {ReactComponent as redHeart} from '../../images/svg/heart-for-button.svg';
+import {ReactComponent as cross} from '../../images/svg/close-line.svg';
 
 export const WrapperContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 280px;
@@ -15,6 +17,25 @@ export const WrapperContainer = styled.div`
   border-radius: 40px;
 }
 `;
+
+export const CloseBtn = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: ${p => p.theme.colors.background};
+`;
+
+export const CrossLine = styled(cross)`
+  width: 20px;
+  height: 20px;
+`;
+
 export const WrapperInfoBlock = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,7 +49,6 @@ export const WrapperInfoBlock = styled.div`
 export const WrapperPetPhoto = styled.div`
   width: 240px;
   height: 240px;
-  padding-right: 20px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   background-color: ${p => p.theme.colors.white};
@@ -98,96 +118,97 @@ font-size: ${p => p.theme.fontSizes.xxs};
 font-weight: 600;
 
 @media screen and (min-width: 768px) {
-  font-size: ${p => p.theme.fontSizes.xs};
-  lineHeight: ${p => p.theme.lineHeights.max};
-  width: 120px; 
+  font-size: ${p => p.theme.fontSizes.xs};
+  lineHeight: ${p => p.theme.lineHeights.max};
+  width: 120px; 
 }
 `;
 
 export const DateModalNotice = styled.p`
-  margin-bottom: 0;
-  font-size: ${p => p.theme.fontSizes.xxs};
-  font-weight: ${p => p.theme.fontWeights.medium};
+  margin-bottom: 0;
+  font-size: ${p => p.theme.fontSizes.xxs};
+  font-weight: ${p => p.theme.fontWeights.medium};
 
 @media screen and (min-width: 768px) {
-  font-size: ${p => p.theme.fontSizes.xs};
-  lineHeight: ${p => p.theme.lineHeights.max};
+  font-size: ${p => p.theme.fontSizes.xs};
+  lineHeight: ${p => p.theme.lineHeights.max};
 }
 `;
 
 export const NoticeComments = styled.p`
-  margin-bottom: 0;
-  width: 240px;
-  heiight: 95px;
+  margin-bottom: 0;
+  width: 240px;
+  heiight: 95px;
 `;
 
 export const ButtonModalWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
 
 @media screen and (min-width: 768px) {
-  flex-direction: row-reverse;
-  justify-content: flex-start;
-  padding-right: 20px;
-  margin-bottom: 32px;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  padding-right: 20px;
+  margin-bottom: 32px;
 }
 `;
 
 export const ContactButton = styled.button`
-  width: 240px;
-  height: 40px;
-  border-radius: 40px;
-  border: 2px solid ${p => p.theme.colors.primary};
+  width: 240px;
+  height: 40px;
+  border-radius: 40px;
+  background: ${p => p.theme.colors.primary};
+  border: 2px solid ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.white};
 
-  $:hover: {
-    color: ${p => p.theme.colors.white};
-    background-color: ${p => p.theme.colors.focus};
-    border: 2px solid ${p => p.theme.colors.focus};
-  }
+  &:hover {
+    background-color: ${p => p.theme.colors.focus};
+    border: 2px solid ${p => p.theme.colors.focus};
+  }
 
 @media screen and (max-width: 768px) {
-  margin-bottom: 12px;
+  margin-bottom: 12px;
 }
 
 @media screen and (min-width: 768px) {
-  width: 160px;
+  width: 160px;
 }
 `;
 
 export const AddToFavoriteButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 240px;
-  height: 40px;
-  border-radius: 40px;
-  border: 2px solid ${p => p.theme.colors.primary};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid ${p => p.theme.colors.primary};
 
-  $:hover: {
-    color: ${p => p.theme.colors.white};
-    background-color: ${p => p.theme.colors.focus};
-    border: 2px solid ${p => p.theme.colors.focus};
-  }
+  &:hover {
+    border: 2px solid ${p => p.theme.colors.focus};
+  }
 
 @media screen and (min-width: 768px) {
-  width: 160px;
-  margin-right: 12px;
+  width: 160px;
+  margin-right: 12px;
 }
 `;
 
 export const TitleNoticeButton = styled.p`
-  font-size: ${p => p.theme.fontSizes.xs};
-  font-weight: ${p => p.theme.fontWeights.medium};
-  line-height: ${p => p.theme.lineHeights.max};
+  font-size: ${p => p.theme.fontSizes.xs};
+  font-weight: ${p => p.theme.fontWeights.medium};
+  line-height: ${p => p.theme.lineHeights.max};
 `;
 
 export const IconRedHeart = styled(redHeart)`
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  stroke: ${p => p.theme.colors.primary};
+  fill: ${p => p.theme.colors.primary};
 
-  $:hover: {
-    fill: ${p => p.theme.colors.white};
+  &:hover {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
 `;

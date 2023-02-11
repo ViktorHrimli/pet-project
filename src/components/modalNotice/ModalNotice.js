@@ -16,7 +16,9 @@ import {
 	ButtonModalWrapper,
 	ContactButton,
 	AddToFavoriteButton,
-	IconRedHeart
+	IconRedHeart,
+  CloseBtn,
+  CrossLine
 } from 'components/modalNotice/ModalNotice.styled';
 
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
@@ -44,6 +46,9 @@ export const ModalNotice = ({
     <>
     <WrapperContainer>
       <WrapperInfoBlock>
+        <CloseBtn>
+          <CrossLine/>
+        </CloseBtn>
         <WrapperPetPhoto>
           {image ? (
           <PetPhoto src={image} alt='Pet photo'/>
