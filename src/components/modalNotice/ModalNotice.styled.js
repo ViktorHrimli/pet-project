@@ -27,6 +27,7 @@ export const WrapperInfoBlock = styled.div`
 `;
 
 export const WrapperPetPhoto = styled.div`
+  position: relative;
   width: 240px;
   height: 240px;
   border-bottom-left-radius: 40px;
@@ -34,10 +35,32 @@ export const WrapperPetPhoto = styled.div`
   background-color: ${p => p.theme.colors.white};
 
   @media screen and (min-width: 768px) {
-    // margin-right: 20px;
+    margin-right: 20px;
     width: 288px;
     height: 328px;
   }
+`;
+
+export const CategoryNotice = styled.div`
+position: absolute;
+display: flex;
+top: 40px;
+left: 0;
+width: 158px;
+height: 28px;
+align-items: center;
+border-top-right-radius: 50px;
+border-bottom-right-radius: 50px;
+background: rgba(255, 255, 255, 0.6);
+backdrop-filter: blur(50px);
+`;
+
+export const TitleCategory = styled.p`
+margin: 0;
+text-transform: capitalize;
+font-weight: ${p => p.theme.fontWeights.medium};;
+font-size: ${p => p.theme.fontSizes.xxxs};;
+line-height: ${p => p.theme.letterSpacings.min};
 `;
 
 export const PetPhoto = styled.img`

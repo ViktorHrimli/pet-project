@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import {
 	WrapperContainer,
 	WrapperPetPhoto,
@@ -14,35 +13,42 @@ import {
 	ButtonModalWrapper,
 	ContactButton,
 	AddToFavoriteButton,
-	IconRedHeart
+	IconRedHeart,
+  TitleCategory,
+  CategoryNotice
 } from 'components/modalNotice/ModalNotice.styled';
 // import { useSelector } from 'react-redux';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
-export const ModalNotice = ({
-  id,
-  setIsOpenModalNotice
+export const ModalNotice = ({data, setIsOpenModalNotice
 }) => {
+console.log(data)
   const {
-    image,
+    category,
+    imageURL,
     name,
+    price,
     birthday,
     breed,
-    lovation,
+    region,
     sex,
     email,
     phone,
-    comments} = useSelector();
-
+    comments
+    } = data;
+   console.log(imageURL)
   return (
     <>
     <WrapperContainer>
       <WrapperInfoBlock>
         <WrapperPetPhoto>
-          {image ? (
-          <PetPhoto src={image} alt='Pet photo'/>
+          {imageURL ? (
+          <PetPhoto src={imageURL} alt='Pet photo'/>
           ) : (
           <PetPhoto src={defaultPetPhoto} alt='Not pet photo'/>)}
+          <CategoryNotice>
+            <TitleCategory>{category}</TitleCategory>
+          </CategoryNotice>
         </WrapperPetPhoto>
         <ReferenceList>
         <TitleModalNotice>Сute dog looking for a home</TitleModalNotice>
@@ -59,8 +65,8 @@ export const ModalNotice = ({
             <DateModalNotice>{breed}</DateModalNotice>
           </InfoItem>
           <InfoItem>
-            <LableNotice>Lovation:</LableNotice>
-            <DateModalNotice>{lovation}</DateModalNotice>
+            <LableNotice>Location:</LableNotice>
+            <DateModalNotice>{region}</DateModalNotice>
           </InfoItem>
 				  <InfoItem>
             <LableNotice>The sex:</LableNotice>
@@ -74,6 +80,12 @@ export const ModalNotice = ({
             <LableNotice>Phone:</LableNotice>
             <a href={phone}><DateModalNotice>{phone}</DateModalNotice></a>
           </InfoItem>
+          {price && (
+            <InfoItem>
+            <LableNotice>Price:</LableNotice>
+            <DateModalNotice>{price}$</DateModalNotice>
+          </InfoItem>
+          )}
         </ReferenceList>
       </WrapperInfoBlock>
       <CommentsItem>

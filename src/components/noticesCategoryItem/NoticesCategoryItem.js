@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteItems, selectItemById } from 'redux/notices/selectors';
-import { useAuth } from 'hooks/useAuth';
+// import { useAuth } from 'hooks/useAuth';
 import {
   addFavoriteNotices,
   removeFavoriteNotices,
@@ -88,13 +88,15 @@ export const NoticeCategoryItem = ({ item }) => {
         <CardButton
           type="button"
           onClick={() => {
-          setIsOpenModalNotice(true),
-          dispatch(getNoticesById(_id))}
-          cardInfo={selectItem}
+          setIsOpenModalNotice(true)
+          dispatch(getNoticesById(_id))
+        }}
         >
           Learn more
           <ModalNoticeLayout isOpenModalNotice={isOpenModalNotice} setIsOpenModalNotice={setIsOpenModalNotice}>
-            <ModalNotice data={cardInfo} setIsOpenModalNotice={setIsOpenModalNotice} />
+            <ModalNotice 
+            data={selectItem}
+             setIsOpenModalNotice={setIsOpenModalNotice} />
           </ModalNoticeLayout>
         </CardButton>
         {isFavorite && (
