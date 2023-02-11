@@ -83,31 +83,31 @@ export const EditInput = styled.input`
   }
 `;
 
-export const LogOut = styled.div`
-  margin-top: 45px;
-  display: flex;
-  justify-content: end;
-  @media screen and (min-width: 768px) {
-    justify-content: start;
-    font-size: 16px;
-    margin-top: 33px;
-  }
-  & button {
-    border: none;
-    background-color: transparent;
-    display: flex;
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: ${p => p.theme.lineHeights.max}%;
-    letter-spacing: ${p => p.theme.letterSpacings.normal};
-    color: rgba(17, 17, 17, 0.6);
-    & img {
-      margin-right: 8px;
-    }
-  }
-`;
+// export const LogOut = styled.div`
+//   margin-top: 45px;
+//   display: flex;
+//   justify-content: end;
+//   @media screen and (min-width: 768px) {
+//     justify-content: start;
+//     font-size: 16px;
+//     margin-top: 33px;
+//   }
+//   & button {
+//     border: none;
+//     background-color: transparent;
+//     display: flex;
+//     font-family: 'Manrope';
+//     font-style: normal;
+//     font-weight: 500;
+//     font-size: 16px;
+//     line-height: ${p => p.theme.lineHeights.max}%;
+//     letter-spacing: ${p => p.theme.letterSpacings.normal};
+//     color: rgba(17, 17, 17, 0.6);
+//     & img {
+//       margin-right: 8px;
+//     }
+//   }
+// `;
 
 export const UserInfoWrapper = styled.div`
 

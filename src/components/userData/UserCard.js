@@ -7,7 +7,7 @@ import { itemInfo } from 'components/userData/ItemInfo';
 import { UserItem } from 'components/userData/UserItem';
 import { UserPhoto } from 'components/userData/UserPhoto';
 import { LogOut } from 'components/userData/LogOut';
-import { UserPhotoWrapper } from 'components/userData/styles/UserData.styles';
+import { UserWrapper, UserFormWrapper } from 'components/userData/styles/UserData.styles';
 
 export const UserForm = ({ formData }) => {
 	const {
@@ -46,7 +46,7 @@ export const UserForm = ({ formData }) => {
 				{isUserLoading || isCurrentLoading ? (
 					<div>is loading...</div>
 				) : (
-					<div>
+					<UserWrapper>
 						<UserPhoto
 							onSubmit={handleSubmit(onSubmit)}
 							watch={watch}
@@ -54,7 +54,7 @@ export const UserForm = ({ formData }) => {
 							register={register}
 						/>
 
-						<div >
+						<UserFormWrapper>
 							{itemInfo.map((info, idx) => (
 								<UserItem
 									onSubmit={handleSubmit(onSubmit)}
@@ -69,8 +69,8 @@ export const UserForm = ({ formData }) => {
 									key={idx}
 								/>
 							))}
-						</div>
-					</div>
+						</UserFormWrapper>
+					</UserWrapper>
 				)}
 			</div>
 			{!isUserLoading && !isCurrentLoading && <LogOut />}
