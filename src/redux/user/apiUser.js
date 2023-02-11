@@ -1,3 +1,5 @@
+
+// axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
 import * as API from '../../redux/auth/operations';
 
 export const getUserData = async () => {

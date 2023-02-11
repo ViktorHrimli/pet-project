@@ -6,6 +6,18 @@ export const NavWrapper = styled.div`
   flex-wrap: wrap;
   gap: ${p => p.theme.space[2]};
   margin-bottom: ${p => p.theme.space[6]};
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 767px) {
+    width: 480px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+  } ;
 `;
 
 export const ButtonList = styled.ul`

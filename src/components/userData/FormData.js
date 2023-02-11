@@ -2,9 +2,10 @@ export const createFormData = data => {
   const formDataToSend = new FormData();
 
   const key = Object.keys(data);
+  console.log(key)
   const value = Object.values(data);
 
-  for (let index = 0; index < key.length; index++) {
+  for (let index = 0; index < key.length; index += 1) {
     if (key[index] !== 'avatar') {
       if (value[index].trim()) {
         formDataToSend.append(key[index], value[index]);

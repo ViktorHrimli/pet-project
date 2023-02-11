@@ -16,7 +16,7 @@ import {
 	AddToFavoriteButton,
 	IconRedHeart
 } from 'components/modalNotice/ModalNotice.styled';
-
+// import { useSelector } from 'react-redux';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({

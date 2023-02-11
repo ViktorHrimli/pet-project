@@ -41,7 +41,7 @@ export const SearchInput = styled.input`
     }
   }
   outline: none;
-  color: ${p => p.theme.colors.muted};
+  color: ${p => p.theme.colors.black};
   @media screen and (min-width: 768px) {
     line-height: ${p => p.theme.lineHeights.normal};
     font-size: ${p => p.theme.fontSizes.s};

@@ -9,11 +9,11 @@ import {
   Button,
   ButtonUserList,
   OnlineItem,
-} from 'components/notisesCategoriesNav/NoticesCategoriesNav.styled';
+} from './NoticesCategoriesNav.styled';
 
 export const NoticeCategoriesNav = () => {
-  const { isLoggedIn } = useAuth();
-  if (isLoggedIn) {
+  const { token } = useAuth();
+  if (token) {
     return (
       <Container>
         <NavWrapper>

@@ -29,7 +29,7 @@ padding: 0;
 padding-left: 12px;
 cursor: pointer;
 outline: none;
-color: ${p => p.theme.colors.muted};
+color: ${p => p.theme.colors.black};
 box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
 transition-property: background-color;
 transition-duration: 0.25s;

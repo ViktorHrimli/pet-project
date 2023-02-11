@@ -1,17 +1,24 @@
-import { selectItems } from 'redux/notices/selectors';
+import {
+  selectItems,
+  selectFavoriteItems,
+  selectUserItems,
+} from 'redux/notices/selectors';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
+import { useLayoutEffect } from 'react';
 // import { useAuth } from 'hooks/useAuth';
 import { NoticeCategoryItem } from 'components/noticesCategoryItem/NoticesCategoryItem';
-import { getAll } from 'redux/notices/operations';
+import {
+  getAll,
+  favoriteNotices,
+  getUserNotices,
+} from 'redux/notices/operations';
 
 import { CardList } from 'components/noticesCategoryList/NoticeCategoryList.styled';
-import Container from 'components/container/Container';
 
 export const NoticeCategoryList = () => {
-  const toRender = useSelector(selectItems);
+  const dispatch = useDispatch();
+  let cal;
 
   const history = useLocation();
   const pathname = history.pathname.slice(9);
@@ -19,39 +26,41 @@ export const NoticeCategoryList = () => {
   switch (pathname) {
     case 'sell':
       result = 'sell';
+      cal = selectItems;
       break;
     case 'lost-found':
       result = 'lost-found';
+      cal = selectItems;
       break;
     case 'for-free':
       result = 'in-good-hands';
+      cal = selectItems;
       break;
-    // case 'for-favorite':
-    //   result = '3';
-    //   break;
-    // case 'own':
-    //   result = '3';
-    //   break;
+    case 'favorite':
+      cal = selectFavoriteItems;
+      break;
+    case 'own':
+      cal = selectUserItems;
+      break;
 
     default:
       result = null;
       break;
   }
-
-  const dispatch = useDispatch();
-  useEffect(() => {
+  const toRender = useSelector(cal);
+  useLayoutEffect(() => {
     dispatch(getAll(result));
+    dispatch(favoriteNotices());
+    dispatch(getUserNotices());
   }, [dispatch, result]);
 
   // const { isLoggedIn } = useAuth();
   // console.log(toRender);
   return (
-    <Container>
-      <CardList>
-        {toRender?.map(item => {
-          return <NoticeCategoryItem key={item._id} item={item} />;
-        })}
-      </CardList>
-    </Container>
+    <CardList>
+      {toRender?.map(item => {
+        return <NoticeCategoryItem key={item._id} item={item} />;
+      })}
+    </CardList>
   );
 };

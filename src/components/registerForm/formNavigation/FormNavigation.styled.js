@@ -30,8 +30,11 @@ export const ButtonBack = styled.button`
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
-    border: ${p => p.theme.borders.medium};
-    border-color: ${p => p.theme.colors.focus};
+    color: ${p => p.theme.colors.white};
+    background-color: ${p => p.theme.colors.primary};
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* border: ${p => p.theme.borders.medium};
+    border-color: ${p => p.theme.colors.focus}; */
   }
   @media (min-width: 768px) {
     padding: 10px 28px;
@@ -90,6 +93,10 @@ export const LinkOnLogin = styled(NavLink)`
   margin-left: 5px;
   text-decoration-line: underline;
   color: ${p => p.theme.colors.secondary};
+
+  &:hover {
+    color: ${p => p.theme.colors.focus};
+  }
 `;
 
 export const Register1 = styled.div`
