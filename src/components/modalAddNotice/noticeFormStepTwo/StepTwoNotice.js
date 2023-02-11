@@ -4,10 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import {
-  NoticeAddPhoto,
   AddComments,
-  AddIconsPhoto,
-  ImageSss,
   NoticeAddPhotoConteiner,
   AddStepTwoFormPets,
 } from 'components/modalAddNotice/noticeFormStepTwo/StepTwoNotice.styled';
@@ -21,6 +18,7 @@ import {
 
 import { ButtonFormDoneCancel } from 'components/modalAddNotice/buttonForm/ButtonForm';
 import { MaleFemale } from 'components/modalAddNotice/noticeFormStepTwo/sexConteiner/MaleFemale';
+import { PhotoConteinerNotice } from 'components/modalAddNotice/PhotoConteinerNotice/PhotoConteinerNotice';
 
 const shemaMultipleModal = isPrice => {
   return Yup.object().shape({
@@ -106,31 +104,12 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
 
             <NoticeAddPhotoConteiner>
               <LabelGlobal>Load the pet’s image</LabelGlobal>
-              {!file ? (
-                <NoticeAddPhoto>
-                  <AddIconsPhoto />
-                  <input
-                    as="input"
-                    type="file"
-                    name="avatar"
-                    hidden={true}
-                    size={50000}
-                    accept=".png, .jpg, .jpeg, .webp"
-                    onChange={e => {
-                      setFile({
-                        url: URL.createObjectURL(e.target.files[0]),
-                        avatar: e.target.files[0],
-                      });
-                    }}
-                  />
-                </NoticeAddPhoto>
-              ) : (
-                <ImageSss src={file.url} alt="pet" width="208" height="208" />
-              )}
 
-              {!isErrorFile && !file && (
-                <div style={{ color: 'red' }}>{'Field reqiured!'}</div>
-              )}
+              <PhotoConteinerNotice
+                file={file}
+                isErrorFile={isErrorFile}
+                setFile={setFile}
+              />
             </NoticeAddPhotoConteiner>
 
             <div style={{ position: 'relative' }}>

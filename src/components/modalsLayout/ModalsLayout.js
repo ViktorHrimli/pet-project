@@ -21,10 +21,11 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
         style={{
           overlay: {
             position: 'absolute',
-            width: '100vw',
-            height: '130vh',
+            top: '0',
+            left: '0',
+            width: '100%',
+            height: `300%`,
             backgroundColor: 'rgba(17, 17, 17, 0.6)',
-            padding: '20px',
             zIndex: 20,
           },
         }}

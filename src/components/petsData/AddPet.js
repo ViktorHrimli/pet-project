@@ -15,7 +15,7 @@ export const AddPetButton = () => {
   return (
     <AddButton>
       <Circle>
-        <IconCross/>
+        <IconCross />
       </Circle>
       <ButtonName onClick={() => setIsOpen(true)} type="button">
         Add pet

@@ -9,7 +9,6 @@ import {
 } from 'components/addNoticeButton/AddNoticeButton.styled';
 
 import { ModalAddNotice } from 'components/modalAddNotice/ModalAddNotice';
-import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
 import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
 
 export const AddNoticeButton = () => {
@@ -25,7 +24,6 @@ export const AddNoticeButton = () => {
       </ButtonName>
 
       <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
-        {/* <ModalAddPet setIsOpen={setIsOpen} /> */}
         <ModalAddNotice setIsOpen={setIsOpen} />
       </ModalsLayout>
     </AddButton>
