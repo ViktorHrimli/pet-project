@@ -10,7 +10,6 @@ import {
 } from 'components/addNoticeButton/AddNoticeButton.styled';
 
 import { ModalAddNotice } from 'components/modalAddNotice/ModalAddNotice';
-// import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
 import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
 
 export const AddNoticeButton = () => {
