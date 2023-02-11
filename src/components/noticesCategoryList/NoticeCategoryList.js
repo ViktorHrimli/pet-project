@@ -17,7 +17,8 @@ import {
 import { CardList } from 'components/noticesCategoryList/NoticeCategoryList.styled';
 
 export const NoticeCategoryList = () => {
-  const toRender = useSelector(selectItems);
+  const dispatch = useDispatch();
+  let cal;
 
   const history = useLocation();
   const pathname = history.pathname.slice(9);
@@ -25,35 +26,39 @@ export const NoticeCategoryList = () => {
   switch (pathname) {
     case 'sell':
       result = 'sell';
+      cal = selectItems;
       break;
     case 'lost-found':
       result = 'lost-found';
+      cal = selectItems;
       break;
     case 'for-free':
       result = 'in-good-hands';
+      cal = selectItems;
       break;
-    // case 'for-favorite':
-    //   result = '3';
-    //   break;
-    // case 'own':
-    //   result = '3';
-    //   break;
+    case 'favorite':
+      cal = selectFavoriteItems;
+      break;
+    case 'own':
+      cal = selectUserItems;
+      break;
 
     default:
       result = null;
       break;
   }
-
-  const dispatch = useDispatch();
+  const toRender = useSelector(cal);
   useLayoutEffect(() => {
     dispatch(getAll(result));
+    dispatch(favoriteNotices());
+    dispatch(getUserNotices());
   }, [dispatch, result]);
 
   // const { isLoggedIn } = useAuth();
   // console.log(toRender);
   return (
     <CardList>
-      {toRender.map(item => {
+      {toRender?.map(item => {
         return <NoticeCategoryItem key={item._id} item={item} />;
       })}
     </CardList>

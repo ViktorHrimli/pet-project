@@ -23,6 +23,7 @@ const noticesInitialState = {
   items: [],
   userItems: [],
   myFavoriteItems: [],
+  noticesById: [],
   isLoading: false,
   error: null,
 };
@@ -67,6 +68,10 @@ const noticesSlice = createSlice({
       state.isLoading = false;
       state.selectUserItems = action.payload;
     },
+    [getNoticesById.fulfilled](state, action) {
+      state.isLoading = false;
+      state.noticesById = action.payload;
+    },
 
     [addNotices.fulfilled](state, action) {
       state.isLoading = false;
@@ -76,7 +81,10 @@ const noticesSlice = createSlice({
     [addFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.selectFavoriteItems.unshift(action.payload);
+      const foo = state.items.find(
+        item => item._id === action.payload.noticeId
+      );
+      state.myFavoriteItems = [foo, ...state.myFavoriteItems];
     },
 
     [deleteNotices.fulfilled](state, action) {
@@ -88,10 +96,9 @@ const noticesSlice = createSlice({
     },
     [removeFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
-      const index = state.myFavoriteItems.findIndex(
-        task => task._id === action.payload._id
+      state.myFavoriteItems = state.myFavoriteItems.filter(
+        item => item._id !== action.payload.noticeId
       );
-      state.selectFavoriteItems.splice(index, 1);
     },
   },
 });

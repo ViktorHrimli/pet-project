@@ -121,7 +121,17 @@ export const InfoItem = styled.li`
   margin-bottom: ${p => p.theme.space[2]};
 `;
 
+export const Buttonlist = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  gap: 12px;
+`;
+
 export const CardButton = styled.button`
+  height: 38px;
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.medium};
   font-size: ${p => p.theme.fontSizes.xs};
@@ -133,7 +143,6 @@ export const CardButton = styled.button`
   padding-bottom: ${p => p.theme.space[2]};
   width: 248px;
   border-radius: ${p => p.theme.radii.big};
-  margin-bottom: ${p => p.theme.space[3]};
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -148,6 +157,7 @@ export const CardButton = styled.button`
     color: ${p => p.theme.colors.white};
   }
 `;
+
 export const DeleteButton = styled.button`
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.medium};

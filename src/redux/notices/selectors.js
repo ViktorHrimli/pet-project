@@ -6,6 +6,8 @@ export const selectUserItems = state => state.notices.userItems;
 
 export const selectFavoriteItems = state => state.notices.myFavoriteItems;
 
+export const selectItemById = state => state.notices.noticesById;
+
 export const selectIsLoading = state => state.notices.isLoading;
 
 export const selectError = state => state.notices.error;

@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useLayoutEffect } from 'react';
-import { selectFavoriteItems } from 'redux/notices/selectors';
+import { selectFavoriteItems, selectItemById } from 'redux/notices/selectors';
+import { useAuth } from 'hooks/useAuth';
 import {
   addFavoriteNotices,
-  favoriteNotices,
   removeFavoriteNotices,
+  getNoticesById,
 } from 'redux/notices/operations';
 import { intToEnglish } from 'components/noticesCategoryItem/date';
 
@@ -20,11 +20,16 @@ import {
   Pick,
   PickIcon,
   Try,
+  Buttonlist,
 } from 'components/noticesCategoryItem/NoticesCategoryIItem.styled';
 
 export const NoticeCategoryItem = ({ item }) => {
+  // const { token } = useAuth();
   const dispatch = useDispatch();
   const { _id, category, title, birthday, breed, city, imageURL, price } = item;
+  const allFavorite = useSelector(selectFavoriteItems);
+  const selectItem = useSelector(selectItemById);
+  const isFavorite = allFavorite.find(card => card._id === _id);
 
   function formatData() {
     const data2 = birthday.split('.').reverse().join('.');
@@ -40,19 +45,8 @@ export const NoticeCategoryItem = ({ item }) => {
     }
     return age < 1 ? 'less than a year' : `${dateWords} year`;
   }
-  useLayoutEffect(() => {
-    dispatch(favoriteNotices());
-  }, [dispatch]);
-  const allFavorite = useSelector(selectFavoriteItems);
-  function favoriteCard(id) {
-    for (const favorite of allFavorite) {
-      if (favorite._id === id) {
-        return true;
-      }
-    }
-    return;
-  }
 
+  // debugger;
   return (
     <CardItem key={_id}>
       <CardImage src={imageURL} alt="Pet photo" />
@@ -83,15 +77,23 @@ export const NoticeCategoryItem = ({ item }) => {
           </InfoItem>
         ) : null}
       </InfoList>
-      <CardButton>Learn more</CardButton>
-      {favoriteCard(_id) ? (
-        <DeleteButton
+      <Buttonlist>
+        <CardButton
           type="button"
-          onClick={() => dispatch(removeFavoriteNotices(_id))}
+          onClick={() => dispatch(getNoticesById(_id))}
+          cardInfo={selectItem}
         >
-          Delete
-        </DeleteButton>
-      ) : null}
+          Learn more
+        </CardButton>
+        {isFavorite && (
+          <DeleteButton
+            type="button"
+            onClick={() => dispatch(removeFavoriteNotices(_id))}
+          >
+            Delete
+          </DeleteButton>
+        )}
+      </Buttonlist>
     </CardItem>
   );
 };
