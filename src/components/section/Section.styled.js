@@ -5,22 +5,19 @@ export const SectionWrapper = styled.div`
   flex-direction: column;
 
   @media screen and (max-width: 319px) {
-    padding: 0 10px;
+    padding: 127px 10px 0;
   }
 
   @media screen and (max-width: 767px) {
-    padding-top: 127px;
-    padding: 0 20px;
+    padding: 127px 20px 0;
   }
 
   @media screen and (min-width: 768px) {
-    padding-top: 160px;
-    padding: 0 32px;
+    padding: 160px 32px 0;
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 130px;
-    padding: 0 16px;
+    padding: 130px 16px 0;
   }
 `;
 
