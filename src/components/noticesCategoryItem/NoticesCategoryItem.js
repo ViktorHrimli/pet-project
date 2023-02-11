@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
   CardItem,
   CardImage,
@@ -12,10 +13,14 @@ import {
   Try,
 } from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
 
+import { ModalNoticeLayout } from 'components/modalsLayout/modalNoticeLayout/ModalNoticeLayout';
+import { ModalNotice } from 'components/modalNotice/ModalNotice';
 //   import Container from 'components/container/Container';
 
 export const NoticeCategoryItem = ({ item }) => {
   const { _id, category, title, birthday, breed, city, imageURL, price } = item;
+  const [isOpenModalNotice, setIsOpenModalNotice] = useState(false);
+
   return (
     <CardItem key={_id}>
       <CardImage src={imageURL} alt="Pet photo" />
@@ -44,7 +49,11 @@ export const NoticeCategoryItem = ({ item }) => {
           <Try>{price}$</Try>
         </InfoItem>
       </InfoList>
-      <CardButton>Learn more</CardButton>
+      <CardButton onClick={() => setIsOpenModalNotice(true)} type="button">Learn more
+      <ModalNoticeLayout isOpenModalNotice={isOpenModalNotice} setIsOpenModalNotice={setIsOpenModalNotice}>
+        <ModalNotice data={_id} setIsOpenModalNotice={setIsOpenModalNotice} />
+      </ModalNoticeLayout>
+      </CardButton>
       <DeleteButton>Delete</DeleteButton>
     </CardItem>
   );

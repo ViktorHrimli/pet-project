@@ -1,48 +1,28 @@
 import styled from '@emotion/styled';
 import {ReactComponent as redHeart} from '../../images/svg/heart-for-button.svg';
-import {ReactComponent as cross} from '../../images/svg/close-line.svg';
 
 export const WrapperContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 280px;
+  width: 240px;
   margin: auto;
-  padding: 0 20px;
   border-radius: 20px;
   background: #ffffff;
   
 @media screen and (min-width: 768px) {
-  width: 540px;
+  width: 660px;
   border-radius: 40px;
 }
-`;
-
-export const CloseBtn = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: ${p => p.theme.colors.background};
-`;
-
-export const CrossLine = styled(cross)`
-  width: 20px;
-  height: 20px;
 `;
 
 export const WrapperInfoBlock = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 40px;
 @media screen and (min-width: 768px) {
   flex-direction: row;
-  margin-top: 32px;
+  margin-top: 12px;
 }
 `;
 
@@ -54,7 +34,7 @@ export const WrapperPetPhoto = styled.div`
   background-color: ${p => p.theme.colors.white};
 
   @media screen and (min-width: 768px) {
-    margin-right: 20px;
+    // margin-right: 20px;
     width: 288px;
     height: 328px;
   }
@@ -91,6 +71,7 @@ export const TitleModalNotice = styled.h3`
 `;
 
 export const ReferenceList = styled.div`
+width: 240px;
 `;
 
 export const InfoItem = styled.div`

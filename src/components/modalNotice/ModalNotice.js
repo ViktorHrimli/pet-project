@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-
+import { useSelector } from 'react-redux';
 import {
 	WrapperContainer,
 	WrapperPetPhoto,
@@ -16,39 +14,30 @@ import {
 	ButtonModalWrapper,
 	ContactButton,
 	AddToFavoriteButton,
-	IconRedHeart,
-  CloseBtn,
-  CrossLine
+	IconRedHeart
 } from 'components/modalNotice/ModalNotice.styled';
 
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({
-  image,
-  name,
-  birthday,
-  breed,
-  lovation,
-  sex,
-  email,
-  phone,
-  comments,
-  favorite,
-  isOpenModalNotice}) => {
-
-  const dispath = useDispatch();
-
-  useEffect(() => {
-    return () => {};
-  }, [isOpenModalNotice]);
+  id,
+  setIsOpenModalNotice
+}) => {
+  const {
+    image,
+    name,
+    birthday,
+    breed,
+    lovation,
+    sex,
+    email,
+    phone,
+    comments} = useSelector();
 
   return (
     <>
     <WrapperContainer>
       <WrapperInfoBlock>
-        <CloseBtn>
-          <CrossLine/>
-        </CloseBtn>
         <WrapperPetPhoto>
           {image ? (
           <PetPhoto src={image} alt='Pet photo'/>
@@ -93,13 +82,11 @@ export const ModalNotice = ({
       </CommentsItem>
       <ButtonModalWrapper>
         <ContactButton type="button"
-          onClick={() => dispath(isOpenModalNotice(false))}
+          onClick={() => setIsOpenModalNotice(false)}
         >
         Contact
         </ContactButton>
-				<AddToFavoriteButton type="button"
-          onClick={() => dispath(isOpenModalNotice(false))}
-        >
+				<AddToFavoriteButton type="button">
           Add to
 					<IconRedHeart/>
         </AddToFavoriteButton>
