@@ -39,7 +39,6 @@ export const useOnClickOutside = (ref, handler) => {
       handler(event);
     };
 
-    console.log(listener);
     document.addEventListener('mousedown', listener);
 
     return () => {
