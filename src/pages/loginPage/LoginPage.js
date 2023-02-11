@@ -3,9 +3,11 @@ import { LoginForm } from 'components/loginForm/LoginForm';
 
 const LoginPage = () => {
   return (
-    <AuthSection>
-      <LoginForm />
-    </AuthSection>
+    <main>
+      <AuthSection>
+        <LoginForm />
+      </AuthSection>
+    </main>
   );
 };
 
