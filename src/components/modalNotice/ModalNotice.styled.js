@@ -181,6 +181,25 @@ export const ContactButton = styled.button`
 }
 `;
 
+export const DeleteButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid ${p => p.theme.colors.primary};
+
+  &:hover {
+    border: 2px solid ${p => p.theme.colors.focus};
+  }
+
+@media screen and (min-width: 768px) {
+  width: 160px;
+  margin-right: 12px;
+}
+`;
+
 export const AddToFavoriteButton = styled.button`
   display: flex;
   align-items: center;
