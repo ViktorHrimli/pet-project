@@ -6,11 +6,15 @@ export const CardItem = styled.li`
   background-color: ${p => p.theme.colors.white};
   border-radius: ${p => p.theme.radii.card};
   box-shadow: ${p => p.theme.shadows.normal};
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: ${p => p.theme.space[6]};
 
   display: block;
-  width: 100%;
+  width: 280px;
   @media screen and (min-width: 768px) {
-    max-width: 336px;
+    margin: 0;
+    width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -20,7 +24,7 @@ export const CardItem = styled.li`
 `;
 
 export const CardImage = styled.img`
-  margin-bottom: ${p => p.theme.space[5]};
+  margin-bottom: ${p => p.theme.space[4]};
   width: 100%;
   height: 288px;
 
@@ -91,6 +95,7 @@ export const Try = styled.span`
 `;
 
 export const CardTitle = styled.h3`
+  height: 75px;
   color: ${p => p.theme.colors.text};
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.bolt};
@@ -98,7 +103,7 @@ export const CardTitle = styled.h3`
   line-height: ${p => p.theme.lineHeights.normal};
   letter-spacing: ${p => p.theme.letterSpacings.min};
   padding-left: ${p => p.theme.space[4]};
-  margin-bottom: ${p => p.theme.space[5]};
+  margin-bottom: ${p => p.theme.space[4]};
 `;
 
 export const InfoList = styled.ul`
@@ -136,7 +141,8 @@ export const CardButton = styled.button`
   transition-property: background-color, color;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	&:hover,
+
+  &:hover,
   &:focus {
     background-color: ${p => p.theme.colors.primary};
     color: ${p => p.theme.colors.white};

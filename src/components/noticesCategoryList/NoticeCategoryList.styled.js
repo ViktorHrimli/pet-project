@@ -1,8 +1,10 @@
 import styled from '@emotion/styled';
 
 export const CardList = styled.ul`
-  display: flex;
-  gap: ${p => p.theme.space[6]};
-  flex-wrap: wrap;
-  justify-content: center;
+  @media screen and (min-width: 767px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: ${p => p.theme.space[6]};
+    justify-content: center;
+  }
 `;

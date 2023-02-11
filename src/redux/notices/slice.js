@@ -20,13 +20,11 @@ const handleRejected = (state, action) => {
 };
 
 const noticesInitialState = {
-
   items: [],
   userItems: [],
-  favoriteItems: [],
+  myFavoriteItems: [],
   isLoading: false,
   error: null,
-
 };
 
 const noticesSlice = createSlice({
@@ -63,7 +61,7 @@ const noticesSlice = createSlice({
     },
     [favoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
-      state.selectFavoriteItems = action.payload;
+      state.myFavoriteItems = action.payload;
     },
     [getUserNotices.fulfilled](state, action) {
       state.isLoading = false;
@@ -90,8 +88,8 @@ const noticesSlice = createSlice({
     },
     [removeFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
-      const index = state.favoriteItems.findIndex(
-        task => task.id === action.payload.id
+      const index = state.myFavoriteItems.findIndex(
+        task => task._id === action.payload._id
       );
       state.selectFavoriteItems.splice(index, 1);
     },

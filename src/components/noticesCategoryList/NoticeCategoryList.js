@@ -1,14 +1,20 @@
-import { selectItems } from 'redux/notices/selectors';
+import {
+  selectItems,
+  selectFavoriteItems,
+  selectUserItems,
+} from 'redux/notices/selectors';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-
+import { useLayoutEffect } from 'react';
 // import { useAuth } from 'hooks/useAuth';
 import { NoticeCategoryItem } from 'components/noticesCategoryItem/NoticesCategoryItem';
-import { getAll } from 'redux/notices/operations';
+import {
+  getAll,
+  favoriteNotices,
+  getUserNotices,
+} from 'redux/notices/operations';
 
 import { CardList } from 'components/noticesCategoryList/NoticeCategoryList.styled';
-import Container from 'components/container/Container';
 
 export const NoticeCategoryList = () => {
   const toRender = useSelector(selectItems);
@@ -39,19 +45,17 @@ export const NoticeCategoryList = () => {
   }
 
   const dispatch = useDispatch();
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(getAll(result));
   }, [dispatch, result]);
 
   // const { isLoggedIn } = useAuth();
   // console.log(toRender);
   return (
-    <Container>
-      <CardList>
-        {toRender?.map(item => {
-          return <NoticeCategoryItem key={item._id} item={item} />;
-        })}
-      </CardList>
-    </Container>
+    <CardList>
+      {toRender.map(item => {
+        return <NoticeCategoryItem key={item._id} item={item} />;
+      })}
+    </CardList>
   );
 };
