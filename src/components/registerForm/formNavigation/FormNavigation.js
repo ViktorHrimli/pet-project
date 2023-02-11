@@ -7,7 +7,7 @@ import {
   WrapperText,
   TextForm,
   LinkOnLogin,
-} from './FormNavigation.styled';
+} from 'components/registerForm/formNavigation/FormNavigation.styled';
 
 export default function FormNavigation(props) {
   return (
