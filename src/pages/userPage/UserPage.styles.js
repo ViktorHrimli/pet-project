@@ -9,7 +9,6 @@ padding-right: 20px;
 }
 @media screen and (min-width: 1280px) {
   display: flex;
-
 }
 `
 export const UserInfo = styled.div`
@@ -17,43 +16,46 @@ position: relative;
 box-sizing: border-box;
 
 justify-content: center;
+
 padding: 20px 16px 20px 16px;
 background-color: ${p => p.theme.colors.white};
 border-radius: 7%;
 box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 @media screen and (max-width: 768px) {
   width: auto;
+  height: auto;
 }
 
 @media screen and (min-width: 768px) {
   padding-left: 0px;
 
-  justify-content: space-between;
-  padding: 24px 40px 24px 40px;
+  padding: 24px 40px 24px 32px;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-
+  border-radius: 0px 40px 40px 0px;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 }
 
 @media screen and (min-width: 1280px) {
-  display: flex;
+
   justify-content: center;
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
   padding: 24px 40px 24px 40px;
-  width: 570px;
+  width: 411px;
+
 }
 `;
 
 export const UserContainer = styled.div`
 margin-bottom: 47px;
 @media screen and (min-width: 768px) {
-
+  margin-bottom: 0px;
 }
 @media screen and (min-width: 1280px) {
-  display: flex;
 
+  margin-bottom: 0px;
 }`
 
 // export const UserContainer = styled.div`
@@ -155,12 +157,19 @@ margin-top: 46px;
   }
 `
 export const UserInfoContainer = styled.div`
-margin-bottom: 42px;`
+margin-bottom: 42px;
+@media screen and (min-width: 768px) {
+  margin-bottom: 0px;
+ }`
+
 
 export const UserDataWrapper = styled.div`
 @media screen and (min-width: 768px) {
   display: flex;
   flex-direction: row-reverse;
- justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
 }
+@media screen and (min-width: 1280px) {
+  display: block;
 `

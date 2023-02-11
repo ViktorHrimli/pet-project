@@ -1,23 +1,36 @@
 import axios from "axios";
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 // import * as api from 'redux/user/apiUser'
 
 export const getUserData = createAsyncThunk(
-	'user/getUserData',
-	async (_, { rejectWithValue }) => {
-		try {
-			const result = await axios.getUserData();
-			return result;
-		} catch ({ response }) {
-			const { status, data } = response;
-			const error = {
-				status,
-				message: data.message,
-			};
-			return rejectWithValue(error);
-		}
-	}
+'user/getUserData',
+async (result, thunkAPI) => {
+  try {
+    const {data} = await axios.get('/user/get');
+    return data.data;
+  } catch ({message}) {
+    return thunkAPI.rejectWithValue(message)
+  }
+}
 );
+
+// export const getUserData = createAsyncThunk(
+// 	'user/getUserData',
+// 	async (_, { rejectWithValue }) => {
+// 		try {
+// 			const result = await axios.getUserData();
+// 			return result;
+// 		} catch ({ response }) {
+// 			const { status, data } = response;
+// 			const error = {
+// 				status,
+// 				message: data.message,
+// 			};
+// 			return rejectWithValue(error);
+// 		}
+// 	}
+// );
 
 export const updateUserData = createAsyncThunk(
 	'user/updateUserData',
