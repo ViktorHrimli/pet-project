@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage';
 import {authReducer} from './auth/slice';
 import { petsReducer } from './pets/slice';
 import { noticesReducer } from './notices/slice';
-import userReducer from "../redux/user/slice";
+import { userReducer } from "../redux/user/slice";
 import { newsReducer } from './news/slice';
 import { friendsReducer } from './friends/slice';
 import { filterNoticesReducer } from './notices/filterSlice';

@@ -11,7 +11,11 @@ justify-content: center;
 	line-height: ${p => p.theme.lineHeights.normal};
 	border: none;
 
-
+	@media screen and (min-width: 768px) {
+    position: absolute;
+    top: 119px;
+    right: 32px;
+  }
 }
 `;
 
