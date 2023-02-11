@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { FormData } from 'components/registerForm/multiStepForm/MultiStepForm.styled';
-import FormNavigation from 'components/registerForm/formNavigation/FormNavigation';
+import { FormData } from './MultiStepForm.styled';
+import FormNavigation from '../formNavigation/FormNavigation';
 
 export default function MultiStepForm({ children, initialValues, onSubmit }) {
   const [stepNumber, setStepNumber] = useState(0);

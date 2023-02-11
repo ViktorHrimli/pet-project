@@ -9,17 +9,15 @@ export const Section = styled.section`
   background-repeat: no-repeat;
   background-image: url(${bgLoginMob});
   background-position: center bottom;
-
   background-size: contain;
-  background-color: #fdf7f2;
+  background-color: ${p => p.theme.colors.background};
   margin: 0 auto;
   padding: 100px 0;
 
   @media screen and (min-width: 768px) {
-    padding: 241px 0;
-
+    padding-top: 169px;
+    padding-bottom: 266px;
     background-image: url(${bgLoginTab});
-    min-height: calc(100vh - 75px);
   }
   @media screen and (min-width: 1280px) {
     padding-top: 114px;

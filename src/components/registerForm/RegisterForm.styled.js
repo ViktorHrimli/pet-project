@@ -10,6 +10,11 @@ export const PageTitle = styled.h2`
   line-height: ${p => p.theme.lineHeights.max};
   letter-spacing: ${p => p.theme.letterSpacings.normal};
   color: ${p => p.theme.colors.black};
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.xl};
+    line-height: ${p => p.theme.lineHeights.max};
+    font-weight: ${p => p.theme.fontWeights.medium};
+  }
 `;
 
 export const FormData = styled(Form)`
@@ -19,13 +24,13 @@ export const FormData = styled(Form)`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  @media screen and (min-width: ${p => p.theme.screens.mobil}) {
+  @media screen and (min-width: 320px) {
     width: 320px;
   }
   @media screen and (max-width: 767px) {
     max-width: 448px;
   }
-  @media screen and (min-width: ${p => p.theme.screens.desktop}) {
+  @media screen and (min-width: 1280) {
     width: 458px;
   }
 `;
@@ -126,6 +131,12 @@ export const ButtonIconPass = styled.button`
 
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    top: 8px;
+    right: 5px;
+  }
+
   &:hover *,
   &:focus * {
     fill: ${p => p.theme.colors.primary};
@@ -150,6 +161,12 @@ export const ButtonIconConfirmPass = styled.button`
 
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    top: 8px;
+    right: 5px;
+  }
+
   &:hover *,
   &:focus * {
     fill: ${p => p.theme.colors.primary};

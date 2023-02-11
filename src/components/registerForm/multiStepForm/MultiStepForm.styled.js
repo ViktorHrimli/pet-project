@@ -13,6 +13,7 @@ export const FormData = styled(Form)`
 export const WaveImg = styled.img`
   position: relative;
   bottom: 0px;
+
   max-width: 100%;
   height: auto;
 `;
