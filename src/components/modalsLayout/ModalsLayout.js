@@ -2,7 +2,10 @@ import React from 'react';
 import ReactModal from 'react-modal';
 import { AiOutlineClose } from 'react-icons/ai';
 
-import { ConteinerIconsClose } from 'components/modalsLayout/ModalLayout.styled';
+import {
+  ConteinerIconsClose,
+  ModalBodyWrapper,
+} from 'components/modalsLayout/ModalLayout.styled';
 
 import './styled.css';
 
@@ -20,11 +23,12 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
         className="bodyModal"
         style={{
           overlay: {
-            position: 'absolute',
-            top: '0',
-            left: '0',
+            position: 'fixed',
+            overflow: 'auto',
+            top: 0,
+            left: 0,
             width: '100%',
-            height: `300%`,
+            height: '100%',
             backgroundColor: 'rgba(17, 17, 17, 0.6)',
             zIndex: 20,
           },
@@ -32,11 +36,12 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
         contentLabel="Example Modal"
         aria={{ modal: 'true' }}
       >
-        <ConteinerIconsClose>
-          <AiOutlineClose size={20} onClick={closeModal} />
-        </ConteinerIconsClose>
-
-        {children}
+        <ModalBodyWrapper>
+          <ConteinerIconsClose>
+            <AiOutlineClose size={20} onClick={closeModal} />
+          </ConteinerIconsClose>
+          {children}
+        </ModalBodyWrapper>
       </ReactModal>
     </>
   );

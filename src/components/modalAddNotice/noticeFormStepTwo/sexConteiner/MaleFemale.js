@@ -19,7 +19,9 @@ import male from '../../../../images/svg/male.svg';
 import famale from '../../../../images/svg/female.svg';
 
 const MaleFemale = ({ touched, errors }) => {
-  const [isEnterMale, setIsEnterMale] = useState(true);
+  const [isEnterMale, setIsEnterMale] = useState(
+    JSON.parse(localStorage.getItem('notice-sex') || false)
+  );
 
   return (
     <NoticeConteinerSex>
@@ -31,7 +33,10 @@ const MaleFemale = ({ touched, errors }) => {
             width="36"
             height="36"
             alt="icon"
-            onClick={() => setIsEnterMale(true)}
+            onClick={() => {
+              localStorage.setItem('notice-sex', JSON.stringify(false));
+              setIsEnterMale(false);
+            }}
           />
 
           <NoticeRadioSexBtn
@@ -43,7 +48,10 @@ const MaleFemale = ({ touched, errors }) => {
           />
           <LabelGlobal htmlFor="male">
             <NoticeSexTextMale
-              onClick={() => setIsEnterMale(true)}
+              onClick={() => {
+                localStorage.setItem('notice-sex', JSON.stringify(false));
+                setIsEnterMale(false);
+              }}
               isMale={isEnterMale}
             >
               Male
@@ -56,7 +64,10 @@ const MaleFemale = ({ touched, errors }) => {
             width="36"
             height="36"
             alt="icon"
-            onClick={() => setIsEnterMale(false)}
+            onClick={() => {
+              localStorage.setItem('notice-sex', JSON.stringify(true));
+              setIsEnterMale(true);
+            }}
           />
           <NoticeRadioSexBtn
             type="radio"
@@ -67,7 +78,10 @@ const MaleFemale = ({ touched, errors }) => {
           />
           <LabelGlobal htmlFor="female">
             <NoticeSexTextFemale
-              onClick={() => setIsEnterMale(false)}
+              onClick={() => {
+                localStorage.setItem('notice-sex', JSON.stringify(true));
+                setIsEnterMale(true);
+              }}
               isMale={isEnterMale}
             >
               Female

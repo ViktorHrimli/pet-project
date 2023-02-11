@@ -33,6 +33,8 @@ const StepTwo = ({ step, state, setIsOpen }) => {
     if (file) {
       state(prev => ({ ...prev, ...values, photo: file.avatar }));
 
+      localStorage.removeItem('stepTwo');
+
       action.resetForm();
       setIsErrorFile(true);
       setIsOpen(false);
@@ -49,7 +51,9 @@ const StepTwo = ({ step, state, setIsOpen }) => {
 
       <Formik
         onSubmit={handleSubmit}
-        initialValues={{ comments: '' }}
+        initialValues={{
+          comments: JSON.parse(localStorage.getItem('stepTwo')) || '',
+        }}
         validationSchema={shamaStepTwo}
       >
         {({ errors, touched, isValid }) => (
@@ -67,6 +71,12 @@ const StepTwo = ({ step, state, setIsOpen }) => {
                   as="textarea"
                   placeholder="Enter comments"
                   rows={4}
+                  onBlur={e => {
+                    localStorage.setItem(
+                      'stepTwo',
+                      JSON.stringify(e.target.value)
+                    );
+                  }}
                   name="comments"
                 />
               </LabelGlobal>

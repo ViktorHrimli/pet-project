@@ -25,21 +25,21 @@ const schema = Yup.object().shape({
   title: Yup.string()
     .min(2)
     .max(48)
-    .required()
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/),
+    .required('Field required!')
+    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!'),
   name: Yup.string()
     .min(2)
     .max(16)
-    .required()
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/),
+    .required('Field required!')
+    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!'),
   breed: Yup.string()
     .min(2)
     .max(16)
-    .required()
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/),
+    .required('Field required!')
+    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!'),
   date: Yup.string()
     .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
-    .required('This field is required'),
+    .required('Field required!'),
 });
 
 export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {

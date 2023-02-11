@@ -20,9 +20,11 @@ const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
             size={50000}
             accept=".png, .jpg, .jpeg, .webp"
             onChange={e => {
+              const targetFiles = e.target.files[0];
+
               setFile({
-                url: URL.createObjectURL(e.target.files[0]),
-                avatar: e.target.files[0],
+                url: URL.createObjectURL(targetFiles),
+                avatar: targetFiles,
               });
             }}
           />

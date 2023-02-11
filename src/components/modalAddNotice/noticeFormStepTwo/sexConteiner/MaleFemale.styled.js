@@ -67,13 +67,13 @@ const NoticeIconMale = styled.img`
 
 const NoticeSexTextMale = styled(NoticeLableText)`
   color: ${({ isMale, theme }) => {
-    return isMale ? theme.colors.primary : theme.colors.text;
+    return !isMale ? theme.colors.primary : theme.colors.text;
   }};
 `;
 
 const NoticeSexTextFemale = styled(NoticeLableText)`
   color: ${({ isMale, theme }) => {
-    return !isMale ? theme.colors.primary : theme.colors.text;
+    return isMale ? theme.colors.primary : theme.colors.text;
   }};
 `;
 

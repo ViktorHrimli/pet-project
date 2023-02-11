@@ -20,20 +20,26 @@ import { ButtonFormDoneCancel } from 'components/modalAddNotice/buttonForm/Butto
 import { MaleFemale } from 'components/modalAddNotice/noticeFormStepTwo/sexConteiner/MaleFemale';
 import { PhotoConteinerNotice } from 'components/modalAddNotice/PhotoConteinerNotice/PhotoConteinerNotice';
 
+const pricePattern = /^[1-9][0-9]*$/;
+
 const shemaMultipleModal = isPrice => {
   return Yup.object().shape({
-    sex: Yup.string().required().equals(['male', 'female']),
+    sex: Yup.string().required('Field required!').equals(['male', 'female']),
     location: Yup.string()
       .matches(
         /^[a-zA-Z]+[,][ ][a-zA-Z]+$/,
         'Location should be /Region, City/'
       )
-      .required(),
+      .required('Field required!'),
     comments: Yup.string()
-      .required()
+      .required('Field required!')
       .min(8, 'Should be at 8 characters')
       .max(120),
-    price: isPrice ? Yup.string().required() : Yup.string().notRequired(),
+    price: isPrice
+      ? Yup.string()
+          .matches(pricePattern, 'Only numbers')
+          .required('Field required!')
+      : Yup.string().matches(pricePattern, 'Only numbers').notRequired(),
   });
 };
 
@@ -41,12 +47,24 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
   const [file, setFile] = useState(null);
   const [isErrorFile, setIsErrorFile] = useState(true);
 
+  const [localeState] = useState({
+    location: JSON.parse(localStorage.getItem('notice-location')) || '',
+    price: JSON.parse(localStorage.getItem('notice-price')) || '1',
+    comments: JSON.parse(localStorage.getItem('notice-comments')) || '',
+    sex: JSON.parse(localStorage.getItem('notice-sex')) || 'male',
+  });
+
   const shema = shemaMultipleModal(isUseSell);
 
   const handleSubmit = (values, action) => {
-    console.log(values);
     if (file) {
       state(prev => ({ ...prev, ...values, photo: file.avatar }));
+
+      localStorage.removeItem('notice-location');
+      localStorage.removeItem('notice-price');
+      localStorage.removeItem('notice-comments');
+      localStorage.removeItem('notice-sex');
+      localStorage.removeItem('prev');
 
       action.resetForm();
       setIsErrorFile(true);
@@ -62,7 +80,7 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
 
       <Formik
         onSubmit={handleSubmit}
-        initialValues={{ comments: '', sex: 'male', price: '1', location: '' }}
+        initialValues={localeState}
         validationSchema={shema}
       >
         {({ errors, touched, isValid }) => (
@@ -78,6 +96,12 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
                   <InputGlobal
                     placeholder="Your pet location"
                     name="location"
+                    onBlur={e => {
+                      localStorage.setItem(
+                        'notice-location',
+                        JSON.stringify(e.target.value)
+                      );
+                    }}
                   />
                 </LabelGlobal>
                 {touched.location && errors.location && (
@@ -91,7 +115,16 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
                 <div style={{ position: 'relative' }}>
                   <LabelGlobal>
                     <LabelGlobal>Price:</LabelGlobal>
-                    <InputGlobal placeholder="Your pet price" name="price" />
+                    <InputGlobal
+                      placeholder="Your pet price"
+                      name="price"
+                      onBlur={e => {
+                        localStorage.setItem(
+                          'notice-price',
+                          JSON.stringify(e.target.value)
+                        );
+                      }}
+                    />
                   </LabelGlobal>
                   {touched.price && errors.price && (
                     <AddErrorMessageGlobal>
@@ -118,8 +151,13 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
                 <AddComments
                   as="textarea"
                   placeholder="Enter comments"
-                  // rows={4}
                   name="comments"
+                  onBlur={e => {
+                    localStorage.setItem(
+                      'notice-comments',
+                      JSON.stringify(e.target.value)
+                    );
+                  }}
                 />
               </LabelGlobal>
               {touched.comments && errors.comments && (
