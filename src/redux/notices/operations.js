@@ -17,10 +17,12 @@ export const getAll = createAsyncThunk(
 
 export const getNoticesById = createAsyncThunk(
   'notices/getNoticesById',
-  async (_, thunkAPI) => {
+  async (noticeId, thunkAPI) => {
     try {
-      const { data } = await axios.get('/notices/get/:noticeId');
-      return data;
+      const { data } = await axios.get(`/notices/get/${noticeId}`, {
+        noticeId,
+      });
+      return data.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
@@ -29,12 +31,12 @@ export const getNoticesById = createAsyncThunk(
 
 export const addFavoriteNotices = createAsyncThunk(
   'notices/addFavoriteNotices',
-  async ({ noticeId }, thunkAPI) => {
+  async (noticeId, thunkAPI) => {
     try {
-      const { data } = await axios.put('/notices/favorite/add/:noticeId', {
+      const { data } = await axios.put(`/notices/favorite/add/${noticeId}`, {
         noticeId,
       });
-      return data;
+      return { ...data, noticeId };
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
@@ -46,7 +48,7 @@ export const favoriteNotices = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get('/notices/favorite/get');
-      return data;
+      return data.favorite;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
@@ -55,10 +57,10 @@ export const favoriteNotices = createAsyncThunk(
 
 export const removeFavoriteNotices = createAsyncThunk(
   'notices/removeFavoriteNotices',
-  async ({ noticeId }, thunkAPI) => {
+  async (noticeId, thunkAPI) => {
     try {
       const { data } = await axios.delete(
-        '/notices/favorite/remove/:noticeId',
+        `/notices/favorite/remove/${noticeId}`,
         {
           noticeId,
         }
