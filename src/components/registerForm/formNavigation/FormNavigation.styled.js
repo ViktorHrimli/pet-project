@@ -30,8 +30,11 @@ export const ButtonBack = styled.button`
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
-    border: ${p => p.theme.borders.medium};
-    border-color: ${p => p.theme.colors.focus};
+    color: ${p => p.theme.colors.white};
+    background-color: ${p => p.theme.colors.primary};
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* border: ${p => p.theme.borders.medium};
+    border-color: ${p => p.theme.colors.focus}; */
   }
   @media (min-width: 768px) {
     padding: 10px 28px;
