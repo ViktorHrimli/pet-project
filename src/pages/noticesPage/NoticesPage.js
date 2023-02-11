@@ -8,16 +8,16 @@ import { TitleSection } from 'components/section/Section.styled';
 const NoticesPage = () => {
   return (
     <main>
-        <Section>
-          <TitleSection>Find your favorite pet</TitleSection>
-          <NoticesSearch />
-          <NoticeCategoriesNav />
-          <AddNoticeButton />
-          <NoticeCategoryList />
-        </Section>
+      <Section>
+        <TitleSection>Find your favorite pet</TitleSection>
+        <NoticesSearch />
+        <NoticeCategoriesNav />
+
+        <NoticeCategoryList />
+        <AddNoticeButton />
+      </Section>
     </main>
   );
-
 };
 
 export default NoticesPage;

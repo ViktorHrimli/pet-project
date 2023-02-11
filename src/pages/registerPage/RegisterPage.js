@@ -4,9 +4,11 @@ import { Section } from 'pages/registerPage/RegisterPage.styled';
 
 const RegisterPage = () => {
   return (
-    <Section>
-      <RegisterForm />
-    </Section>
+    <main>
+      <Section>
+        <RegisterForm />
+      </Section>
+    </main>
   );
 };
 

@@ -6,14 +6,18 @@ import {
   IconCross,
   ButtonName,
   Circle,
+  Wrapper
 } from 'components/addNoticeButton/AddNoticeButton.styled';
 
+import { ModalAddNotice } from 'components/modalAddNotice/ModalAddNotice';
+// import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
 import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
-import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
 
 export const AddNoticeButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
+    <Wrapper>
     <AddButton>
       <Circle>
         <IconCross />
@@ -23,9 +27,11 @@ export const AddNoticeButton = () => {
       </ButtonName>
 
       <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
-        <ModalAddPet setIsOpen={setIsOpen} />
+        {/* <ModalAddPet setIsOpen={setIsOpen} /> */}
+        <ModalAddNotice setIsOpen={setIsOpen} />
       </ModalsLayout>
-    </AddButton>
+      </AddButton>
+      </Wrapper>
   );
 };
 
