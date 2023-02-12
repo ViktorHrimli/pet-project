@@ -27,14 +27,14 @@ import {
 } from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
 import { IconWasteBasket } from 'components/modalNotice/ModalNotice.styled';
 
-import { ModalNoticeLayout } from 'components/modalsLayout/modalNoticeLayout/ModalNoticeLayout';
+import ModalNoticeLayout from 'components/modalsLayout/modalNoticeLayout/ModalNoticeLayout';
 import { ModalNotice } from 'components/modalNotice/ModalNotice';
 
 export const NoticeCategoryItem = ({ item }) => {
   const dispatch = useDispatch();
   const { token } = useAuth();
   const { _id, category, title, birthday, breed, city, imageURL, price } = item;
-  const [isOpenModalNotice, setIsOpenModalNotice] = useState(false);
+  const [isModalOpen, seIsModalOpen] = useState(false);
 
   const allFavorite = useSelector(selectFavoriteItems);
   const selectItem = useSelector(selectItemById);
@@ -101,24 +101,17 @@ export const NoticeCategoryItem = ({ item }) => {
         ) : null}
       </InfoList>
       <Buttonlist>
+        <div>
         <CardButton
           type="button"
           onClick={() => {
-            setIsOpenModalNotice(true);
             dispatch(getNoticesById(_id));
+            seIsModalOpen(true);
           }}
         >
           Learn more
-          <ModalNoticeLayout
-            isOpenModalNotice={isOpenModalNotice}
-            setIsOpenModalNotice={setIsOpenModalNotice}
-          >
-            <ModalNotice
-              data={selectItem}
-              setIsOpenModalNotice={setIsOpenModalNotice}
-            />
-          </ModalNoticeLayout>
         </CardButton>
+        </div>
         {token && isFavorite && (
           <DeleteButton
             type="button"
@@ -130,6 +123,11 @@ export const NoticeCategoryItem = ({ item }) => {
         )}
       </Buttonlist>
       <ToastContainer />
+      {isModalOpen && (
+        <ModalNoticeLayout onClose={seIsModalOpen}>
+          <ModalNotice data={selectItem} onClose={seIsModalOpen} />
+        </ModalNoticeLayout>
+      )}
     </CardItem>
   );
 };

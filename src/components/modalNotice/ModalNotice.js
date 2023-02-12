@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
 import { useAuth } from 'hooks/useAuth';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
@@ -14,11 +14,12 @@ import {
   CommentsItem,
   LableNotice,
   DateModalNotice,
-  NoticeComments,
-  ButtonModalWrapper,
-  ContactButton,
-  AddToFavoriteButton,
-  IconRedHeart,
+	NoticeComments,
+  LableComments,
+	ButtonModalWrapper,
+	ContactButton,
+	AddToFavoriteButton,
+	IconRedHeart,
   TitleCategory,
   CategoryNotice,
   DeleteButton,
@@ -30,7 +31,7 @@ import { selectUser } from 'redux/auth/selectors';
 import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
-export const ModalNotice = ({ data }) => {
+export const ModalNotice = ({data, onClose}) => {
   const {
     _id,
     category,
@@ -59,8 +60,7 @@ export const ModalNotice = ({ data }) => {
   };
 
   const userEmail = useSelector(selectUser);
-  const email2 = 'tester3@ukr.net';
-  const owner = userEmail.email === email2 ? 'owner' : null;
+   const owner = userEmail.email === email ? 'owner' : null;
 
   return (
     <>
@@ -119,8 +119,9 @@ export const ModalNotice = ({ data }) => {
           </ReferenceList>
         </WrapperInfoBlock>
         <CommentsItem>
-          <LableNotice>Comments:</LableNotice>
-          <NoticeComments>{comments}</NoticeComments>
+          <NoticeComments>
+            <LableComments>Comments: </LableComments>{comments}
+          </NoticeComments>
         </CommentsItem>
         <ButtonModalWrapper>
           <a href={`tel:${phone}`}>
@@ -140,14 +141,14 @@ export const ModalNotice = ({ data }) => {
           {owner && (
             <DeleteButton
               type="button"
-              onClick={() => dispatch(deleteNotices(_id))}
+              onClick={() => 
+              onClose(false)
+              dispatch(deleteNotices(_id))}
             >
               <TitleNoticeButton>Delete </TitleNoticeButton>
               <IconWasteBasket />
             </DeleteButton>
           )}
-        </ButtonModalWrapper>
-      </WrapperContainer>
     </>
   );
 };

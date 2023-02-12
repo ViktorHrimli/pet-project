@@ -39,7 +39,6 @@ export const AddNoticeButton = () => {
             <IconCross />
           </Circle>
           <ButtonName>Add pet</ButtonName>
-
           <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
             <ModalAddNotice setIsOpen={setIsOpen} />
           </ModalsLayout>

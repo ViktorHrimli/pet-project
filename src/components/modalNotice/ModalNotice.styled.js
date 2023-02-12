@@ -6,13 +6,14 @@ export const WrapperContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 240px;
+  width: 280px;
   margin: auto;
+  padding: 20px;
   border-radius: 20px;
   background: #ffffff;
   
 @media screen and (min-width: 768px) {
-  width: 660px;
+  width: 704px;
   border-radius: 40px;
 }
 `;
@@ -83,10 +84,11 @@ export const TitleModalNotice = styled.h3`
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.bold};
   letter-spacing: ${p => p.theme.letterSpacings.min};
+  width: 200px;
 
   @media screen and (max-width: 767px) {
     margin: 16px 0;
-    line-height: ${p => p.theme.lineHeights.min};
+    line-height: ${p => p.theme.lineHeights.max};
   }
 
   @media screen and (min-width: 768px) {
@@ -144,7 +146,18 @@ export const DateModalNotice = styled.p`
 export const NoticeComments = styled.p`
   margin-bottom: 0;
   width: 240px;
-  heiight: 95px;
+  font-weight: ${p => p.theme.fontWeights.normal};
+  font-size: ${p => p.theme.fontSizes.xxs};
+`;
+
+export const LableComments = styled.span`
+margin-bottom: 0;
+font-size: ${p => p.theme.fontSizes.xxs};
+font-weight: 600;
+
+@media screen and (min-width: 768px) {
+  font-size: ${p => p.theme.fontSizes.xs};
+  lineHeight: ${p => p.theme.lineHeights.max};
 `;
 
 export const ButtonModalWrapper = styled.div`
@@ -200,7 +213,7 @@ export const DeleteButton = styled.button`
   }
 
 @media screen and (max-width: 767px) {
-  margin-bottom: 12px;
+  margin-top: 12px;
 }
 
 @media screen and (min-width: 768px) {

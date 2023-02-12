@@ -13,15 +13,19 @@ import {
 export const NoticesSearch = () => {
   const [query, setQuery] = useState("");
   const [isSearch, setIsSearch] = useState(true);
-
+  const [searchedNotice, setSearchedNotice] = useState([]);
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(query);
     setIsSearch(prevState => !prevState);
     dispatch(setFilterNotices(query));
+    setQuery = "";
   };
 
   const handleChange = e => {
+    console.log(query);
     e.preventDefault();
     setQuery(e.target.value);
   };
