@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
-import {ReactComponent as redHeart} from '../../images/svg/heart-for-button.svg';
+import {ReactComponent as RedHeart} from '../../images/svg/heart-for-button.svg';
+import {ReactComponent as WasteBasket} from '../../images/svg/delete.svg';
 
 export const WrapperContainer = styled.div`
   position: relative;
@@ -59,8 +60,8 @@ backdrop-filter: blur(50px);
 export const TitleCategory = styled.p`
 margin: 0;
 text-transform: capitalize;
-font-weight: ${p => p.theme.fontWeights.medium};;
-font-size: ${p => p.theme.fontSizes.xxxs};;
+font-weight: ${p => p.theme.fontWeights.medium};
+font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: ${p => p.theme.letterSpacings.min};
 `;
 
@@ -172,12 +173,39 @@ export const ContactButton = styled.button`
     border: 2px solid ${p => p.theme.colors.focus};
   }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   margin-bottom: 12px;
 }
 
 @media screen and (min-width: 768px) {
   width: 160px;
+}
+`;
+
+export const DeleteButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 40px;
+  border-radius: 40px;
+  border: 2px solid ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.black};
+
+  &:hover,
+  &:focus {
+    border: 2px solid ${p => p.theme.colors.focus};
+    color: ${p => p.theme.colors.white};
+    background: ${p => p.theme.colors.primary};
+  }
+
+@media screen and (max-width: 767px) {
+  margin-bottom: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  width: 160px;
+  margin-right: 12px;
 }
 `;
 
@@ -190,7 +218,8 @@ export const AddToFavoriteButton = styled.button`
   border-radius: 40px;
   border: 2px solid ${p => p.theme.colors.primary};
 
-  &:hover {
+  &:hover,
+  &focus {
     border: 2px solid ${p => p.theme.colors.focus};
   }
 
@@ -201,19 +230,30 @@ export const AddToFavoriteButton = styled.button`
 `;
 
 export const TitleNoticeButton = styled.p`
+  margin-bottom: 0;
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.medium};
-  line-height: ${p => p.theme.lineHeights.max};
+  line-height: ${p => p.theme.lineHeights.min};
 `;
 
-export const IconRedHeart = styled(redHeart)`
+export const IconRedHeart = styled(RedHeart)`
   width: 16px;
   height: 16px;
   margin-left: 8px;
+  color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
-  fill: ${p => p.theme.colors.primary};
 
-  &:hover {
+  &:hover,
+  &:focus {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: ${p => p.theme.colors.focus};
+    stroke: ${p => p.theme.colors.focus};
   }
+`;
+
+export const IconWasteBasket = styled(WasteBasket)`
+margin-left: 15px;
+width: 20px;
+height: 20px;
+opacity: 1;
 `;

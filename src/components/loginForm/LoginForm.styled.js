@@ -69,6 +69,8 @@ export const Label = styled.label`
 `;
 
 export const Wrapper = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
   @media screen and (min-width: 768px) {
     width: 608px;
     background: ${p => p.theme.colors.white};
@@ -78,6 +80,7 @@ export const Wrapper = styled.div`
     margin-right: auto;
     padding: 60px 80px 40px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 618px;
     padding: 60px 80px;
