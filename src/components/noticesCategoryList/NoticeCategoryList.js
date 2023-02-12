@@ -1,61 +1,58 @@
-import {
-  selectItems,
-  selectFavoriteItems,
-  selectUserItems,
-} from 'redux/notices/selectors';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLayoutEffect } from 'react';
-// import { useAuth } from 'hooks/useAuth';
-import { NoticeCategoryItem } from 'components/noticesCategoryItem/NoticesCategoryItem';
 import {
   getAll,
   favoriteNotices,
   getUserNotices,
 } from 'redux/notices/operations';
+import {
+  selectItems,
+  selectFavoriteItems,
+  selectUserItems,
+} from 'redux/notices/selectors';
 
+import { NoticeCategoryItem } from 'components/noticesCategoryItem/NoticesCategoryItem';
 import { CardList } from 'components/noticesCategoryList/NoticeCategoryList.styled';
 
 export const NoticeCategoryList = () => {
   const dispatch = useDispatch();
-  let cal;
+  let selected;
 
   const history = useLocation();
-  const pathname = history.pathname.slice(9);
+  const pathName = history.pathname.slice(9);
   let result;
-  switch (pathname) {
+  switch (pathName) {
     case 'sell':
       result = 'sell';
-      cal = selectItems;
+      selected = selectItems;
       break;
     case 'lost-found':
       result = 'lost-found';
-      cal = selectItems;
+      selected = selectItems;
       break;
     case 'for-free':
       result = 'in-good-hands';
-      cal = selectItems;
+      selected = selectItems;
       break;
     case 'favorite':
-      cal = selectFavoriteItems;
+      selected = selectFavoriteItems;
       break;
     case 'own':
-      cal = selectUserItems;
+      selected = selectUserItems;
       break;
 
     default:
       result = null;
       break;
   }
-  const toRender = useSelector(cal);
+  const toRender = useSelector(selected);
   useLayoutEffect(() => {
     dispatch(getAll(result));
     dispatch(favoriteNotices());
     dispatch(getUserNotices());
   }, [dispatch, result]);
 
-  // const { isLoggedIn } = useAuth();
-  // console.log(toRender);
   return (
     <CardList>
       {toRender?.map(item => {
