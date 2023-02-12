@@ -141,14 +141,16 @@ export const ModalNotice = ({data, onClose}) => {
           {owner && (
             <DeleteButton
               type="button"
-              onClick={() => 
+              onClick={() => {
               onClose(false)
-              dispatch(deleteNotices(_id))}
+              dispatch(deleteNotices(_id))}}
             >
               <TitleNoticeButton>Delete </TitleNoticeButton>
               <IconWasteBasket />
             </DeleteButton>
           )}
+          </ButtonModalWrapper>
+      </WrapperContainer>
     </>
   );
 };
