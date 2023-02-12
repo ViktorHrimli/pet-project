@@ -84,7 +84,10 @@ const noticesSlice = createSlice({
       const foo = state.items.find(
         item => item._id === action.payload.noticeId
       );
-      state.myFavoriteItems = [foo, ...state.myFavoriteItems];
+      const foob = state.userItems.find(
+        item => item._id === action.payload.noticeId
+      );
+      state.myFavoriteItems = [foo ? foo : foob, ...state.myFavoriteItems];
     },
 
     [deleteNotices.fulfilled](state, action) {
