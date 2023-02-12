@@ -12,12 +12,10 @@ margin-bottom: 40px;
    margin-left: 0;
    margin-right: 0;
    margin-bottom: 0;
-   /* flex-basis: calc((100% - 64px) / 2); */
   }
 
  @media screen and (min-width: 1280px) {
     max-width: 395px;
-    /* flex-basis: calc((100% - 64px) / 3); */
  } 
 `;
 
@@ -37,35 +35,32 @@ background-image: linear-gradient(90deg, #FF634E 0%, #FFDF48 105.44%);
 `;
 
 export const NewsName = styled.h3`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 33px;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.bold};
+font-size: ${p => p.theme.fontSizes.m};
+line-height: ${p => p.theme.lineHeights.max};
 letter-spacing: -0.01em;
 margin: 0px;
 margin-bottom: 16px;
-color: #111111;
+color: ${p => p.theme.colors.black};
 
 
--webkit-line-clamp: 2; /* Число отображаемых строк */
-display: -webkit-box; /* Включаем флексбоксы */
--webkit-box-orient: vertical; /* Вертикальная ориентация */
+-webkit-line-clamp: 2;
+display: -webkit-box; 
+-webkit-box-orient: vertical; 
 overflow: hidden;
 
 @media screen and (min-width: 1280px) {
     max-width: 395px;
-    flex-basis: calc((100% - 64px) / 3);
  }
 
 `;
 
 export const Text = styled.p`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 22px;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.normal};
+font-size: ${p => p.theme.fontSizes.xs};
+line-height: ${p => p.theme.lineHeights.max};
 
 color: #111321;
 
@@ -96,21 +91,19 @@ margin-top: 20px;
 `;
 
 export const NewsDate = styled.p`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 22px;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.normal};
+font-size: ${p => p.theme.fontSizes.xs};
+line-height: ${p => p.theme.lineHeights.max};
 margin: 0;
 color: rgba(17, 17, 17, 0.6);
 `;
 
 export const NewsLink = styled.a`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 22px;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.medium};
+font-size:  ${p => p.theme.fontSizes.xs};
+line-height: ${p => p.theme.lineHeights.max};
 
-color: #F59256;
+color: ${p => p.theme.colors.primary};
 `;

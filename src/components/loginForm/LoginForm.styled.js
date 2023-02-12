@@ -69,6 +69,8 @@ export const Label = styled.label`
 `;
 
 export const Wrapper = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
   @media screen and (min-width: 768px) {
     width: 608px;
     background: ${p => p.theme.colors.white};
@@ -78,6 +80,7 @@ export const Wrapper = styled.div`
     margin-right: auto;
     padding: 60px 80px 40px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 618px;
     padding: 60px 80px;
@@ -120,6 +123,7 @@ export const Input = styled(Field)`
   border-color: ${p => p.theme.colors.inputAuthForm};
   border-radius: ${p => p.theme.radii.big};
   outline: none;
+
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.ms};
     line-height: ${p => p.theme.lineHeights.max};
@@ -172,3 +176,10 @@ export const FormLink = styled(Link)`
     color: rgba(85, 26, 139);
   } */
 `;
+
+export const customToast = {
+  position: 'top-right',
+  autoClose: 5000,
+  pauseOnHover: true,
+  theme: 'colored',
+};

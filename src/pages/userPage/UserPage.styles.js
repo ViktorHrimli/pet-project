@@ -42,7 +42,7 @@ box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 24px 40px 24px 40px;
+  padding: 20px 16px 40px 16px;
   width: 411px;
 
 }

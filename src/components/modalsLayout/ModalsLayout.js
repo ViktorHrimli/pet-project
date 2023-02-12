@@ -15,6 +15,7 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
+  
   return (
     <>
       <ReactModal

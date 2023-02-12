@@ -24,7 +24,6 @@ const userSlice = createSlice({
   reducers: {
     toggleIsDisablet(store) {
       store.isDisabledFields = true;
-      // console.log(store);
     },
     resetIsAddedPetSuccess: state => {
       state.isAddedPetSuccess = false;
