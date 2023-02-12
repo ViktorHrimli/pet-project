@@ -129,10 +129,10 @@ export const getUserNotices = createAsyncThunk(
 
 export const deleteNotices = createAsyncThunk(
   'notices/deleteNotices',
-  async ({ noticesId }, thunkAPI) => {
+  async (noticesId, thunkAPI) => {
     try {
       const { data } = await axios.removeNotice(
-        `/notices//current/remove/:noticeId`,
+        `/notices//current/remove/${noticesId}`,
         { noticesId }
       );
       return data;

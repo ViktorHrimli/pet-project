@@ -89,10 +89,9 @@ const noticesSlice = createSlice({
 
     [deleteNotices.fulfilled](state, action) {
       state.isLoading = false;
-      const index = state.items.findIndex(
-        task => task.id === action.payload.id
+      state.userItems = state.userItems.filter(
+        item => item._id !== action.payload.noticeId
       );
-      state.items.splice(index, 1);
     },
     [removeFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
