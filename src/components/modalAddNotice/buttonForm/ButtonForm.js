@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import {
   AddButtonConteiner,
@@ -32,6 +32,16 @@ const ButtonNoticeForm = ({ setIsUseSell }) => {
   const [isActiveBtn, setIsActiveBtn] = useState(
     JSON.parse(localStorage.getItem('btn')) || { sell: true }
   );
+
+  useEffect(() => {
+    if (localStorage.getItem('btn')) {
+      const keys = Object.keys(JSON.parse(localStorage.getItem('btn')));
+
+      if (!keys.includes('sell')) {
+        setIsUseSell(false);
+      }
+    }
+  }, [setIsUseSell]);
 
   const handleUsePrice = () => {
     setIsUseSell(true);
