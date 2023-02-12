@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { ReactComponent as plus } from '../../images/svg/icon-cross-white.svg';
 
 export const Wrapper = styled.div`
-  position: relative;
+  position: absolute;
   @media screen and (max-width: 767px) {
   }
 `;
@@ -16,11 +16,8 @@ export const AddButton = styled.button`
   font-size: ${p => p.theme.fontSizes.s};
   line-height: ${p => p.theme.lineHeights.normal};
   border: none;
-
-  position: fixed;
-  z-index: 1;
-  bottom: 4%;
-  right: 4%;
+  position: absolute;
+  z-index: 0;
 
   @media screen and (max-width: 767px) {
     flex-direction: column;
@@ -29,11 +26,25 @@ export const AddButton = styled.button`
     height: 80px;
     border-radius: 50%;
     box-shadow: 7px 4px 14px 0px rgba(49, 21, 4, 0.07);
+    position: fixed;
+    z-index: 1;
+    bottom: 4%;
+    right: 4%;
 
     &:hover {
       background-color: ${p => p.theme.colors.focus};
     }
   }
+  @media screen and (min-width: 768px) {
+    width: 129px;
+    top: 1px;
+    left: 577px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    top: -0;
+    left: 1118px;
+  } ;
 `;
 
 export const ButtonName = styled.p`
