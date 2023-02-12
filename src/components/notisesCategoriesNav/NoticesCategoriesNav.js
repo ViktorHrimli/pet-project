@@ -14,7 +14,6 @@ import {
 export const NoticeCategoriesNav = () => {
   const { token } = useAuth();
 
-  console.log(token);
   if (token) {
     return (
       <NavWrapper>
