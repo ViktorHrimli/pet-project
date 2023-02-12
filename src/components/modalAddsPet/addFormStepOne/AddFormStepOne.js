@@ -1,48 +1,34 @@
 import React, { useState } from 'react';
+
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
 import {
-  NoticeTextDiscription,
-  AddErrorMessage,
-} from 'components/modalAddNotice/noticeFormStepOne/StepOneNotice.styled';
-
-import {
+  AddErrorMessageGlobal,
   FormGlobal,
-  TextGlobal,
   InputGlobal,
   LabelGlobal,
+  TextGlobal,
 } from 'components/modalAddNotice/GlobalForm.styled';
 
-import {
-  ButtonFormNextCancel,
-  ButtonNoticeForm,
-} from 'components/modalAddNotice/buttonForm/ButtonForm';
+import { ButtonFormNextCancel } from 'components/modalAddNotice/buttonForm/ButtonForm';
 
 const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
+const textMatch = /^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/;
 
 const schema = Yup.object().shape({
-  title: Yup.string()
-    .min(2)
-    .max(48)
-    .required('Field required!')
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!'),
   name: Yup.string()
     .min(2)
     .max(16)
-    .required('Field required!')
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!'),
-  breed: Yup.string()
-    .min(2)
-    .max(16)
-    .required('Field required!')
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!'),
+    .required('Required field!')
+    .matches(textMatch, 'Incorrect symbol!'),
+  breed: Yup.string().min(2).max(16).required('Required field!'),
   date: Yup.string()
     .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
-    .required('Field required!'),
+    .required('Required field!'),
 });
 
-export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
+const StepOne = ({ step, state, setIsOpen }) => {
   const [prevDate] = useState(JSON.parse(localStorage.getItem('prev')) || '');
 
   const handleSubmit = (values, action) => {
@@ -57,36 +43,20 @@ export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
     <>
       <TextGlobal>Add pet</TextGlobal>
 
-      <NoticeTextDiscription>
-        Lorem ipsum dolor sit amet, consectetur Lorem ipsum dolor sit amet,
-        consectetur
-      </NoticeTextDiscription>
-
-      <ButtonNoticeForm setIsUseSell={setIsUseSell} />
-
       <Formik
-        initialValues={prevDate || { title: '', name: '', date: '', breed: '' }}
-        onSubmit={handleSubmit}
+        initialValues={prevDate || { name: '', date: '', breed: '' }}
         validationSchema={schema}
+        onSubmit={handleSubmit}
       >
         {({ touched, errors, isValid }) => (
           <FormGlobal>
-            <div style={{ position: 'relative' }}>
-              <LabelGlobal>
-                Title ad
-                <InputGlobal placeholder="Enter title" name="title" />
-              </LabelGlobal>
-              {touched.title && errors.title && (
-                <AddErrorMessage>{errors?.title}</AddErrorMessage>
-              )}
-            </div>
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
                 Name pet
                 <InputGlobal placeholder="Enter name pet" name="name" />
               </LabelGlobal>
               {touched.name && errors.name && (
-                <AddErrorMessage>{errors?.name}</AddErrorMessage>
+                <AddErrorMessageGlobal>{errors?.name}</AddErrorMessageGlobal>
               )}
             </div>
             <div style={{ position: 'relative' }}>
@@ -95,7 +65,7 @@ export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
                 <InputGlobal placeholder="Enter date of birth" name="date" />
               </LabelGlobal>
               {touched.date && errors.date && (
-                <AddErrorMessage>{errors?.date}</AddErrorMessage>
+                <AddErrorMessageGlobal>{errors?.date}</AddErrorMessageGlobal>
               )}
             </div>
             <div style={{ position: 'relative' }}>
@@ -104,7 +74,9 @@ export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
                 <InputGlobal placeholder="Enter breed" name="breed" />
               </LabelGlobal>
               {touched.breed && errors.breed && (
-                <AddErrorMessage>{errors?.breed || 'Errors'}</AddErrorMessage>
+                <AddErrorMessageGlobal>
+                  {errors?.breed || 'Errors'}
+                </AddErrorMessageGlobal>
               )}
             </div>
 
@@ -115,3 +87,5 @@ export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
     </>
   );
 };
+
+export { StepOne };
