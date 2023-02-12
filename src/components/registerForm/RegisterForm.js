@@ -45,12 +45,6 @@ export default function RegisterForm() {
   const [passwordType, setPasswordType] = useState('password');
   const [confirmPasswordType, setConfirmPasswordType] = useState('password');
 
-  const showErrorRegister = () => {
-    toast.error('User with this email already exists', {
-      position: 'top-right',
-    });
-  };
-
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }, error) => {
@@ -66,11 +60,9 @@ export default function RegisterForm() {
           phone: phone,
         })
       );
-    } else if (error) {
+    } else {
       return;
     }
-    showErrorRegister();
-
     resetForm();
   };
 
