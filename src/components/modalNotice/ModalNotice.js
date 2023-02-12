@@ -18,7 +18,9 @@ import {
 	IconRedHeart,
   TitleCategory,
   CategoryNotice,
-  DeleteButton
+  DeleteButton,
+  IconWasteBasket,
+  TitleNoticeButton
 } from 'components/modalNotice/ModalNotice.styled';
 
 import { selectUser } from 'redux/auth/selectors';
@@ -45,8 +47,8 @@ export const ModalNotice = ({data}) => {
     const dispatch = useDispatch();
 
     const userEmail = useSelector(selectUser);
-    
-    const owner = userEmail.email === email ? 'owner' : null;
+    const email2 = 'tester3@ukr.net'
+    const owner = userEmail.email === email2 ? 'owner' : null;
     
     return (
     <>
@@ -104,18 +106,20 @@ export const ModalNotice = ({data}) => {
         <NoticeComments>{comments}</NoticeComments>
       </CommentsItem>
       <ButtonModalWrapper>
-        {owner && (<DeleteButton type="button"
-            onClick={() => dispatch(removeFavoriteNotices(_id))}>
-          Delete
-        </DeleteButton>)}
-        <a href={`tel:${phone}`}><ContactButton type="button">
-        Contact
-        </ContactButton>
+        <a href={`tel:${phone}`}>
+          <ContactButton type="button">
+            <TitleNoticeButton>Contact </TitleNoticeButton>
+          </ContactButton>
         </a>
 				<AddToFavoriteButton type="button">
-          Add to
+          <TitleNoticeButton>Add to </TitleNoticeButton>
 					<IconRedHeart/>
         </AddToFavoriteButton>
+        {owner && (<DeleteButton type="button"
+            onClick={() => dispatch(removeFavoriteNotices(_id))}>
+          <TitleNoticeButton>Delete </TitleNoticeButton>
+          <IconWasteBasket/>
+        </DeleteButton>)}
       </ButtonModalWrapper>
     </WrapperContainer>
     </>

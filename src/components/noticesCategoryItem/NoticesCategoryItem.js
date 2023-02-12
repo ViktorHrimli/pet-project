@@ -23,6 +23,7 @@ import {
   Try,
   Buttonlist,
 } from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
+import { IconWasteBasket } from 'components/modalNotice/ModalNotice.styled';
 
 import { ModalNoticeLayout } from 'components/modalsLayout/modalNoticeLayout/ModalNoticeLayout';
 import { ModalNotice } from 'components/modalNotice/ModalNotice';
@@ -105,6 +106,7 @@ export const NoticeCategoryItem = ({ item }) => {
             onClick={() => dispatch(removeFavoriteNotices(_id))}
           >
             Delete
+            <IconWasteBasket/>
           </DeleteButton>
         )}
       </Buttonlist>
