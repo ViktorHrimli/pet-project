@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteItems, selectItemById } from 'redux/notices/selectors';
 import {
@@ -54,6 +56,14 @@ export const NoticeCategoryItem = ({ item }) => {
   function formatTitle() {
     return title.length < 30 ? title : title.slice(0, 30) + '...';
   }
+  const showErrorRegister = () => {
+    toast.error(
+      'Only registered users can add on our site, so first log in or register.',
+      {
+        position: 'top-center',
+      }
+    );
+  };
 
   return (
     <CardItem key={_id}>
@@ -61,7 +71,11 @@ export const NoticeCategoryItem = ({ item }) => {
       <Notiece>
         <span>{category} </span>
       </Notiece>
-      <Pick onClick={() => dispatch(addFavoriteNotices(_id))}>
+      <Pick
+        onClick={() =>
+          token ? dispatch(addFavoriteNotices(_id)) : showErrorRegister()
+        }
+      >
         <PickIcon />
       </Pick>
       <CardTitle>{formatTitle()}</CardTitle>
@@ -113,6 +127,7 @@ export const NoticeCategoryItem = ({ item }) => {
           </DeleteButton>
         )}
       </Buttonlist>
+      <ToastContainer />
     </CardItem>
   );
 };

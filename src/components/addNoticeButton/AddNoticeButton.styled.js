@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { ReactComponent as plus } from '../../images/svg/icon-cross-white.svg';
 
 export const Wrapper = styled.div`
-  position: relative;
+  position: absolute;
   @media screen and (max-width: 767px) {
   }
 `;
@@ -36,12 +36,14 @@ export const AddButton = styled.button`
     }
   }
   @media screen and (min-width: 768px) {
-    top: -160px;
-    right: 0;
+    width: 129px;
+    top: 1px;
+    left: 577px;
   }
 
   @media screen and (min-width: 1280px) {
-    top: -105px;
+    top: -0;
+    left: 1118px;
   } ;
 `;
 

@@ -1,6 +1,7 @@
 import { CURRENT_LIST, ONLINE_LIST } from './CurrentList';
 import { useAuth } from 'hooks/useAuth';
 
+import { AddNoticeButton } from 'components/addNoticeButton/AddNoticeButton';
 import {
   NavWrapper,
   ButtonList,
@@ -29,6 +30,7 @@ export const NoticeCategoriesNav = () => {
             </OnlineItem>
           ))}
         </ButtonUserList>
+        <AddNoticeButton />
       </NavWrapper>
     );
   }
@@ -41,6 +43,7 @@ export const NoticeCategoriesNav = () => {
           </ButtonItem>
         ))}
       </ButtonList>
+      <AddNoticeButton />
     </NavWrapper>
   );
 };

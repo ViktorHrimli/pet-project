@@ -1,4 +1,3 @@
-import { AddNoticeButton } from 'components/addNoticeButton/AddNoticeButton';
 import { NoticeCategoryList } from 'components/noticesCategoryList/NoticeCategoryList';
 import { NoticesSearch } from 'components/noticesSearch/NoticesSearch';
 import { NoticeCategoriesNav } from 'components/notisesCategoriesNav/NoticesCategoriesNav';
@@ -12,7 +11,7 @@ const NoticesPage = () => {
         <TitleSection>Find your favorite pet</TitleSection>
         <NoticesSearch />
         <NoticeCategoriesNav />
-        <AddNoticeButton />
+
         <NoticeCategoryList />
       </Section>
     </main>

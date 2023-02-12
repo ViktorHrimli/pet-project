@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { FaHeart } from 'react-icons/fa';
 
+
 export const CardItem = styled.li`
   position: relative;
   background-color: ${p => p.theme.colors.white};
