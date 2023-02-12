@@ -15,6 +15,7 @@ import {
   LableNotice,
   DateModalNotice,
 	NoticeComments,
+  LableComments,
 	ButtonModalWrapper,
 	ContactButton,
 	AddToFavoriteButton,
@@ -59,7 +60,6 @@ export const ModalNotice = ({data, onClose}) => {
     };
 
     const userEmail = useSelector(selectUser);
-    // const email2 = 'tester3@ukr.net'
     const owner = userEmail.email === email ? 'owner' : null;
     
     return (
@@ -114,8 +114,9 @@ export const ModalNotice = ({data, onClose}) => {
         </ReferenceList>
       </WrapperInfoBlock>
       <CommentsItem>
-        <LableNotice>Comments:</LableNotice>
-        <NoticeComments>{comments}</NoticeComments>
+        <NoticeComments>
+          <LableComments>Comments: </LableComments>{comments}
+        </NoticeComments>
       </CommentsItem>
       <ButtonModalWrapper>
         <a href={`tel:${phone}`}>
@@ -134,6 +135,7 @@ export const ModalNotice = ({data, onClose}) => {
         </AddToFavoriteButton>
         {owner && (<DeleteButton type="button"
             onClick={() => {
+              onClose(false)
               dispatch(deleteNotices(_id))
               }}>
           <TitleNoticeButton>Delete </TitleNoticeButton>

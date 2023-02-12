@@ -1,53 +1,85 @@
 import styled from '@emotion/styled';
-import { AiFillCloseCircle } from 'react-icons/ai';
+import { ReactComponent as CrossLine } from '../../../images/svg/close-line.svg';
 
 export const Backdrop = styled.div`
-  z-index: 5;
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
   right: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(3, 2, 2, 0.7);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.6);
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
+  z-index: 5;
+  @media screen and (min-width: 768px) {
+    padding: 32px;
+  }
+
 `;
 
 export const ModalBox = styled.div`
-  width: 640px;
-  min-height: 440px;
+position: relative;  
+display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  width: 280px;
+  border-radius: 20px;
+  outline: none;
+
   margin-right: auto;
   margin-left: auto;
-  margin-top: ${p => p.theme.space[4]}px;
-  color: ${p => p.theme.colors.text};
-  background-color: ${p => p.theme.colors.background};
-  padding-top: ${p => p.theme.space[5]}px;
-  padding-bottom: ${p => p.theme.space[5]}px;
-  padding-left: ${p => p.theme.space[6]}px;
-  padding-right: ${p => p.theme.space[6]}px;
-  font-size: ${p => p.theme.fontSizes.l};
-  line-height: ${p => p.theme.lineHeights.heading};
-  border-radius: ${p => p.theme.radii.normal};
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
-    -23px 0 20px -23px rgba(0, 0, 0, 0.6), 23px 0 20px -23px rgba(0, 0, 0, 0.6),
-    inset 0 0 40px rgba(0, 0, 0, 0.1);
+
+  background-color: ${p => p.theme.colors.white};
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+
+@media screen and (min-width: 768px) {
+    width: 704px;
+  }
 `;
 
 export const StyledBtn = styled.button`
+position: absolute;
+  z-index: 2;
+  
+  top: 20px;
+  right: 20px;
   display: flex;
-  border: none;
-  background-color: inherit;
-  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50px;
+  background-color: ${p => p.theme.colors.background};
+  
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.white};
+
+  @media screen and (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+  }
 `;
 
-export const Icon = styled(AiFillCloseCircle)`
-  height: 44px;
-  width: 44px;
+export const Icon = styled(CrossLine)`
+  width: 20px;
+  height: 20px;
+
+&:hover,
+&:focus {
+  fill: ${p => p.theme.colors.primary};
+}
+
+@media screen and (min-width: 768px) {
+  width: 28px;
+  height: 28px;
+}
 `;
