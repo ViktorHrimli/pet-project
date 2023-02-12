@@ -148,6 +148,12 @@ export const NoticeComments = styled.p`
   width: 240px;
   font-weight: ${p => p.theme.fontWeights.normal};
   font-size: ${p => p.theme.fontSizes.xxs};
+
+  @media screen and (min-width: 768px) {
+    width: 660px;
+    font-size: ${p => p.theme.fontSizes.xs};
+    lineHeight: 1.5;
+}
 `;
 
 export const LableComments = styled.span`
