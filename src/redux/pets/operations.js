@@ -16,8 +16,7 @@ export const addPet = createAsyncThunk(
       const { data } = await axios.post('/pets/add', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      // console.log('data in pets', data);
-      return data;
+      return data.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }
