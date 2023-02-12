@@ -190,11 +190,13 @@ export const DeleteButton = styled.button`
   height: 40px;
   border-radius: 40px;
   border: 2px solid ${p => p.theme.colors.primary};
-  color: ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.black};
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: 2px solid ${p => p.theme.colors.focus};
-    color: ${p => p.theme.colors.focus};
+    color: ${p => p.theme.colors.white};
+    background: ${p => p.theme.colors.primary};
   }
 
 @media screen and (max-width: 767px) {
@@ -216,7 +218,8 @@ export const AddToFavoriteButton = styled.button`
   border-radius: 40px;
   border: 2px solid ${p => p.theme.colors.primary};
 
-  &:hover {
+  &:hover,
+  &focus {
     border: 2px solid ${p => p.theme.colors.focus};
   }
 
@@ -237,22 +240,20 @@ export const IconRedHeart = styled(RedHeart)`
   width: 16px;
   height: 16px;
   margin-left: 8px;
+  color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
-  fill: ${p => p.theme.colors.primary};
 
-  &:hover {
+  &:hover,
+  &:focus {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: ${p => p.theme.colors.focus};
+    stroke: ${p => p.theme.colors.focus};
   }
 `;
 
 export const IconWasteBasket = styled(WasteBasket)`
-color: ${p => p.theme.colors.primary};
 margin-left: 15px;
 width: 20px;
 height: 20px;
-
-&:hover {
-  color: ${p => p.theme.colors.focus};
-  opacity: 1;
-}
+opacity: 1;
 `;

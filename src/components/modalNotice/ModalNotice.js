@@ -28,7 +28,6 @@ import { removeFavoriteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({data}) => {
-
   const {
     _id,
     category,
