@@ -18,7 +18,7 @@ import {
 
 import { ButtonFormDoneCancel } from 'components/modalAddNotice/buttonForm/ButtonForm';
 import { MaleFemale } from 'components/modalAddNotice/noticeFormStepTwo/sexConteiner/MaleFemale';
-import { PhotoConteinerNotice } from 'components/modalAddNotice/PhotoConteinerNotice/PhotoConteinerNotice';
+import { PhotoConteinerNotice } from 'components/modalAddNotice/photoConteinerNotice/PhotoConteinerNotice';
 
 const pricePattern = /^[1-9][0-9]*$/;
 

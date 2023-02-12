@@ -4,7 +4,7 @@ import {
   AddIconsPhoto,
   ImageSss,
   NoticeAddPhoto,
-} from 'components/modalAddNotice/PhotoConteinerNotice/PhotoConteinerNotice.styled';
+} from 'components/modalAddNotice/photoConteinerNotice/PhotoConteinerNotice.styled';
 
 const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
   return (
