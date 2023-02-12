@@ -8,6 +8,7 @@ export const getAll = createAsyncThunk(
   async (result, thunkAPI) => {
     try {
       const { data } = await axios.get(`/notices/getAll/${result}`);
+
       return data.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
@@ -72,8 +73,6 @@ export const removeFavoriteNotices = createAsyncThunk(
   }
 );
 
-const formData = new FormData();
-
 export const addNotices = createAsyncThunk(
   'notices/addNotices',
   async (state, thunkAPI) => {
@@ -90,6 +89,8 @@ export const addNotices = createAsyncThunk(
       photo,
       token,
     } = state;
+
+    const formData = new FormData();
 
     formData.append('category', ...key);
     formData.append('title', title);
@@ -108,7 +109,8 @@ export const addNotices = createAsyncThunk(
           Authorization: `Bearer ${token}`,
         },
       });
-      return data;
+
+      return data.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
