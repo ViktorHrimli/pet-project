@@ -123,6 +123,7 @@ export const Input = styled(Field)`
   border-color: ${p => p.theme.colors.inputAuthForm};
   border-radius: ${p => p.theme.radii.big};
   outline: none;
+
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.ms};
     line-height: ${p => p.theme.lineHeights.max};
@@ -175,3 +176,9 @@ export const FormLink = styled(Link)`
     color: rgba(85, 26, 139);
   } */
 `;
+
+export const customToast = {
+  position: 'top-right',
+  autoClose: 5000,
+  pauseOnHover: true,
+};

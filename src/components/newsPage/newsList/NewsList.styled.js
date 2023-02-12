@@ -21,19 +21,18 @@ margin-bottom: 60px;
   }
 `
 export const EmptyRequestText = styled.p`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 22px;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.normal};
+font-size: ${p => p.theme.fontSizes.xs};
+line-height: ${p => p.theme.lineHeights.max};
 letter-spacing: -0.01em;
 text-align: center;
-color: #FF6101;
+color: ${p => p.theme.colors.focus};
 
 @media screen and (min-width: 768px) {
-    font-weight: 500;
-    font-size: 24px;
-    line-height: 33px;
+    font-weight: ${p => p.theme.fontWeights.medium};
+    font-size: ${p => p.theme.fontSizes.m};
+    line-height: ${p => p.theme.lineHeights.max};
   };
 
 `;

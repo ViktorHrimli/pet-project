@@ -8,21 +8,9 @@ const AddStepTwoFormPets = styled(FormGlobal)`
   margin-top: 20px;
 `;
 
-const NoticeAddPhotoConteiner = styled.div`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-  grid-gap: 8px;
-
-  @media screen and (min-width: 768px) {
-    grid-gap: 12px;
-  }
-`;
-
 const AddComments = styled(Field)`
   width: 240px;
+  height: 100px;
 
   padding: 10px;
 
@@ -49,9 +37,22 @@ const AddComments = styled(Field)`
   }
 
   @media screen and (min-width: 768px) {
-    width: 448px;
-    height: 113px;
+    width: 394px;
+    height: 116px;
   }
 `;
 
-export { NoticeAddPhotoConteiner, AddStepTwoFormPets, AddComments };
+const AddStepTwoParagraph = styled.p`
+  font-family: ${p => p.theme.fonts.body};
+  font-weight: ${p => p.theme.fontWeights.medium};
+  font-size: ${p => p.theme.fontSizes.xs};
+  line-height: ${p => p.theme.lineHeights.normal};
+
+  margin-bottom: 0;
+
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.s};
+  }
+`;
+
+export { AddComments, AddStepTwoFormPets, AddStepTwoParagraph };

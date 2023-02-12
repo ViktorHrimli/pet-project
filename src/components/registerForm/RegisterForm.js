@@ -59,10 +59,9 @@ export default function RegisterForm() {
           phone: phone,
         })
       );
-    } else if (error) {
+    } else {
       return;
     }
-
     resetForm();
   };
 

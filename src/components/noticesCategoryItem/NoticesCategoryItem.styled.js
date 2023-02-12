@@ -45,9 +45,9 @@ export const Notiece = styled.span`
   align-items: flex-start;
   padding-left: 20px;
   left: 0;
-  top: ${p => p.theme.space[5]};
+  top: ${p => p.theme.space[4]};
   background-color: rgba(255, 255, 255, 0.6);
-  width: 138px;
+  width: 158px;
   height: 28px;
   border-radius: 0px 40px 40px 0px;
   font-family: ${p => p.theme.fonts.body};
@@ -67,13 +67,12 @@ export const Pick = styled.button`
   height: 44px;
   background-color: rgba(255, 255, 255, 0.6);
 
-  top: ${p => p.theme.space[3]};
-  right: ${p => p.theme.space[3]};
+  top: 12px;
+  right: 12px;
   border-radius: ${p => p.theme.radii.round};
 
   color: rgba(255, 255, 255, 0.6);
-  &:hover,
-  &:focus {
+  &:hover {
     color: ${p => p.theme.colors.primary};
   }
 `;
@@ -103,12 +102,14 @@ export const CardTitle = styled.h3`
   line-height: ${p => p.theme.lineHeights.normal};
   letter-spacing: ${p => p.theme.letterSpacings.min};
   padding-left: ${p => p.theme.space[4]};
+  padding-right: ${p => p.theme.space[4]};
   margin-bottom: ${p => p.theme.space[4]};
 `;
 
 export const InfoList = styled.ul`
   padding-left: ${p => p.theme.space[4]};
   margin-bottom: ${p => p.theme.space[4]};
+  height: 110px;
 `;
 
 export const InfoItem = styled.li`

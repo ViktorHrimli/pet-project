@@ -1,28 +1,32 @@
 .bodyModal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  bottom: auto;
-  transform: translate(-50%, -50%);
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  min-width: 280px;
+  width: 280px;
+  max-width: 100%;
+
   padding: 20px;
 
   border-radius: 20px;
   outline: none;
 
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
   background-color: #fff;
 
-  /* overflow: auto; */
+  z-index: 11;
+
+  /* overflow: hidden; */
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
 }
 
 @media screen and (min-width: 768px) {
   .bodyModal {
-    min-width: 608px;
+    width: 608px;
   }
 }

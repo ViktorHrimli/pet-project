@@ -19,6 +19,7 @@ const AddButton = styled.button`
 
   :hover {
     box-shadow: ${p => p.theme.shadows.normal};
+    opacity: 0.8;
   }
 
   @media screen and (min-width: 768px) {
@@ -102,6 +103,12 @@ const NoticeButton = styled.button`
   :focus {
     color: ${p => p.theme.colors.white};
     background-color: ${p => p.theme.colors.primary};
+  }
+
+  :hover {
+    cursor: pointer;
+    box-shadow: ${p => p.theme.shadows.normal};
+    opacity: 0.8;
   }
 
   @media screen and (min-width: 768px) {

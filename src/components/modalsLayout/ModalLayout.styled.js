@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 const ConteinerIconsClose = styled.div`
   position: absolute;
 
-  top: 20px;
-  right: 20px;
+  top: 0px;
+  right: 0px;
 
   display: inline-flex;
   align-items: center;
@@ -15,6 +15,22 @@ const ConteinerIconsClose = styled.div`
 
   border-radius: ${p => p.theme.radii.round};
   background-color: ${p => p.theme.colors.background};
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
 `;
 
-export { ConteinerIconsClose };
+const ModalBodyWrapper = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden auto;
+`;
+
+export { ConteinerIconsClose, ModalBodyWrapper };

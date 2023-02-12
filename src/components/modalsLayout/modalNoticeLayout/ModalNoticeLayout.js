@@ -1,40 +1,44 @@
-import React from 'react';
-import ReactModal from 'react-modal';
+import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
-import { ConteinerIconsClose, CrossIcon } from 'components/modalsLayout/modalNoticeLayout/ModalNoticeLayout.styled';
+import { Backdrop,
+  ModalBox,
+  StyledBtn,
+  Icon
+} from 'components/modalsLayout/modalNoticeLayout/ModalNoticeLayout.styled';
 
-import 'components/modalsLayout/styled.css';
+const modalRoot = document.querySelector('#modal-root');
 
-ReactModal.setAppElement('#root');
-
-export const ModalNoticeLayout = ({ children, setIsOpenModalNotice, isOpenModalNotice }) => {
-  const closeModalNotice = () => {
-    setIsOpenModalNotice(false);
+const ModalNoticeLayout = ({ onClose, children }) => {
+  const onClickBackdrop = e => {
+    if (e.currentTarget === e.target) {
+      onClose(false);
+    }
   };
 
-  return (
-    <ReactModal
-      isOpen={isOpenModalNotice}
-      onRequestClose={closeModalNotice}
-      className="bodyModal"
-      style={{
-        overlay: {
-          position: 'absolute',
-          width: '100vw',
-          height: '130vh',
-          backgroundColor: 'rgba(17, 17, 17, 0.6)',
-          padding: '20px',
-          zIndex: 20,
-        },
-      }}
-      contentLabel="Example Modal"
-      aria={{ modal: 'true' }}
-    >
-      <ConteinerIconsClose onClick={closeModalNotice}>
-        <CrossIcon />
-      </ConteinerIconsClose>
-
-      {children}
-    </ReactModal>
+  useEffect(() => {
+    const onKeydown = e => {
+      if (e.code === 'Escape') {
+        onClose(false);
+      }
+    };
+    window.addEventListener('keydown', onKeydown);
+    return () => {
+      window.removeEventListener('keydown', onKeydown);
+    };
+  }, [onClose]);
+  
+  return createPortal(
+    <Backdrop onClick={onClickBackdrop}>
+      <ModalBox>
+        <StyledBtn type="button" onClick={() => {onClose(false)}}>
+          <Icon />
+        </StyledBtn>
+        {children}
+      </ModalBox>
+    </Backdrop>,
+    modalRoot
   );
 };
+
+export default ModalNoticeLayout;
