@@ -5,7 +5,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getUserData = createAsyncThunk(
   'user/getUserData',
-  async (result, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
       const { data } = await axios.get('/user/get');
 
@@ -18,20 +18,32 @@ export const getUserData = createAsyncThunk(
 
 export const updateUserData = createAsyncThunk(
   'user/updateUserData',
-  async (data, { rejectWithValue }) => {
+  async (data, thunkAPI) => {
     try {
-      const result = await axios.updateUserData(data);
+      const { data: result } = await axios.put('/user/update', data);
       return result;
-    } catch ({ response }) {
-      const { status, data } = response;
-      const error = {
-        status,
-        message: data.message,
-      };
-      return rejectWithValue(error);
     }
+      catch ({message}) {
+        return thunkAPI.rejectWithValue(message)
+      }
   }
-);
+)
+// export const updateUserData = createAsyncThunk(
+//   'user/updateUserData',
+//   async (data, { rejectWithValue }) => {
+//     try {
+//       const result = await axios.updateUserData(data);
+//       return result;
+//     } catch ({ response }) {
+//       const { status, data } = response;
+//       const error = {
+//         status,
+//         message: data.message,
+//       };
+//       return rejectWithValue(error);
+//     }
+//   }
+// );
 
 export const addUserPet = createAsyncThunk(
   'user/addUserPet',

@@ -9,6 +9,7 @@ letter-spacing: ${p => p.theme.letterSpacings.min}
   align-items: center;
   display: flex;
 
+
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: ${p => p.theme.lineHeights.max};
@@ -16,6 +17,7 @@ letter-spacing: ${p => p.theme.letterSpacings.min}
 `;
 
 export const Userlabel = styled.label`
+
 display: flex;
 justify-content: space-between;
 align-items: center;
@@ -59,14 +61,20 @@ export const EditInputBtn = styled.button`
       width: 20px;
       height: 20px;
     }
+    @media screen and (min-width: 1280px) {
+      width: 32px;
+      height: 32px;
+      & * {
+        width: 20px;
+        height: 20px;
+      }
   }
 `;
 
 
 
 export const EditInput = styled.input`
-  max-width: 159px;
-  margin-right: 10px;
+
   font-size: inherit;
   font-weight: 400;
   line-height: ${p => p.theme.lineHeights.max};
@@ -75,44 +83,25 @@ export const EditInput = styled.input`
   border: 1px solid rgba(245, 146, 86, 0.5);
   border-radius: 40px;
   padding-left: 12px;
-
   &:focus {
     outline: 0;
   }
   @media screen and (min-width: 768px) {
   }
-`;
 
-// export const LogOut = styled.div`
-//   margin-top: 45px;
-//   display: flex;
-//   justify-content: end;
-//   @media screen and (min-width: 768px) {
-//     justify-content: start;
-//     font-size: 16px;
-//     margin-top: 33px;
-//   }
-//   & button {
-//     border: none;
-//     background-color: transparent;
-//     display: flex;
-//     font-family: 'Manrope';
-//     font-style: normal;
-//     font-weight: 500;
-//     font-size: 16px;
-//     line-height: ${p => p.theme.lineHeights.max}%;
-//     letter-spacing: ${p => p.theme.letterSpacings.normal};
-//     color: rgba(17, 17, 17, 0.6);
-//     & img {
-//       margin-right: 8px;
-//     }
-//   }
-// `;
+  @media screen and (min-width: 768px) {
+    max-width: 216px;
+  }
+`;
 
 export const UserInfoWrapper = styled.div`
 
   margin-top: 32px;
 `
 export const EditInputContainer = styled.div`
+
 margin-left: 25px;
 `
+export const TextInInput = styled.p`
+
+margin-bottom: 0px;`
