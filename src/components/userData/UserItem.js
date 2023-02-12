@@ -5,7 +5,7 @@ import { toggleIsDisablet } from 'redux/user/slice';
 import { ReactComponent as ApproveIcon } from '../../images/svg/stroke.svg';
 import { ReactComponent as EditIcon } from '../../images/svg/ci_edit.svg';
 
-import { EditInput, InfoItem, Form, Userlabel, EditInputBtn, EditInputContainer } from 'components/userData/styles/UserDataItem.styles';
+import { EditInput, TextInInput, InfoItem, Form, Userlabel, EditInputBtn, EditInputContainer } from 'components/userData/styles/UserDataItem.styles';
 
 export const UserItem = ({
   data,
@@ -42,7 +42,10 @@ export const UserItem = ({
     <Form onSubmit={onSubmit}>
       <div>
       <Userlabel htmlFor={data} >
+        <div>
         <InfoItem>{text}:</InfoItem>
+        </div>
+
         {edited ? (
           <EditInputContainer>
             <EditInput
@@ -66,7 +69,7 @@ export const UserItem = ({
             )}
           </EditInputContainer>
         ) : (
-          <p>{data === '' ? `Unknown` : data}</p>
+          <TextInInput>{data === '' ? `Unknown` : data}</TextInInput>
         )}
 
         {edited ? (
