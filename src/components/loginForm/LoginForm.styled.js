@@ -181,5 +181,4 @@ export const customToast = {
   position: 'top-right',
   autoClose: 5000,
   pauseOnHover: true,
-  theme: 'colored',
 };

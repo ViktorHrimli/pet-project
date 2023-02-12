@@ -6,7 +6,7 @@ import { RxEyeOpen, RxEyeClosed } from 'react-icons/rx';
 // import { HiEye, HiEyeSlash } from 'react-icons/hi2';
 import { useNavigate } from 'react-router-dom';
 import { login } from 'redux/auth/operations';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Input,
