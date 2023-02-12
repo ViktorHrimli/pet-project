@@ -24,7 +24,7 @@ import {
 } from 'components/modalNotice/ModalNotice.styled';
 
 import { selectUser } from 'redux/auth/selectors';
-import { removeFavoriteNotices } from 'redux/notices/operations';
+import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({data}) => {
@@ -110,12 +110,13 @@ export const ModalNotice = ({data}) => {
             <TitleNoticeButton>Contact </TitleNoticeButton>
           </ContactButton>
         </a>
-				<AddToFavoriteButton type="button">
+				<AddToFavoriteButton type="button" 
+        onClick={() => dispatch(addFavoriteNotices(_id))}>
           <TitleNoticeButton>Add to </TitleNoticeButton>
 					<IconRedHeart/>
         </AddToFavoriteButton>
         {owner && (<DeleteButton type="button"
-            onClick={() => dispatch(removeFavoriteNotices(_id))}>
+            onClick={() => dispatch(deleteNotices(_id))}>
           <TitleNoticeButton>Delete </TitleNoticeButton>
           <IconWasteBasket/>
         </DeleteButton>)}
