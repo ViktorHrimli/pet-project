@@ -6,8 +6,7 @@ import {
   validationSchema2,
 } from 'components/registerForm/validationSchema';
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 import InputField from 'components/registerForm/inputField/InputField';
 import { nanoid } from 'nanoid';
