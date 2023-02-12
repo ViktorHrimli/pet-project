@@ -46,6 +46,7 @@ export const NoticeCategoryList = () => {
       result = null;
       break;
   }
+  
   const toRender = useSelector(selected);
   useLayoutEffect(() => {
     dispatch(getAll(result));

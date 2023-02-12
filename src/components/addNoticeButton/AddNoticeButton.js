@@ -31,17 +31,14 @@ export const AddNoticeButton = () => {
   return (
     <>
       <Wrapper>
-        <AddButton>
+        <AddButton
+          type="button"
+          onClick={() => (token ? setIsOpen(true) : showErrorRegister())}
+        >
           <Circle>
             <IconCross />
           </Circle>
-          <ButtonName
-            type="button"
-            onClick={() => (token ? setIsOpen(true) : console.log('hello'))}
-          >
-            Add pet
-          </ButtonName>
-
+          <ButtonName>Add pet</ButtonName>
           <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
             <ModalAddNotice setIsOpen={setIsOpen} />
           </ModalsLayout>

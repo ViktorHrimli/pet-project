@@ -1,4 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { useAuth } from 'hooks/useAuth';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
 	WrapperContainer,
@@ -27,7 +30,7 @@ import { selectUser } from 'redux/auth/selectors';
 import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
-export const ModalNotice = ({data}) => {
+export const ModalNotice = ({data, onClose}) => {
   const {
     _id,
     category,
@@ -45,9 +48,19 @@ export const ModalNotice = ({data}) => {
     
     const dispatch = useDispatch();
 
+    const { token } = useAuth();
+    const showErrorRegister = () => {
+      toast.error(
+        'Only registered users can add on our site, so first log in or register.',
+        {
+          position: 'top-center',
+        }
+      );
+    };
+
     const userEmail = useSelector(selectUser);
-    const email2 = 'tester3@ukr.net'
-    const owner = userEmail.email === email2 ? 'owner' : null;
+    // const email2 = 'tester3@ukr.net'
+    const owner = userEmail.email === email ? 'owner' : null;
     
     return (
     <>
@@ -110,13 +123,19 @@ export const ModalNotice = ({data}) => {
             <TitleNoticeButton>Contact </TitleNoticeButton>
           </ContactButton>
         </a>
-				<AddToFavoriteButton type="button" 
-        onClick={() => dispatch(addFavoriteNotices(_id))}>
+				<AddToFavoriteButton
+            type="button"
+            onClick={() =>
+              token ? dispatch(addFavoriteNotices(_id)) : showErrorRegister()
+            }
+          >
           <TitleNoticeButton>Add to </TitleNoticeButton>
 					<IconRedHeart/>
         </AddToFavoriteButton>
         {owner && (<DeleteButton type="button"
-            onClick={() => dispatch(deleteNotices(_id))}>
+            onClick={() => {
+              dispatch(deleteNotices(_id))
+              }}>
           <TitleNoticeButton>Delete </TitleNoticeButton>
           <IconWasteBasket/>
         </DeleteButton>)}
