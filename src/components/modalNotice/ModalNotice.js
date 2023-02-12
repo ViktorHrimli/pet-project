@@ -1,3 +1,5 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
 	WrapperContainer,
 	WrapperPetPhoto,
@@ -15,15 +17,20 @@ import {
 	AddToFavoriteButton,
 	IconRedHeart,
   TitleCategory,
-  CategoryNotice
+  CategoryNotice,
+  DeleteButton,
+  IconWasteBasket,
+  TitleNoticeButton
 } from 'components/modalNotice/ModalNotice.styled';
-// import { useSelector } from 'react-redux';
+
+import { selectUser } from 'redux/auth/selectors';
+import { removeFavoriteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
-export const ModalNotice = ({data, setIsOpenModalNotice
-}) => {
-console.log(data)
+export const ModalNotice = ({data}) => {
+
   const {
+    _id,
     category,
     imageURL,
     name,
@@ -36,8 +43,14 @@ console.log(data)
     phone,
     comments
     } = data;
-   console.log(imageURL)
-  return (
+    
+    const dispatch = useDispatch();
+
+    const userEmail = useSelector(selectUser);
+    const email2 = 'tester3@ukr.net'
+    const owner = userEmail.email === email2 ? 'owner' : null;
+    
+    return (
     <>
     <WrapperContainer>
       <WrapperInfoBlock>
@@ -78,7 +91,7 @@ console.log(data)
           </InfoItem>
 					<InfoItem>
             <LableNotice>Phone:</LableNotice>
-            <a href={phone}><DateModalNotice>{phone}</DateModalNotice></a>
+            <a href={`tel:${phone}`}><DateModalNotice>{phone}</DateModalNotice></a>
           </InfoItem>
           {price && (
             <InfoItem>
@@ -93,15 +106,20 @@ console.log(data)
         <NoticeComments>{comments}</NoticeComments>
       </CommentsItem>
       <ButtonModalWrapper>
-        <ContactButton type="button"
-          onClick={() => setIsOpenModalNotice(false)}
-        >
-        Contact
-        </ContactButton>
+        <a href={`tel:${phone}`}>
+          <ContactButton type="button">
+            <TitleNoticeButton>Contact </TitleNoticeButton>
+          </ContactButton>
+        </a>
 				<AddToFavoriteButton type="button">
-          Add to
+          <TitleNoticeButton>Add to </TitleNoticeButton>
 					<IconRedHeart/>
         </AddToFavoriteButton>
+        {owner && (<DeleteButton type="button"
+            onClick={() => dispatch(removeFavoriteNotices(_id))}>
+          <TitleNoticeButton>Delete </TitleNoticeButton>
+          <IconWasteBasket/>
+        </DeleteButton>)}
       </ButtonModalWrapper>
     </WrapperContainer>
     </>
