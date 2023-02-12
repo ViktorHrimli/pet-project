@@ -66,7 +66,7 @@ const noticesSlice = createSlice({
     },
     [getUserNotices.fulfilled](state, action) {
       state.isLoading = false;
-      state.selectUserItems = action.payload;
+      state.userItems = action.payload;
     },
     [getNoticesById.fulfilled](state, action) {
       state.isLoading = false;
