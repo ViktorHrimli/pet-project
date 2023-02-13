@@ -52,10 +52,10 @@ export const NoticeCategoryItem = ({ item }) => {
     return title.length < 30 ? title : title.slice(0, 30) + '...';
   }
   function toFormatData() {
-    const data2 = birthday.split('.').reverse().join('.');
-    const date1 = new Date(data2);
-    const age = getCurrentAge(date1);
-    const dateWords = intToEnglish(age);
+    const toAge = getCurrentAge(
+      new Date(birthday.split('.').reverse().join('.'))
+    );
+    const transferNumberToWord = intToEnglish(toAge);
     function getCurrentAge(date) {
       return (
         ((new Date().getTime() - date.getTime()) /
@@ -63,7 +63,7 @@ export const NoticeCategoryItem = ({ item }) => {
         0
       );
     }
-    return age < 1 ? 'less than a year' : `${dateWords} year`;
+    return toAge < 1 ? 'less than a year' : `${transferNumberToWord} year`;
   }
 
   return (
