@@ -17,10 +17,10 @@ import { CardList } from 'components/noticesCategoryList/NoticeCategoryList.styl
 
 export const NoticeCategoryList = () => {
   const dispatch = useDispatch();
-  let selected;
-
   const history = useLocation();
   const pathName = history.pathname.slice(9);
+
+  let selected;
   let result;
   switch (pathName) {
     case 'sell':
@@ -43,10 +43,10 @@ export const NoticeCategoryList = () => {
       break;
 
     default:
-      result = null;
+      result = false;
       break;
   }
-  
+
   const toRender = useSelector(selected);
   useLayoutEffect(() => {
     dispatch(getAll(result));

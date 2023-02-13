@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectFavoriteItems, selectItemById } from 'redux/notices/selectors';
@@ -8,9 +8,10 @@ import {
   removeFavoriteNotices,
   getNoticesById,
 } from 'redux/notices/operations';
-
 import { useAuth } from 'hooks/useAuth';
-import { intToEnglish } from 'components/noticesCategoryItem/date';
+
+import { intToEnglish } from 'components/noticesCategoryItem/intToEnglish';
+
 import {
   CardItem,
   CardImage,
@@ -31,16 +32,26 @@ import ModalNoticeLayout from 'components/modalsLayout/modalNoticeLayout/ModalNo
 import { ModalNotice } from 'components/modalNotice/ModalNotice';
 
 export const NoticeCategoryItem = ({ item }) => {
+  const { _id, category, title, birthday, breed, city, imageURL, price } = item;
   const dispatch = useDispatch();
   const { token } = useAuth();
-  const { _id, category, title, birthday, breed, city, imageURL, price } = item;
   const [isModalOpen, seIsModalOpen] = useState(false);
-
   const allFavorite = useSelector(selectFavoriteItems);
   const selectItem = useSelector(selectItemById);
-  const isFavorite = allFavorite.find(card => card._id === _id);
 
-  function formatData() {
+  const showErrorRegister = () => {
+    toast.error(
+      'Only registered users can add on our site, so first log in or register.',
+      {
+        position: 'top-center',
+      }
+    );
+  };
+  const isFavorite = allFavorite.find(card => card._id === _id);
+  function toFormatTitle() {
+    return title.length < 30 ? title : title.slice(0, 30) + '...';
+  }
+  function toFormatData() {
     const data2 = birthday.split('.').reverse().join('.');
     const date1 = new Date(data2);
     const age = getCurrentAge(date1);
@@ -54,17 +65,6 @@ export const NoticeCategoryItem = ({ item }) => {
     }
     return age < 1 ? 'less than a year' : `${dateWords} year`;
   }
-  function formatTitle() {
-    return title.length < 30 ? title : title.slice(0, 30) + '...';
-  }
-  const showErrorRegister = () => {
-    toast.error(
-      'Only registered users can add on our site, so first log in or register.',
-      {
-        position: 'top-center',
-      }
-    );
-  };
 
   return (
     <CardItem key={_id}>
@@ -79,7 +79,7 @@ export const NoticeCategoryItem = ({ item }) => {
       >
         <PickIcon />
       </Pick>
-      <CardTitle>{formatTitle()}</CardTitle>
+      <CardTitle>{toFormatTitle()}</CardTitle>
       <InfoList>
         <InfoItem>
           <span>Breed:</span>
@@ -91,9 +91,9 @@ export const NoticeCategoryItem = ({ item }) => {
         </InfoItem>
         <InfoItem>
           <span>Age:</span>
-          <Try>{formatData()}</Try>
+          <Try>{toFormatData()}</Try>
         </InfoItem>{' '}
-        {price > 1 ? (
+        {price >= 1 ? (
           <InfoItem>
             <span>Price:</span>
             <Try>{price}$</Try>
@@ -102,15 +102,15 @@ export const NoticeCategoryItem = ({ item }) => {
       </InfoList>
       <Buttonlist>
         <div>
-        <CardButton
-          type="button"
-          onClick={() => {
-            dispatch(getNoticesById(_id));
-            seIsModalOpen(true);
-          }}
-        >
-          Learn more
-        </CardButton>
+          <CardButton
+            type="button"
+            onClick={() => {
+              dispatch(getNoticesById(_id));
+              seIsModalOpen(true);
+            }}
+          >
+            Learn more
+          </CardButton>
         </div>
         {token && isFavorite && (
           <DeleteButton
@@ -118,11 +118,10 @@ export const NoticeCategoryItem = ({ item }) => {
             onClick={() => dispatch(removeFavoriteNotices(_id))}
           >
             Delete
-            <IconWasteBasket/>
+            <IconWasteBasket />
           </DeleteButton>
         )}
       </Buttonlist>
-      <ToastContainer />
       {isModalOpen && (
         <ModalNoticeLayout onClose={seIsModalOpen}>
           <ModalNotice data={selectItem} onClose={seIsModalOpen} />

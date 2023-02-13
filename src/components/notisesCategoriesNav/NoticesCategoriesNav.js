@@ -1,4 +1,7 @@
-import { CURRENT_LIST, ONLINE_LIST } from './CurrentList';
+import {
+  CURRENT_LIST,
+  ONLINE_LIST,
+} from 'components/notisesCategoriesNav/RoutesList';
 import { useAuth } from 'hooks/useAuth';
 
 import { AddNoticeButton } from 'components/addNoticeButton/AddNoticeButton';
@@ -9,7 +12,7 @@ import {
   Button,
   ButtonUserList,
   OnlineItem,
-} from './NoticesCategoriesNav.styled';
+} from 'components/notisesCategoriesNav/NoticesCategoriesNav.styled';
 
 export const NoticeCategoriesNav = () => {
   const { token } = useAuth();
