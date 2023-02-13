@@ -43,7 +43,7 @@ export const NoticesSearch = () => {
     onChange={handleChange}
     />
     <BtnSearch type="submit">
-      {isSearch ? <IconCross/> : <IconSearch/>}
+      {isSearch ? <IconCross /> : <IconSearch/>}
     </BtnSearch>
   </SearchForm>
 };

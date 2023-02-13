@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 
 export const FooterContainer = styled.footer`
-  
+
   padding: 20px 0;
   width: 100%;
   /* == base case =  */

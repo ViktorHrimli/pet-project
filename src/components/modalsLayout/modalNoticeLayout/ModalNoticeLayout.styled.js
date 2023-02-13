@@ -25,7 +25,6 @@ export const Backdrop = styled.div`
 
 export const ModalBox = styled.div`
   position: relative;
-  margin-top: 295px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,6 +41,10 @@ export const ModalBox = styled.div`
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
   
+@media screen and (max-width: 767px) {
+  width: 295px;
+}
+
 @media screen and (min-width: 768px) {
     width: 704px;
   }

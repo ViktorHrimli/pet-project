@@ -32,7 +32,7 @@ import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({data, onClose}) => {
-  
+
   const {
     _id,
     category,
@@ -43,11 +43,11 @@ export const ModalNotice = ({data, onClose}) => {
     breed,
     region,
     sex,
-    owner,
+    phone,
+    email,
     comments,
   } = data;
-  
-  const {email, phone} = owner;
+  // const {email, phone} = owner;
 
   const dispatch = useDispatch();
   const { token } = useAuth();
@@ -62,7 +62,8 @@ export const ModalNotice = ({data, onClose}) => {
   };
 
   const userEmail = useSelector(selectUser);
-   const ownerEmail = userEmail.email === email ? 'ownerCard' : null;
+
+  const isPrivate = userEmail.email === email;
 
   return (
     <>
@@ -102,15 +103,15 @@ export const ModalNotice = ({data, onClose}) => {
             </InfoItem>
             <InfoItem>
               <LableNotice>Email:</LableNotice>
-              <a href={email}>
+              {email && <a href={email}>
                 <DateModalNotice>{email}</DateModalNotice>
-              </a>
+              </a>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Phone:</LableNotice>
-              <a href={`tel:${phone}`}>
+              {phone && <a href={`tel:${phone}`}>
                 <DateModalNotice>{phone}</DateModalNotice>
-              </a>
+              </a>}
             </InfoItem>
             {price && (
               <InfoItem>
@@ -140,7 +141,7 @@ export const ModalNotice = ({data, onClose}) => {
             <TitleNoticeButton>Add to </TitleNoticeButton>
             <IconRedHeart />
           </AddToFavoriteButton>
-          {ownerEmail && (
+          {isPrivate && (
             <DeleteButton
               type="button"
               onClick={() => {
