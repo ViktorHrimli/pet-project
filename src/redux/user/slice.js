@@ -9,6 +9,7 @@ import {
 
 const initialState = {
   user: {},
+  userPets: [],
   loading: false,
   userLoading: false,
   error: null,
@@ -39,6 +40,7 @@ const userSlice = createSlice({
       store.loading = false;
       store.userLoading = false;
       store.user = payload.user;
+      store.userPets = payload.data;
     },
     [getUserData.rejected]: (store, { payload }) => {
       store.loading = false;
@@ -67,9 +69,11 @@ const userSlice = createSlice({
       store.addPetError = null;
     },
     [addUserPet.fulfilled]: (store, { payload }) => {
+      console.log(store.user, payload);
       store.loading = false;
       store.addPetError = null;
       store.user.pets = [payload, ...store.user.pets];
+
       store.isAddedPetSuccess = true;
     },
     [addUserPet.rejected]: (store, { payload }) => {

@@ -21,13 +21,13 @@ export const updateUserData = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const { data: result } = await axios.put('/user/update', data);
+
       return result;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue(message);
     }
-      catch ({message}) {
-        return thunkAPI.rejectWithValue(message)
-      }
   }
-)
+);
 
 // export const updateUserData = createAsyncThunk(
 //   'user/updateUserData',
@@ -59,12 +59,12 @@ export const updateUserData = createAsyncThunk(
 //   }
 // )
 
-
 export const addUserPet = createAsyncThunk(
   'user/addUserPet',
   async (data, { rejectWithValue }) => {
     try {
       const result = await axios.addUserPet(data);
+      console.log('result', result);
       return result;
     } catch ({ response }) {
       const { status, data } = response;

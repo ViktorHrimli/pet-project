@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { StepOne } from './addFormStepOne/AddFormStepOne';
 import { StepTwo } from './addFormStepTwo/AddFormStepTwo';
 
-import { addPet } from '../../redux/pets/operations';
+import { addUserPet } from '../../redux/user/operations';
 import { selectToken } from '../../redux/auth/selectors';
 
 const initialState = {
@@ -25,7 +25,7 @@ export const ModalAddPet = ({ setIsOpen }) => {
   useEffect(() => {
     if (state.photo) {
       localStorage.removeItem('prev');
-      dispatch(addPet({ ...state, token }));
+      dispatch(addUserPet({ ...state, token }));
     }
   }, [dispatch, state, token]);
 
