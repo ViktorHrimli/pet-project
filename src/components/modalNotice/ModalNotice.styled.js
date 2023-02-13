@@ -99,6 +99,9 @@ export const TitleModalNotice = styled.h3`
 
 export const ReferenceList = styled.div`
 width: 240px;
+@media screen and (min-width: 768px) {
+width: 320px;
+}
 `;
 
 export const InfoItem = styled.div`

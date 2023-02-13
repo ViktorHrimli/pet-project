@@ -28,6 +28,7 @@ export const updateUserData = createAsyncThunk(
       }
   }
 )
+
 // export const updateUserData = createAsyncThunk(
 //   'user/updateUserData',
 //   async (data, { rejectWithValue }) => {
@@ -44,6 +45,20 @@ export const updateUserData = createAsyncThunk(
 //     }
 //   }
 // );
+
+// export const addUserPet = createAsyncThunk(
+//   'user/addUserPet',
+//   async (data, thunkAPI) => {
+//     try {
+// 	    const { data: result } = await axios.post('/pets/add', data);
+// 	    return result;
+//     }
+//           catch ({message}) {
+//         return thunkAPI.rejectWithValue(message)
+//       }
+//   }
+// )
+
 
 export const addUserPet = createAsyncThunk(
   'user/addUserPet',
