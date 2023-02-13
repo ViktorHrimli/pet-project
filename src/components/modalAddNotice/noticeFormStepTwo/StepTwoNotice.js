@@ -51,7 +51,10 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
     location: JSON.parse(localStorage.getItem('notice-location')) || '',
     price: JSON.parse(localStorage.getItem('notice-price')) || '1',
     comments: JSON.parse(localStorage.getItem('notice-comments')) || '',
-    sex: JSON.parse(localStorage.getItem('notice-sex')) || 'male',
+    sex:
+      JSON.parse(localStorage.getItem('notice-sex')) === true
+        ? 'female'
+        : 'male',
   });
 
   const shema = shemaMultipleModal(isUseSell);

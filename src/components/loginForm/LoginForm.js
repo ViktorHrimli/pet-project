@@ -6,7 +6,7 @@ import { RxEyeOpen, RxEyeClosed } from 'react-icons/rx';
 // import { HiEye, HiEyeSlash } from 'react-icons/hi2';
 import { useNavigate } from 'react-router-dom';
 import { login } from 'redux/auth/operations';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Input,
@@ -57,19 +57,18 @@ export const LoginForm = () => {
     password: '',
   };
 
-  const showErrorLogin = () => {
-    toast.error('User with this e-mail was not found. You need to register.', {
-      position: 'top-right',
-    });
-  };
+  // const showErrorLogin = () => {
+  //   toast.error('User with this e-mail was not found. You need to register.', {
+  //     position: 'top-right',
+  //   });
+  // };
 
-  const handleSubmit = (values, error) => {
+  const handleSubmit = values => {
     dispatch(login(values)).then(res => {
       if (res.meta.requestStatus === 'fulfilled') {
         navigate('/user', { replace: true });
-      } else if (error) {
-        showErrorLogin();
       }
+
       return;
     });
   };
@@ -89,7 +88,12 @@ export const LoginForm = () => {
           {() => (
             <FormCustom>
               <Label>
-                <Input name="email" type="text" placeholder="Email" />
+                <Input
+                  name="email"
+                  type="text"
+                  placeholder="Email"
+                  autoComplete="off"
+                />
                 <FormError name="email" />
               </Label>
 

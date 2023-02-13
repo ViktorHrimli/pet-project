@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { customToast } from 'components/loginForm/LoginForm.styled';
+// import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
 
@@ -46,8 +47,15 @@ export const login = createAsyncThunk(
       token.set(data.token);
       return data;
     } catch (e) {
+      if (e.response.status === 404) {
+        toast.error('Email not found', customToast);
+      } else if (e.response.status === 401) {
+        toast.error('Wrong email or password!', customToast);
+      } else {
+        toast.error('Validation error', customToast);
+      }
       console.log(e.message);
-      return thunkAPI.rejectWithValue('Email not found!');
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

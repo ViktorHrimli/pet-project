@@ -1,20 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const filterNoticesInitialState = '';
+const filterNoticesInitialState = {
+  query: '',
+  currentNotices: []
+}
 
 const filterNoticesSlice = createSlice({
-
     name: 'filterNotices',
     initialState: filterNoticesInitialState,
     reducers: {
         setFilterNotices: {
             reducer(state, action) {
-                state = action.payload;
-                return state;
-            },
+              state.query = action.payload;
+          },
         },
+        currentNotices: {
+          reducer(state, action) {
+          state.currentNotices = action.payload;
+      },
     },
+  },
 });
 
-export const { setFilterNotices } = filterNoticesSlice.actions;
+export const { setFilterNotices, currentNotices } = filterNoticesSlice.actions;
 export const filterNoticesReducer = filterNoticesSlice.reducer;

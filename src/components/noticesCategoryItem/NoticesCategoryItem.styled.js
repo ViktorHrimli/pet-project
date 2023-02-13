@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { FaHeart } from 'react-icons/fa';
 
-
 export const CardItem = styled.li`
   position: relative;
   background-color: ${p => p.theme.colors.white};
@@ -73,8 +72,7 @@ export const Pick = styled.button`
   border-radius: ${p => p.theme.radii.round};
 
   color: rgba(255, 255, 255, 0.6);
-  &:hover,
-  &:focus {
+  &:hover {
     color: ${p => p.theme.colors.primary};
   }
 `;

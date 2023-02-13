@@ -11,7 +11,6 @@ const NoticesPage = () => {
         <TitleSection>Find your favorite pet</TitleSection>
         <NoticesSearch />
         <NoticeCategoriesNav />
-
         <NoticeCategoryList />
       </Section>
     </main>

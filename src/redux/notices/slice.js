@@ -66,7 +66,7 @@ const noticesSlice = createSlice({
     },
     [getUserNotices.fulfilled](state, action) {
       state.isLoading = false;
-      state.selectUserItems = action.payload;
+      state.userItems = action.payload;
     },
     [getNoticesById.fulfilled](state, action) {
       state.isLoading = false;
@@ -84,7 +84,10 @@ const noticesSlice = createSlice({
       const foo = state.items.find(
         item => item._id === action.payload.noticeId
       );
-      state.myFavoriteItems = [foo, ...state.myFavoriteItems];
+      const foob = state.userItems.find(
+        item => item._id === action.payload.noticeId
+      );
+      state.myFavoriteItems = [foo ? foo : foob, ...state.myFavoriteItems];
     },
 
     [deleteNotices.fulfilled](state, action) {

@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { useAuth } from 'hooks/useAuth';
 import PropTypes from 'prop-types';
+
 import {
   AddButton,
   IconCross,
@@ -39,10 +40,10 @@ export const AddNoticeButton = () => {
             <IconCross />
           </Circle>
           <ButtonName>Add pet</ButtonName>
-          <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
-            <ModalAddNotice setIsOpen={setIsOpen} />
-          </ModalsLayout>
         </AddButton>
+        <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
+          <ModalAddNotice setIsOpen={setIsOpen} />
+        </ModalsLayout>
         <ToastContainer />
       </Wrapper>
     </>

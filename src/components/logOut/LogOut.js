@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
-import { logOut } from '../../redux/auth/operations';
+import { logOut } from 'redux/auth/operations';
 import { ButtonLogOut, LogOutIcon, ButtonName } from './LogOut.styled';
 
 export const LogOut = () => {

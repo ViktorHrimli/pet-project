@@ -99,6 +99,9 @@ export const TitleModalNotice = styled.h3`
 
 export const ReferenceList = styled.div`
 width: 240px;
+@media screen and (min-width: 768px) {
+width: 320px;
+}
 `;
 
 export const InfoItem = styled.div`
@@ -121,7 +124,7 @@ height: 48px;
 
 export const LableNotice = styled.p`
 margin-bottom: 0;
-width: 110px;
+width: 80px;
 font-size: ${p => p.theme.fontSizes.xxs};
 font-weight: 600;
 
