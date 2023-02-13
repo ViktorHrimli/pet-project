@@ -1,7 +1,6 @@
 import * as yup from 'yup';
 
-export const emailRegexp =
-  /^(([a-zA-Z0-9]{1}[a-zA-Z0-9_\-\.]{1,})@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}))$/;
+export const emailRegexp = /^([a-zA-Z0-9]{1}[a-zA-Z0-9_\-.]{1,})@([a-zA-Z0-9_\-.]+)\.([a-zA-Z]{2,5})$/;
 export const passwordRegexp = /^[^ ]{7,32}$/;
 export const nameRegexp = /^[a-zA-zа-яіїєА-ЯІЇЄ ]+$/;
 export const locationRegexp = /^[a-zA-Z]+[,][ ][a-zA-Z]+$/;

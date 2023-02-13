@@ -33,10 +33,17 @@ export const ModalAddNotice = ({ setIsOpen }) => {
 
       localStorage.removeItem('prev');
       localStorage.removeItem('btn');
+      console.log(state);
 
       dispatch(addNotices({ ...state, token, key }));
     }
   }, [dispatch, state, token]);
+
+  useEffect(() => {
+    if (localStorage.getItem('btn') === null) {
+      localStorage.setItem('btn', JSON.stringify({ sell: true }));
+    }
+  }, []);
 
   return (
     <>

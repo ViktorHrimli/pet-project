@@ -34,7 +34,7 @@ const ButtonNoticeForm = ({ setIsUseSell }) => {
   );
 
   useEffect(() => {
-    if (localStorage.getItem('btn')) {
+    if (localStorage.getItem('btn') !== null) {
       const keys = Object.keys(JSON.parse(localStorage.getItem('btn')));
 
       if (!keys.includes('sell')) {

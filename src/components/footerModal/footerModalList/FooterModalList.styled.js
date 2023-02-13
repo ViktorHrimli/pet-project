@@ -26,7 +26,7 @@ export const List = styled.li`
   cursor: pointer;
 
  @media screen and (min-width: 768px) {
-    flex: calc((100% / 2) - 1rem\2);
+    flex: calc((100% / 2) - (1rem / 2));
     width: 336px;
 
     transition-property: transform;
