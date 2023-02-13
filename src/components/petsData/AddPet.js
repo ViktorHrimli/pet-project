@@ -8,9 +8,6 @@ import {
   Circle,
 } from 'components/petsData/styles/AddPet.styles';
 
-import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
-import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
-
 export const AddPetButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
