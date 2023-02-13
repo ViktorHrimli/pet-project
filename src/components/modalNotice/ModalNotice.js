@@ -41,13 +41,12 @@ export const ModalNotice = ({data, onClose}) => {
     price,
     birthday,
     breed,
-    region,
+    city,
     sex,
     phone,
     email,
     comments,
   } = data;
-  // const {email, phone} = owner;
 
   const dispatch = useDispatch();
   const { token } = useAuth();
@@ -95,7 +94,7 @@ export const ModalNotice = ({data, onClose}) => {
             </InfoItem>
             <InfoItem>
               <LableNotice>Location:</LableNotice>
-              <DateModalNotice>{region}</DateModalNotice>
+              <DateModalNotice>{city}</DateModalNotice>
             </InfoItem>
             <InfoItem>
               <LableNotice>The sex:</LableNotice>
