@@ -9,13 +9,13 @@ import {
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import InputField from '../registerForm/inputField/InputField';
+import InputField from 'components/registerForm/inputField/InputField';
 import { nanoid } from 'nanoid';
 import MultiStepForm, {
   FormStep,
-} from '../registerForm/multiStepForm/MultiStepForm';
+} from 'components/registerForm/multiStepForm/MultiStepForm';
 import { RxEyeOpen, RxEyeClosed } from 'react-icons/rx';
-import ContainerRegister from '../registerForm/containerRegister/ContainerRegister';
+import ContainerRegister from 'components/registerForm/containerRegister/ContainerRegister';
 import {
   PageTitle,
   EntryFieldLabel,
@@ -24,7 +24,7 @@ import {
   ButtonIconPass,
   ButtonIconConfirmPass,
   LabelPhone,
-} from './RegisterForm.styled';
+} from 'components/registerForm/RegisterForm.styled';
 
 const EmailInputId = nanoid();
 const PasswordInputId = nanoid();
