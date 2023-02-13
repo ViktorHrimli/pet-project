@@ -38,8 +38,6 @@ const UserPage = () => {
     if (isAddedPetSuccess) {
       dispatch(resetIsAddedPetSuccess());
     }
-    if (error) {
-    }
   }, [dispatch, isAddedPetSuccess, error]);
 
   const onDeletePet = e => {
@@ -48,8 +46,10 @@ const UserPage = () => {
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };
+  console.log(cardData)
 
   return (
+    <main>
     <UserPageContainer>
       <UserCardWrapper>
         <Title>My information</Title>
@@ -70,6 +70,7 @@ const UserPage = () => {
         </AddPetBtnContainer>
       </PetsContainerWrapper>
     </UserPageContainer>
+    </main>
   );
 };
 

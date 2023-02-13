@@ -6,27 +6,29 @@ font-weight: ${p => p.theme.fontWeights.medium};
 line-height: ${p => p.theme.lineHeights.min};
 letter-spacing: ${p => p.theme.letterSpacings.min}
 
+
   align-items: center;
   display: flex;
   width: 96px;
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
-    line-height: ${p => p.theme.lineHeights.max};
+    line-height: 1.38;
+
   }
 `;
 
 export const Userlabel = styled.label`
-
 display: flex;
-
 align-items: center;
+justify-content: center;
 @media screen and (min-width: 768px) {
 
   }
 `
 
 export const Form = styled.form`
+
 justify-content: space-between;
 &:not(:last-child) {
   margin-bottom: 12px;
@@ -71,16 +73,21 @@ export const EditInput = styled.input`
   width: 159px;
   font-size: 12px;
   font-weight: 400;
-  line-height: ${p => p.theme.lineHeights.min};
+  line-height: 1.38;
+  display: flex;
   align-items: center;
   background: #fdf7f2;
   border: 1px solid rgba(245, 146, 86, 0.5);
   border-radius: 40px;
   padding-left: 12px;
+  padding-bottom: 0px;
+  padding-top: 0px;
   &:focus {
     outline: 0;
   }
   @media screen and (min-width: 768px) {
+    padding-bottom: 0px;
+    padding-top: 0px;
     width: 216px;
     font-size: 18px;
     ${p => p.theme.lineHeights.max}
