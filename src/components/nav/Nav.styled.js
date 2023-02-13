@@ -4,8 +4,14 @@ import { NavLink } from 'react-router-dom';
 export const NavigationWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 0;
+  }
 
   @media screen and (min-width: 1280px) {
+    padding-top: 0;
     flex-direction: row;
     justify-content: space-between;
     width: 50%;
@@ -14,8 +20,8 @@ export const NavigationWrapper = styled.div`
 
 export const StyledNavLink = styled(NavLink)`
   font-family: ${p => p.theme.fonts.body};
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   text-decoration: none;
   font-size: 32px;
   font-weight: ${p => p.theme.fontWeights.medium};
@@ -36,6 +42,8 @@ export const StyledNavLink = styled(NavLink)`
 
   @media screen and (min-width: 768px) {
     font-size: 48px;
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 
   @media screen and (min-width: 1280px) {

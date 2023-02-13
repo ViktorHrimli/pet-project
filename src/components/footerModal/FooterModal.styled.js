@@ -71,7 +71,7 @@ export const CloseSvg = styled(BsFillXDiamondFill)`
   position: absolute;
   top: 12px;
   right: 12px;
-
+  cursor: pointer;
   width: 30px;
   height: 30px;
 

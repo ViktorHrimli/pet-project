@@ -12,7 +12,9 @@ export const selectIsLoading = state => state.notices.isLoading;
 
 export const selectError = state => state.notices.error;
 
-export const selectFilterNotices = state => state.filterNotices.query;
+export const selectFilterNotices = state => state.filterNotices.keyword;
+
+export const selectIsSearch = state => state.filterNotices.isSearch;
 
 export const selectCurrentNotices = state => state.filterNotices.currentNotices;
 

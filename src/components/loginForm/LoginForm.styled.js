@@ -6,6 +6,10 @@ import bgLoginDesk from '../../images/login/bgLoginDesk.png';
 import bgLoginTab from '../../images/login/bgLoginTab.png';
 import bgLoginMob from '../../images/login/bgLoginMob.png';
 
+export const Main = styled.main`
+  min-height: calc(100vh - 100px);
+`;
+
 export const Icon = styled.span`
   position: absolute;
   top: 58%;

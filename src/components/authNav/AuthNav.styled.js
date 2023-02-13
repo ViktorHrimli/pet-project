@@ -5,7 +5,7 @@ export const WrapperAuthNav = styled.div`
   display: flex;
   justify-content: center;
   gap: 12px;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   width: 100%;
 
   @media screen and (min-width: 768px) {

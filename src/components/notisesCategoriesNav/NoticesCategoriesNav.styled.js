@@ -9,6 +9,7 @@ export const NavWrapper = styled.div`
   width: 280px;
   margin-left: auto;
   margin-right: auto;
+
   @media screen and (min-width: 768px) {
     width: 480px;
     margin-left: 0px;
@@ -26,6 +27,7 @@ export const ButtonList = styled.ul`
   flex-wrap: wrap;
   gap: ${p => p.theme.space[2]};
 `;
+
 export const ButtonUserList = styled.ul`
   display: flex;
   flex-wrap: wrap;
@@ -34,6 +36,7 @@ export const ButtonUserList = styled.ul`
 
 export const ButtonItem = styled.li`
   display: flex;
+
   @media screen and (max-width: 1279px) {
     &:nth-of-type(1) {
       order: 3;
@@ -46,6 +49,7 @@ export const ButtonItem = styled.li`
     }
   }
 `;
+
 export const OnlineItem = styled.li`
   display: flex;
 `;
