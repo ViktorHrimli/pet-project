@@ -4,17 +4,22 @@ export const StyledMenu = styled.div`
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-top: 104px;
   background: ${p => p.theme.colors.background};
   transform: ${({ open }) => (!open ? 'translateX(100%)' : 'translateX(0)')};
   height: 100vh;
   width: -webkit-fill-available;
   text-align: center;
-  padding-top: 46px;
+
   position: absolute;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
+
+  @media (min-width: 768px) {
+    padding-top: 130px;
+  }
 
   @media (max-width: 1279px) {
     width: 100%;
