@@ -65,6 +65,7 @@ export const BtnSearch = styled.button`
   right: 13px;
   width: 15px;
   height: 15px;
+
   &:hover,
   &:focus {
     fill: ${p => p.theme.colors.focus};
