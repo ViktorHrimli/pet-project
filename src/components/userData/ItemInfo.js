@@ -35,8 +35,8 @@ export const itemInfo = [
     },
   },
   {
-    text: 'City',
-    field: 'city',
+    text: 'Location',
+    field: 'location',
     pattern: {
       pattern: /^([A-Za-z]+)([,][ ][A-Za-z]+)*$/,
       patternMessage: 'Example: City, Region',

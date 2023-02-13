@@ -21,7 +21,7 @@ export default function Footer() {
       <Position>
         <Wrapper>
           <DeveloperData>
-            <Paragraph>&#169; 2023 | All Rights Reserved |</Paragraph>
+            <Paragraph>&copy; 2023 | All Rights Reserved |</Paragraph>
           </DeveloperData>
 
           {/* Modal */}

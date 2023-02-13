@@ -38,15 +38,15 @@ export function intToEnglish(number) {
   ];
 
   let result = '';
-  for (var n of NS) {
+  for (const n of NS) {
     if (number >= n.value) {
       if (number <= 20) {
         result += n.str;
         number -= n.value;
         if (number > 0) result += ' ';
       } else {
-        var t = Math.floor(number / n.value);
-        var d = number % n.value;
+        const t = Math.floor(number / n.value);
+        const d = number % n.value;
         if (d > 0) {
           return intToEnglish(t) + ' ' + n.str + ' ' + intToEnglish(d);
         } else {

@@ -29,11 +29,25 @@ export const updateUserData = createAsyncThunk(
   }
 );
 
-// export const updateUserData = createAsyncThunk(
-//   'user/updateUserData',
+export const addUserPet = createAsyncThunk(
+  'user/addUserPet',
+  async (data, thunkAPI) => {
+    try {
+	    const { data: result } = await axios.post('/pets/add', data);
+	    return result;
+    }
+          catch ({message}) {
+        return thunkAPI.rejectWithValue(message)
+      }
+  }
+)
+
+
+// export const addUserPet = createAsyncThunk(
+//   'user/addUserPet',
 //   async (data, { rejectWithValue }) => {
 //     try {
-//       const result = await axios.updateUserData(data);
+//       const result = await axios.addUserPet(data);
 //       return result;
 //     } catch ({ response }) {
 //       const { status, data } = response;
