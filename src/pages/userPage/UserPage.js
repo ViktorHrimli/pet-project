@@ -39,8 +39,6 @@ const UserPage = () => {
     if (isAddedPetSuccess) {
       dispatch(resetIsAddedPetSuccess());
     }
-    if (error) {
-    }
   }, [dispatch, isAddedPetSuccess, error]);
 
   const onDeletePet = e => {
@@ -49,30 +47,31 @@ const UserPage = () => {
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };
+  console.log(cardData)
 
   return (
-    <Main>
-      <UserPageContainer>
-        <UserCardWrapper>
-          <Title>My information</Title>
-          <UserInfo>
-            <UserContainer>
-              <UserForm formData={formData} />
-            </UserContainer>
-          </UserInfo>
-        </UserCardWrapper>
+    <main>
+    <UserPageContainer>
+      <UserCardWrapper>
+        <Title>My information</Title>
+        <UserInfo>
+          <UserContainer>
+            <UserForm formData={formData} />
+          </UserContainer>
+        </UserInfo>
+      </UserCardWrapper>
 
-        <PetsContainerWrapper>
-          <div>
-            <PetTitle>My pets</PetTitle>
-            <PetCard cardData={cardData} />
-          </div>
-          <AddPetBtnContainer>
-            <AddPetButton />
-          </AddPetBtnContainer>
-        </PetsContainerWrapper>
-      </UserPageContainer>
-    </Main>
+      <PetsContainerWrapper>
+        <div>
+          <PetTitle>My pets</PetTitle>
+          <PetCard cardData={cardData} />
+        </div>
+        <AddPetBtnContainer>
+          <AddPetButton />
+        </AddPetBtnContainer>
+      </PetsContainerWrapper>
+    </UserPageContainer>
+    </main>
   );
 };
 

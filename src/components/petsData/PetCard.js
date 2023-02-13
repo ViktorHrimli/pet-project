@@ -10,7 +10,7 @@ export const PetCard = ({ cardData }) => {
     <Container>
       <ul >
         {userPets ? userPets.map(
-          ({ avatarURL, _id, owner, createdAt, updatedAt, ...userPets }) => (
+          ({avatarURL, _id, name, createdAt, updatedAt, ...userPets }) => (
             <li key={createdAt} >
               <CardImg petImg={avatarURL} />
               <DeleteButton
