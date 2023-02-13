@@ -1,12 +1,12 @@
 import Container from 'components/container/Container';
 import { useBreakpoint } from 'hooks/useBreakpoint';
-import { Title, HomeSection } from 'pages/homePage/HomePage.styled';
+import { Title, HomeSection, Main } from 'pages/homePage/HomePage.styled';
 
 const HomePage = () => {
   const { isDesktopScreen } = useBreakpoint();
   return (
     <>
-      <main>
+      <Main>
         {isDesktopScreen ? (
           <>
             <HomeSection>
@@ -20,7 +20,7 @@ const HomePage = () => {
             <Title>Take good care of your small pets</Title>
           </HomeSection>
         )}
-      </main>
+      </Main>
     </>
   );
 };
