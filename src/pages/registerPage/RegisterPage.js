@@ -1,4 +1,4 @@
-import RegisterForm from '../../components/registerForm/RegisterForm';
+import RegisterForm from 'components/registerForm/RegisterForm';
 
 import { Section, Main } from 'pages/registerPage/RegisterPage.styled';
 
