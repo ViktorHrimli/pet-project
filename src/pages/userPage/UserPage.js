@@ -9,6 +9,7 @@ import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
 
 import {
+  Main,
   UserPageContainer,
   UserContainer,
   PetsContainerWrapper,
@@ -50,26 +51,28 @@ const UserPage = () => {
   const cardData = { userPets, onDeletePet, isPetsLoading };
 
   return (
-    <UserPageContainer>
-      <UserCardWrapper>
-        <Title>My information</Title>
-        <UserInfo>
-          <UserContainer>
-            <UserForm formData={formData} />
-          </UserContainer>
-        </UserInfo>
-      </UserCardWrapper>
+    <Main>
+      <UserPageContainer>
+        <UserCardWrapper>
+          <Title>My information</Title>
+          <UserInfo>
+            <UserContainer>
+              <UserForm formData={formData} />
+            </UserContainer>
+          </UserInfo>
+        </UserCardWrapper>
 
-      <PetsContainerWrapper>
-        <div>
-          <PetTitle>My pets</PetTitle>
-          <PetCard cardData={cardData} />
-        </div>
-        <AddPetBtnContainer>
-          <AddPetButton />
-        </AddPetBtnContainer>
-      </PetsContainerWrapper>
-    </UserPageContainer>
+        <PetsContainerWrapper>
+          <div>
+            <PetTitle>My pets</PetTitle>
+            <PetCard cardData={cardData} />
+          </div>
+          <AddPetBtnContainer>
+            <AddPetButton />
+          </AddPetBtnContainer>
+        </PetsContainerWrapper>
+      </UserPageContainer>
+    </Main>
   );
 };
 

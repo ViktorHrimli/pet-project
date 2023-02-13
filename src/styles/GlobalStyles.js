@@ -1,14 +1,13 @@
 import { css } from '@emotion/react';
-import {theme} from './theme'
+import { theme } from './theme';
 
 export const GlobalStyles = css`
   html {
     box-sizing: border-box;
   }
-  
-	body {
+
+  body {
     margin: 0;
-    min-height: 100vh;
     font-style: normal;
     font-family: ${theme.fonts.body};
     background: ${theme.colors.background};
@@ -46,8 +45,8 @@ export const GlobalStyles = css`
     text-decoration: none;
     color: inherit;
   }
-	code {
-		font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-			monospace;
-	}
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
 `;

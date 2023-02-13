@@ -15,6 +15,10 @@ import BgD2x from '../../images/home/BgD@2x.png';
 import Union from '../../images/home/Union.png';
 import Union2x from '../../images/home/Union@2x.png';
 
+export const Main = styled.main`
+  min-height: calc(100vh - 100px);
+`;
+
 export const Title = styled.h1`
   max-width: 291px;
   font-size: 32px;

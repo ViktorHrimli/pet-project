@@ -1,14 +1,14 @@
 import RegisterForm from '../../components/registerForm/RegisterForm';
 
-import { Section } from 'pages/registerPage/RegisterPage.styled';
+import { Section, Main } from 'pages/registerPage/RegisterPage.styled';
 
 const RegisterPage = () => {
   return (
-    <main>
+    <Main>
       <Section>
         <RegisterForm />
       </Section>
-    </main>
+    </Main>
   );
 };
 

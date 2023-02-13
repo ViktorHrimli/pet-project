@@ -6,15 +6,16 @@ import {
   validationSchema2,
 } from 'components/registerForm/validationSchema';
 
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import InputField from 'components/registerForm/inputField/InputField';
+import InputField from '../registerForm/inputField/InputField';
 import { nanoid } from 'nanoid';
 import MultiStepForm, {
   FormStep,
-} from 'components/registerForm/multiStepForm/MultiStepForm';
+} from '../registerForm/multiStepForm/MultiStepForm';
 import { RxEyeOpen, RxEyeClosed } from 'react-icons/rx';
-import ContainerRegister from 'components/registerForm/containerRegister/ContainerRegister';
+import ContainerRegister from '../registerForm/containerRegister/ContainerRegister';
 import {
   PageTitle,
   EntryFieldLabel,
@@ -23,7 +24,7 @@ import {
   ButtonIconPass,
   ButtonIconConfirmPass,
   LabelPhone,
-} from 'components/registerForm/RegisterForm.styled.js';
+} from './RegisterForm.styled';
 
 const EmailInputId = nanoid();
 const PasswordInputId = nanoid();
@@ -44,6 +45,12 @@ export default function RegisterForm() {
   const [passwordType, setPasswordType] = useState('password');
   const [confirmPasswordType, setConfirmPasswordType] = useState('password');
 
+  const showErrorRegister = () => {
+    toast.error('User with this email already exists', {
+      position: 'top-right',
+    });
+  };
+
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }, error) => {
@@ -59,9 +66,11 @@ export default function RegisterForm() {
           phone: phone,
         })
       );
-    } else {
+    } else if (error) {
       return;
     }
+    showErrorRegister();
+
     resetForm();
   };
 
