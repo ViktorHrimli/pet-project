@@ -1,9 +1,10 @@
-export const PetsList = () => {
-  return (
-    <div>
-      <PetsList/>
-    </div>
-  )
-};
+// import {PetCard} from 'components/petsData/PetCard'
+// export const PetsList = () => {
+//   return (
+//     <div>
+//       <PetCard/>
+//     </div>
+//   )
+// };
 
-export default PetsList;
+// export default PetsList;

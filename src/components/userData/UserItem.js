@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDisabledFields, getLoadingUpdate } from 'redux/user/selectors';
 import { toggleIsDisablet } from 'redux/user/slice';
 import { ReactComponent as ApproveIcon } from '../../images/svg/stroke.svg';
 import { ReactComponent as EditIcon } from '../../images/svg/ci_edit.svg';
+import * as userSelectors from 'redux/user/selectors'
 
-import { EditInput, TextInInput, InfoItem, Form, Userlabel, EditInputBtn, EditInputContainer } from 'components/userData/styles/UserDataItem.styles';
+import { EditInput, TextInInput, EditInputBtnSubmit, InfoItem, Form, Userlabel, EditInputBtn, EditInputContainer } from 'components/userData/styles/UserDataItem.styles';
 
 export const UserItem = ({
   data,
@@ -20,8 +20,8 @@ export const UserItem = ({
 }) => {
   const [edited, setEdited] = useState(false);
 
-  const isLoadingUpdate = useSelector(getLoadingUpdate);
-  const isDisabled = useSelector(getDisabledFields);
+  const isLoadingUpdate = useSelector(userSelectors.getLoadingUpdate);
+  const isDisabled = useSelector(userSelectors.getDisabledFields);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -42,9 +42,9 @@ export const UserItem = ({
     <Form onSubmit={onSubmit}>
       <div>
       <Userlabel htmlFor={data} >
-        <div>
+
         <InfoItem>{text}:</InfoItem>
-        </div>
+
 
         {edited ? (
           <EditInputContainer>
@@ -77,7 +77,7 @@ export const UserItem = ({
             <ApproveIcon fill="currentColor" width="20px" height="20px"/>
           </EditInputBtn>
         ) : (
-          <div
+          <EditInputBtnSubmit
 
             onClick={() => {
               setValue(field, data);
@@ -89,7 +89,7 @@ export const UserItem = ({
               width="20px"
               height="20px"
             />
-          </div>
+          </EditInputBtnSubmit>
         )}
       </Userlabel>
       </div>
