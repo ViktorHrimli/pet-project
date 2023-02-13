@@ -6,5 +6,6 @@ export const CardList = styled.ul`
     flex-wrap: wrap;
     gap: ${p => p.theme.space[6]};
     justify-content: center;
+    margin-bottom: ${p => p.theme.space[9]};
   }
 `;

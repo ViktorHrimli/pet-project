@@ -32,6 +32,7 @@ import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({data, onClose}) => {
+  
   const {
     _id,
     category,
@@ -42,10 +43,11 @@ export const ModalNotice = ({data, onClose}) => {
     breed,
     region,
     sex,
-    email,
-    phone,
+    owner,
     comments,
   } = data;
+  
+  const {email, phone} = owner;
 
   const dispatch = useDispatch();
   const { token } = useAuth();
@@ -60,7 +62,7 @@ export const ModalNotice = ({data, onClose}) => {
   };
 
   const userEmail = useSelector(selectUser);
-   const owner = userEmail.email === email ? 'owner' : null;
+   const ownerEmail = userEmail.email === email ? 'ownerCard' : null;
 
   return (
     <>
@@ -138,7 +140,7 @@ export const ModalNotice = ({data, onClose}) => {
             <TitleNoticeButton>Add to </TitleNoticeButton>
             <IconRedHeart />
           </AddToFavoriteButton>
-          {owner && (
+          {ownerEmail && (
             <DeleteButton
               type="button"
               onClick={() => {
