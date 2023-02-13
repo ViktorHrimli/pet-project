@@ -15,16 +15,18 @@ export const Backdrop = styled.div`
   justify-content: center;
   align-items: center;
   align-content: center;
+  overflow-y: scroll;
+  scrollbar-width: none;
   z-index: 5;
   @media screen and (min-width: 768px) {
     padding: 32px;
   }
-
 `;
 
 export const ModalBox = styled.div`
-position: relative;  
-display: flex;
+  position: relative;
+  margin-top: 295px;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -39,7 +41,7 @@ display: flex;
   background-color: ${p => p.theme.colors.white};
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
-
+  
 @media screen and (min-width: 768px) {
     width: 704px;
   }

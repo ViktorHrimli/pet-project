@@ -121,7 +121,7 @@ height: 48px;
 
 export const LableNotice = styled.p`
 margin-bottom: 0;
-width: 110px;
+width: 80px;
 font-size: ${p => p.theme.fontSizes.xxs};
 font-weight: 600;
 
