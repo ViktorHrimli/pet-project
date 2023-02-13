@@ -42,7 +42,7 @@ export const ModalBox = styled.div`
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
   
 @media screen and (max-width: 767px) {
-  width: 295px;
+  top: 160px;
 }
 
 @media screen and (min-width: 768px) {
