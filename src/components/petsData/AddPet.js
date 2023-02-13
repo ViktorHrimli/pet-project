@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import {ModalAddPet} from 'components/modalAddsPet/ModalAddPet'
-import {ModalsLayout} from 'components/modalsLayout/ModalsLayout'
+import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
+import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
 import {
   AddButton,
   IconCross,
@@ -8,8 +8,8 @@ import {
   Circle,
 } from 'components/petsData/styles/AddPet.styles';
 
-import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
-import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
+// import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
+// import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
 
 export const AddPetButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,9 +18,7 @@ export const AddPetButton = () => {
       <Circle>
         <IconCross />
       </Circle>
-      <ButtonName >
-        Add pet
-      </ButtonName>
+      <ButtonName>Add pet</ButtonName>
       <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
         <ModalAddPet setIsOpen={setIsOpen} />
       </ModalsLayout>
