@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import {ModalAddPet} from 'components/modalAddsPet/ModalAddPet'
+import {ModalsLayout} from 'components/modalsLayout/ModalsLayout'
 import {
   AddButton,
   IconCross,
@@ -10,13 +11,16 @@ import {
 export const AddPetButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <AddButton>
+    <AddButton onClick={() => setIsOpen(true)} type="button">
       <Circle>
         <IconCross />
       </Circle>
-      <ButtonName onClick={() => setIsOpen(true)} type="button">
+      <ButtonName >
         Add pet
       </ButtonName>
+      <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
+      <ModalAddPet setIsOpen={setIsOpen}/>
+      </ModalsLayout>
     </AddButton>
   );
 };
