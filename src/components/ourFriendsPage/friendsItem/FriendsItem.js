@@ -69,7 +69,7 @@ export const FiendsItem = ({image, name,email,time,adress,phone}) => {
                 </DataFriendCont>
 
                  {time &&
-                    <Transition nodeRef={nodeRef} in={timeSchedule} timeout={duration}>
+                    <Transition nodeRef={nodeRef} in={timeSchedule} timeout={duration} unmountOnExit>
                         {state => (
                     <TimeList ref={nodeRef} style={{...defaultStyle,
                         ...transitionStyles[state]}}>
