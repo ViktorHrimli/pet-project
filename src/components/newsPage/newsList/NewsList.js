@@ -7,7 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchNews } from "../../../redux/news/operations";
 import { selectorNews } from "../../../redux/news/selectors";
 import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
-// import { Loader } from "components/loader/Loader";
 import dog from '../../../images/fiends/dog.jpg';
 
 export const NewsList = () => {
@@ -46,18 +45,24 @@ export const NewsList = () => {
         }
     }
     
-    const newsList = isSearch ? filteredNews : news ;
+    const newsList = isSearch ? filteredNews : news;
+    
+    const sortNewsList = !emptyAnswer && [...newsList].sort((ferstNews, secondNews) => {
+        const a = new Date(ferstNews.date).getTime();
+        const b = new Date(secondNews.date).getTime();
+
+        return b - a;
+    })
 
     return (
         <main>
             <Section>
                 <TitleSection>News</TitleSection>
                 <NewsSeachInput getFindedNews={getFindedNews} value={nameNews} handlFindNews={handlFindNews} isSearch={isSearch} />
-                 {/* <Loader/>    */}
                 <ListOfNews>
                     { 
                         !emptyAnswer ?
-                            newsList.map(({ date, description, title, url, _id }) =>
+                            sortNewsList.map(({ date, description, title, url, _id }) =>
                                 <NewsItem key={_id} date={date} description={description} title={title} url={url} />)
                             : <li>
                                 <EmptyRequestText >I don't see any news on your request</EmptyRequestText>

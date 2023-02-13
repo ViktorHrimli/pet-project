@@ -6,11 +6,15 @@ export const CardItem = styled.li`
   background-color: ${p => p.theme.colors.white};
   border-radius: ${p => p.theme.radii.card};
   box-shadow: ${p => p.theme.shadows.normal};
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: ${p => p.theme.space[6]};
 
   display: block;
-  width: 100%;
+  width: 280px;
   @media screen and (min-width: 768px) {
-    max-width: 336px;
+    margin: 0;
+    width: 336px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -20,7 +24,7 @@ export const CardItem = styled.li`
 `;
 
 export const CardImage = styled.img`
-  margin-bottom: ${p => p.theme.space[5]};
+  margin-bottom: ${p => p.theme.space[4]};
   width: 100%;
   height: 288px;
 
@@ -41,9 +45,9 @@ export const Notiece = styled.span`
   align-items: flex-start;
   padding-left: 20px;
   left: 0;
-  top: ${p => p.theme.space[5]};
+  top: ${p => p.theme.space[4]};
   background-color: rgba(255, 255, 255, 0.6);
-  width: 138px;
+  width: 158px;
   height: 28px;
   border-radius: 0px 40px 40px 0px;
   font-family: ${p => p.theme.fonts.body};
@@ -63,13 +67,12 @@ export const Pick = styled.button`
   height: 44px;
   background-color: rgba(255, 255, 255, 0.6);
 
-  top: ${p => p.theme.space[3]};
-  right: ${p => p.theme.space[3]};
+  top: 12px;
+  right: 12px;
   border-radius: ${p => p.theme.radii.round};
 
   color: rgba(255, 255, 255, 0.6);
-  &:hover,
-  &:focus {
+  &:hover {
     color: ${p => p.theme.colors.primary};
   }
 `;
@@ -91,6 +94,7 @@ export const Try = styled.span`
 `;
 
 export const CardTitle = styled.h3`
+  height: 75px;
   color: ${p => p.theme.colors.text};
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.bolt};
@@ -98,12 +102,14 @@ export const CardTitle = styled.h3`
   line-height: ${p => p.theme.lineHeights.normal};
   letter-spacing: ${p => p.theme.letterSpacings.min};
   padding-left: ${p => p.theme.space[4]};
-  margin-bottom: ${p => p.theme.space[5]};
+  padding-right: ${p => p.theme.space[4]};
+  margin-bottom: ${p => p.theme.space[4]};
 `;
 
 export const InfoList = styled.ul`
   padding-left: ${p => p.theme.space[4]};
   margin-bottom: ${p => p.theme.space[4]};
+  height: 110px;
 `;
 
 export const InfoItem = styled.li`
@@ -116,7 +122,17 @@ export const InfoItem = styled.li`
   margin-bottom: ${p => p.theme.space[2]};
 `;
 
+export const Buttonlist = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  gap: 12px;
+`;
+
 export const CardButton = styled.button`
+  height: 38px;
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.medium};
   font-size: ${p => p.theme.fontSizes.xs};
@@ -128,7 +144,6 @@ export const CardButton = styled.button`
   padding-bottom: ${p => p.theme.space[2]};
   width: 248px;
   border-radius: ${p => p.theme.radii.big};
-  margin-bottom: ${p => p.theme.space[3]};
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -136,12 +151,14 @@ export const CardButton = styled.button`
   transition-property: background-color, color;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	&:hover,
+
+  &:hover,
   &:focus {
     background-color: ${p => p.theme.colors.primary};
     color: ${p => p.theme.colors.white};
   }
 `;
+
 export const DeleteButton = styled.button`
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.medium};

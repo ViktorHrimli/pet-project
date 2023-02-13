@@ -1,24 +1,18 @@
 import styled from '@emotion/styled';
 
-// export const SectionFriends = styled.section`
-// background-color:  #FDF7F2;
-// padding-top: 40px;
-// padding-bottom: 100px;
-// `;
 
 export const Title = styled.h2`
-font-family: 'Manrope';
-font-weight: 700;
-font-size: 24px;
-line-height: 33px;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.bold};
+font-size: ${p => p.theme.fontSizes.m};
+line-height: ${p => p.theme.lineHeights.max};
 text-align: center;
 margin-top: 0px;
 margin-bottom: 40px;
 color: #000000;
 
 @media screen and (min-width: 768px){
-    font-size: 48px;
-    line-height: 66px;
+    font-size: ${p => p.theme.fontSizes.xxl};
 }
 `;
 
@@ -34,8 +28,6 @@ padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
     gap: 32px 32px;
-    /* margin-left: auto;
-    margin-right: auto; */
     margin-bottom: 100px;
 
 };

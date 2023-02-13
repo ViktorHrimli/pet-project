@@ -1,31 +1,52 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
+import { useAuth } from 'hooks/useAuth';
 import PropTypes from 'prop-types';
+
 import {
   AddButton,
   IconCross,
   ButtonName,
   Circle,
+  Wrapper,
 } from 'components/addNoticeButton/AddNoticeButton.styled';
 
+import { ModalAddNotice } from 'components/modalAddNotice/ModalAddNotice';
 import { ModalsLayout } from 'components/modalsLayout/ModalsLayout';
-import { ModalAddPet } from 'components/modalAddsPet/ModalAddPet';
 
 export const AddNoticeButton = () => {
   const [isOpen, setIsOpen] = useState(false);
-  return (
-    <AddButton>
-      <Circle>
-        <IconCross />
-      </Circle>
-      <ButtonName onClick={() => setIsOpen(true)} type="button">
-        Add pet
-      </ButtonName>
+  const { token } = useAuth();
 
-      <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
-        <ModalAddPet setIsOpen={setIsOpen} />
-      </ModalsLayout>
-    </AddButton>
+  const showErrorRegister = () => {
+    toast.error(
+      'Only registered users can add on our site, so first log in or register.',
+      {
+        position: 'top-center',
+      }
+    );
+  };
+
+  return (
+    <>
+      <Wrapper>
+        <AddButton
+          type="button"
+          onClick={() => (token ? setIsOpen(true) : showErrorRegister())}
+        >
+          <Circle>
+            <IconCross />
+          </Circle>
+          <ButtonName>Add pet</ButtonName>
+        </AddButton>
+        <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
+          <ModalAddNotice setIsOpen={setIsOpen} />
+        </ModalsLayout>
+        <ToastContainer />
+      </Wrapper>
+    </>
   );
 };
 

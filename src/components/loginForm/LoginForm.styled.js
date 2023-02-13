@@ -8,16 +8,29 @@ import bgLoginMob from '../../images/login/bgLoginMob.png';
 
 export const Icon = styled.span`
   position: absolute;
-  top: 50%;
-  right: 20px;
+  top: 58%;
+  right: 9px;
   transform: translateY(-50%);
   width: 25px;
   height: 25px;
+  color: ${p => p.theme.colors.muted};
   cursor: pointer;
+  &:hover *,
+  &:focus * {
+    fill: ${p => p.theme.colors.primary};
+  }
+  @media screen and (min-width: 768px) {
+    top: 49%;
+    right: 22px;
+  }
+
   svg {
-    width: inherit;
-    height: inherit;
-    fill: rgba(17, 17, 17, 0.6);
+    width: 16px;
+    height: 16px;
+    @media screen and (min-width: 768px) {
+      width: 25px;
+      height: 25px;
+    }
   }
 `;
 
@@ -56,15 +69,18 @@ export const Label = styled.label`
 `;
 
 export const Wrapper = styled.div`
+  padding-left: 20px;
+  padding-right: 20px;
   @media screen and (min-width: 768px) {
     width: 608px;
-    background: #ffffff;
-    box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
-    border-radius: 40px;
+    background: ${p => p.theme.colors.white};
+    box-shadow: ${p => p.theme.shadows.form};
+    border-radius: ${p => p.theme.radii.big};
     margin-left: auto;
     margin-right: auto;
     padding: 60px 80px 40px;
   }
+
   @media screen and (min-width: 1280px) {
     width: 618px;
     padding: 60px 80px;
@@ -74,16 +90,16 @@ export const Wrapper = styled.div`
 export const TitleAuth = styled.h2`
   text-align: center;
   font-family: 'Manrope';
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 33px;
-  letter-spacing: 0.04em;
-  color: #111111;
+  font-weight: ${p => p.theme.fontWeights.bold};
+  font-size: ${p => p.theme.fontSizes.m};
+  line-height: ${p => p.theme.lineHeights.max};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
+  color: ${p => p.theme.colors.text};
   margin-bottom: 40px;
   @media screen and (min-width: 768px) {
-    font-weight: 500;
-    font-size: 36px;
-    line-height: 49px;
+    font-weight: ${p => p.theme.fontWeights.medium};
+    font-size: ${p => p.theme.fontSizes.xl};
+    line-height: ${p => p.theme.lineHeights.normal};
   }
 `;
 
@@ -95,38 +111,40 @@ export const FormCustom = styled(Form)`
 
 export const Input = styled(Field)`
   width: 100%;
-  padding: 14px 10px 13px 32px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 19px;
-  letter-spacing: 0.04em;
-  color: #111111;
-  /* color: rgba(17, 17, 17, 0.6); */
-  background: #fdf7f2;
-  border: 1px solid rgba(245, 146, 86, 0.5);
-  border-radius: 40px;
+  height: 40px;
+  padding: 0 10px 0 10px;
+  font-weight: ${p => p.theme.fontWeights.normal};
+  font-size: ${p => p.theme.fontSizes.xxs};
+  line-height: ${p => p.theme.lineHeights.normal};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
+  color: ${p => p.theme.colors.black};
+  background-color: ${p => p.theme.colors.background};
+  border: ${p => p.theme.borders.normal};
+  border-color: ${p => p.theme.colors.inputAuthForm};
+  border-radius: ${p => p.theme.radii.big};
   outline: none;
+
   @media screen and (min-width: 768px) {
-    font-size: 18px;
-    line-height: 25px;
-  }
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 25px;
-  ::placeholder {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 19px;
-    letter-spacing: 0.04em;
-    color: rgba(17, 17, 17, 0.6);
-    @media screen and (min-width: 768px) {
-      font-size: 18px;
-      line-height: 25px;
-    }
+    font-size: ${p => p.theme.fontSizes.ms};
+    line-height: ${p => p.theme.lineHeights.max};
+    height: 52px;
   }
 
   &:focus {
-    border-color: '#f59256';
+    border: ${p => p.theme.borders.medium};
+    border-color: ${p => p.theme.colors.primary};
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  &::placeholder {
+    font-weight: ${p => p.theme.fontWeights.normal};
+    font-size: ${p => p.theme.fontSizes.xxs};
+    line-height: ${p => p.theme.lineHeights.normal};
+    letter-spacing: ${p => p.theme.letterSpacings.normal};
+    color: ${p => p.theme.colors.muted};
+    @media screen and (min-width: 768px) {
+      font-size: ${p => p.theme.fontSizes.ms};
+      line-height: ${p => p.theme.lineHeights.max};
+    }
   }
 `;
 
@@ -135,23 +153,32 @@ export const Paragraph = styled.p`
   text-align: center;
   & span {
     font-family: 'Manrope';
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.04em;
-    color: rgba(17, 17, 17, 0.6);
+    font-weight: ${p => p.theme.fontWeights.normal};
+    font-size: ${p => p.theme.fontSizes.xxxs};
+    line-height: ${p => p.theme.lineHeights.min};
+    letter-spacing: ${p => p.theme.letterSpacings.normal};
+    color: ${p => p.theme.colors.muted};
   }
 `;
 
 export const FormLink = styled(Link)`
   font-family: 'Manrope';
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.04em;
+  font-weight: ${p => p.theme.fontWeights.normal};
+  font-size: ${p => p.theme.fontSizes.xxxs};
+  line-height: ${p => p.theme.lineHeights.min};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
   text-decoration-line: underline;
-  color: #3091eb;
-  &:visited {
-    color: rgba(85, 26, 139);
+  color: ${p => p.theme.colors.secondary};
+  &:hover {
+    color: ${p => p.theme.colors.focus};
   }
+  /* &:visited {
+    color: rgba(85, 26, 139);
+  } */
 `;
+
+export const customToast = {
+  position: 'top-right',
+  autoClose: 5000,
+  pauseOnHover: true,
+};

@@ -42,6 +42,12 @@ export const StyledBurger = styled.button`
   padding: 0;
   z-index: 10;
 
+  transition: all 0.3s linear;
+
+  &:hover div {
+    background: #f59256;
+  }
+
   &:focus {
     outline: none;
   }

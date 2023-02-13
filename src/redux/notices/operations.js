@@ -8,6 +8,7 @@ export const getAll = createAsyncThunk(
   async (result, thunkAPI) => {
     try {
       const { data } = await axios.get(`/notices/getAll/${result}`);
+
       return data.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
@@ -17,10 +18,12 @@ export const getAll = createAsyncThunk(
 
 export const getNoticesById = createAsyncThunk(
   'notices/getNoticesById',
-  async (_, thunkAPI) => {
+  async (noticeId, thunkAPI) => {
     try {
-      const { data } = await axios.get('/notices/get/:noticeId');
-      return data;
+      const { data } = await axios.get(`/notices/get/${noticeId}`, {
+        noticeId,
+      });
+      return data.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
@@ -29,12 +32,12 @@ export const getNoticesById = createAsyncThunk(
 
 export const addFavoriteNotices = createAsyncThunk(
   'notices/addFavoriteNotices',
-  async ({ noticeId }, thunkAPI) => {
+  async (noticeId, thunkAPI) => {
     try {
-      const { data } = await axios.put('/notices/favorite/add/:noticeId', {
+      const { data } = await axios.put(`/notices/favorite/add/${noticeId}`, {
         noticeId,
       });
-      return data;
+      return { ...data, noticeId };
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
@@ -46,7 +49,7 @@ export const favoriteNotices = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get('/notices/favorite/get');
-      return data;
+      return data.favorite;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
@@ -55,10 +58,10 @@ export const favoriteNotices = createAsyncThunk(
 
 export const removeFavoriteNotices = createAsyncThunk(
   'notices/removeFavoriteNotices',
-  async ({ noticeId }, thunkAPI) => {
+  async (noticeId, thunkAPI) => {
     try {
       const { data } = await axios.delete(
-        '/notices/favorite/remove/:noticeId',
+        `/notices/favorite/remove/${noticeId}`,
         {
           noticeId,
         }
@@ -72,35 +75,42 @@ export const removeFavoriteNotices = createAsyncThunk(
 
 export const addNotices = createAsyncThunk(
   'notices/addNotices',
-  async (
-    {
-      photo,
-      category,
+  async (state, thunkAPI) => {
+    const {
+      key,
       title,
       name,
-      birthday,
+      date,
       breed,
       sex,
       location,
       price,
       comments,
-    },
-    thunkAPI
-  ) => {
+      photo,
+      token,
+    } = state;
+
+    const formData = new FormData();
+
+    formData.append('category', ...key);
+    formData.append('title', title);
+    formData.append('name', name);
+    formData.append('birthday', date);
+    formData.append('breed', breed);
+    formData.append('sex', sex);
+    formData.append('location', location);
+    formData.append('price', price);
+    formData.append('comments', comments);
+    formData.append('photo', photo);
+
     try {
-      const { data } = await axios.post('/notices/current/add', {
-        photo,
-        category,
-        title,
-        name,
-        birthday,
-        breed,
-        sex,
-        location,
-        price,
-        comments,
+      const { data } = await axios.post('/notices/current/add', formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
-      return data;
+
+      return data.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
@@ -111,8 +121,8 @@ export const getUserNotices = createAsyncThunk(
   'notices/getUserNotices',
   async (_, thunkAPI) => {
     try {
-      const { data } = await axios.get('/notices//current/get');
-      return data;
+      const { data } = await axios.get('/notices/current/get');
+      return data.data;
     } catch ({ message }) {
       return thunkAPI.rejectWithValue(message);
     }
@@ -121,10 +131,10 @@ export const getUserNotices = createAsyncThunk(
 
 export const deleteNotices = createAsyncThunk(
   'notices/deleteNotices',
-  async ({ noticesId }, thunkAPI) => {
+  async (noticesId, thunkAPI) => {
     try {
       const { data } = await axios.removeNotice(
-        `/notices//current/remove/:noticeId`,
+        `/notices/current/remove/${noticesId}`,
         { noticesId }
       );
       return data;

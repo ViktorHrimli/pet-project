@@ -16,15 +16,10 @@ export const Burger = ({ open, setOpen }) => {
 };
 
 export const BurgerZone = ({ children, open, setOpen }) => {
-  // const [open, setOpen] = React.useState(false);
   const node = React.useRef();
   return (
     <div ref={node}>
-      <Burger
-        open={open}
-        setOpen={setOpen}
-        // onClick={() => setOpen(!open)}
-      />
+      <Burger open={open} setOpen={setOpen} />
       <Menu open={open} setOpen={setOpen} children={children} />
     </div>
   );
@@ -39,12 +34,10 @@ export const useOnClickOutside = (ref, handler) => {
       handler(event);
     };
 
-    console.log(listener);
     document.addEventListener('mousedown', listener);
 
     return () => {
       document.removeEventListener('mousedown', listener);
     };
   }, [ref, handler]);
-  // <jk></jk>
 };

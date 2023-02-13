@@ -16,15 +16,25 @@ import Union from '../../images/home/Union.png';
 import Union2x from '../../images/home/Union@2x.png';
 
 export const Title = styled.h1`
-  max-width: 280px;
+  max-width: 291px;
   font-size: 32px;
+  padding-left: 20px;
+  /* padding-right: 20px; */
+  /* margin: 0; */
   line-height: ${p => theme.lineHeights.normal};
   font-weight: ${p => theme.fontWeights.bold};
   color: ${p => theme.colors.black};
+
   @media screen and (min-width: 768px) {
-    max-width: 588px;
+    padding-left: 32px;
+    max-width: 607px;
     font-size: ${p => theme.fontSizes.xxxl};
     line-height: 1.47;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding-left: 16px;
+    max-width: 591px;
   }
 `;
 
@@ -33,8 +43,10 @@ export const HomeSection = styled.section`
   min-height: 100vh;
   background-repeat: no-repeat;
   background-position: bottom;
+
   background-image: url(${portraitM}), url(${BgM});
   background-size: 320px 337px, 100vw 470px;
+
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
@@ -43,9 +55,11 @@ export const HomeSection = styled.section`
   @media screen and (min-width: 768px) {
     min-height: 100vh;
     padding-top: 130px;
+
     background-image: url(${portraitT}), url(${BgT});
-    /* background-size: 645px 715px, 100vw 1033px; */
-    background-size: 645px 715px, 100vw 1085px;
+    /* background-size: 645px 715px, 100vw 1085px; */
+    background-size: 395px 465px, 100vw 685px;
+    /* background-size: 335px 405px, 100vw 615px; */
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -57,6 +71,7 @@ export const HomeSection = styled.section`
     padding-top: 160px;
     padding-bottom: 408px;
     min-height: 100vh;
+
     background-image: url(${portraitD}), url(${BgD}), url(${Union});
     background-size: 590px 640px, 100vw calc(100vw * 0.375), 92px 89px;
     background-position-x: calc(50% + 330px), center, calc(50% + 118px);

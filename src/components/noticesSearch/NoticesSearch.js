@@ -1,36 +1,49 @@
-import { useDispatch } from "react-redux";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 
-import {setFilterNotices} from '../../redux/notices/filterSlice';
+import { setFilterNotices } from "redux/notices/filterSlice";
+
 import {
   SearchForm,
   SearchInput,
   IconSearch,
   IconCross,
   BtnSearch 
-} from "./NoticesSearch.styled";
+} from "components/noticesSearch/NoticesSearch.styled";
 
 export const NoticesSearch = () => {
-  const [query, setQuery] = useState("");
-  const [isSearch, setIsSearch] = useState(true);
+  const [keyword, setKeyword] = useState('');
+  const [isSearch, setIsSearch] = useState(false);
 
   const dispatch = useDispatch();
 
-  const handleSubmit = () => {
-    setIsSearch(prevState => !prevState);
-    dispatch(setFilterNotices(query));
+  const handleChange = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    setKeyword(form.value.toLowerCase());
   };
 
-  const handleChange = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setQuery(e.target.value);
+    dispatch(setFilterNotices(keyword));
+    setIsSearch(prevState => !prevState);
+
+    if(isSearch){
+        setKeyword("");
+      }
   };
 
   return <SearchForm onSubmit={handleSubmit}>
-    <SearchInput type="text" placeholder='Search'
-    name='value' onChange={handleChange}/>
-    <BtnSearch >
-      {isSearch ? <IconSearch /> : <IconCross/>}
+    <SearchInput
+    type="text"
+    placeholder="Search"
+    name="value"
+    value={keyword}
+    // disabled={isSearch}
+    onChange={handleChange}
+    />
+    <BtnSearch type="submit">
+      {isSearch ? <IconCross /> : <IconSearch/>}
     </BtnSearch>
   </SearchForm>
 };

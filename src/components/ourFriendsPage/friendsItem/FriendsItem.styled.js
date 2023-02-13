@@ -4,9 +4,9 @@ import styled from '@emotion/styled';
 export const FriendItem = styled.li`
 position: relative;
 list-style: none;
-border-radius: 20px;
-background-color: #FFFFFF;
-box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+border-radius: ${p => p.theme.radii.normal};
+background-color: ${p => p.theme.colors.white};
+box-shadow: ${p => p.theme.shadows.normal};
 padding-top: 12px;
 padding-bottom: 12px;
 
@@ -15,7 +15,7 @@ margin-bottom: 12px;
     };
 
 @media screen and (min-width: 768px){
-    border-radius: 40px;
+    border-radius: ${p => p.theme.radii.big};
     padding-top: 16px;
     padding-bottom: 16px;
    
@@ -26,23 +26,23 @@ margin-bottom: 12px;
 `;
 
 export const FriendName = styled.h3`
-font-family: 'Manrope';
-font-weight: 700;
-font-size: 12px;
-line-height: 16px;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.bold};
+font-size: ${p => p.theme.fontSizes.xxxs};
+line-height: ${p => p.theme.lineHeights.min};
 text-align: center;
 margin-bottom: 12px;
-color: #F59256;
+color: ${p => p.theme.colors.primary};
 
 @media screen and (min-width: 768px){
-    font-size: 16px;
-    line-height: 22px;
+    font-size: ${p => p.theme.fontSizes.xs};
+    line-height: ${p => p.theme.lineHeights.max};
     margin-bottom: 16px;
 }
 
 @media screen and (min-width: 1280px) {
-    font-size: 20px;
-    line-height: 27px;
+    font-size: ${p => p.theme.fontSizes.s};
+    line-height: ${p => p.theme.lineHeights.normal};
   }
 `;
 
@@ -85,12 +85,11 @@ margin-left: 12px;
 `;
 
 export const ItemData = styled.li`
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 16px;
-color: #111111;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.medium};
+font-size: ${p => p.theme.fontSizes.xxxs};
+line-height: ${p => p.theme.lineHeights.min};
+color: ${p => p.theme.colors.black};
 list-style: none;
  
     &:not(:last-child) {
@@ -98,16 +97,16 @@ margin-bottom: 4px;
     };
 
 @media screen and (min-width: 768px){
-    font-size: 14px;
-    line-height: 19px;
+    font-size: ${p => p.theme.fontSizes.xxxs};
+    line-height: ${p => p.theme.lineHeights.normal};
 
     &:not(:last-child) {
         margin-bottom: 8px;
     };
 
 @media screen and (min-width: 1280px) {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: ${p => p.theme.fontSizes.xs};
+    line-height: ${p => p.theme.lineHeights.max};
 
     &:not(:last-child) {
         margin-bottom: 12px;
@@ -123,34 +122,33 @@ display: block;
 border: none;
 padding: 0;
 background-color: inherit;
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 16px;
-color: #111111;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.medium};
+font-size: ${p => p.theme.fontSizes.xxxs};
+line-height: ${p => p.theme.lineHeights.min};
+color: ${p => p.theme.colors.black};
 
     @media screen and (min-width: 768px){
-    font-size: 14px;
-    line-height: 19px;
+    font-size: ${p => p.theme.fontSizes.xxs};
+    line-height: ${p => p.theme.lineHeights.normal};
     }
 
     @media screen and (min-width: 1280px) {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: ${p => p.theme.fontSizes.xs};
+    line-height: ${p => p.theme.lineHeights.max};
     }
 `;
 
 export const FriendsText = styled.p`
 margin: 0;
     @media screen and (min-width: 768px){
-    font-size: 14px;
-    line-height: 19px;
+    font-size: ${p => p.theme.fontSizes.xxs};
+    line-height: ${p => p.theme.lineHeights.normal};
     }
 
     @media screen and (min-width: 1280px) {
-    font-size: 16px;
-    line-height: 22px;
+    font-size: ${p => p.theme.fontSizes.xs};
+    line-height: ${p => p.theme.lineHeights.max};
     }
 `;
 
@@ -161,8 +159,8 @@ margin: 0;
 position: absolute;
 top: 76px;
 right: 13px;
-background-color: #FFFFFF;
-border: 1px solid #F59256;
+background-color: ${p => p.theme.colors.white};
+border: ${p => p.theme.borders.normal} ${p => p.theme.colors.primary};
 box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 border-radius: 8px;
 z-index: 1;
@@ -179,10 +177,10 @@ z-index: 1;
 `;
 
 export const TimeItem = styled.li`
-font-family: 'Manrope';
-font-weight: 500;
-font-size: 12px;
-line-height: 16px;
+font-family: ${p => p.theme.fonts.body};
+font-weight: ${p => p.theme.fontWeights.medium};
+font-size: ${p => p.theme.fontSizes.xxxs};
+line-height: ${p => p.theme.lineHeights.min};
 display: flex;
 justify-content: space-between;
 color: #000000;

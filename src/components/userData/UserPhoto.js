@@ -4,7 +4,7 @@ import { getLoadingUpdate } from 'redux/user/selectors';
 import { toggleIsDisablet } from 'redux/user/slice';
 import { ReactComponent as UploadIcon } from '../../images/svg/camera.svg';
 import { ReactComponent as UploadSubmit } from '../../images/svg/ci_edit.svg';
-import { Photo, PhotoEdit, PhotoEditLab, PhotoEditText, PhotoContainer } from './styles/UserData.styles';
+import { Photo, PhotoEdit, PhotoEditLab, PhotoEditText, PhotoContainer, PhotoEditSubmitWrapper, UserPhotoWrapper, PhotoEditSubmitBtn } from 'components/userData/styles/UserData.styles';
 
 export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 	const [edited, setEdited] = useState(false);
@@ -29,9 +29,10 @@ export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 	}, [dispatch, newImage]);
 
 	return (
+    <UserPhotoWrapper>
 		<form onSubmit={onSubmit}>
 			<PhotoContainer >
-				<div >
+				<div>
 					<Photo
 						src={
 							newImage && newImage[0]
@@ -42,10 +43,12 @@ export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 				</div>
 				<div >
 					{newImage && newImage[0] && edited ? (
-						<button type="submit" >
+            <PhotoEditSubmitWrapper>
+						<PhotoEditSubmitBtn type="submit" >
 							<UploadSubmit fill="#F59256" width={23} height={23} />
-							<p>submit</p>
-						</button>
+							<PhotoEditText>Submit</PhotoEditText>
+						</PhotoEditSubmitBtn>
+          </PhotoEditSubmitWrapper>
 					) : (
 						<div>
 							<PhotoEditLab htmlFor="avatar">
@@ -63,5 +66,6 @@ export const UserPhoto = ({ avatar, watch, register, onSubmit }) => {
 				</div>
 			</PhotoContainer>
 		</form>
+    </UserPhotoWrapper>
 	);
 };

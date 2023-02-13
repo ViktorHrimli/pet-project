@@ -20,13 +20,12 @@ const handleRejected = (state, action) => {
 };
 
 const noticesInitialState = {
-
   items: [],
   userItems: [],
-  favoriteItems: [],
+  myFavoriteItems: [],
+  noticesById: [],
   isLoading: false,
   error: null,
-
 };
 
 const noticesSlice = createSlice({
@@ -63,11 +62,15 @@ const noticesSlice = createSlice({
     },
     [favoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
-      state.selectFavoriteItems = action.payload;
+      state.myFavoriteItems = action.payload;
     },
     [getUserNotices.fulfilled](state, action) {
       state.isLoading = false;
-      state.selectUserItems = action.payload;
+      state.userItems = action.payload;
+    },
+    [getNoticesById.fulfilled](state, action) {
+      state.isLoading = false;
+      state.noticesById = action.payload;
     },
 
     [addNotices.fulfilled](state, action) {
@@ -78,22 +81,26 @@ const noticesSlice = createSlice({
     [addFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.selectFavoriteItems.unshift(action.payload);
+      const foo = state.items.find(
+        item => item._id === action.payload.noticeId
+      );
+      const foob = state.userItems.find(
+        item => item._id === action.payload.noticeId
+      );
+      state.myFavoriteItems = [foo ? foo : foob, ...state.myFavoriteItems];
     },
 
     [deleteNotices.fulfilled](state, action) {
       state.isLoading = false;
-      const index = state.items.findIndex(
-        task => task.id === action.payload.id
+      state.userItems = state.userItems.filter(
+        item => item._id !== action.payload.noticeId
       );
-      state.items.splice(index, 1);
     },
     [removeFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
-      const index = state.favoriteItems.findIndex(
-        task => task.id === action.payload.id
+      state.myFavoriteItems = state.myFavoriteItems.filter(
+        item => item._id !== action.payload.noticeId
       );
-      state.selectFavoriteItems.splice(index, 1);
     },
   },
 });

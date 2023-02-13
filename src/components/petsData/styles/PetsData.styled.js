@@ -45,7 +45,7 @@ font-weight: 500;
 font-size: 20px;
 line-height: 135%;
 color: #111111;
-margin-bottom: 0px;
+margin-bottom: 32px;
 @media screen and (min-width: 768px) {
 
 

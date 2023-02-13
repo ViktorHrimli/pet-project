@@ -1,57 +1,72 @@
-import { selectItems } from 'redux/notices/selectors';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
+import {
+  getAll,
+  favoriteNotices,
+  getUserNotices,
+} from 'redux/notices/operations';
+import {
+  selectItems,
+  selectFavoriteItems,
+  selectUserItems,
+} from 'redux/notices/selectors';
+import {currentNotices} from 'redux/notices/filterSlice';
+import {selectVisibleNotices} from 'redux/notices/selectors';
 
-// import { useAuth } from 'hooks/useAuth';
 import { NoticeCategoryItem } from 'components/noticesCategoryItem/NoticesCategoryItem';
-import { getAll } from 'redux/notices/operations';
-
 import { CardList } from 'components/noticesCategoryList/NoticeCategoryList.styled';
-import Container from 'components/container/Container';
 
 export const NoticeCategoryList = () => {
-  const toRender = useSelector(selectItems);
+  const dispatch = useDispatch();
+  let selected;
 
   const history = useLocation();
-  const pathname = history.pathname.slice(9);
+  const pathName = history.pathname.slice(9);
   let result;
-  switch (pathname) {
+  switch (pathName) {
     case 'sell':
       result = 'sell';
+      selected = selectItems;
       break;
     case 'lost-found':
       result = 'lost-found';
+      selected = selectItems;
       break;
     case 'for-free':
       result = 'in-good-hands';
+      selected = selectItems;
       break;
-    // case 'for-favorite':
-    //   result = '3';
-    //   break;
-    // case 'own':
-    //   result = '3';
-    //   break;
+    case 'favorite':
+      selected = selectFavoriteItems;
+      break;
+    case 'own':
+      selected = selectUserItems;
+      break;
 
     default:
       result = null;
       break;
   }
-
-  const dispatch = useDispatch();
-  useEffect(() => {
+  
+  const toRender = useSelector(selected);
+  useLayoutEffect(() => {
     dispatch(getAll(result));
+    dispatch(favoriteNotices());
+    dispatch(getUserNotices());
   }, [dispatch, result]);
 
-  // const { isLoggedIn } = useAuth();
-  // console.log(toRender);
+  useLayoutEffect(() => {
+  dispatch(currentNotices(toRender));
+  }, [dispatch, toRender])
+  
+  const visibleNotices = useSelector(selectVisibleNotices);
+  
   return (
-    <Container>
-      <CardList>
-        {toRender?.map(item => {
-          return <NoticeCategoryItem key={item._id} item={item} />;
-        })}
-      </CardList>
-    </Container>
+    <CardList>
+      {visibleNotices?.map(item => {
+        return <NoticeCategoryItem key={item._id} item={item} />;
+      })}
+    </CardList>
   );
 };

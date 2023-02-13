@@ -1,105 +1,159 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useAuth } from 'hooks/useAuth';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
-	WrapperContainer,
-	WrapperPetPhoto,
+  WrapperContainer,
+  WrapperPetPhoto,
   WrapperInfoBlock,
   PetPhoto,
   TitleModalNotice,
-	ReferenceList,
+  ReferenceList,
   InfoItem,
   CommentsItem,
   LableNotice,
   DateModalNotice,
 	NoticeComments,
+  LableComments,
 	ButtonModalWrapper,
 	ContactButton,
 	AddToFavoriteButton,
-	IconRedHeart
+	IconRedHeart,
+  TitleCategory,
+  CategoryNotice,
+  DeleteButton,
+  IconWasteBasket,
+  TitleNoticeButton,
 } from 'components/modalNotice/ModalNotice.styled';
-// import { useSelector } from 'react-redux';
+
+import { selectUser } from 'redux/auth/selectors';
+import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
-export const ModalNotice = ({
-  image,
-  name,
-  birthday,
-  breed,
-  lovation,
-  sex,
-  email,
-  phone,
-  comments,
-  favorite,
-  isOpenModalNotice}) => {
+export const ModalNotice = ({data, onClose}) => {
 
-  const dispath = useDispatch();
+  const {
+    _id,
+    category,
+    imageURL,
+    name,
+    price,
+    birthday,
+    breed,
+    region,
+    sex,
+    phone,
+    email,
+    comments,
+  } = data;
+  // const {email, phone} = owner;
 
-  useEffect(() => {
-    return () => {};
-  }, [isOpenModalNotice]);
+  const dispatch = useDispatch();
+  const { token } = useAuth();
+
+  const showErrorRegister = () => {
+    toast.error(
+      'Only registered users can add on our site, so first log in or register.',
+      {
+        position: 'top-center',
+      }
+    );
+  };
+
+  const userEmail = useSelector(selectUser);
+
+  const isPrivate = userEmail.email === email;
 
   return (
     <>
-    <WrapperContainer>
-      <WrapperInfoBlock>
-        <WrapperPetPhoto>
-          {image ? (
-          <PetPhoto src={image} alt='Pet photo'/>
-          ) : (
-          <PetPhoto src={defaultPetPhoto} alt='Not pet photo'/>)}
-        </WrapperPetPhoto>
-        <ReferenceList>
-        <TitleModalNotice>Сute dog looking for a home</TitleModalNotice>
-          <InfoItem>
-            <LableNotice>Name:</LableNotice>
-            <DateModalNotice>{name}</DateModalNotice>
-          </InfoItem>
-          <InfoItem>
-            <LableNotice>Birthday:</LableNotice>
-            <DateModalNotice>{birthday}</DateModalNotice>
-          </InfoItem>
-          <InfoItem>
-            <LableNotice>Breed:</LableNotice>
-            <DateModalNotice>{breed}</DateModalNotice>
-          </InfoItem>
-          <InfoItem>
-            <LableNotice>Lovation:</LableNotice>
-            <DateModalNotice>{lovation}</DateModalNotice>
-          </InfoItem>
-				  <InfoItem>
-            <LableNotice>The sex:</LableNotice>
-            <DateModalNotice>{sex}</DateModalNotice>
-          </InfoItem>
-					<InfoItem>
-            <LableNotice>Email:</LableNotice>
-            <a href={email} ><DateModalNotice>{email}</DateModalNotice></a>
-          </InfoItem>
-					<InfoItem>
-            <LableNotice>Phone:</LableNotice>
-            <a href={phone}><DateModalNotice>{phone}</DateModalNotice></a>
-          </InfoItem>
-        </ReferenceList>
-      </WrapperInfoBlock>
-      <CommentsItem>
-        <LableNotice>Comments:</LableNotice>
-        <NoticeComments>{comments}</NoticeComments>
-      </CommentsItem>
-      <ButtonModalWrapper>
-        <ContactButton type="button"
-          onClick={() => dispath(isOpenModalNotice(false))}
-        >
-        Contact
-        </ContactButton>
-				<AddToFavoriteButton type="button"
-          onClick={() => dispath(isOpenModalNotice(false))}
-        >
-          Add to
-					<IconRedHeart/>
-        </AddToFavoriteButton>
-      </ButtonModalWrapper>
-    </WrapperContainer>
+      <WrapperContainer>
+        <WrapperInfoBlock>
+          <WrapperPetPhoto>
+            {imageURL ? (
+              <PetPhoto src={imageURL} alt="Pet photo" />
+            ) : (
+              <PetPhoto src={defaultPetPhoto} alt="Not pet photo" />
+            )}
+            <CategoryNotice>
+              <TitleCategory>{category}</TitleCategory>
+            </CategoryNotice>
+          </WrapperPetPhoto>
+          <ReferenceList>
+            <TitleModalNotice>Сute dog looking for a home</TitleModalNotice>
+            <InfoItem>
+              <LableNotice>Name:</LableNotice>
+              <DateModalNotice>{name}</DateModalNotice>
+            </InfoItem>
+            <InfoItem>
+              <LableNotice>Birthday:</LableNotice>
+              <DateModalNotice>{birthday}</DateModalNotice>
+            </InfoItem>
+            <InfoItem>
+              <LableNotice>Breed:</LableNotice>
+              <DateModalNotice>{breed}</DateModalNotice>
+            </InfoItem>
+            <InfoItem>
+              <LableNotice>Location:</LableNotice>
+              <DateModalNotice>{region}</DateModalNotice>
+            </InfoItem>
+            <InfoItem>
+              <LableNotice>The sex:</LableNotice>
+              <DateModalNotice>{sex}</DateModalNotice>
+            </InfoItem>
+            <InfoItem>
+              <LableNotice>Email:</LableNotice>
+              {email && <a href={email}>
+                <DateModalNotice>{email}</DateModalNotice>
+              </a>}
+            </InfoItem>
+            <InfoItem>
+              <LableNotice>Phone:</LableNotice>
+              {phone && <a href={`tel:${phone}`}>
+                <DateModalNotice>{phone}</DateModalNotice>
+              </a>}
+            </InfoItem>
+            {price && (
+              <InfoItem>
+                <LableNotice>Price:</LableNotice>
+                <DateModalNotice>{price}$</DateModalNotice>
+              </InfoItem>
+            )}
+          </ReferenceList>
+        </WrapperInfoBlock>
+        <CommentsItem>
+          <NoticeComments>
+            <LableComments>Comments: </LableComments>{comments}
+          </NoticeComments>
+        </CommentsItem>
+        <ButtonModalWrapper>
+          <a href={`tel:${phone}`}>
+            <ContactButton type="button">
+              <TitleNoticeButton>Contact </TitleNoticeButton>
+            </ContactButton>
+          </a>
+          <AddToFavoriteButton
+            type="button"
+            onClick={() =>
+              token ? dispatch(addFavoriteNotices(_id)) : showErrorRegister()
+            }
+          >
+            <TitleNoticeButton>Add to </TitleNoticeButton>
+            <IconRedHeart />
+          </AddToFavoriteButton>
+          {isPrivate && (
+            <DeleteButton
+              type="button"
+              onClick={() => {
+              onClose(false)
+              dispatch(deleteNotices(_id))}}
+            >
+              <TitleNoticeButton>Delete </TitleNoticeButton>
+              <IconWasteBasket />
+            </DeleteButton>
+          )}
+          </ButtonModalWrapper>
+      </WrapperContainer>
     </>
   );
 };

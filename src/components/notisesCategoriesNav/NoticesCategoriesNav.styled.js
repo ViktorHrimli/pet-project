@@ -5,7 +5,20 @@ export const NavWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: ${p => p.theme.space[2]};
-  margin-bottom: ${p => p.theme.space[6]};
+  margin-bottom: 30px;
+  width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  @media screen and (min-width: 768px) {
+    width: 480px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: ${p => p.theme.space[9]};
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 100%;
+  } ;
 `;
 
 export const ButtonList = styled.ul`
@@ -55,6 +68,10 @@ export const Button = styled(NavLink)`
   transition-property: background-color, color;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.s};
+  }
 
   &:hover,
   &:focus {
