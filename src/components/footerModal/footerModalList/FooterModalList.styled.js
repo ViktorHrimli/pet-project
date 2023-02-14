@@ -20,7 +20,8 @@ export const List = styled.li`
 
   @media screen and (min-width: 768px) {
     padding: 0;
-    box-shadow: 10px 0px 8px 3px rgba(50, 50, 50, 0.75);
+
+    box-shadow: 10px 0px 8px 3px rgba(112, 109, 106, 0.75);
     transition-property: transform;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

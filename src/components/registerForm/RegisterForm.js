@@ -6,7 +6,7 @@ import {
   validationSchema2,
 } from 'components/registerForm/validationSchema';
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import InputField from 'components/registerForm/inputField/InputField';
@@ -45,12 +45,6 @@ export default function RegisterForm() {
   const [passwordType, setPasswordType] = useState('password');
   const [confirmPasswordType, setConfirmPasswordType] = useState('password');
 
-  const showErrorRegister = () => {
-    toast.error('User with this email already exists', {
-      position: 'top-right',
-    });
-  };
-
   const dispatch = useDispatch();
 
   const handleSubmit = (values, { resetForm }, error) => {
@@ -69,7 +63,6 @@ export default function RegisterForm() {
     } else if (error) {
       return;
     }
-    showErrorRegister();
 
     resetForm();
   };
