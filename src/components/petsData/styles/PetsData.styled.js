@@ -12,6 +12,8 @@ export const PetsContainer = styled.div`
   margin-bottom: 20px;
   @media ${p => p.theme.screens.tablet} {
     padding: 0 32px 32px 32px;
+
+
 }
   @media ${p => p.theme.screens.desktop} {
     min-width: 821px;
@@ -77,6 +79,7 @@ export const PetsDataContainer = styled.div`
     margin-bottom: 24px;
     font-size: 28px;
     line-height: 135%;
+
   }
   @media screen and (min-width: 1280px) {
 
@@ -100,19 +103,27 @@ box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 border-radius: 20px;
 padding-left: 20px;
 padding-right: 20px;
+padding-top: 16px;
 padding-bottom: 40px;
+margin-bottom: 20px;
 
 @media screen and (min-width: 768px) {
+  width: 704px;
   padding: 20px;
 display: flex;
 position: relative;
 
- position: relative;
+
+
+  margin-right: 0px;
  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
  border-radius: 40px;
- position: relative;
 
-  flex-grow: 1;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 821px;
+    margin-bottom: 22px;
   }
 `
 
@@ -122,9 +133,12 @@ export const PetsDataWrapper = styled.div`
 
 export const DeleteBtnDiv = styled.div`
 
+
 position: absolute;
 right: 30px;
 @media screen and (min-width: 768px) {
+
+
   top: 20px;
   right: 20px;
 }
@@ -134,14 +148,24 @@ right: 30px;
 }
 `
 
+export const deleteButton = styled.button`
+border-radius: 50%;
+width: 44px;
+height: 44px;
+background-color: #FDF7F2;`
+
 export const PetsList = styled.ul`
 margin-top: 26px;
+
+
 `
 
 export const PetsDataText = styled.p`
 font-weight: 500;
 font-size: 14px;
-line-height: 1.35;`
+line-height: 1.35;
+max-width: 580px;`
 
 export const PetsUl = styled.ul`
+
   `

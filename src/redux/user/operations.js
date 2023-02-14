@@ -71,11 +71,12 @@ export const addUserPet = createAsyncThunk(
 // );
 
 export const removeUserPet = createAsyncThunk(
+  'user/removeUserPet',
   async (id, thunkAPI) => {
 
     try {
-      const { data } = await axios.delete(`/pets/remove/${id}`);
-      return data;
+      const result = await axios.delete(`/pets/remove/${id}`);
+      return result;
     } catch ({ response }) {
       const { status, data } = response;
       const error = {
@@ -87,20 +88,3 @@ export const removeUserPet = createAsyncThunk(
   }
 );
 
-// export const addUserPet = createAsyncThunk(
-//   'user/addUserPet',
-//   async (data, { rejectWithValue }) => {
-//     try {
-//       const result = await axios.addUserPet(data);
-//       console.log('result', result);
-//       return result;
-//     } catch ({ response }) {
-//       const { status, data } = response;
-//       const error = {
-//         status,
-//         message: data.message,
-//       };
-//       return rejectWithValue(error);
-//     }
-//   }
-// );
