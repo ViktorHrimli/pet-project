@@ -65,6 +65,7 @@ export const StyledBtn = styled.button`
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.white};
+  }
 
   @media screen and (min-width: 768px) {
     width: 44px;
