@@ -160,21 +160,19 @@ export const ModalNotice = ({data, onClose}) => {
 
 ModalNotice.propTypes = {
 	onClick: PropTypes.func,
-  data: PropTypes.objectOf(
-    PropTypes.exact({
-    _id: PropTypes.string,
-    category: PropTypes.string,
-    imageURL: PropTypes.string,
-    name: PropTypes.string,
-    price: PropTypes.number,
-    birthday: PropTypes.object,
-    breed: PropTypes.string,
-    city: PropTypes.string,
-    sex: PropTypes.string,
-    phone: PropTypes.string,
-    email: PropTypes.string,
-    comments: PropTypes.string
-    })
-  ),
+  onClose: PropTypes.func,
+  _id: PropTypes.string,
+  category: PropTypes.string,
+  imageURL: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  birthday: PropTypes.object,
+  breed: PropTypes.string,
+  city: PropTypes.string,
+  sex: PropTypes.string,
+  phone: PropTypes.string,
+  email: PropTypes.string,
+  comments: PropTypes.string,
   token: PropTypes.string,
+  defaultPetPhoto: PropTypes.string,
 };
