@@ -9,7 +9,7 @@ import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
 
 import {
-  Main,
+  Main
   UserPageContainer,
   UserContainer,
   PetsContainerWrapper,
@@ -18,6 +18,8 @@ import {
   UserCardWrapper,
   Title,
   AddPetBtnContainer,
+  PetsDataContainer,
+  PetsPhoto
 } from 'pages/userPage/UserPage.styles';
 
 const UserPage = () => {
@@ -47,7 +49,6 @@ const UserPage = () => {
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };
-  console.log(cardData);
 
   return (
     <Main>
@@ -60,17 +61,18 @@ const UserPage = () => {
             </UserContainer>
           </UserInfo>
         </UserCardWrapper>
-
-        <PetsContainerWrapper>
-          <div>
-            <PetTitle>My pets</PetTitle>
-            <PetCard cardData={cardData} />
-          </div>
+      <PetsContainerWrapper>
+        <PetsPhoto>
+          <PetsDataContainer>
+          <PetTitle>My pets</PetTitle>
           <AddPetBtnContainer>
-            <AddPetButton />
-          </AddPetBtnContainer>
-        </PetsContainerWrapper>
-      </UserPageContainer>
+          <AddPetButton />
+        </AddPetBtnContainer>
+        </PetsDataContainer>
+          <PetCard cardData={cardData} />
+        </PetsPhoto>
+      </PetsContainerWrapper>
+    </UserPageContainer>
     </Main>
   );
 };
