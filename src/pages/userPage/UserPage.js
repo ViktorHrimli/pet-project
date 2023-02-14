@@ -47,31 +47,31 @@ const UserPage = () => {
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };
-  console.log(cardData)
+  console.log(cardData);
 
   return (
-    <main>
-    <UserPageContainer>
-      <UserCardWrapper>
-        <Title>My information</Title>
-        <UserInfo>
-          <UserContainer>
-            <UserForm formData={formData} />
-          </UserContainer>
-        </UserInfo>
-      </UserCardWrapper>
+    <Main>
+      <UserPageContainer>
+        <UserCardWrapper>
+          <Title>My information</Title>
+          <UserInfo>
+            <UserContainer>
+              <UserForm formData={formData} />
+            </UserContainer>
+          </UserInfo>
+        </UserCardWrapper>
 
-      <PetsContainerWrapper>
-        <div>
-          <PetTitle>My pets</PetTitle>
-          <PetCard cardData={cardData} />
-        </div>
-        <AddPetBtnContainer>
-          <AddPetButton />
-        </AddPetBtnContainer>
-      </PetsContainerWrapper>
-    </UserPageContainer>
-    </main>
+        <PetsContainerWrapper>
+          <div>
+            <PetTitle>My pets</PetTitle>
+            <PetCard cardData={cardData} />
+          </div>
+          <AddPetBtnContainer>
+            <AddPetButton />
+          </AddPetBtnContainer>
+        </PetsContainerWrapper>
+      </UserPageContainer>
+    </Main>
   );
 };
 
