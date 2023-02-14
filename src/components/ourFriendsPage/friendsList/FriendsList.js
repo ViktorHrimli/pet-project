@@ -13,7 +13,8 @@ export const FriendsList = () => {
 
     const getFriends = useSelector(selectorFriends)
     useEffect(() => {
-      dispatch(fetchFriends())  
+        dispatch(fetchFriends());
+        window.scroll({ top: 0 });
     },[dispatch])
     
     return (

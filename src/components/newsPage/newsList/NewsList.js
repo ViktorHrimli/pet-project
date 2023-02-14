@@ -20,6 +20,7 @@ export const NewsList = () => {
 
     useEffect(() => {
         dispatch(fetchNews());
+        window.scroll({ top: 0 });
     }, [dispatch]);
 
     const handlFindNews = (e) => {
@@ -67,7 +68,7 @@ export const NewsList = () => {
                             : <li>
                                 <EmptyRequestText >I don't see any news on your request</EmptyRequestText>
                                 <EmptyRequestText >Try again!</EmptyRequestText>
-                                <EmptyRequestImg style={{borderRadius: "50%", width: "40%", marginLeft: 'auto', marginRight: "auto"}} src={dog} alt='No news'/>
+                                <EmptyRequestImg src={dog} alt='No news'/>
                             </li>
                     }
                 </ListOfNews>
