@@ -7,17 +7,18 @@ export const Backdrop = styled.div`
   top: 0;
   bottom: 0;
   right: 0;
+  padding: 20px;
   width: 100%;
   height: 100%;
-  background-color: rgba(17, 17, 17, 0.6);
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
+  background-color: ${p => p.theme.colors.muted};
   overflow-y: scroll;
   scrollbar-width: none;
   z-index: 5;
+  
   @media screen and (min-width: 768px) {
     padding: 32px;
   }
@@ -29,16 +30,14 @@ export const ModalBox = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  max-width: 100%;
-  width: 280px;
-  border-radius: 20px;
-  outline: none;
-
   margin-right: auto;
   margin-left: auto;
+  max-width: 100%;
+  width: 280px;
+  border-radius: ${p => p.theme.radii.normal};
+  outline: none;
 
   background-color: ${p => p.theme.colors.white};
-
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
   
 @media screen and (max-width: 767px) {
@@ -46,14 +45,13 @@ export const ModalBox = styled.div`
 }
 
 @media screen and (min-width: 768px) {
-    width: 704px;
-  }
+  width: 704px;
+}
 `;
 
 export const StyledBtn = styled.button`
-position: absolute;
+  position: absolute;
   z-index: 2;
-  
   top: 20px;
   right: 20px;
   display: flex;
@@ -78,9 +76,9 @@ export const Icon = styled(CrossLine)`
   width: 20px;
   height: 20px;
 
-&:hover,
-&:focus {
-  fill: ${p => p.theme.colors.primary};
+  &:hover,
+  &:focus {
+    fill: ${p => p.theme.colors.primary};
 }
 
 @media screen and (min-width: 768px) {

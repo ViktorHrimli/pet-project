@@ -11,7 +11,7 @@ export const NavWrapper = styled.div`
   margin-right: auto;
 
   @media screen and (min-width: 768px) {
-    width: 480px;
+    width: 490px;
     margin-left: 0px;
     margin-right: 0px;
     margin-bottom: ${p => p.theme.space[9]};
@@ -69,18 +69,20 @@ export const Button = styled(NavLink)`
   background-color: ${p => p.theme.colors.white};
   border: 2px solid ${p => p.theme.colors.primary};
 
-  transition-property: background-color, color;
-  transition-duration: 0.25s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.s};
   }
+
+  transition-property: background-color, color, font-weight, scale;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
     background-color: ${p => p.theme.colors.primary};
     color: ${p => p.theme.colors.white};
+    scale: 1.03;
+    font-weight: bolder;
   }
   &.active {
     background-color: ${p => p.theme.colors.primary};

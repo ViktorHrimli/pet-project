@@ -42,7 +42,6 @@ export const updateUserData = createAsyncThunk(
 //   }
 // )
 
-
 export const addUserPet = createAsyncThunk(
   'user/addUserPet',
   async (data, { rejectWithValue }) => {
@@ -59,6 +58,24 @@ export const addUserPet = createAsyncThunk(
     }
   }
 );
+
+// export const addUserPet = createAsyncThunk(
+//   'user/addUserPet',
+//   async (data, { rejectWithValue }) => {
+//     try {
+//       const result = await axios.addUserPet(data);
+//       console.log('result', result);
+//       return result;
+//     } catch ({ response }) {
+//       const { status, data } = response;
+//       const error = {
+//         status,
+//         message: data.message,
+//       };
+//       return rejectWithValue(error);
+//     }
+//   }
+// );
 
 // export const addUserPet = createAsyncThunk(
 //   'user/addUserPet',

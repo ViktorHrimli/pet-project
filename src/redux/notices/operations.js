@@ -5,9 +5,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getAll = createAsyncThunk(
   'notices/sell',
-  async (result, thunkAPI) => {
+  async ({ result, limit }, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/notices/getAll/${result}`);
+      const { data } = await axios.get(
+        `/notices/getAll/${result}?limit=${limit}`
+      );
 
       return data.data;
     } catch ({ message }) {
