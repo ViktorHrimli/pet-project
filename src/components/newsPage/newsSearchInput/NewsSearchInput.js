@@ -21,7 +21,6 @@ return (
             />
             <FindNewsBtn type="submit" >
                     {isSearch ? <IconCross/> : <IconSearch/>}
-                {/* <ButtonImg src={isSearch ? crossNotice : search} alt='Search'/> */}
             </FindNewsBtn>
             </form>
         </InputCont>
