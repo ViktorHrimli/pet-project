@@ -11,10 +11,15 @@ export const CardList = styled.ul`
 `;
 export const ButtonList = styled.ul`
   display: flex;
-  gap: ${p => p.theme.space[3]};
+  flex-wrap: wrap;
+  gap: ${p => p.theme.space[2]};
   justify-content: center;
   align-items: center;
   margin-bottom: ${p => p.theme.space[4]};
+  @media screen and (min-width: 767px) {
+    flex-wrap: nowrap;
+    gap: ${p => p.theme.space[3]};
+  }
 `;
 
 export const PaginationButton = styled.button`
