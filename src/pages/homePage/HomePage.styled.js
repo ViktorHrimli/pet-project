@@ -76,10 +76,54 @@ export const HomeSection = styled.section`
     padding-bottom: 408px;
     min-height: 100vh;
 
-    background-image: url(${portraitD}), url(${BgD}), url(${Union});
+    /* background-image: url(${portraitD}), url(${BgD}), url(${Union});
     background-size: 590px 640px, 100vw calc(100vw * 0.375), 92px 89px;
     background-position-x: calc(50% + 330px), center, calc(50% + 118px);
+    background-position-y: bottom, bottom, calc(50% - 204px); */
+    background-image: url(${portraitD}), url(${BgD});
+    background-size: 590px 640px, 100vw calc(100vw * 0.375);
+    background-position-x: calc(50% + 330px), center, calc(50% + 118px);
     background-position-y: bottom, bottom, calc(50% - 204px);
+    &:after {
+      content: '';
+      position: absolute;
+      animation: heartbeat 1.3s infinite;
+      width: 92px;
+      height: 90px;
+      background-image: url(${Union});
+      top: calc(50% - 180px);
+      left: calc(50% + 64px);
+
+      @keyframes heartbeat {
+        0% {
+          transform: scale(1);
+        }
+        10% {
+          transform: scale(1.05);
+        }
+        20% {
+          transform: scale(1.1);
+        }
+        30% {
+          transform: scale(1.15);
+        }
+        40% {
+          transform: scale(1.2);
+        }
+        50% {
+          transform: scale(1.25);
+        }
+        60% {
+          transform: scale(1.2);
+        }
+        70% {
+          transform: scale(1.15);
+        }
+        80% {
+          transform: scale(1.1);
+        }
+      }
+    }
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
