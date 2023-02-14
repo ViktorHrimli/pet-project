@@ -5,9 +5,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getAll = createAsyncThunk(
   'notices/sell',
-  async (result, thunkAPI) => {
+  async ({ result, limit }, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/notices/getAll/${result}`);
+      const { data } = await axios.get(
+        `/notices/getAll/${result}?limit=${limit}`
+      );
 
       return data.data;
     } catch ({ message }) {
@@ -133,7 +135,7 @@ export const deleteNotices = createAsyncThunk(
   'notices/deleteNotices',
   async (noticesId, thunkAPI) => {
     try {
-      const { data } = await axios.removeNotice(
+      const { data } = await axios.delete(
         `/notices/current/remove/${noticesId}`,
         { noticesId }
       );

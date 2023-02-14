@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { setFilterNotices } from "redux/notices/filterSlice";
+import { setFilterNotices, setSearchNotices } from "redux/notices/filterSlice";
 
 import {
   SearchForm,
@@ -25,25 +25,29 @@ export const NoticesSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setFilterNotices(keyword));
     setIsSearch(prevState => !prevState);
 
     if(isSearch){
-        setKeyword("");
-      }
+      setKeyword("");
+    }
   };
 
+  useEffect(() => {
+    dispatch(setFilterNotices(keyword));
+    dispatch(setSearchNotices(isSearch));
+  }, [dispatch, isSearch, keyword])
+
   return <SearchForm onSubmit={handleSubmit}>
-    <SearchInput
-    type="text"
-    placeholder="Search"
-    name="value"
-    value={keyword}
-    // disabled={isSearch}
-    onChange={handleChange}
-    />
-    <BtnSearch type="submit">
-      {isSearch ? <IconCross /> : <IconSearch/>}
-    </BtnSearch>
-  </SearchForm>
+      <SearchInput
+      type="text"
+      placeholder="Search"
+      name="value"
+      value={keyword}
+      disabled={isSearch}
+      onChange={handleChange}
+      />
+      <BtnSearch type="submit">
+        {isSearch ? <IconCross/> : <IconSearch/>}
+      </BtnSearch>
+    </SearchForm>
 };

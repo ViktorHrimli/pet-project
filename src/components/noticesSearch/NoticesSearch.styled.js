@@ -24,12 +24,12 @@ export const SearchInput = styled.input`
   height: 40px;
   padding: 0 0 0 12px;
   border: none;
-  border-radius: 20px;
-  cursor: pointer;
+  border-radius: ${p => p.theme.radii.normal};
+
   transition-property: background-color;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
+  box-shadow: ${p => p.theme.shadows.normal};
   
   &:hover,
   &:focus {
@@ -42,12 +42,12 @@ export const SearchInput = styled.input`
   color: ${p => p.theme.colors.black};
 
   @media screen and (min-width: 768px) {
-    line-height: ${p => p.theme.lineHeights.normal};
-    font-size: ${p => p.theme.fontSizes.s};
-    border-radius: 40px;
-    padding-left: 20px;
     width: 608px;
     height: 44px;
+    padding-left: 20px;
+    line-height: ${p => p.theme.lineHeights.normal};
+    font-size: ${p => p.theme.fontSizes.s};
+    border-radius: ${p => p.theme.radii.big};
   }
 
 	&::placeholder,
@@ -65,6 +65,7 @@ export const BtnSearch = styled.button`
   right: 13px;
   width: 15px;
   height: 15px;
+
   &:hover,
   &:focus {
     fill: ${p => p.theme.colors.focus};

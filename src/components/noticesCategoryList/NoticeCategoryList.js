@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import {
   getAll,
   favoriteNotices,
@@ -11,18 +11,23 @@ import {
   selectFavoriteItems,
   selectUserItems,
 } from 'redux/notices/selectors';
-import {currentNotices} from 'redux/notices/filterSlice';
-import {selectVisibleNotices} from 'redux/notices/selectors';
+import { currentNotices } from 'redux/notices/filterSlice';
+import { selectVisibleNotices, selectIsSearch } from 'redux/notices/selectors';
 
 import { NoticeCategoryItem } from 'components/noticesCategoryItem/NoticesCategoryItem';
-import { CardList } from 'components/noticesCategoryList/NoticeCategoryList.styled';
+import {
+  CardList,
+  ButtonList,
+  PaginationButton,
+} from 'components/noticesCategoryList/NoticeCategoryList.styled';
 
 export const NoticeCategoryList = () => {
+  const [limit, setLimit] = useState(12);
   const dispatch = useDispatch();
-  let selected;
-
   const history = useLocation();
   const pathName = history.pathname.slice(9);
+  const isToTurn = limit > 12;
+  let selected;
   let result;
   switch (pathName) {
     case 'sell':
@@ -45,28 +50,72 @@ export const NoticeCategoryList = () => {
       break;
 
     default:
-      result = null;
+      result = false;
       break;
   }
-  
+
   const toRender = useSelector(selected);
-  useLayoutEffect(() => {
-    dispatch(getAll(result));
-    dispatch(favoriteNotices());
-    dispatch(getUserNotices());
-  }, [dispatch, result]);
 
   useLayoutEffect(() => {
-  dispatch(currentNotices(toRender));
-  }, [dispatch, toRender])
-  
+    dispatch(getAll({ result, limit }));
+  }, [dispatch, result, limit]);
+
+  useLayoutEffect(() => {
+    dispatch(favoriteNotices());
+  }, [dispatch]);
+
+  useLayoutEffect(() => {
+    dispatch(getUserNotices());
+  }, [dispatch]);
+
+  useLayoutEffect(() => {
+    setLimit(12);
+  }, [result]);
+
   const visibleNotices = useSelector(selectVisibleNotices);
-  
+  const isSearch = useSelector(selectIsSearch);
+
+  useLayoutEffect(() => {
+    dispatch(currentNotices(toRender));
+  }, [dispatch, toRender, visibleNotices]);
+
+  const finishedRender = isSearch ? visibleNotices : toRender;
+
   return (
-    <CardList>
-      {visibleNotices?.map(item => {
-        return <NoticeCategoryItem key={item._id} item={item} />;
-      })}
-    </CardList>
+    <>
+      <CardList>
+        {finishedRender?.map(item => {
+          return <NoticeCategoryItem key={item._id} item={item} />;
+        })}
+      </CardList>
+      <ButtonList>
+        <li>
+          {' '}
+          {result && (
+            <PaginationButton
+              type="button"
+              onClick={() => {
+                setLimit(limit + 12);
+              }}
+            >
+              Load more
+            </PaginationButton>
+          )}
+        </li>
+        <li>
+          {' '}
+          {isToTurn && (
+            <PaginationButton
+              type="button"
+              onClick={() => {
+                setLimit(12);
+              }}
+            >
+              To turn
+            </PaginationButton>
+          )}
+        </li>
+      </ButtonList>
+    </>
   );
 };

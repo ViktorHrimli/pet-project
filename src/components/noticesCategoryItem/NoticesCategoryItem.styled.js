@@ -70,10 +70,17 @@ export const Pick = styled.button`
   top: 12px;
   right: 12px;
   border-radius: ${p => p.theme.radii.round};
-
   color: rgba(255, 255, 255, 0.6);
+  opacity: 0, 8;
+
+  transition-property: opacity, color, scale;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover {
     color: ${p => p.theme.colors.primary};
+    scale: 1.05;
+    opacity: 1;
   }
 `;
 
@@ -147,8 +154,9 @@ export const CardButton = styled.button`
   margin-left: auto;
   margin-right: auto;
   display: block;
+  opacity: 0, 8;
 
-  transition-property: background-color, color;
+  transition-property: background-color, color, font-weight, scale, opacity;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -156,6 +164,9 @@ export const CardButton = styled.button`
   &:focus {
     background-color: ${p => p.theme.colors.primary};
     color: ${p => p.theme.colors.white};
+    scale: 1.05;
+    font-weight: bolder;
+    opacity: 1;
   }
 `;
 
@@ -174,9 +185,11 @@ export const DeleteButton = styled.button`
   margin-bottom: ${p => p.theme.space[3]};
   margin-left: auto;
   margin-right: auto;
-  display: block;
+  display: flex;
+  justify-content: center;
+  opacity: 0, 8;
 
-  transition-property: background-color, color;
+  transition-property: background-color, color, font-weight, scale, opacity;
   transition-duration: 0.25s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -184,5 +197,8 @@ export const DeleteButton = styled.button`
   &:focus {
     background-color: #ff6101;
     color: ${p => p.theme.colors.white};
+    scale: 1.05;
+    font-weight: bolder;
+    opacity: 1;
   }
 `;

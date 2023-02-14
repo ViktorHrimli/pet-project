@@ -1,5 +1,8 @@
 import { useField } from 'formik';
-import { InputArea, Message } from 'components/registerForm/inputField/InputField.styled';
+import {
+  InputArea,
+  Message,
+} from 'components/registerForm/inputField/InputField.styled';
 
 export default function InputField(props) {
   const [field, meta] = useField(props);

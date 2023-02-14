@@ -9,6 +9,7 @@ import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
 
 import {
+  Main,
   UserPageContainer,
   UserContainer,
   PetsContainerWrapper,
@@ -17,6 +18,8 @@ import {
   UserCardWrapper,
   Title,
   AddPetBtnContainer,
+  PetsDataContainer,
+  PetsPhoto
 } from 'pages/userPage/UserPage.styles';
 
 const UserPage = () => {
@@ -38,8 +41,6 @@ const UserPage = () => {
     if (isAddedPetSuccess) {
       dispatch(resetIsAddedPetSuccess());
     }
-    if (error) {
-    }
   }, [dispatch, isAddedPetSuccess, error]);
 
   const onDeletePet = e => {
@@ -50,26 +51,29 @@ const UserPage = () => {
   const cardData = { userPets, onDeletePet, isPetsLoading };
 
   return (
-    <UserPageContainer>
-      <UserCardWrapper>
-        <Title>My information</Title>
-        <UserInfo>
-          <UserContainer>
-            <UserForm formData={formData} />
-          </UserContainer>
-        </UserInfo>
-      </UserCardWrapper>
-
+    <Main>
+      <UserPageContainer>
+        <UserCardWrapper>
+          <Title>My information</Title>
+          <UserInfo>
+            <UserContainer>
+              <UserForm formData={formData} />
+            </UserContainer>
+          </UserInfo>
+        </UserCardWrapper>
       <PetsContainerWrapper>
-        <div>
+        <PetsPhoto>
+          <PetsDataContainer>
           <PetTitle>My pets</PetTitle>
-          <PetCard cardData={cardData} />
-        </div>
-        <AddPetBtnContainer>
+          <AddPetBtnContainer>
           <AddPetButton />
         </AddPetBtnContainer>
+        </PetsDataContainer>
+          <PetCard cardData={cardData} />
+        </PetsPhoto>
       </PetsContainerWrapper>
     </UserPageContainer>
+    </Main>
   );
 };
 

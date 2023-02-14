@@ -1,9 +1,9 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useAuth } from 'hooks/useAuth';
-import PropTypes from 'prop-types';
 
 import {
   AddButton,
@@ -52,4 +52,6 @@ export const AddNoticeButton = () => {
 
 AddNoticeButton.propTypes = {
   onClick: PropTypes.func,
+  isOpen: PropTypes.bool,
+  setIsOpen: PropTypes.func,
 };

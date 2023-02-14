@@ -1,13 +1,13 @@
-import { AuthSection } from 'components/loginForm/LoginForm.styled';
+import { AuthSection, Main } from 'components/loginForm/LoginForm.styled';
 import { LoginForm } from 'components/loginForm/LoginForm';
 
 const LoginPage = () => {
   return (
-    <main>
+    <Main>
       <AuthSection>
         <LoginForm />
       </AuthSection>
-    </main>
+    </Main>
   );
 };
 

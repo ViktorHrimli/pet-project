@@ -24,8 +24,8 @@ export const TeamPhoto = styled.img`
   border-radius: 10px;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
     opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 4px 4px rgb(0 0 0 / 6%),
-    1px 4px 6px rgb(0 0 0 / 16%);
+
+  box-shadow: 5px 0px 8px 3px rgba(50, 50, 50, 0.75);
 `;
 
 export const Caption = styled.div`

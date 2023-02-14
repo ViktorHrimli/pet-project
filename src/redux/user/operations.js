@@ -21,29 +21,26 @@ export const updateUserData = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const { data: result } = await axios.put('/user/update', data);
+
       return result;
+    } catch ({ message }) {
+      return thunkAPI.rejectWithValue(message);
     }
-      catch ({message}) {
-        return thunkAPI.rejectWithValue(message)
-      }
   }
-)
-// export const updateUserData = createAsyncThunk(
-//   'user/updateUserData',
-//   async (data, { rejectWithValue }) => {
+);
+
+// export const addUserPet = createAsyncThunk(
+//   'user/addUserPet',
+//   async (data, thunkAPI) => {
 //     try {
-//       const result = await axios.updateUserData(data);
-//       return result;
-//     } catch ({ response }) {
-//       const { status, data } = response;
-//       const error = {
-//         status,
-//         message: data.message,
-//       };
-//       return rejectWithValue(error);
+// 	    const { data: result } = await axios.post('/pets/add', data);
+// 	    return result;
 //     }
+//           catch ({message}) {
+//         return thunkAPI.rejectWithValue(message)
+//       }
 //   }
-// );
+// )
 
 export const addUserPet = createAsyncThunk(
   'user/addUserPet',
@@ -61,6 +58,79 @@ export const addUserPet = createAsyncThunk(
     }
   }
 );
+
+// export const addUserPet = createAsyncThunk(
+//   'user/addUserPet',
+//   async (data, { rejectWithValue }) => {
+//     try {
+//       const result = await axios.addUserPet(data);
+//       console.log('result', result);
+//       return result;
+//     } catch ({ response }) {
+//       const { status, data } = response;
+//       const error = {
+//         status,
+//         message: data.message,
+//       };
+//       return rejectWithValue(error);
+//     }
+//   }
+// );
+
+// export const addUserPet = createAsyncThunk(
+//   'user/addUserPet',
+//   async({name, _id, breed,comments, date, photo, token}, thunkAPI) => {
+
+//     const formData = new FormData();
+
+//     formData.append('name', name);
+//     formData.append('breed', breed);
+//     formData.append('comments', comments);
+//     formData.append('date', date);
+//     formData.append('photo', photo);
+
+//     try {
+// 	    const { data } = await axios.post('/pets/add', FormData, {
+//         headers: {Authorization: `Bearer ${token}` },
+//       })
+//         return data;
+//     }
+//           catch (e) {
+//         return thunkAPI.rejectWithValue(e.message)
+//       }
+//   }
+// )
+
+// export const addUserPet = createAsyncThunk(
+//   'user/addUserPet',
+//   async (data, thunkAPI) => {
+//     try {
+// 	    const { data: result } = await axios.post('/pets/add', data);
+// 	    return result;
+//     }
+//           catch ({message}) {
+//         return thunkAPI.rejectWithValue(message)
+//       }
+//   }
+// )
+
+// export const addUserPet = createAsyncThunk(
+//   'user/addUserPet',
+//   async (data, { rejectWithValue }) => {
+//     try {
+//       const result = await axios.addUserPet(data);
+//       console.log('result', result);
+//       return result;
+//     } catch ({ response }) {
+//       const { status, data } = response;
+//       const error = {
+//         status,
+//         message: data.message,
+//       };
+//       return rejectWithValue(error);
+//     }
+//   }
+// );
 
 export const removeUserPet = createAsyncThunk(
   'user/removeUserPet',
