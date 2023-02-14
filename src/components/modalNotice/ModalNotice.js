@@ -60,6 +60,10 @@ export const ModalNotice = ({ data, onClose }) => {
     );
   };
 
+  function toFormatTitle() {
+    return email.length < 20 ? email : email.slice(0, 20) + '...';
+  }
+
   const userEmail = useSelector(selectUser);
 
   const isPrivate = userEmail.email === email;
@@ -103,7 +107,7 @@ export const ModalNotice = ({ data, onClose }) => {
             <InfoItem>
               <LableNotice>Email:</LableNotice>
               {email && <a href={`mailto:${email}`}>
-                <DateModalNotice>{email}</DateModalNotice>
+                <DateModalNotice>{toFormatTitle()}</DateModalNotice>
               </a>}
             </InfoItem>
             <InfoItem>
