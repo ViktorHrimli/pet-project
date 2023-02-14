@@ -20,6 +20,7 @@ import {
   ButtonList,
   PaginationButton,
 } from 'components/noticesCategoryList/NoticeCategoryList.styled';
+import { TbCurrencyDollarSingapore } from 'react-icons/tb';
 
 export const NoticeCategoryList = () => {
   const [limit, setLimit] = useState(12);
@@ -27,6 +28,7 @@ export const NoticeCategoryList = () => {
   const history = useLocation();
   const pathName = history.pathname.slice(9);
   const isToTurn = limit > 12;
+
   let selected;
   let result;
   switch (pathName) {
@@ -72,6 +74,7 @@ export const NoticeCategoryList = () => {
     setLimit(12);
   }, [result]);
 
+  const toDisableButton = limit > toRender.length;
   const visibleNotices = useSelector(selectVisibleNotices);
   const isSearch = useSelector(selectIsSearch);
 
@@ -80,7 +83,6 @@ export const NoticeCategoryList = () => {
   }, [dispatch, toRender, visibleNotices]);
 
   const finishedRender = isSearch ? visibleNotices : toRender;
-
   return (
     <>
       <CardList>
@@ -91,7 +93,7 @@ export const NoticeCategoryList = () => {
       <ButtonList>
         <li>
           {' '}
-          {result && (
+          {result && !toDisableButton && (
             <PaginationButton
               type="button"
               onClick={() => {
