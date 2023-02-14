@@ -60,24 +60,6 @@ export const UserContainer = styled.div`
   }
 `;
 
-// export const UserContainer = styled.div`
-//   margin-bottom: 48px;
-//   @media screen and (min-width: 768px) {
-//     padding-left: 0;
-
-//     @media screen and (min-width: 768px) {
-//       margin-bottom: 20px;
-//   }
-//   @media screen and (min-width: 1280px) {
-//     margin-bottom: 0px;
-//     margin-right: 32px;
-//     width: 411px;
-
-//     border-radius: 0px 40px 40px 0px;
-//     box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
-// }
-// `;
-
 export const UserTitle = styled.h2`
   font-family: 'Manrope';
 
