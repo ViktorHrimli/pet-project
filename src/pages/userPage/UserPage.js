@@ -9,7 +9,7 @@ import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
 
 import {
-  Main
+  Main,
   UserPageContainer,
   UserContainer,
   PetsContainerWrapper,
