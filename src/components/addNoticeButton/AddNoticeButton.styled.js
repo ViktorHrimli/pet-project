@@ -41,7 +41,6 @@ export const AddButton = styled.button`
   }
 
   @media screen and (min-width: 1280px) {
-    top: -0;
     left: 1118px;
 };
 `;
