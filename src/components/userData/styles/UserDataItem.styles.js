@@ -90,6 +90,7 @@ export const UserInfoWrapper = styled.div`
   margin-top: 32px;
 `;
 export const EditInputContainer = styled.div``;
+
 export const TextInInput = styled.p`
   font-size: 12px;
   font-weight: 400;

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserData, removeUserPet } from 'redux/user/operations';
 import { resetIsAddedPetSuccess } from 'redux/user/slice';
-import { getIsAddedPetSuccess, getUserError } from 'redux/user/selectors';
+import { getIsAddedPetSuccess } from 'redux/user/selectors';
 import { selectors } from 'pages/userPage/selectors';
 import { AddPetButton } from 'components/petsData/AddPet';
 import { UserForm } from 'components/userData/UserInfo';
@@ -28,7 +28,6 @@ const UserPage = () => {
   const userPets = useSelector(selectors.getUserPets);
   const isPetsLoading = useSelector(selectors.getPetsLoading);
   const isUserLoading = useSelector(selectors.getUserLoading);
-  const error = useSelector(getUserError);
   const isAddedPetSuccess = useSelector(getIsAddedPetSuccess);
 
   useEffect(() => {
@@ -39,7 +38,7 @@ const UserPage = () => {
     if (isAddedPetSuccess) {
       dispatch(resetIsAddedPetSuccess());
     }
-  }, [dispatch, isAddedPetSuccess, error]);
+  }, [dispatch, isAddedPetSuccess]);
 
   const onDeletePet = e => {
     const petToRemove = e.currentTarget.id;
@@ -47,7 +46,7 @@ const UserPage = () => {
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };
-  // console.log(cardData)
+
 
   return (
     <main>
