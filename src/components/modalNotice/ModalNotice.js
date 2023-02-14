@@ -113,7 +113,7 @@ export const ModalNotice = ({data, onClose}) => {
                 <DateModalNotice>{phone}</DateModalNotice>
               </a>}
             </InfoItem>
-            {price && (
+            {price >= 1 && (
               <InfoItem>
                 <LableNotice>Price:</LableNotice>
                 <DateModalNotice>{price}$</DateModalNotice>
