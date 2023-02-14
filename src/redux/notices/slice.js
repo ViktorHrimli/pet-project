@@ -77,6 +77,7 @@ const noticesSlice = createSlice({
       state.isLoading = false;
       state.error = null;
       state.items.unshift(action.payload);
+      state.userItems.unshift(action.payload);
     },
     [addFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
