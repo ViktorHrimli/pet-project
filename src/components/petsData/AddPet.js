@@ -11,14 +11,16 @@ import {
 export const AddPetButton = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
+    <>
     <AddButton onClick={() => setIsOpen(true)} type="button">
       <Circle>
         <IconCross />
       </Circle>
       <ButtonName>Add pet</ButtonName>
-      <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
-        <ModalAddPet setIsOpen={setIsOpen} />
-      </ModalsLayout>
     </AddButton>
+          <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
+          <ModalAddPet setIsOpen={setIsOpen} />
+        </ModalsLayout>
+        </>
   );
 };

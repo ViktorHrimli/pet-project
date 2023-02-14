@@ -60,24 +60,6 @@ export const UserContainer = styled.div`
   }
 `;
 
-// export const UserContainer = styled.div`
-//   margin-bottom: 48px;
-//   @media screen and (min-width: 768px) {
-//     padding-left: 0;
-
-//     @media screen and (min-width: 768px) {
-//       margin-bottom: 20px;
-//   }
-//   @media screen and (min-width: 1280px) {
-//     margin-bottom: 0px;
-//     margin-right: 32px;
-//     width: 411px;
-
-//     border-radius: 0px 40px 40px 0px;
-//     box-shadow: 7px 4px 14px rgba(49, 21, 4, 0.07);
-// }
-// `;
-
 export const UserTitle = styled.h2`
   font-family: 'Manrope';
 
@@ -142,16 +124,17 @@ export const UserCardWrapper = styled.div`
 `;
 export const AddPetBtnContainer = styled.div``;
 export const PetsContainerWrapper = styled.div`
-  padding-left: 20px;
-  padding-right: 20px;
-  display: flex;
-  justify-content: space-between;
+
   margin-top: 46px;
   @media screen and (min-width: 1280px) {
     margin-top: 0px;
     justify-content: space-between;
     padding-left: 0px;
     padding-right: 0px;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
   }
 `;
 export const UserInfoContainer = styled.div`
@@ -162,6 +145,7 @@ export const UserInfoContainer = styled.div`
 `;
 
 export const UserDataWrapper = styled.div`
+
 @media screen and (min-width: 768px) {
   display: flex;
   flex-direction: row-reverse;
@@ -171,3 +155,13 @@ export const UserDataWrapper = styled.div`
 @media screen and (min-width: 1280px) {
   display: block;
 `;
+
+export const PetsDataContainer = styled.div`
+@media screen and (max-width: 768px) {
+  display: flex;
+  justify-content: space-between;
+}
+`
+export const PetsPhoto = styled.ul`
+pading-left: 0px;
+padding-right: 0px;`

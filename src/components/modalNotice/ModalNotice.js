@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAuth } from 'hooks/useAuth';
 import { toast } from 'react-toastify';
@@ -44,7 +45,7 @@ export const ModalNotice = ({ data, onClose }) => {
     sex,
     phone,
     email,
-    comments,
+    comments
   } = data;
 
   const dispatch = useDispatch();
@@ -92,7 +93,7 @@ export const ModalNotice = ({ data, onClose }) => {
               <DateModalNotice>{breed}</DateModalNotice>
             </InfoItem>
             <InfoItem>
-              <LableNotice>Location:</LableNotice>
+              <LableNotice>Place:</LableNotice>
               <DateModalNotice>{city}</DateModalNotice>
             </InfoItem>
             <InfoItem>
@@ -101,11 +102,9 @@ export const ModalNotice = ({ data, onClose }) => {
             </InfoItem>
             <InfoItem>
               <LableNotice>Email:</LableNotice>
-              {email && (
-                <a href={email}>
-                  <DateModalNotice>{email}</DateModalNotice>
-                </a>
-              )}
+              {email && <a href={`mailto:${email}`}>
+                <DateModalNotice>{email}</DateModalNotice>
+              </a>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Phone:</LableNotice>
@@ -115,7 +114,7 @@ export const ModalNotice = ({ data, onClose }) => {
                 </a>
               )}
             </InfoItem>
-            {price && (
+            {price >= 1 && (
               <InfoItem>
                 <LableNotice>Price:</LableNotice>
                 <DateModalNotice>{price}&#8372;</DateModalNotice>
@@ -160,4 +159,23 @@ export const ModalNotice = ({ data, onClose }) => {
       </WrapperContainer>
     </>
   );
+};
+
+ModalNotice.propTypes = {
+	onClick: PropTypes.func,
+  onClose: PropTypes.func,
+  _id: PropTypes.string,
+  category: PropTypes.string,
+  imageURL: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  birthday: PropTypes.object,
+  breed: PropTypes.string,
+  city: PropTypes.string,
+  sex: PropTypes.string,
+  phone: PropTypes.string,
+  email: PropTypes.string,
+  comments: PropTypes.string,
+  token: PropTypes.string,
+  defaultPetPhoto: PropTypes.string,
 };
