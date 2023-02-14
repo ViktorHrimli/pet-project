@@ -13,6 +13,7 @@ export const UserPageContainer = styled.div`
   }
   @media screen and (min-width: 1280px) {
     display: flex;
+
   }
 `;
 export const UserInfo = styled.div`
@@ -107,7 +108,7 @@ font-size: 20px;
 line-height: ${p => p.theme.lineHeights.normal};
 color: #111111;
 @media screen and (min-width: 768px) {
-
+  margin-bottom: 24px;
   font-size: 28px;
   line-height: {t => };
 }
@@ -135,7 +136,13 @@ export const PetsContainerWrapper = styled.div`
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
   }
+  @media screen and (min-width: 1280px) {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 `;
 export const UserInfoContainer = styled.div`
   margin-bottom: 42px;
@@ -160,8 +167,14 @@ export const PetsDataContainer = styled.div`
 @media screen and (max-width: 768px) {
   display: flex;
   justify-content: space-between;
+
+
 }
 `
 export const PetsPhoto = styled.ul`
 pading-left: 0px;
-padding-right: 0px;`
+padding-right: 0px;
+`
+
+export const ContainerStyled =styled.div`
+`

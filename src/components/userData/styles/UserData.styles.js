@@ -39,6 +39,7 @@ export const PhotoEdit = styled.input`
 `;
 
 export const PhotoEditLab = styled.label`
+cursor: pointer;
 display: flex;
 justify-content: flex-end;
 @media screen and (max-width: 1280px) {
@@ -63,6 +64,10 @@ flex-shrink: 1;
 export const PhotoEditText = styled.p`
 margin-bottom: 0px;
 margin-left: 5px;
+&:hover {
+  color: ${p => p.theme.colors.primary};
+  stroke: ${p => p.theme.colors.primary};
+}
 
 font-weight: ${p => p.theme.fontWeights.normal};
 font-size: ${p => p.theme.fontSizes.xxxs};
@@ -80,6 +85,7 @@ position: relative;
 `
 export const EditPhotoBtn = styled.button`
 margin-rigth: 10px;
+
 `
 
 
@@ -101,9 +107,14 @@ margin-bottom: 68px;
  }`
 
 export const LogOutBtn = styled.button`
+cursor: pointer;
 display: flex;
 align-items: center;
 justify-content: center;
+&:hover {
+  color: ${p => p.theme.colors.primary};
+  stroke: ${p => p.theme.colors.primary};
+}
 
 @media screen and (max-width: 768px) {
   position: absolute;
@@ -138,7 +149,7 @@ export const PhotoEditSubmitBtn = styled.button`
 display: flex;
 margin-bottom: 0px;
 margin-left: 5px;
-
+cursor: pointer;
 font-weight: ${p => p.theme.fontWeights.normal};
 font-size: ${p => p.theme.fontSizes.xxxs}
 line-height: 22px;
@@ -169,3 +180,4 @@ margin-bottom: 0px;
 `
 export const UserFormWrapper = styled.div`
 margin-bottom: 0px;`
+

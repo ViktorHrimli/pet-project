@@ -1,3 +1,5 @@
+import {ContainerStyled} from 'pages/userPage/UserPage.styles'
+
 export const Container = ({ children }) => {
-  return <div >{children}</div>;
+  return <ContainerStyled >{children}</ContainerStyled>;
 };

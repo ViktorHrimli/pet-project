@@ -2,10 +2,15 @@ import styled from '@emotion/styled';
 import {ReactComponent as plus} from '../../../images/svg/icon-cross-white.svg';
 
 export const AddButton = styled.button`
+cursor: pointer;
 display: flex;
 flex-direction: row-reverse;
 align-items: center;
 justify-content: center;
+&:hover {
+  color: ${p => p.theme.colors.primary};
+  stroke: ${p => p.theme.colors.primary};
+}
 	font-weight: ${p => p.theme.fontWeights.medium};
 	font-size: ${p => p.theme.fontSizes.s};
 	line-height: ${p => p.theme.lineHeights.normal};

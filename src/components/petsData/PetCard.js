@@ -18,6 +18,7 @@ export const PetCard = ({ cardData }) => {
                 owner,
                 createdAt,
                 updatedAt,
+                ref,
                 ...userPets
               }) => (
                 <PetsListItem key={createdAt}>
