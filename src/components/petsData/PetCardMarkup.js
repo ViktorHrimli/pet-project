@@ -6,6 +6,7 @@ export const CardMarkUp = ({ cardData, id }) => {
 		<PetsList>
 			{Object.entries(cardData)?.map(([key, value], idx) => (
 				<li key={`${id}+ ${idx}`} id={id} >
+
 					<PetsDataText >
 						<span>{key}:</span>&nbsp;
 						{value}

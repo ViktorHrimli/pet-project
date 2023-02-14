@@ -4,7 +4,7 @@ import { getUserData, removeUserPet } from 'redux/user/operations';
 import { resetIsAddedPetSuccess } from 'redux/user/slice';
 import { getIsAddedPetSuccess } from 'redux/user/selectors';
 import { selectors } from 'pages/userPage/selectors';
-import { toast } from 'react-toastify';
+
 import { AddPetButton } from 'components/petsData/AddPet';
 import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
@@ -44,7 +44,7 @@ const UserPage = () => {
   const onDeletePet = e => {
     const petToRemove = e.currentTarget.id;
     dispatch(removeUserPet(petToRemove));
-    toast.success(`Your pet successfully added.`);
+
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };

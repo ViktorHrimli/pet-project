@@ -169,3 +169,5 @@ max-width: 580px;`
 export const PetsUl = styled.ul`
 
   `
+export const EditButton = styled.div`
+cursor: pointer;`
