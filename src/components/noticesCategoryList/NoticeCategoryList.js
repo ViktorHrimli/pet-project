@@ -20,7 +20,6 @@ import {
   ButtonList,
   PaginationButton,
 } from 'components/noticesCategoryList/NoticeCategoryList.styled';
-import { TbCurrencyDollarSingapore } from 'react-icons/tb';
 
 export const NoticeCategoryList = () => {
   const [limit, setLimit] = useState(12);
