@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
 
 export const AddButton = styled.button`
   position: absolute;
-  z-index: 0;  
+  z-index: 0;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -17,8 +17,8 @@ export const AddButton = styled.button`
   font-size: ${p => p.theme.fontSizes.s};
   line-height: ${p => p.theme.lineHeights.normal};
   border: none;
-  
-  @media screen and (max-width: 767px) {   
+
+  @media screen and (max-width: 767px) {
     position: fixed;
     z-index: 1;
     bottom: 4%;
@@ -29,15 +29,27 @@ export const AddButton = styled.button`
     border-radius: ${p => p.theme.radii.round};
     background-color: rgba(245, 146, 86, 1);
     box-shadow: ${p => p.theme.shadows.normal};
-    
+
     &:hover {
       background-color: ${p => p.theme.colors.focus};
     }
-    animation: mymove 5s infinite;
+    animation: mymove 3s infinite;
     @keyframes mymove {
-      100% {
-        box-shadow: #fff 0 -1px 30px, rgb(255, 111, 0) 0 -2px 30px,
-          #ff8000 0 -10px 30px, 5px 5px 0px 30px rgba(0, 0, 0, 0);
+      20% {
+        opacity: 0.7;
+      }
+      40% {
+        box-shadow: 5px 5px 10px 15px rgba(0, 0, 0, 0), #ff8000 0 -10px 15px,
+          rgb(255, 111, 0) 0 -2px 15px, #fff 0 -1px 15px;
+        opacity: 0.8;
+      }
+      50% {
+        box-shadow: 5px 5px 10px 15px rgba(0, 0, 0, 0), #ff8000 0 -10px 15px,
+          rgb(255, 111, 0) 0 -2px 15px, #fff 0 -1px 15px;
+        opacity: 0.9;
+      }
+      85% {
+        box-shadow: none;
       }
     }
   }
@@ -49,7 +61,7 @@ export const AddButton = styled.button`
 
   @media screen and (min-width: 1280px) {
     left: 1118px;
-};
+  } ;
 `;
 
 export const ButtonName = styled.p`
@@ -84,14 +96,25 @@ export const Circle = styled.div`
     &:hover {
       background-color: ${p => p.theme.colors.focus};
     }
-    animation: mymove 5s infinite;
+    animation: mymove 3s infinite;
     @keyframes mymove {
-      100% {
-        box-shadow: #fff 0 -1px 30px, rgb(255, 111, 0) 0 -2px 30px,
-          #ff8000 0 -10px 30px, 5px 5px 0px 30px rgba(0, 0, 0, 0);
+      20% {
+        opacity: 0.7;
+      }
+      40% {
+        box-shadow: #fff 0 -1px 8px, rgb(255, 111, 0) 0 -2px 8px,
+          #ff8000 0 -4px 8px, 3px 3px 5px 8px rgba(0, 0, 0, 0);
+        opacity: 0.8;
+      }
+      50% {
+        box-shadow: 2px 2px 5px 8px rgba(0, 0, 0, 0), #ff8000 0 -4px 8px,
+          rgb(255, 111, 0) 0 -2px 8px, #fff 0 -1px 8px;
+        opacity: 0.9;
+      }
+      85% {
+        box-shadow: none;
       }
     }
-  }
 `;
 
 export const IconCross = styled(plus)`
