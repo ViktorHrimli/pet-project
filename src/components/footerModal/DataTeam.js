@@ -3,7 +3,7 @@ const dataTeam = [
     id: '1',
     imgUrl: require('../../images/team/Oleksandr_Pidvysotskyi.jpg'),
     name: 'Oleksandr Pidvysotskyi',
-    role: 'Team Lead - Beckend',
+    role: 'Team Lead - Backend',
     linkGit: 'https://github.com/Pidvysotskyi',
     linkedin: 'https://www.linkedin.com/in/pidvysotskyioleksandr/',
   },
@@ -57,11 +57,11 @@ const dataTeam = [
   },
   {
     id: '8',
-    imgUrl: require('../../images/team/plug.png'),
+    imgUrl: require('../../images/team/Andrii_Pidlubnyi.jpg'),
     name: 'Andrii Pidlubnyi',
     role: 'Frontend developer',
     linkGit: 'https://github.com/Apodlubny',
-    linkedin: 'https://www.linkedin.com/',
+    linkedin: 'https://www.linkedin.com/in/andriipidlubnyi/',
   },
   {
     id: '9',

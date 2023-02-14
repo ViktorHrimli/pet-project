@@ -27,6 +27,7 @@ export const NoticeCategoryList = () => {
   const history = useLocation();
   const pathName = history.pathname.slice(9);
   const isToTurn = limit > 12;
+
   let selected;
   let result;
   switch (pathName) {
@@ -72,6 +73,7 @@ export const NoticeCategoryList = () => {
     setLimit(12);
   }, [result]);
 
+  const toDisableButton = limit > toRender.length;
   const visibleNotices = useSelector(selectVisibleNotices);
   const isSearch = useSelector(selectIsSearch);
 
@@ -80,7 +82,6 @@ export const NoticeCategoryList = () => {
   }, [dispatch, toRender, visibleNotices]);
 
   const finishedRender = isSearch ? visibleNotices : toRender;
-
   return (
     <>
       <CardList>
@@ -91,7 +92,7 @@ export const NoticeCategoryList = () => {
       <ButtonList>
         <li>
           {' '}
-          {result && (
+          {result && !toDisableButton && (
             <PaginationButton
               type="button"
               onClick={() => {
@@ -109,6 +110,10 @@ export const NoticeCategoryList = () => {
               type="button"
               onClick={() => {
                 setLimit(12);
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                });
               }}
             >
               To turn

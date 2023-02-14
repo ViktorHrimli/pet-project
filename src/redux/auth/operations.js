@@ -3,7 +3,6 @@ import axios from 'axios';
 
 import { toast } from 'react-toastify';
 import { customToast } from 'components/loginForm/LoginForm.styled';
-// import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
 

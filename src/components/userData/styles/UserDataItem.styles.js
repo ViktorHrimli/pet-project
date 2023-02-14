@@ -39,6 +39,7 @@ justify-content: space-between;
 `;
 
 export const EditInputBtn = styled.button`
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,6 +115,7 @@ export const Edit = styled.div`
   }
 `;
 export const EditInputBtnSubmit = styled.div`
+cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;

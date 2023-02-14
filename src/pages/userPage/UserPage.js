@@ -4,6 +4,7 @@ import { getUserData, removeUserPet } from 'redux/user/operations';
 import { resetIsAddedPetSuccess } from 'redux/user/slice';
 import { getIsAddedPetSuccess } from 'redux/user/selectors';
 import { selectors } from 'pages/userPage/selectors';
+
 import { AddPetButton } from 'components/petsData/AddPet';
 import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
@@ -45,6 +46,7 @@ const UserPage = () => {
   const onDeletePet = e => {
     const petToRemove = e.currentTarget.id;
     dispatch(removeUserPet(petToRemove));
+
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };
@@ -62,10 +64,10 @@ const UserPage = () => {
       <PetsContainerWrapper>
         <PetsPhoto>
           <PetsDataContainer>
-          <PetTitle>My pets</PetTitle>
-          <AddPetBtnContainer>
-          <AddPetButton />
-        </AddPetBtnContainer>
+            <PetTitle>My pets</PetTitle>
+            <AddPetBtnContainer>
+            <AddPetButton />
+          </AddPetBtnContainer>
         </PetsDataContainer>
           <PetCard cardData={cardData} />
         </PetsPhoto>
