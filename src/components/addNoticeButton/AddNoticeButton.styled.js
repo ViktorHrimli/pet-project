@@ -34,6 +34,13 @@ export const AddButton = styled.button`
     &:hover {
       background-color: ${p => p.theme.colors.focus};
     }
+    animation: mymove 5s infinite;
+    @keyframes mymove {
+      100% {
+        box-shadow: #fff 0 -1px 30px, rgb(255, 111, 0) 0 -2px 30px,
+          #ff8000 0 -10px 30px, 5px 5px 0px 30px rgba(0, 0, 0, 0);
+      }
+    }
   }
   @media screen and (min-width: 768px) {
     width: 129px;
@@ -77,6 +84,13 @@ export const Circle = styled.div`
 
     &:hover {
       background-color: ${p => p.theme.colors.focus};
+    }
+    animation: mymove 5s infinite;
+    @keyframes mymove {
+      100% {
+        box-shadow: #fff 0 -1px 30px, rgb(255, 111, 0) 0 -2px 30px,
+          #ff8000 0 -10px 30px, 5px 5px 0px 30px rgba(0, 0, 0, 0);
+      }
     }
   }
 `;
