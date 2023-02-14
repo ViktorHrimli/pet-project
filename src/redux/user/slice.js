@@ -71,7 +71,7 @@ const userSlice = createSlice({
     [addUserPet.fulfilled]: (store, { payload }) => {
       store.loading = false;
       store.addPetError = null;
-      store.user.pets = [payload, ...store.userPets];
+      store.userPets = [payload, ...store.userPets];
 
       store.isAddedPetSuccess = true;
     },
@@ -86,7 +86,7 @@ const userSlice = createSlice({
     },
     [removeUserPet.fulfilled]: (store, { payload }) => {
       store.loading = false;
-      store.user.pets = store.user.pets.filter(({ _id }) => _id !== payload.id);
+      store.userPets = store.userPets.filter(({ _id }) => _id !== payload.id);
     },
     [removeUserPet.rejected]: (store, { payload }) => {
       store.loading = false;
