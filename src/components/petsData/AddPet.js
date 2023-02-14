@@ -18,9 +18,9 @@ export const AddPetButton = () => {
       </Circle>
       <ButtonName>Add pet</ButtonName>
     </AddButton>
-    <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
-    <ModalAddPet setIsOpen={setIsOpen} />
-  </ModalsLayout>
-  </>
+          <ModalsLayout isOpen={isOpen} setIsOpen={setIsOpen}>
+          <ModalAddPet setIsOpen={setIsOpen} />
+        </ModalsLayout>
+        </>
   );
 };
