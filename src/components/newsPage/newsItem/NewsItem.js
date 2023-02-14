@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
     ItemNews,
     Text,
@@ -12,7 +13,6 @@ export const NewsItem = ({ date, description, title, url}) => {
     const newDate = new Date(date);
     const formattedDate = newDate.getDate() + '/' + newDate.getMonth() + '/' + newDate.getFullYear()
 
-    
     return (
         <>
         <ItemNews>
@@ -26,4 +26,11 @@ export const NewsItem = ({ date, description, title, url}) => {
         </ItemNews>
         </>
     )
+}
+
+NewsItem.propType = {
+    date: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
 }

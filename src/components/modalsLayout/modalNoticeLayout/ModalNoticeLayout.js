@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { Backdrop,
+import {
+  Backdrop,
   ModalBox,
   StyledBtn,
   Icon
@@ -10,6 +11,7 @@ import { Backdrop,
 const modalRoot = document.querySelector('#modal-root');
 
 const ModalNoticeLayout = ({ onClose, children }) => {
+  
   const onClickBackdrop = e => {
     if (e.currentTarget === e.target) {
       onClose(false);
@@ -22,7 +24,9 @@ const ModalNoticeLayout = ({ onClose, children }) => {
         onClose(false);
       }
     };
+
     window.addEventListener('keydown', onKeydown);
+
     return () => {
       window.removeEventListener('keydown', onKeydown);
     };

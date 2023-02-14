@@ -10,6 +10,7 @@ import { UserForm } from 'components/userData/UserInfo';
 import { PetCard } from 'components/petsData/PetCard';
 
 import {
+  Main,
   UserPageContainer,
   UserContainer,
   PetsContainerWrapper,
@@ -18,7 +19,8 @@ import {
   UserCardWrapper,
   Title,
   AddPetBtnContainer,
-  PetsDataContainer, PetsPhoto
+  PetsDataContainer,
+  PetsPhoto
 } from 'pages/userPage/UserPage.styles';
 
 const UserPage = () => {
@@ -48,20 +50,17 @@ const UserPage = () => {
   };
   const formData = { userInfo, userAvatar, isUserLoading };
   const cardData = { userPets, onDeletePet, isPetsLoading };
-
-
   return (
-    <main>
-    <UserPageContainer>
-      <UserCardWrapper>
-        <Title>My information</Title>
-        <UserInfo>
-          <UserContainer>
-            <UserForm formData={formData} />
-          </UserContainer>
-        </UserInfo>
-      </UserCardWrapper>
-
+    <Main>
+      <UserPageContainer>
+        <UserCardWrapper>
+          <Title>My information</Title>
+          <UserInfo>
+            <UserContainer>
+              <UserForm formData={formData} />
+            </UserContainer>
+          </UserInfo>
+        </UserCardWrapper>
       <PetsContainerWrapper>
         <PetsPhoto>
           <PetsDataContainer>
@@ -74,9 +73,8 @@ const UserPage = () => {
         </PetsPhoto>
       </PetsContainerWrapper>
     </UserPageContainer>
-    </main>
+    </Main>
   );
 };
 
 export default UserPage;
-

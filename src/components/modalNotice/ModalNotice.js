@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAuth } from 'hooks/useAuth';
 import { toast } from 'react-toastify';
@@ -14,12 +15,12 @@ import {
   CommentsItem,
   LableNotice,
   DateModalNotice,
-	NoticeComments,
+  NoticeComments,
   LableComments,
-	ButtonModalWrapper,
-	ContactButton,
-	AddToFavoriteButton,
-	IconRedHeart,
+  ButtonModalWrapper,
+  ContactButton,
+  AddToFavoriteButton,
+  IconRedHeart,
   TitleCategory,
   CategoryNotice,
   DeleteButton,
@@ -31,8 +32,7 @@ import { selectUser } from 'redux/auth/selectors';
 import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
-export const ModalNotice = ({data, onClose}) => {
-
+export const ModalNotice = ({ data, onClose }) => {
   const {
     _id,
     category,
@@ -45,7 +45,7 @@ export const ModalNotice = ({data, onClose}) => {
     sex,
     phone,
     email,
-    comments,
+    comments
   } = data;
 
   const dispatch = useDispatch();
@@ -59,6 +59,10 @@ export const ModalNotice = ({data, onClose}) => {
       }
     );
   };
+
+  function toFormatTitle() {
+    return email.length < 20 ? email : email.slice(0, 20) + '...';
+  }
 
   const userEmail = useSelector(selectUser);
 
@@ -93,7 +97,7 @@ export const ModalNotice = ({data, onClose}) => {
               <DateModalNotice>{breed}</DateModalNotice>
             </InfoItem>
             <InfoItem>
-              <LableNotice>Location:</LableNotice>
+              <LableNotice>Place:</LableNotice>
               <DateModalNotice>{city}</DateModalNotice>
             </InfoItem>
             <InfoItem>
@@ -102,27 +106,30 @@ export const ModalNotice = ({data, onClose}) => {
             </InfoItem>
             <InfoItem>
               <LableNotice>Email:</LableNotice>
-              {email && <a href={email}>
-                <DateModalNotice>{email}</DateModalNotice>
+              {email && <a href={`mailto:${email}`}>
+                <DateModalNotice>{toFormatTitle()}</DateModalNotice>
               </a>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Phone:</LableNotice>
-              {phone && <a href={`tel:${phone}`}>
-                <DateModalNotice>{phone}</DateModalNotice>
-              </a>}
+              {phone && (
+                <a href={`tel:${phone}`}>
+                  <DateModalNotice>{phone}</DateModalNotice>
+                </a>
+              )}
             </InfoItem>
-            {price && (
+            {price >= 1 && (
               <InfoItem>
                 <LableNotice>Price:</LableNotice>
-                <DateModalNotice>{price}$</DateModalNotice>
+                <DateModalNotice>{price}&#8372;</DateModalNotice>
               </InfoItem>
             )}
           </ReferenceList>
         </WrapperInfoBlock>
         <CommentsItem>
           <NoticeComments>
-            <LableComments>Comments: </LableComments>{comments}
+            <LableComments>Comments: </LableComments>
+            {comments}
           </NoticeComments>
         </CommentsItem>
         <ButtonModalWrapper>
@@ -144,15 +151,35 @@ export const ModalNotice = ({data, onClose}) => {
             <DeleteButton
               type="button"
               onClick={() => {
-              onClose(false)
-              dispatch(deleteNotices(_id))}}
+                onClose(false);
+                dispatch(deleteNotices(_id));
+              }}
             >
               <TitleNoticeButton>Delete </TitleNoticeButton>
               <IconWasteBasket />
             </DeleteButton>
           )}
-          </ButtonModalWrapper>
+        </ButtonModalWrapper>
       </WrapperContainer>
     </>
   );
+};
+
+ModalNotice.propTypes = {
+	onClick: PropTypes.func,
+  onClose: PropTypes.func,
+  _id: PropTypes.string,
+  category: PropTypes.string,
+  imageURL: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.number,
+  birthday: PropTypes.object,
+  breed: PropTypes.string,
+  city: PropTypes.string,
+  sex: PropTypes.string,
+  phone: PropTypes.string,
+  email: PropTypes.string,
+  comments: PropTypes.string,
+  token: PropTypes.string,
+  defaultPetPhoto: PropTypes.string,
 };

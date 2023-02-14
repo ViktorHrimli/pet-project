@@ -31,7 +31,7 @@ const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
         <ImageSss src={file.url} alt="pet" width="208" height="208" />
       )}
 
-      {!isErrorFile && !file && (
+      {isErrorFile && !file && (
         <div style={{ color: '#8b0000' }}>{'Field reqiured!'}</div>
       )}
     </>

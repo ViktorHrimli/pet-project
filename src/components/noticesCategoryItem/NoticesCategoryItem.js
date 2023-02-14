@@ -96,7 +96,7 @@ export const NoticeCategoryItem = ({ item }) => {
         {price >= 1 ? (
           <InfoItem>
             <span>Price:</span>
-            <Try>{price}$</Try>
+            <Try>{price}&#8372;</Try>
           </InfoItem>
         ) : null}
       </InfoList>

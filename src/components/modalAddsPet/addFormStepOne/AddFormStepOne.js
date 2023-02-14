@@ -48,7 +48,7 @@ const StepOne = ({ step, state, setIsOpen }) => {
         validationSchema={schema}
         onSubmit={handleSubmit}
       >
-        {({ touched, errors, isValid }) => (
+        {({ touched, errors }) => (
           <FormGlobal>
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
@@ -80,7 +80,7 @@ const StepOne = ({ step, state, setIsOpen }) => {
               )}
             </div>
 
-            <ButtonFormNextCancel isValid={isValid} setIsOpen={setIsOpen} />
+            <ButtonFormNextCancel setIsOpen={setIsOpen} />
           </FormGlobal>
         )}
       </Formik>

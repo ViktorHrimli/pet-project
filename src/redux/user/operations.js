@@ -50,8 +50,7 @@ export const addUserPet = createAsyncThunk(
         return thunkAPI.rejectWithValue(e.message)
       }
   }
-)
-
+);
 
 // export const removeUserPet = createAsyncThunk(
 //   'user/removeUserPet',
@@ -71,9 +70,8 @@ export const addUserPet = createAsyncThunk(
 // );
 
 export const removeUserPet = createAsyncThunk(
-  'user/removeUserPet',
+'user/removeUserPet',
   async (id, thunkAPI) => {
-
     try {
       const result = await axios.delete(`/pets/remove/${id}`);
       return result;
@@ -87,4 +85,3 @@ export const removeUserPet = createAsyncThunk(
     }
   }
 );
-

@@ -8,6 +8,7 @@ font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xs};
 line-height: ${p => p.theme.lineHeights.max};
 color: ${p => p.theme.colors.muted};
+
 &:hover {
   color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
