@@ -109,6 +109,10 @@ export const NoticeCategoryList = () => {
               type="button"
               onClick={() => {
                 setLimit(12);
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth',
+                });
               }}
             >
               To turn

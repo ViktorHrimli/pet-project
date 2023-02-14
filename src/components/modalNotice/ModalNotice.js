@@ -15,12 +15,12 @@ import {
   CommentsItem,
   LableNotice,
   DateModalNotice,
-	NoticeComments,
+  NoticeComments,
   LableComments,
-	ButtonModalWrapper,
-	ContactButton,
-	AddToFavoriteButton,
-	IconRedHeart,
+  ButtonModalWrapper,
+  ContactButton,
+  AddToFavoriteButton,
+  IconRedHeart,
   TitleCategory,
   CategoryNotice,
   DeleteButton,
@@ -32,8 +32,7 @@ import { selectUser } from 'redux/auth/selectors';
 import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
-export const ModalNotice = ({data, onClose}) => {
-
+export const ModalNotice = ({ data, onClose }) => {
   const {
     _id,
     category,
@@ -109,21 +108,24 @@ export const ModalNotice = ({data, onClose}) => {
             </InfoItem>
             <InfoItem>
               <LableNotice>Phone:</LableNotice>
-              {phone && <a href={`tel:${phone}`}>
-                <DateModalNotice>{phone}</DateModalNotice>
-              </a>}
+              {phone && (
+                <a href={`tel:${phone}`}>
+                  <DateModalNotice>{phone}</DateModalNotice>
+                </a>
+              )}
             </InfoItem>
             {price >= 1 && (
               <InfoItem>
                 <LableNotice>Price:</LableNotice>
-                <DateModalNotice>{price}$</DateModalNotice>
+                <DateModalNotice>{price}&#8372;</DateModalNotice>
               </InfoItem>
             )}
           </ReferenceList>
         </WrapperInfoBlock>
         <CommentsItem>
           <NoticeComments>
-            <LableComments>Comments: </LableComments>{comments}
+            <LableComments>Comments: </LableComments>
+            {comments}
           </NoticeComments>
         </CommentsItem>
         <ButtonModalWrapper>
@@ -145,14 +147,15 @@ export const ModalNotice = ({data, onClose}) => {
             <DeleteButton
               type="button"
               onClick={() => {
-              onClose(false)
-              dispatch(deleteNotices(_id))}}
+                onClose(false);
+                dispatch(deleteNotices(_id));
+              }}
             >
               <TitleNoticeButton>Delete </TitleNoticeButton>
               <IconWasteBasket />
             </DeleteButton>
           )}
-          </ButtonModalWrapper>
+        </ButtonModalWrapper>
       </WrapperContainer>
     </>
   );
