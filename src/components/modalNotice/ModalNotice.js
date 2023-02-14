@@ -103,7 +103,7 @@ export const ModalNotice = ({data, onClose}) => {
             </InfoItem>
             <InfoItem>
               <LableNotice>Email:</LableNotice>
-              {email && <a href={email}>
+              {email && <a href={`email:${email}`}>
                 <DateModalNotice>{email}</DateModalNotice>
               </a>}
             </InfoItem>
