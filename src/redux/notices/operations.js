@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
-
 export const getAll = createAsyncThunk(
   'notices/sell',
   async ({ result, limit }, thunkAPI) => {
@@ -94,6 +92,10 @@ export const addNotices = createAsyncThunk(
 
     const formData = new FormData();
 
+    if (key.includes('sell')) {
+      formData.append('price', price);
+    }
+
     formData.append('category', ...key);
     formData.append('title', title);
     formData.append('name', name);
@@ -101,7 +103,6 @@ export const addNotices = createAsyncThunk(
     formData.append('breed', breed);
     formData.append('sex', sex);
     formData.append('location', location);
-    formData.append('price', price);
     formData.append('comments', comments);
     formData.append('photo', photo);
 

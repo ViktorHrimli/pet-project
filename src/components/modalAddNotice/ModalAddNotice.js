@@ -32,10 +32,25 @@ export const ModalAddNotice = ({ setIsOpen }) => {
       const key = Object.keys(JSON.parse(localStorage.getItem('btn')));
 
       localStorage.removeItem('prev');
-      localStorage.removeItem('btn');
-      console.log(state);
 
-      dispatch(addNotices({ ...state, token, key }));
+      if (key.includes('sell')) {
+        dispatch(addNotices({ ...state, token, key }));
+      }
+
+      const objNoPrice = {
+        title: state.title,
+        name: state.name,
+        date: state.date,
+        breed: state.breed,
+        sex: state.sex,
+        location: state.location,
+        comments: state.comments,
+        photo: state.photo,
+      };
+
+      dispatch(addNotices({ ...objNoPrice, token, key }));
+
+      localStorage.removeItem('btn');
     }
   }, [dispatch, state, token]);
 

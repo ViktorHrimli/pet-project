@@ -9,7 +9,7 @@ import {
   NoticeConteinerButtonNested,
 } from 'components/modalAddNotice/buttonForm/ButtonForm.styled';
 
-const ButtonFormNextCancel = ({ isValid, setIsOpen }) => {
+const ButtonFormNextCancel = ({ setIsOpen }) => {
   return (
     <AddButtonConteiner>
       <AddButtonsCancel
@@ -21,9 +21,7 @@ const ButtonFormNextCancel = ({ isValid, setIsOpen }) => {
       >
         Cancel
       </AddButtonsCancel>
-      <AddButtonsNext type="submit" disabled={!isValid}>
-        Next
-      </AddButtonsNext>
+      <AddButtonsNext type="submit">Next</AddButtonsNext>
     </AddButtonConteiner>
   );
 };
@@ -57,7 +55,7 @@ const ButtonNoticeForm = ({ setIsUseSell }) => {
         <NoticeButton
           type="button"
           onClick={() => {
-            setIsActiveBtn(prev => ({ 'lost-found': true }));
+            setIsActiveBtn({ 'lost-found': true });
             handleUseGoodHands();
 
             localStorage.setItem('btn', JSON.stringify({ 'lost-found': true }));
@@ -101,13 +99,13 @@ const ButtonNoticeForm = ({ setIsUseSell }) => {
   );
 };
 
-const ButtonFormDoneCancel = ({ step, isValid }) => {
+const ButtonFormDoneCancel = ({ step, setIsErrorFile }) => {
   return (
     <AddButtonConteiner>
       <AddButtonsCancel onClick={() => step(false)} type="button">
         Back
       </AddButtonsCancel>
-      <AddButtonsNext type="submit" disabled={!isValid}>
+      <AddButtonsNext type="submit" onClick={() => setIsErrorFile(true)}>
         Done
       </AddButtonsNext>
     </AddButtonConteiner>

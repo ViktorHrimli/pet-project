@@ -56,7 +56,7 @@ const StepTwo = ({ step, state, setIsOpen }) => {
         }}
         validationSchema={shamaStepTwo}
       >
-        {({ errors, touched, isValid }) => (
+        {({ errors, touched }) => (
           <AddStepTwoFormPets>
             <PhotoConteiner
               file={file}
@@ -87,7 +87,7 @@ const StepTwo = ({ step, state, setIsOpen }) => {
               )}
             </div>
 
-            <ButtonFormDoneCancel isValid={isValid} step={step} />
+            <ButtonFormDoneCancel step={step} />
           </AddStepTwoFormPets>
         )}
       </Formik>

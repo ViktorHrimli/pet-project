@@ -20,7 +20,7 @@ import { ButtonFormDoneCancel } from 'components/modalAddNotice/buttonForm/Butto
 import { MaleFemale } from 'components/modalAddNotice/noticeFormStepTwo/sexConteiner/MaleFemale';
 import { PhotoConteinerNotice } from 'components/modalAddNotice/photoFormConteinerNotice/PhotoConteinerNotice';
 
-const pricePattern = /^[1-9][0-9]*$/;
+const pricePattern = /^[0-9][0-9]*$/;
 
 const shemaMultipleModal = isPrice => {
   return Yup.object().shape({
@@ -45,11 +45,11 @@ const shemaMultipleModal = isPrice => {
 
 export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
   const [file, setFile] = useState(null);
-  const [isErrorFile, setIsErrorFile] = useState(true);
+  const [isErrorFile, setIsErrorFile] = useState(false);
 
   const [localeState] = useState({
     location: JSON.parse(localStorage.getItem('notice-location')) || '',
-    price: JSON.parse(localStorage.getItem('notice-price')) || '1',
+    price: JSON.parse(localStorage.getItem('notice-price')) || '0',
     comments: JSON.parse(localStorage.getItem('notice-comments')) || '',
     sex:
       JSON.parse(localStorage.getItem('notice-sex')) === true
@@ -70,10 +70,10 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
       localStorage.removeItem('prev');
 
       action.resetForm();
-      setIsErrorFile(true);
+      setIsErrorFile(false);
       setIsOpen(false);
     } else {
-      setIsErrorFile(false);
+      setIsErrorFile(true);
     }
   };
 
@@ -86,7 +86,7 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
         initialValues={localeState}
         validationSchema={shema}
       >
-        {({ errors, touched, isValid }) => (
+        {({ errors, touched }) => (
           <AddStepTwoFormPets>
             <MaleFemale touched={touched} errors={errors} />
 
@@ -170,7 +170,7 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
               )}
             </div>
 
-            <ButtonFormDoneCancel isValid={isValid} step={step} />
+            <ButtonFormDoneCancel step={step} setIsErrorFile={setIsErrorFile} />
           </AddStepTwoFormPets>
         )}
       </Formik>

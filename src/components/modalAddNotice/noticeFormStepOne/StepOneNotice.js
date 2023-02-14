@@ -108,7 +108,7 @@ export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
               )}
             </div>
 
-            <ButtonFormNextCancel isValid={isValid} setIsOpen={setIsOpen} />
+            <ButtonFormNextCancel setIsOpen={setIsOpen} />
           </FormGlobal>
         )}
       </Formik>
