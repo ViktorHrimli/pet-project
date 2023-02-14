@@ -38,16 +38,16 @@ export const NoticesSearch = () => {
   }, [dispatch, isSearch, keyword])
 
   return <SearchForm onSubmit={handleSubmit}>
-    <SearchInput
-    type="text"
-    placeholder="Search"
-    name="value"
-    value={keyword}
-    disabled={isSearch}
-    onChange={handleChange}
-    />
-    <BtnSearch type="submit">
-      {isSearch ? <IconCross/> : <IconSearch/>}
-    </BtnSearch>
-  </SearchForm>
+      <SearchInput
+      type="text"
+      placeholder="Search"
+      name="value"
+      value={keyword}
+      disabled={isSearch}
+      onChange={handleChange}
+      />
+      <BtnSearch type="submit">
+        {isSearch ? <IconCross/> : <IconSearch/>}
+      </BtnSearch>
+    </SearchForm>
 };
