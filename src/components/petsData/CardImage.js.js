@@ -1,5 +1,6 @@
 import { useMediaQuery } from 'react-responsive';
 import noImage from 'images/noImage/noImage.jpg';
+import {PetImage} from 'components/petsData/styles/PetsData.styled'
 
 export const CardImg = ({ petImg }) => {
   const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
@@ -7,9 +8,9 @@ export const CardImg = ({ petImg }) => {
   return (
     <div>
       {isTablet ? (
-        <img src={petImg ? petImg : noImage} alt="big cat" />
+        <PetImage src={petImg ? petImg : noImage} alt="big cat" />
       ) : (
-        <img src={petImg ? petImg : noImage} alt="small cat" />
+        <PetImage src={petImg ? petImg : noImage} alt="small cat" />
       )}
     </div>
   );

@@ -1,7 +1,8 @@
 import { Container } from 'components/petsData/PetContainer';
-import CardImg from 'images/noImage/noImage.jpg';
+import {CardImg} from 'components/petsData/CardImage.js';
 import { DeleteButton } from 'components/petsData/DeleteButton';
 import { CardMarkUp } from 'components/petsData/PetCardMarkup';
+import {PetsContainer, PetsDataWrapper, DeleteBtnDiv, PetsListItem} from 'components/petsData/styles/PetsData.styled'
 
 export const PetCard = ({ cardData }) => {
   const { userPets, onDeletePet, isPetsLoading } = cardData;
@@ -12,22 +13,28 @@ export const PetCard = ({ cardData }) => {
         {userPets
           ? userPets.map(
               ({
-                // urlAvatar,
+                urlAvatar,
                 _id,
                 owner,
                 createdAt,
                 updatedAt,
                 ...userPets
               }) => (
-                <li key={createdAt}>
-                  {/* <CardImg petImg={urlAvatar} /> */}
+                <PetsContainer>
+                <PetsListItem key={createdAt}>
+                  <CardImg petImg={urlAvatar} />
+                  <PetsDataWrapper>
+                    <DeleteBtnDiv>
                   <DeleteButton
                     id={_id}
                     onDeletePet={onDeletePet}
                     isPetsLoading={isPetsLoading}
                   />
+                  </DeleteBtnDiv>
                   <CardMarkUp cardData={userPets} id={_id} />
-                </li>
+                  </PetsDataWrapper>
+                </PetsListItem>
+                </PetsContainer>
               )
             )
           : 'no pets yet'}
