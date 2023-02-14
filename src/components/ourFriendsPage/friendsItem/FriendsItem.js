@@ -1,3 +1,6 @@
+import { useState, useRef } from 'react';
+import { Transition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 import {
     FriendName,
     FriendItem,
@@ -13,8 +16,7 @@ import {
     Span
 } from 'components/ourFriendsPage/friendsItem/FriendsItem.styled'
 
-import { useState, useRef } from 'react';
-import { Transition } from 'react-transition-group';
+
 
 const duration = 300;
 
@@ -30,10 +32,10 @@ const transitionStyles = {
   exited:  { opacity: 0 },
 };
 
-export const FiendsItem = ({image, name,email,time,adress,phone}) => {
+export const FriendsItem = ({image, name,email,time,adress,phone}) => {
     const [timeSchedule, setTimeSchedule] = useState(false);
     const nodeRef = useRef(null);
-
+    
     const handleToggle = () => {
         setTimeSchedule(state => !state)
     };
@@ -49,20 +51,35 @@ export const FiendsItem = ({image, name,email,time,adress,phone}) => {
                         <ul>
                             <ItemData>
                                 Time:
-                                {!time ? <Button disabled style={{cursor: "inherit"}}>---------------------------------</Button> : <Button onClick={handleToggle}>{time.monday}</Button>}
+                                {!time ?
+                                    <Button disabled style={{ cursor: "inherit" }}>---------------------------------</Button> :
+                                    <Button onClick={handleToggle}>{time.monday}</Button>
+                                }
                                 
                             </ItemData>
                             <ItemData>
                                 Adress:
-                                {!adress ?<FriendsText>---------------------------------</FriendsText> :<FriendsText>{adress}</FriendsText> }
+                                {!adress ? <FriendsText>---------------------------------</FriendsText> :
+                                    <FriendsText>{adress}</FriendsText>
+                                }
                             </ItemData>
                             <ItemData>
                                 Email:
-                                <FriendsText>{email}</FriendsText>
+                                {!email ? <FriendsText>---------------------------------</FriendsText> :
+                                    <a href={`mailto:${email}`}>
+                                        <FriendsText>{email}</FriendsText>
+                                    </a>
+                                }
+                                
                             </ItemData>
                             <ItemData>
                                 Phone:
-                                <FriendsText>{phone}</FriendsText>
+                                {!phone ?
+                                    <FriendsText>---------------------------------</FriendsText> :
+                                    <a href={`tel:${phone}`}>
+                                        <FriendsText>{phone}</FriendsText>
+                                    </a>}
+                                
                             </ItemData>
                         </ul>
                     </ContData>
@@ -88,4 +105,13 @@ export const FiendsItem = ({image, name,email,time,adress,phone}) => {
             </FriendItem>
         </>
     )
+}
+
+FriendsItem.propType = {
+    image: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    time: PropTypes.any.isRequired,
+    adress: PropTypes.any.isRequired,
+    phone: PropTypes.any.isRequired,
 }
