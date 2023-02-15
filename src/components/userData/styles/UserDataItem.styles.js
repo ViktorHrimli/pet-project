@@ -33,9 +33,15 @@ justify-content: space-between;
 }
   @media screen and (min-width: 768px) {
     &:not(:last-child) {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+    }
+    @media screen and (min-width: 1280px) {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
     }
   }
+
 `;
 
 export const EditInputBtn = styled.button`
@@ -87,9 +93,7 @@ export const EditInput = styled.input`
   }
 `;
 
-export const UserInfoWrapper = styled.div`
-  margin-top: 32px;
-`;
+
 export const EditInputContainer = styled.div``;
 
 export const TextInInput = styled.p`

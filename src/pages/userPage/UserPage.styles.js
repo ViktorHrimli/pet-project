@@ -5,6 +5,21 @@ export const Main = styled.main`
 `;
 
 export const UserPageContainer = styled.div`
+
+margin-right: auto;
+margin-left: auto;
+
+@media screen and (min-width: 320px) {
+  width: 320px
+}
+
+@media screen and (min-width: 768px) {
+  width: 768px;
+}
+
+@media screen and (min-width: 1280px) {
+  width: 1280px;
+}
   margin-top: 119px;
   padding-left: 20px;
   padding-right: 20px;
@@ -26,14 +41,9 @@ export const UserInfo = styled.div`
   background-color: ${p => p.theme.colors.white};
   border-radius: 7%;
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
-  @media screen and (max-width: 768px) {
-    width: auto;
-    height: auto;
-  }
 
   @media screen and (min-width: 768px) {
     padding-left: 0px;
-
     padding: 24px 40px 24px 32px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -55,9 +65,11 @@ export const UserContainer = styled.div`
   margin-bottom: 47px;
   @media screen and (min-width: 768px) {
     margin-bottom: 0px;
+
   }
   @media screen and (min-width: 1280px) {
     margin-bottom: 0px;
+
   }
 `;
 
@@ -127,12 +139,7 @@ export const AddPetBtnContainer = styled.div``;
 export const PetsContainerWrapper = styled.div`
 
   margin-top: 46px;
-  @media screen and (min-width: 1280px) {
-    margin-top: 0px;
-    justify-content: space-between;
-    padding-left: 0px;
-    padding-right: 0px;
-  }
+
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
@@ -142,12 +149,19 @@ export const PetsContainerWrapper = styled.div`
   @media screen and (min-width: 1280px) {
   padding-left: 0px;
   padding-right: 0px;
+  margin-top: 0px;
+  justify-content: space-between;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 `;
 export const UserInfoContainer = styled.div`
   margin-bottom: 42px;
   @media screen and (min-width: 768px) {
     margin-bottom: 0px;
+  }
+  @media screen and (min-width: 1280px) {
+    
   }
 `;
 

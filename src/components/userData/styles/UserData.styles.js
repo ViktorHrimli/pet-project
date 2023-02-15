@@ -103,7 +103,7 @@ margin-bottom: 68px;
   margin-bottom: 0px;
  }
  @media screen and (min-width: 1280px) {
-  margin-bottom: 36px;
+
  }`
 
 export const LogOutBtn = styled.button`
