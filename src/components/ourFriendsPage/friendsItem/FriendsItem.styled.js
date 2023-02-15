@@ -34,6 +34,10 @@ text-align: center;
 margin-bottom: 12px;
 color: ${p => p.theme.colors.primary};
 
+ &:hover{
+   color: ${p => p.theme.colors.focus};
+ }
+ 
 @media screen and (min-width: 768px){
     font-size: ${p => p.theme.fontSizes.xs};
     line-height: ${p => p.theme.lineHeights.max};
@@ -91,7 +95,7 @@ font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: ${p => p.theme.lineHeights.min};
 color: ${p => p.theme.colors.black};
 list-style: none;
- 
+
     &:not(:last-child) {
 margin-bottom: 4px;
     };
@@ -112,8 +116,12 @@ margin-bottom: 4px;
         margin-bottom: 12px;
     };
     }
-}
-    
+}`;
+
+export const TimeCont = styled.div`
+ &:hover{
+        color: ${p => p.theme.colors.primary};
+    }
 `;
 
 export const Button = styled.button`
@@ -126,7 +134,8 @@ font-family: ${p => p.theme.fonts.body};
 font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: ${p => p.theme.lineHeights.min};
-color: ${p => p.theme.colors.black};
+color: inherit;
+
 
     @media screen and (min-width: 768px){
     font-size: ${p => p.theme.fontSizes.xxs};
