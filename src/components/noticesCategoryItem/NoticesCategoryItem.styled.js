@@ -27,7 +27,7 @@ export const CardImage = styled.img`
   margin-bottom: ${p => p.theme.space[4]};
   width: 100%;
   height: 288px;
-
+  object-fit: contain;
   @media screen and (min-width: 768px) {
     width: 336px;
   }
