@@ -59,15 +59,15 @@ export const NoticeCategoryList = () => {
 
   useLayoutEffect(() => {
     dispatch(getAll({ result, limit }));
-  }, [dispatch, result, limit]);
+  }, [dispatch, result, limit, toRender]);
 
   useLayoutEffect(() => {
     dispatch(favoriteNotices());
-  }, [dispatch]);
+  }, [dispatch, toRender]);
 
   useLayoutEffect(() => {
     dispatch(getUserNotices());
-  }, [dispatch]);
+  }, [dispatch, toRender]);
 
   useLayoutEffect(() => {
     setLimit(12);
