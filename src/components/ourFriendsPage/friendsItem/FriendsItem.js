@@ -58,7 +58,7 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
                                         <Button onClick={handleToggle}>{time.monday}</Button>
                                     </TimeCont> :
                                     <>
-                                        <p>Time:</p> 
+                                        <p style={{margin: "0"}}>Time:</p> 
                                         <Button disabled style={{ cursor: "inherit" }}>---------------------------------</Button>
                                     </>
                                 }
@@ -70,22 +70,35 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
                                 }
                             </ItemData>
                             <ItemData>
-                                Email:
-                                {!email ? <FriendsText>---------------------------------</FriendsText> :
-                                    <a href={`mailto:${email}`}>
-                                        <FriendsText>{email}</FriendsText>
-                                    </a>
+                                {email ? 
+                                    <TimeCont>
+                                        <p style={{margin: "0"}}>Email:</p>
+                                        <a href={`mailto:${email}`}>
+                                            <FriendsText>{email}</FriendsText>
+                                        </a>
+                                    </TimeCont> :
+                                    <>
+                                        <p>Email:</p>
+                                        <FriendsText>---------------------------------</FriendsText>
+                                    </>
+                                    
                                 }
                                 
                             </ItemData>
                             <ItemData>
-                                Phone:
-                                {!phone ?
-                                    <FriendsText>---------------------------------</FriendsText> :
-                                    <a href={`tel:${phone}`}>
-                                        <FriendsText>{phone}</FriendsText>
-                                    </a>}
                                 
+                                {phone ?
+                                    <TimeCont>
+                                        <p style={{ margin: "0" }}>Phone:</p>
+                                        <a href={`tel:${phone}`}>
+                                            <FriendsText>{phone}</FriendsText>
+                                        </a>
+                                    </TimeCont> :
+                                    <>
+                                        <p style={{ margin: "0" }}>Phone:</p>
+                                        <FriendsText>---------------------------------</FriendsText>
+                                    </>
+                                }
                             </ItemData>
                         </ul>
                     </ContData>
