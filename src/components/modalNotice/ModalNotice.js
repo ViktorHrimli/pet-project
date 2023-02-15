@@ -26,6 +26,7 @@ import {
   DeleteButton,
   IconWasteBasket,
   TitleNoticeButton,
+  Link
 } from 'components/modalNotice/ModalNotice.styled';
 
 import { selectUser } from 'redux/auth/selectors';
@@ -35,6 +36,7 @@ import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 export const ModalNotice = ({ data, onClose }) => {
   const {
     _id,
+    title,
     category,
     imageURL,
     name,
@@ -83,7 +85,7 @@ export const ModalNotice = ({ data, onClose }) => {
             </CategoryNotice>
           </WrapperPetPhoto>
           <ReferenceList>
-            <TitleModalNotice>Сute dog looking for a home</TitleModalNotice>
+            <TitleModalNotice>{title}</TitleModalNotice>
             <InfoItem>
               <LableNotice>Name:</LableNotice>
               <DateModalNotice>{name}</DateModalNotice>
@@ -106,16 +108,16 @@ export const ModalNotice = ({ data, onClose }) => {
             </InfoItem>
             <InfoItem>
               <LableNotice>Email:</LableNotice>
-              {email && <a href={`mailto:${email}`}>
+              {email && <Link href={`mailto:${email}`}>
                 <DateModalNotice>{toFormatTitle()}</DateModalNotice>
-              </a>}
+              </Link>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Phone:</LableNotice>
               {phone && (
-                <a href={`tel:${phone}`}>
+                <Link href={`tel:${phone}`}>
                   <DateModalNotice>{phone}</DateModalNotice>
-                </a>
+                </Link>
               )}
             </InfoItem>
             {price >= 1 && (
@@ -152,6 +154,7 @@ export const ModalNotice = ({ data, onClose }) => {
               type="button"
               onClick={() => {
                 onClose(false);
+                document.body.style.overflow = "";
                 dispatch(deleteNotices(_id));
               }}
             >
