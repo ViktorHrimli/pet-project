@@ -44,6 +44,12 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     color: #535353;
   }
    
+  &:hover {
+    ::placeholder {
+      color: ${p => p.theme.colors.focus};
+    }
+  }
+
 &:focus {
   ::placeholder {
     color: ${p => p.theme.colors.white};

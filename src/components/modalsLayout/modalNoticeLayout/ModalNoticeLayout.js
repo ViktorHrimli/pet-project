@@ -35,7 +35,9 @@ const ModalNoticeLayout = ({ onClose, children }) => {
   return createPortal(
     <Backdrop onClick={onClickBackdrop}>
       <ModalBox>
-        <StyledBtn type="button" onClick={() => {onClose(false)}}>
+        <StyledBtn type="button" onClick={() => {
+          document.body.style.overflow = "";
+          onClose(false)}}>
           <Icon />
         </StyledBtn>
         {children}

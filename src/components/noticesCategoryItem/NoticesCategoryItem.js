@@ -107,6 +107,7 @@ export const NoticeCategoryItem = ({ item }) => {
             onClick={() => {
               dispatch(getNoticesById(_id));
               seIsModalOpen(true);
+              document.body.style.overflow = "hidden";
             }}
           >
             Learn more
