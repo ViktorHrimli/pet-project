@@ -19,9 +19,10 @@ export const Overlay = styled.div`
 `;
 
 export const ModalContainer = styled.div`
+  position: absolute;
   min-height: 100%;
   max-width: 340px;
-  margin-top: 40%;
+
   justify-content: center;
   align-items: center;
   padding: 100px 10px;
