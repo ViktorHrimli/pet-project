@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const CardList = styled.ul`
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
     gap: ${p => p.theme.space[6]};
@@ -16,7 +16,7 @@ export const ButtonList = styled.ul`
   justify-content: center;
   align-items: center;
   margin-bottom: ${p => p.theme.space[4]};
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     flex-wrap: nowrap;
     gap: ${p => p.theme.space[3]};
   }
