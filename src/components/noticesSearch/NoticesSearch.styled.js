@@ -47,6 +47,7 @@ export const SearchInput = styled.input`
   color: ${p => p.theme.colors.black};
 
   @media screen and (min-width: 768px) {
+    padding-left: 20px;
     width: 608px;
     height: 44px;
     padding-left: 20px;

@@ -69,7 +69,7 @@ line-height: ${p => p.theme.letterSpacings.min};
 export const PetPhoto = styled.img`
   width: 240px;
   height: 240px;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
@@ -122,6 +122,13 @@ height: 48px;
 }
 `;
 
+export const Link = styled.a`
+&:hover {
+ text-decoration: underline;
+ text-decoration-color: ${p => p.theme.colors.focus};
+ color: ${p => p.theme.colors.focus};
+}
+`;
 export const LableNotice = styled.p`
 margin-bottom: 0;
 width: 80px;
