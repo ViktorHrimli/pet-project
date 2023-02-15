@@ -10,6 +10,7 @@ export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
+
   overflow-y: auto;
   z-index: 2;
   transition: opacity 250ms, visibility 250ms ease-in-out;
