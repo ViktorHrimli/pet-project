@@ -15,6 +15,7 @@ const ModalNoticeLayout = ({ onClose, children }) => {
   const onClickBackdrop = e => {
     if (e.currentTarget === e.target) {
       onClose(false);
+      document.body.style.overflow = "";
     }
   };
 
@@ -22,6 +23,7 @@ const ModalNoticeLayout = ({ onClose, children }) => {
     const onKeydown = e => {
       if (e.code === 'Escape') {
         onClose(false);
+        document.body.style.overflow = "";
       }
     };
 

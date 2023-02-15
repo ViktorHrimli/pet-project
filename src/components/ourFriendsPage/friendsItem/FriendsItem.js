@@ -32,17 +32,18 @@ const transitionStyles = {
   exited:  { opacity: 0 },
 };
 
-export const FriendsItem = ({image, name,email,time,adress,phone}) => {
+export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) => {
     const [timeSchedule, setTimeSchedule] = useState(false);
     const nodeRef = useRef(null);
-    
     const handleToggle = () => {
         setTimeSchedule(state => !state)
     };
     return (
         <>
             <FriendItem>
-                <FriendName>{name}</FriendName>
+                {urlFriend ?
+                    <a href={urlFriend} target="_blank" rel="noreferrer noopener"><FriendName>{name}</FriendName></a> :
+                    <FriendName>{name}</FriendName>}
                 <DataFriendCont>
                     <ContImg>
                         <FriendImg src={image} alt={name}></FriendImg>
