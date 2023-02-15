@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import { FooterModalList } from 'components/footerModal/footerModalList/FooterModalList';
 import {
   Overlay,
@@ -8,17 +9,37 @@ import {
   CloseSvg,
 } from 'components/footerModal/FooterModal.styled';
 
-export default function FooterModal({ open, onClose }) {
-  if (!open) return null;
+export default function FooterModal({ setOpenModal }) {
+  useEffect(() => {
+    function handleEscapeKey(event) {
+      if (event.code === 'Escape') {
+        setOpenModal(false);
+      }
+    }
+
+    document.addEventListener('keydown', handleEscapeKey);
+    return () => document.removeEventListener('keydown', handleEscapeKey);
+  }, [setOpenModal]);
+
   return (
-    <Overlay onClick={onClose}>
+    <Overlay
+      onClick={() => {
+        document.body.style.overflow = '';
+        setOpenModal(false);
+      }}
+    >
       <ModalContainer
         onClick={e => {
           e.stopPropagation();
         }}
       >
         <ModalContent>
-          <CloseSvg onClick={onClose} />
+          <CloseSvg
+            onClick={() => {
+              document.body.style.overflow = '';
+              setOpenModal(false);
+            }}
+          />
 
           <ModalTitle>Our TEAM</ModalTitle>
           <FooterModalList />

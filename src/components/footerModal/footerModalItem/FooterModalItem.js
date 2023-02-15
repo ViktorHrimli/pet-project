@@ -23,7 +23,7 @@ export default function FooterModalItem({
 
         <Caption>
           <CaptionTitle>{name}</CaptionTitle>
-          <TeamRole>{role}</TeamRole>
+          <TeamRole>{role} </TeamRole>
           <div>
             <SocialLink
               href={linkGit}

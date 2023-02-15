@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import FooterModal from 'components/footerModal/FooterModal';
 
 import {
@@ -9,7 +8,6 @@ import {
   DeveloperData,
   Paragraph,
   BoxRight,
-  ButtonModal,
   SpanTeam,
 } from 'components/footer/Footer.styled';
 
@@ -28,17 +26,16 @@ export default function Footer() {
           <BoxRight>
             <Paragraph>Developed by</Paragraph>
 
-            <FooterModal open={openModal} onClose={() => setOpenModal(false)} />
-            <div>
-              <ButtonModal
-                type="button"
-                onClick={() => setOpenModal(true)}
-                className="modalButton"
-              >
-                <SpanTeam>Team Students</SpanTeam>
-              </ButtonModal>
+            <div
+              onClick={() => {
+                document.body.style.overflow = 'hidden';
+                setOpenModal(true);
+              }}
+            >
+              <SpanTeam>Team Students</SpanTeam>
             </div>
           </BoxRight>
+          {openModal && <FooterModal setOpenModal={setOpenModal} />}
         </Wrapper>
       </Position>
     </FooterContainer>

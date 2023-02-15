@@ -72,13 +72,14 @@ const dataTeam = [
     linkedin: 'https://www.linkedin.com/in/viktorhrimli/',
   },
   {
-    id: '10',
-    imgUrl: require('../../images/team/plug.png'),
-    name: 'Andrii Kapustnikov',
-    role: 'Frontend developer',
+    id: '13',
+    imgUrl: require('../../images/team/Bohdan_Kovalov.jpg'),
+    name: 'Bohdan Kovalov',
+    role: 'QA engineer',
     linkGit: 'https://github.com',
-    linkedin: 'https://www.linkedin.com/',
+    linkedin: 'https://www.linkedin.com/in/bohdankovalov',
   },
+
   {
     id: '11',
     imgUrl: require('../../images/team/Artem_Raskhodchikov.jpg'),
@@ -96,12 +97,12 @@ const dataTeam = [
     linkedin: 'https://www.linkedin.com/in/kirill-zerkal/',
   },
   {
-    id: '13',
-    imgUrl: require('../../images/team/Bohdan_Kovalov.jpg'),
-    name: 'Bohdan Kovalov',
-    role: 'QA engineer',
-    linkGit: 'https://github.com',
-    linkedin: 'https://www.linkedin.com/in/bohdankovalov',
+    id: '10',
+    imgUrl: require('../../images/team/Andrii_Kapustnikov.jpg'),
+    name: 'Andrii Kapustnikov',
+    role: 'Frontend developer',
+    linkGit: 'https://github.com/AndreyKapus',
+    linkedin: 'https://www.linkedin.com/in/andrii-kapustnikov-473925254/',
   },
   {
     id: '14',
@@ -109,7 +110,7 @@ const dataTeam = [
     name: 'Olena Halan',
     role: 'QA engineer',
     linkGit: 'https://github.com',
-    linkedin: 'https://www.linkedin.com/in/bohdankovalov',
+    linkedin: 'https://www.linkedin.com/',
   },
   {
     id: '15',
