@@ -13,7 +13,8 @@ import {
     FriendsText,
     TimeList,
     TimeItem,
-    Span
+    Span,
+    TimeCont
 } from 'components/ourFriendsPage/friendsItem/FriendsItem.styled'
 
 
@@ -51,12 +52,16 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
                     <ContData>
                         <ul>
                             <ItemData>
-                                Time:
-                                {!time ?
-                                    <Button disabled style={{ cursor: "inherit" }}>---------------------------------</Button> :
-                                    <Button onClick={handleToggle}>{time.monday}</Button>
+                                {time ?
+                                    <TimeCont>
+                                        <p style={{margin: "0"}}> Time:</p>
+                                        <Button onClick={handleToggle}>{time.monday}</Button>
+                                    </TimeCont> :
+                                    <>
+                                        <p>Time:</p> 
+                                        <Button disabled style={{ cursor: "inherit" }}>---------------------------------</Button>
+                                    </>
                                 }
-                                
                             </ItemData>
                             <ItemData>
                                 Adress:

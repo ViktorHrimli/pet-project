@@ -106,4 +106,8 @@ font-size:  ${p => p.theme.fontSizes.xs};
 line-height: ${p => p.theme.lineHeights.max};
 
 color: ${p => p.theme.colors.primary};
+
+&:hover{
+   color: ${p => p.theme.colors.focus};
+ }
 `;
