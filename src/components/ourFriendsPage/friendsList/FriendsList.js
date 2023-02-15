@@ -23,7 +23,7 @@ export const FriendsList = () => {
                 <Title>Our friends</Title>
                 <ListOfFriends>
                     {getFriends.map(friend => <FriendsItem key={friend._id} id={friend._id} image={friend.imageURL}
-                        name={friend.name} time={friend.time} email={friend.email} adress={friend.adress} phone={friend.phone} />)}
+                        name={friend.name} time={friend.time} email={friend.email} adress={friend.adress} phone={friend.phone} urlFriend={friend.pageURL} />)}
                 </ListOfFriends>
                 
             </Section>
