@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { FooterModalList } from 'components/footerModal/footerModalList/FooterModalList';
 import {
@@ -10,7 +10,17 @@ import {
 } from 'components/footerModal/FooterModal.styled';
 
 export default function FooterModal({ setOpenModal }) {
-  // if (!open) return null;
+  useEffect(() => {
+    function handleEscapeKey(event) {
+      if (event.code === 'Escape') {
+        setOpenModal(false);
+      }
+    }
+
+    document.addEventListener('keydown', handleEscapeKey);
+    return () => document.removeEventListener('keydown', handleEscapeKey);
+  }, [setOpenModal]);
+
   return (
     <Overlay
       onClick={() => {
