@@ -91,10 +91,16 @@ export const EditInput = styled.input`
     font-size: 18px;
     ${p => p.theme.lineHeights.max}
   }
+  @media screen and (min-width: 1280px) {
+  position: static;
+  }
 `;
 
 
-export const EditInputContainer = styled.div``;
+export const EditInputContainer = styled.div`
+@media screen and (min-width: 1280px) {
+
+`;
 
 export const TextInInput = styled.p`
   font-size: 12px;

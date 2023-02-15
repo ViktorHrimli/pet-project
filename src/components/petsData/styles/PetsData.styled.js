@@ -69,24 +69,7 @@ export const Text = styled.div`
   font-size: ${p => p.theme.fontSizes[4]}px;
 `;
 
-export const PetsDataContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 26px;
 
-  @media screen and (min-width: 768px) {
-    margin-bottom: 24px;
-    font-size: 28px;
-    line-height: 135%;
-
-  }
-  @media screen and (min-width: 1280px) {
-
-    font-size: 28px;
-    line-height: 135%;
-  }
-`
 export const PetImage = styled.img`
 border-radius: 20px;
 min-width: 240px;
@@ -110,14 +93,12 @@ margin-bottom: 20px;
 @media screen and (min-width: 768px) {
   width: 704px;
   padding: 20px;
-display: flex;
-position: relative;
-
-
+  display: flex;
+  position: relative;
 
   margin-right: 0px;
- box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
- border-radius: 40px;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  border-radius: 40px;
 
   }
 

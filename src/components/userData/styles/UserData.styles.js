@@ -42,7 +42,7 @@ export const PhotoEditLab = styled.label`
 cursor: pointer;
 display: flex;
 justify-content: flex-end;
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
 margin-left: 0px;
 margin-right: 0px;
 margin-top: 12px;
@@ -81,13 +81,12 @@ color: ${p => p.theme.colors.black}
 export const PhotoContainer = styled.div`
 position: relative;
 @media screen and (min-width: 1280px) {
+
  }
 `
 export const EditPhotoBtn = styled.button`
 margin-rigth: 10px;
-
 `
-
 
 export const UserInfoWrapper = styled.div`
 @media screen and (min-width: 768px) {
@@ -116,7 +115,7 @@ justify-content: center;
   stroke: ${p => p.theme.colors.primary};
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   position: absolute;
   bottom: 20px;
   right: 12px;
@@ -158,20 +157,23 @@ color: ${p => p.theme.colors.black}
 export const PhotoEditSubmitWrapper = styled.div`
 display: flex;
 justify-content: flex-end;
-@media screen and (max-width: 1280px) {
-margin-left: 0px;
-margin-right: 0px;
-margin-top: 12px;
-display: flex;
-justify-content: flex-end;
-position: absolute;
-right: 24px;
-flex-shrink: 1;
-}
+
 @media screen and (min-width: 768px) {
   margin-top: 8px;
   right: 0px;
 }
+@media screen and (max-width: 1279px) {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 24px;
+  }
+  @media screen and (min-width: 1280px) {
+    position: static;
+  }
 `
 export const UserWrapper = styled.div`
 align-items: center;

@@ -45,6 +45,7 @@ export const UserInfo = styled.div`
   @media screen and (min-width: 768px) {
     padding-left: 0px;
     padding: 24px 40px 24px 32px;
+    margin-right: 32px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     border-radius: 0px 40px 40px 0px;
@@ -58,6 +59,7 @@ export const UserInfo = styled.div`
     justify-content: flex-start;
     padding: 20px 16px 40px 16px;
     width: 411px;
+    margin-right: 0px;
   }
 `;
 
@@ -120,7 +122,7 @@ font-size: 20px;
 line-height: ${p => p.theme.lineHeights.normal};
 color: #111111;
 @media screen and (min-width: 768px) {
-  margin-bottom: 24px;
+  margin-bottom: 0px;
   font-size: 28px;
   line-height: {t => };
 }
@@ -161,7 +163,7 @@ export const UserInfoContainer = styled.div`
     margin-bottom: 0px;
   }
   @media screen and (min-width: 1280px) {
-    
+
   }
 `;
 
@@ -178,10 +180,21 @@ export const UserDataWrapper = styled.div`
 `;
 
 export const PetsDataContainer = styled.div`
-@media screen and (max-width: 768px) {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 26px;
+
+@media screen and (min-width: 768px) {
   display: flex;
   justify-content: space-between;
-
+  margin-bottom: 24px;
+  font-size: 28px;
+  line-height: 135%;
+  position: relative;
+}
+@media screen and (min-width: 1280px) {
+position: relative;
 
 }
 `
