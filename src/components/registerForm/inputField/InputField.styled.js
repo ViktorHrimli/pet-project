@@ -4,7 +4,7 @@ import { Field } from 'formik';
 export const InputArea = styled(Field)`
   width: 100%;
   height: 40px;
-  padding: 0 10px 0 10px;
+  padding: 0 14px;
   font-weight: ${p => p.theme.fontWeights.normal};
   font-size: ${p => p.theme.fontSizes.xxs};
   line-height: ${p => p.theme.lineHeights.normal};
@@ -21,6 +21,7 @@ export const InputArea = styled(Field)`
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
+    padding: 0 32px;
     font-size: ${p => p.theme.fontSizes.ms};
     line-height: ${p => p.theme.lineHeights.max};
     height: 52px;
