@@ -63,7 +63,10 @@ export const NoticeCategoryItem = ({ item }) => {
         0
       );
     }
-    return toAge < 1 ? 'less than a year' : `${transferNumberToWord} year`;
+    const toCurrentWord = () => (toAge > 1 ? 'years' : 'year');
+    return toAge < 1
+      ? 'less than a year'
+      : `${transferNumberToWord} ${toCurrentWord()} `;
   }
 
   return (
@@ -107,7 +110,7 @@ export const NoticeCategoryItem = ({ item }) => {
             onClick={() => {
               dispatch(getNoticesById(_id));
               seIsModalOpen(true);
-              document.body.style.overflow = "hidden";
+              document.body.style.overflow = 'hidden';
             }}
           >
             Learn more
