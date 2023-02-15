@@ -48,6 +48,7 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     ::placeholder {
       color: ${p => p.theme.colors.focus};
     }
+  }
 
 &:focus {
   ::placeholder {

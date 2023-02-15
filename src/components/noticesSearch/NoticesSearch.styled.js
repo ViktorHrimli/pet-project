@@ -35,6 +35,7 @@ export const SearchInput = styled.input`
     ::placeholder {
       color: ${p => p.theme.colors.focus};
     }
+  }
 
   &:focus {
     ::placeholder {
