@@ -1,9 +1,6 @@
 import styled from '@emotion/styled';
 
 export const FooterContainer = styled.footer`
-  /* position: absolute;
-  bottom: 0;
-  left: 0; */
   padding: 20px 0;
   width: 100%;
 
@@ -20,15 +17,15 @@ export const FooterContainer = styled.footer`
 
   @media screen and (max-width: 767px) {
     margin: 0 auto;
-    font-size: 14px;
-    line-height: 1.14;
+    font-size: ${p => p.theme.fontSizes.xxs};
+    line-height: ${p => p.theme.lineHeights.min};
   }
 
   @media screen and (min-width: 768px) {
     padding-top: 30px;
     padding-bottom: 30px;
-    font-size: 16px;
-    line-height: 1.19;
+    font-size: ${p => p.theme.fontSizes.xs};
+    line-height: ${p => p.theme.lineHeights.min};
   }
 
   @media screen and (min-width: 1280px) {
@@ -41,8 +38,8 @@ export const Position = styled.div`
   width: 100%;
   padding: 0 30px;
   align-items: center;
-  font-weight: 400;
-  color: #545454;
+  font-weight: ${p => p.theme.fontWeights.normal};
+  color: ${p => p.theme.colors.footerText};
   @media screen and (min-width: 768px) {
     margin-right: 34px;
   }
@@ -99,26 +96,29 @@ export const BoxRight = styled.div`
 export const ButtonModal = styled.button`
   margin-left: 6px;
   padding: 1px;
-  color: #545454;
-  border: none;
-  border-bottom: 1px solid #545454;
+  color: ${p => p.theme.colors.footerText};
+  border: ${p => p.theme.borders.none};
+  border-bottom: ${p => p.theme.borders.normal};
+  border-bottom-color: ${p => p.theme.colors.footerText};
   cursor: pointer;
   background-color: transparent;
+  transition: border-bottom-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    color: #ff6b08;
-    border-bottom: 1px solid #ff6b08;
+    color: ${p => p.theme.colors.focus};
+    border-bottom: ${p => p.theme.borders.normal};
+    border-bottom-color: ${p => p.theme.colors.focus};
   }
 `;
 
 export const SpanTeam = styled.span`
+  margin-left: 5px;
   width: 104px;
   text-align: left;
-  border-bottom: 1px solid #545454;
-  cursor: pointer;
 
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    color: #ff6b08;
-    border-bottom: 1px solid #ff6b08;
+    color: ${p => p.theme.colors.focus};
   }
 `;
