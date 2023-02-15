@@ -100,12 +100,12 @@ export const ButtonModal = styled.button`
   margin-left: 6px;
   padding: 1px;
   color: #545454;
+  border: none;
   border-bottom: 1px solid #545454;
   cursor: pointer;
   background-color: transparent;
 
-  &:hover,
-  &:focus {
+  &:hover {
     color: #ff6b08;
     border-bottom: 1px solid #ff6b08;
   }
