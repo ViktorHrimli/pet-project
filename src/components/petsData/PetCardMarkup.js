@@ -1,7 +1,7 @@
 import {PetsList, PetsDataText} from 'components/petsData/styles/PetsData.styled'
 import { nanoid } from 'nanoid'
 
-import {PetsDataItemKey, PetsDataItemValue} from 'components/petsData/styles/PetsData.styled'
+import {PetsDataItemKey, PetsDataItemValue } from 'components/petsData/styles/PetsData.styled'
 
 export const CardMarkUp = ({ cardData }) => {
 
@@ -29,8 +29,8 @@ const {name, breed, comments, date} = cardData;
 				</li>
         <li key={nanoid()} >
 					<PetsDataText >
-						<PetsDataItemKey>Comments:</PetsDataItemKey>&nbsp;
-						<PetsDataItemValue>{comments}</PetsDataItemValue>
+						<PetsDataItemKey>Comments:&nbsp;<PetsDataItemValue>{comments}</PetsDataItemValue></PetsDataItemKey>
+
 					</PetsDataText>
 				</li>
 
