@@ -114,39 +114,8 @@ export const LinkOnLogin = styled.span`
 
 export const ButtonIconPass = styled.button`
   position: absolute;
-  top: 2px;
-  right: 5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 35px;
-  height: 35px;
-  padding: 5px;
-  stroke: ${p => p.theme.colors.muted};
-  fill: ${p => p.theme.colors.muted};
-  border: ${p => p.theme.borders.none};
-  border-radius: ${p => p.theme.radii.normal};
-  background-color: ${p => p.theme.colors.background};
-
-  cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  @media screen and (min-width: 768px) {
-    top: 8px;
-    right: 5px;
-  }
-
-  &:hover *,
-  &:focus * {
-    fill: ${p => p.theme.colors.primary};
-  }
-`;
-
-export const ButtonIconConfirmPass = styled.button`
-  position: absolute;
-  top: 2px;
-  right: 5px;
+  top: 3px;
+  right: 9px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -160,11 +129,59 @@ export const ButtonIconConfirmPass = styled.button`
   background-color: ${p => p.theme.colors.background};
 
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
     top: 8px;
-    right: 5px;
+    right: 22px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    @media screen and (min-width: 768px) {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &:hover *,
+  &:focus * {
+    fill: ${p => p.theme.colors.primary};
+  }
+`;
+
+export const ButtonIconConfirmPass = styled.button`
+  position: absolute;
+  top: 3px;
+  right: 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+
+  border: none;
+  border-radius: ${p => p.theme.radii.normal};
+  background-color: ${p => p.theme.colors.background};
+
+  cursor: pointer;
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 768px) {
+    top: 8px;
+    right: 22px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    @media screen and (min-width: 768px) {
+      width: 25px;
+      height: 25px;
+    }
   }
 
   &:hover *,

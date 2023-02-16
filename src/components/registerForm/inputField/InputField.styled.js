@@ -17,7 +17,7 @@ export const InputArea = styled(Field)`
   outline: none;
 
   transition-property: border-color;
-  transition-duration: 0.25s;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
@@ -31,7 +31,7 @@ export const InputArea = styled(Field)`
   &:focus {
     border: ${p => p.theme.borders.medium};
     border-color: ${p => p.theme.colors.primary};
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
     ::placeholder {
       color: ${p => p.theme.colors.focus};
     }
