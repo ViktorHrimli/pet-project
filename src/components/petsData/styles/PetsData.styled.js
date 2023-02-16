@@ -171,10 +171,10 @@ export const PetsUl = styled.ul`
 export const EditButton = styled.div`
 cursor: pointer;`
 
-export const PetsDataItemKey = styled.div`
+export const PetsDataItemKey = styled.span`
 font-weight: 500;
 margin-right: 2px;
 `
-export const PetsDataItemValue = styled.div`
+export const PetsDataItemValue = styled.span`
 font-weight: 400;
 `
