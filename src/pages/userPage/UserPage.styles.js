@@ -39,7 +39,7 @@ export const UserInfo = styled.div`
 
   padding: 20px 16px 20px 16px;
   background-color: ${p => p.theme.colors.white};
-  border-radius: 7%;
+  border-radius: 20px;
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 
   @media screen and (min-width: 768px) {
@@ -133,6 +133,7 @@ color: #111111;
 }`;
 
 export const UserCardWrapper = styled.div`
+
   @media screen and (min-width: 1280px) {
     margin-right: 32px;
   }

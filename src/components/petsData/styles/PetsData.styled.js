@@ -109,7 +109,7 @@ margin-bottom: 20px;
 `
 
 export const PetsDataWrapper = styled.div`
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
 position: relative;}
 `
 
