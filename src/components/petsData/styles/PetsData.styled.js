@@ -69,24 +69,7 @@ export const Text = styled.div`
   font-size: ${p => p.theme.fontSizes[4]}px;
 `;
 
-export const PetsDataContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 26px;
 
-  @media screen and (min-width: 768px) {
-    margin-bottom: 24px;
-    font-size: 28px;
-    line-height: 135%;
-
-  }
-  @media screen and (min-width: 1280px) {
-
-    font-size: 28px;
-    line-height: 135%;
-  }
-`
 export const PetImage = styled.img`
 border-radius: 20px;
 min-width: 240px;
@@ -110,14 +93,12 @@ margin-bottom: 20px;
 @media screen and (min-width: 768px) {
   width: 704px;
   padding: 20px;
-display: flex;
-position: relative;
-
-
+  display: flex;
+  position: relative;
 
   margin-right: 0px;
- box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
- border-radius: 40px;
+  box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
+  border-radius: 40px;
 
   }
 
@@ -128,23 +109,35 @@ position: relative;
 `
 
 export const PetsDataWrapper = styled.div`
-
+@media screen and (max-width: 767px) {
+position: relative;}
 `
 
 export const DeleteBtnDiv = styled.div`
-
-
 position: absolute;
-right: 30px;
+top: 0px;
+right: 0px;
+
 @media screen and (min-width: 768px) {
-
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #FDF7F2;
   top: 20px;
   right: 20px;
+
 }
 @media screen and (min-width: 1280px) {
   top: 20px;
   right: 20px;
+  &:hover,
+  &:focus {
+    border-radius: 50%;
+    background-color: ${p => p.theme.colors.primary};
+  }
 }
 `
 
@@ -161,13 +154,27 @@ margin-top: 26px;
 `
 
 export const PetsDataText = styled.p`
+display: flex;
 font-weight: 500;
-font-size: 14px;
-line-height: 1.35;
-max-width: 580px;`
+font-size: 12px;
+line-height: 1.375;
+max-width: 580px;
+
+@media screen and (min-width: 768px) {
+  font-size: 16px;
+}
+`
 
 export const PetsUl = styled.ul`
 
   `
 export const EditButton = styled.div`
 cursor: pointer;`
+
+export const PetsDataItemKey = styled.div`
+font-weight: 500;
+margin-right: 2px;
+`
+export const PetsDataItemValue = styled.div`
+font-weight: 400;
+`

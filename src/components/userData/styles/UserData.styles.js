@@ -42,7 +42,7 @@ export const PhotoEditLab = styled.label`
 cursor: pointer;
 display: flex;
 justify-content: flex-end;
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
 margin-left: 0px;
 margin-right: 0px;
 margin-top: 12px;
@@ -54,11 +54,13 @@ right: 24px;
 flex-shrink: 1;
 }
 @media screen and (min-width: 768px) {
-  margin-top: 8px;
+  margin-top: 9px;
   right: 0px;
 }
 @media screen and (min-width: 1280px) {
-
+  position: absolute;
+  margin-top: 0px;
+  bottom: 0px;
 }
 `
 export const PhotoEditText = styled.p`
@@ -74,20 +76,19 @@ font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: 22px;
 color: ${p => p.theme.colors.black}
 
-@media screen and (min-width: 1280px) {
-
+@media screen and (min-width: 768px) {
+  margin-top: 9px;
   }
 `
 export const PhotoContainer = styled.div`
 position: relative;
 @media screen and (min-width: 1280px) {
+  margin-bottom: 36px;
  }
 `
 export const EditPhotoBtn = styled.button`
 margin-rigth: 10px;
-
 `
-
 
 export const UserInfoWrapper = styled.div`
 @media screen and (min-width: 768px) {
@@ -103,7 +104,7 @@ margin-bottom: 68px;
   margin-bottom: 0px;
  }
  @media screen and (min-width: 1280px) {
-  margin-bottom: 36px;
+
  }`
 
 export const LogOutBtn = styled.button`
@@ -111,12 +112,13 @@ cursor: pointer;
 display: flex;
 align-items: center;
 justify-content: center;
-&:hover {
+&:hover,
+&:focus {
   color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   position: absolute;
   bottom: 20px;
   right: 12px;
@@ -154,24 +156,34 @@ font-weight: ${p => p.theme.fontWeights.normal};
 font-size: ${p => p.theme.fontSizes.xxxs}
 line-height: 22px;
 color: ${p => p.theme.colors.black}
+
+@media screen and (min-width: 768px) {
+  margin-top: 9px;
+}
+@media screen and (min-width: 1280px) {
+  margin-top: 0px;
+}
 `
 export const PhotoEditSubmitWrapper = styled.div`
 display: flex;
 justify-content: flex-end;
-@media screen and (max-width: 1280px) {
-margin-left: 0px;
-margin-right: 0px;
-margin-top: 12px;
-display: flex;
-justify-content: flex-end;
-position: absolute;
-right: 24px;
-flex-shrink: 1;
-}
+
 @media screen and (min-width: 768px) {
-  margin-top: 8px;
+  margin-top: 9px;
   right: 0px;
 }
+@media screen and (max-width: 1279px) {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  right: 24px;
+  }
+  @media screen and (min-width: 1280px) {
+    position: static;
+  }
 `
 export const UserWrapper = styled.div`
 align-items: center;
@@ -180,4 +192,3 @@ margin-bottom: 0px;
 `
 export const UserFormWrapper = styled.div`
 margin-bottom: 0px;`
-
