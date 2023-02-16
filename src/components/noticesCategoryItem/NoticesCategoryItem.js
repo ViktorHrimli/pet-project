@@ -25,6 +25,8 @@ import {
   PickIcon,
   Try,
   Buttonlist,
+  FirstPartOfWord,
+  SecondPartOfWord,
 } from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
 import { IconWasteBasket } from 'components/modalNotice/ModalNotice.styled';
 
@@ -69,11 +71,19 @@ export const NoticeCategoryItem = ({ item }) => {
       : `${transferNumberToWord} ${toCurrentWord()} `;
   }
 
+  const correctCategory = category
+  .split("")
+  .map(letter => letter === "-" ? letter = " " : letter )
+  .join("");
+
   return (
     <CardItem key={_id}>
       <CardImage src={imageURL} alt="Pet photo" />
       <Notiece>
-        <span>{category} </span>
+        <span>
+          <FirstPartOfWord>{correctCategory.slice(0, 1)}</FirstPartOfWord>
+          <SecondPartOfWord>{correctCategory.slice(1, category.length)}</SecondPartOfWord>
+        </span>
       </Notiece>
       <Pick
         onClick={() =>
