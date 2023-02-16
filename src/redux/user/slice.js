@@ -72,7 +72,6 @@ const userSlice = createSlice({
       store.loading = false;
       store.addPetError = null;
       store.userPets = [payload, ...store.userPets];
-
       store.isAddedPetSuccess = true;
     },
     [addUserPet.rejected]: (store, { payload }) => {
@@ -87,8 +86,6 @@ const userSlice = createSlice({
     [removeUserPet.fulfilled]: (store, { meta }) => {
       store.loading = false;
       store.userPets = store.userPets.filter(({ _id }) => _id !== meta.arg);
-      console.log(store.userPets);
-
     },
     [removeUserPet.rejected]: (store, { payload }) => {
       store.loading = false;
