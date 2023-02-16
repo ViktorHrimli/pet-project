@@ -109,7 +109,7 @@ margin-bottom: 20px;
 `
 
 export const PetsDataWrapper = styled.div`
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767.9px) {
 position: relative;}
 `
 
@@ -133,10 +133,10 @@ right: 0px;
 @media screen and (min-width: 1280px) {
   top: 20px;
   right: 20px;
-  &:hover,
-  &:focus {
-    border-radius: 50%;
-    background-color: ${p => p.theme.colors.primary};
+  transition: color 250ms linear, background-color 250ms linear;
+
+  &:hover {
+    background-color: ${p => p.theme.colors.focus};
   }
 }
 `
@@ -166,7 +166,6 @@ max-width: 580px;
 `
 
 export const PetsUl = styled.ul`
-
   `
 export const EditButton = styled.div`
 cursor: pointer;`

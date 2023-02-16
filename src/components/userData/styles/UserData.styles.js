@@ -42,7 +42,7 @@ export const PhotoEditLab = styled.label`
 cursor: pointer;
 display: flex;
 justify-content: flex-end;
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1280px) {
 margin-left: 0px;
 margin-right: 0px;
 margin-top: 12px;
@@ -66,6 +66,7 @@ flex-shrink: 1;
 export const PhotoEditText = styled.p`
 margin-bottom: 0px;
 margin-left: 5px;
+transition: color 300ms linear, background-color 300ms linear;
 &:hover {
   color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
@@ -182,7 +183,8 @@ justify-content: flex-end;
   right: 24px;
   }
   @media screen and (min-width: 1280px) {
-    position: static;
+    display: flex;
+    justify-content: space-between;
   }
 `
 export const UserWrapper = styled.div`
@@ -192,3 +194,5 @@ margin-bottom: 0px;
 `
 export const UserFormWrapper = styled.div`
 margin-bottom: 0px;`
+
+
