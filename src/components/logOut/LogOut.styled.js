@@ -3,7 +3,7 @@ import { TbLogout } from "react-icons/tb";
 
 export const ButtonLogOut = styled.button`
 display: flex;
-align-items: stretch;
+align-items: center;
 font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xs};
 line-height: ${p => p.theme.lineHeights.max};
