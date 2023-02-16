@@ -15,6 +15,9 @@ margin-right: auto;
   }
 `;
 
+export const SearchForm = styled.form`
+transition: color 300ms ease-in-out;
+`
 export const FindNews = styled.input`
 font-family: ${p => p.theme.fonts.body};
 font-size: ${p => p.theme.fontSizes.xs};
@@ -33,8 +36,14 @@ color: ${p => p.theme.colors.black};
 box-shadow: ${p => p.theme.shadows.normal};
 background-color: ${p => p.theme.colors.white};
 transition-property: background-color;
-transition-duration: 0.25s;
+transition-duration: 0.3s;
 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+::placeholder {
+      transition-property: color;
+      transition-duration: 0.3s;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+    }
 
 &::placeholder,
 ::-webkit-input-placeholder {
@@ -50,7 +59,7 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
   }
 
-&:focus {
+  &:focus {
   ::placeholder {
     color: ${p => p.theme.colors.white};
   }
@@ -73,14 +82,20 @@ border: none;
 outline: none;
 display: block;
 padding: 0;
+transition-property: color;
+transition-duration: 0.3s;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+
+&:hover,
+&:focus {
+    color: ${p => p.theme.colors.focus};
+  }
 `;
 
 export const IconSearch = styled(search)`
   width: 15px;
   height: 15px;
-  &:hover {
-    fill: ${p => p.theme.colors.focus};
-  }
+
   @media screen and (min-width: 768px) {
     width: 18px;
     height: 18px;
@@ -90,9 +105,9 @@ export const IconSearch = styled(search)`
 export const IconCross = styled(crossNotice)`
   width: 15px;
   height: 15px;
-  &:hover {
-    fill: ${p => p.theme.colors.focus};
-  }
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
 
   @media screen and (min-width: 768px) {
     width: 18px;

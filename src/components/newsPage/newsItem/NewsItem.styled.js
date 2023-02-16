@@ -106,8 +106,14 @@ font-size:  ${p => p.theme.fontSizes.xs};
 line-height: ${p => p.theme.lineHeights.max};
 
 color: ${p => p.theme.colors.primary};
-
-&:hover{
+transition-property: color;
+transition-duration: 0.3s;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+outline: none;
+&:hover,
+&:focus{
+   text-decoration: underline;
+   text-decoration-color: ${p => p.theme.colors.focus};
    color: ${p => p.theme.colors.focus};
  }
 `;
