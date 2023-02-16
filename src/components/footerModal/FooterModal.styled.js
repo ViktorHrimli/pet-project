@@ -4,6 +4,8 @@ import { BsFillXDiamondFill } from 'react-icons/bs';
 
 export const Overlay = styled.div`
   position: fixed;
+  display: flex;
+  justify-content: center;
   opacity: 1;
   height: 100vh;
   width: 100vw;
@@ -17,11 +19,20 @@ export const Overlay = styled.div`
 `;
 
 export const ModalContainer = styled.div`
+  position: absolute;
   min-height: 100%;
+  max-width: 340px;
+
   justify-content: center;
   align-items: center;
   padding: 100px 10px;
   display: flex;
+  @media screen and (min-width: 768px) {
+    max-width: 600px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 900px;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -65,10 +76,26 @@ export const ModalTitle = styled.h2`
   }
 `;
 
+export const ButtonCloseModal = styled.button`
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 30px;
+  height: 30px;
+  color: ${p => p.theme.colors.footerText};
+  border: ${p => p.theme.borders.none};
+  cursor: pointer;
+  background-color: transparent;
+
+  &:hover {
+    color: ${p => p.theme.colors.focus};
+  }
+`;
+
 export const CloseSvg = styled(BsFillXDiamondFill)`
   background-color: rgba(0, 0, 0, 0);
-  stroke: #ffffff;
-  border: 50%;
+  stroke: ${p => p.theme.colors.white};
   position: absolute;
   top: 12px;
   right: 12px;

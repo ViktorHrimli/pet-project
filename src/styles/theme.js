@@ -10,6 +10,7 @@ export const theme = {
     secondary: '#3091EB',
     focus: '#FF6101',
     inputAuthForm: 'rgba(245, 146, 86, 0.5)',
+    footerText: '#545454',
   },
 
   space: [

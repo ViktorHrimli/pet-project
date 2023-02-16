@@ -4,7 +4,7 @@ import { Field } from 'formik';
 export const InputArea = styled(Field)`
   width: 100%;
   height: 40px;
-  padding: 0 10px 0 10px;
+  padding: 0 14px;
   font-weight: ${p => p.theme.fontWeights.normal};
   font-size: ${p => p.theme.fontSizes.xxs};
   line-height: ${p => p.theme.lineHeights.normal};
@@ -15,16 +15,26 @@ export const InputArea = styled(Field)`
   border-color: ${p => p.theme.colors.inputAuthForm};
   border-radius: ${p => p.theme.radii.big};
   outline: none;
+
+  transition-property: border-color;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   @media screen and (min-width: 768px) {
+    padding: 0 32px;
     font-size: ${p => p.theme.fontSizes.ms};
     line-height: ${p => p.theme.lineHeights.max};
     height: 52px;
   }
 
+  &:hover,
   &:focus {
     border: ${p => p.theme.borders.medium};
     border-color: ${p => p.theme.colors.primary};
     transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    ::placeholder {
+      color: ${p => p.theme.colors.focus};
+    }
   }
   &::placeholder {
     font-weight: ${p => p.theme.fontWeights.normal};
@@ -35,6 +45,12 @@ export const InputArea = styled(Field)`
     @media screen and (min-width: 768px) {
       font-size: ${p => p.theme.fontSizes.ms};
       line-height: ${p => p.theme.lineHeights.max};
+    }
+  }
+
+  &:focus {
+    ::placeholder {
+      color: ${p => p.theme.colors.white};
     }
   }
 `;

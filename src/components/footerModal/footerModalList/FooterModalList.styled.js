@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const TeamWrapper = styled.ul`
-  @media screen and (min-width: 767px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     flex-wrap: wrap;
     gap: ${p => p.theme.space[6]};

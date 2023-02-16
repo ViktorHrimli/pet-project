@@ -125,7 +125,7 @@ export const ButtonIconPass = styled.button`
   padding: 5px;
   stroke: ${p => p.theme.colors.muted};
   fill: ${p => p.theme.colors.muted};
-  border: none;
+  border: ${p => p.theme.borders.none};
   border-radius: ${p => p.theme.radii.normal};
   background-color: ${p => p.theme.colors.background};
 

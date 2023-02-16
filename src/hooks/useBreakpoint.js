@@ -7,11 +7,11 @@ export const useBreakpoint = () => {
 
   useEffect(() => {
     // set initial value
-    const mediaWatcherForMobile = window.matchMedia('(max-width: 767px)');
+    const mediaWatcherForMobile = window.matchMedia('(max-width: 767.9px)');
     setIsMobileScreen(mediaWatcherForMobile.matches);
 
     const mediaWatcherForTablet = window.matchMedia(
-      '(min-width: 768px) and (max-width: 1279px)'
+      '(min-width: 768px) and (max-width: 1279.9px)'
     );
     setIsTabletScreen(mediaWatcherForTablet.matches);
 

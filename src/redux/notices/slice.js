@@ -76,8 +76,17 @@ const noticesSlice = createSlice({
     [addNotices.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items.unshift(action.payload);
       state.userItems.unshift(action.payload);
+      function foo() {
+        for (const item of state.items) {
+          const isCategory = item.category === action.payload.category;
+          if (isCategory) {
+            return action.payload;
+          }
+        }
+        return null;
+      }
+      state.items.unshift(foo());
     },
     [addFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
@@ -94,6 +103,12 @@ const noticesSlice = createSlice({
     [deleteNotices.fulfilled](state, action) {
       state.isLoading = false;
       state.userItems = state.userItems.filter(
+        item => item._id !== action.payload.noticeId
+      );
+      state.myFavoriteItems = state.userItems.filter(
+        item => item._id !== action.payload.noticeId
+      );
+      state.items = state.userItems.filter(
         item => item._id !== action.payload.noticeId
       );
     },

@@ -7,19 +7,20 @@ align-items: stretch;
 font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xs};
 line-height: ${p => p.theme.lineHeights.max};
+letter-spacing: ${p => p.theme.letrerSpacings.normal};
 color: ${p => p.theme.colors.muted};
 
 &:hover {
-  color: ${p => p.theme.colors.primary};
-  stroke: ${p => p.theme.colors.primary};
+  color: ${p => p.theme.colors.focus};
+  stroke: ${p => p.theme.colors.focus};
 }
 `;
 
-export const ButtonName = styled.p`
-margin-bottom: 0;
-`
+export const ButtonName = styled.span`
+`;
 export const LogOutIcon = styled(TbLogout)`
 width: 18px;
 height: 18px;
 margin-right: 8px;
+stroke: ${p => p.theme.colors.primary};
 `;

@@ -74,8 +74,8 @@ export const StyledBtn = styled.button`
 `;
 
 export const Icon = styled(CrossLine)`
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 
   &:hover,
   &:focus {

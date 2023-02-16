@@ -25,6 +25,9 @@ import {
   PickIcon,
   Try,
   Buttonlist,
+  FirstPartOfWord,
+  SecondPartOfWord,
+  ImageWrapper
 } from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
 import { IconWasteBasket } from 'components/modalNotice/ModalNotice.styled';
 
@@ -63,14 +66,27 @@ export const NoticeCategoryItem = ({ item }) => {
         0
       );
     }
-    return toAge < 1 ? 'less than a year' : `${transferNumberToWord} year`;
+    const toCurrentWord = () => (toAge > 1 ? 'years' : 'year');
+    return toAge < 1
+      ? 'less than a year'
+      : `${transferNumberToWord} ${toCurrentWord()} `;
   }
+
+  const correctCategory = category
+  .split("")
+  .map(letter => letter === "-" ? letter = " " : letter )
+  .join("");
 
   return (
     <CardItem key={_id}>
-      <CardImage src={imageURL} alt="Pet photo" />
+      <ImageWrapper>
+        <CardImage src={imageURL} alt="Pet photo" />
+      </ImageWrapper>
       <Notiece>
-        <span>{category} </span>
+        <span>
+          <FirstPartOfWord>{correctCategory.slice(0, 1)}</FirstPartOfWord>
+          <SecondPartOfWord>{correctCategory.slice(1, category.length)}</SecondPartOfWord>
+        </span>
       </Notiece>
       <Pick
         onClick={() =>
@@ -107,7 +123,7 @@ export const NoticeCategoryItem = ({ item }) => {
             onClick={() => {
               dispatch(getNoticesById(_id));
               seIsModalOpen(true);
-              document.body.style.overflow = "hidden";
+              document.body.style.overflow = 'hidden';
             }}
           >
             Learn more

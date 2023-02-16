@@ -48,7 +48,7 @@ export function intToEnglish(number) {
         const t = Math.floor(number / n.value);
         const d = number % n.value;
         if (d > 0) {
-          return intToEnglish(t) + ' ' + n.str + ' ' + intToEnglish(d);
+          return n.str + ' ' + intToEnglish(d);
         } else {
           return intToEnglish(t) + ' ' + n.str;
         }
