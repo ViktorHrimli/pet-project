@@ -112,7 +112,8 @@ cursor: pointer;
 display: flex;
 align-items: center;
 justify-content: center;
-&:hover {
+&:hover,
+&:focus {
   color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
 }

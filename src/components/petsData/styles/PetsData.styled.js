@@ -133,7 +133,8 @@ right: 0px;
 @media screen and (min-width: 1280px) {
   top: 20px;
   right: 20px;
-  &:hover {
+  &:hover,
+  &:focus {
     border-radius: 50%;
     background-color: ${p => p.theme.colors.primary};
   }

@@ -53,7 +53,8 @@ export const EditInputBtn = styled.button`
   border-radius: 50%;
   border: none;
   background-color: ${p => p.theme.colors.background};
-  &:hover {
+  &:hover,
+  &:focus {
     background: #ffdec3;
     transition: 0.3s;
   }
@@ -82,6 +83,7 @@ export const EditInput = styled.input`
   padding-left: 12px;
   padding-bottom: 0px;
   padding-top: 0px;
+  &:hover,
   &:focus {
     outline: 0;
   }
@@ -136,7 +138,8 @@ cursor: pointer;
   border: none;
   background-color: ${p => p.theme.colors.background};
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: #ffdec3;
     transition: 0.3s;
   }

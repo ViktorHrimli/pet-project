@@ -7,7 +7,8 @@ display: flex;
 flex-direction: row-reverse;
 align-items: center;
 justify-content: center;
-&:hover {
+&:hover,
+&:focus {
   color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
 }

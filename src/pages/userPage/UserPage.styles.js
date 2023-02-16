@@ -115,8 +115,8 @@ export const Title = styled.h2`
 `;
 
 export const PetTitle = styled.h3`
+margin-bottom: 0px;
 font-family: 'Manrope';
-margin-bottom: 32px;
 font-weight: 500;
 font-size: 20px;
 line-height: ${p => p.theme.lineHeights.normal};
