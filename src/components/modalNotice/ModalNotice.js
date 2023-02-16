@@ -26,6 +26,8 @@ import {
   DeleteButton,
   IconWasteBasket,
   TitleNoticeButton,
+  FirstPartOfWord,
+  SecondPartOfWord,
   Link
 } from 'components/modalNotice/ModalNotice.styled';
 
@@ -53,6 +55,8 @@ export const ModalNotice = ({ data, onClose }) => {
   const dispatch = useDispatch();
   const { token } = useAuth();
 
+  const correctCategory = category.split("").map(letter => letter === "-" ? letter = " " : letter ).join("");
+  
   const showErrorRegister = () => {
     toast.error(
       'Only registered users can add on our site, so first log in or register.',
@@ -81,7 +85,10 @@ export const ModalNotice = ({ data, onClose }) => {
               <PetPhoto src={defaultPetPhoto} alt="Not pet photo" />
             )}
             <CategoryNotice>
-              <TitleCategory>{category}</TitleCategory>
+              {category && <TitleCategory>
+                <FirstPartOfWord>{correctCategory.slice(0, 1)}</FirstPartOfWord>
+                <SecondPartOfWord>{correctCategory.slice(1, category.length)}</SecondPartOfWord>
+                </TitleCategory>}
             </CategoryNotice>
           </WrapperPetPhoto>
           <ReferenceList>

@@ -63,6 +63,13 @@ export const Notiece = styled.span`
   letter-spacing: ${p => p.theme.letterSpacings.normal};
 `;
 
+export const FirstPartOfWord = styled.span`
+text-transform: uppercase;
+`;
+
+export const SecondPartOfWord = styled.span`
+`;
+
 export const Pick = styled.button`
   position: absolute;
   display: flex;

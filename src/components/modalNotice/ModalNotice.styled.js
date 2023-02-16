@@ -60,10 +60,17 @@ backdrop-filter: blur(50px);
 
 export const TitleCategory = styled.p`
 margin: 0;
-text-transform: capitalize;
 font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: ${p => p.theme.letterSpacings.min};
+`;
+
+export const FirstPartOfWord = styled.span`
+text-transform: uppercase;
+`;
+
+export const SecondPartOfWord = styled.span`
+
 `;
 
 export const PetPhoto = styled.img`
