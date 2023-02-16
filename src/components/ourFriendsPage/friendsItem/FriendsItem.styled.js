@@ -25,6 +25,15 @@ margin-bottom: 12px;
 }    
 `;
 
+export const FriendNameLink = styled.a`
+outline: 0; 
+
+&:hover{
+    text-decoration: underline;
+    text-decoration-color: ${p => p.theme.colors.focus};
+ }
+`
+
 export const FriendName = styled.h3`
 font-family: ${p => p.theme.fonts.body};
 font-weight: ${p => p.theme.fontWeights.bold};
@@ -32,7 +41,11 @@ font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: ${p => p.theme.lineHeights.min};
 text-align: center;
 margin-bottom: 12px;
+outline: none;
 color: ${p => p.theme.colors.primary};
+transition-property: color;
+transition-duration: 0.3s;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
 
  &:hover{
    color: ${p => p.theme.colors.focus};
@@ -65,7 +78,7 @@ width: 110px;
     width: 120px;
 }
 
-@media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1280px) {
     width: 158px;
   }
 `;
@@ -83,7 +96,7 @@ margin-left: 12px;
     margin-left: 14px;
     }
 
-@media screen and (min-width: 1280px) {
+    @media screen and (min-width: 1280px) {
     margin-left: 16px;
     }
 `;
@@ -119,6 +132,10 @@ margin-bottom: 4px;
 }`;
 
 export const TimeCont = styled.div`
+transition-property: color;
+transition-duration: 0.3s;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+
  &:hover{
         color: ${p => p.theme.colors.primary};
     }
@@ -135,7 +152,6 @@ font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: ${p => p.theme.lineHeights.min};
 color: inherit;
-
 
     @media screen and (min-width: 768px){
     font-size: ${p => p.theme.fontSizes.xxs};
