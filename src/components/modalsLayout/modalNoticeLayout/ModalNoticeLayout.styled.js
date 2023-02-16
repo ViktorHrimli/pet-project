@@ -62,9 +62,13 @@ export const StyledBtn = styled.button`
   border-radius: 50px;
   background-color: ${p => p.theme.colors.background};
   
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &:focus {
-    color: ${p => p.theme.colors.white};
+    color: ${p => p.theme.colors.primary};
   }
 
   @media screen and (min-width: 768px) {
@@ -76,6 +80,10 @@ export const StyledBtn = styled.button`
 export const Icon = styled(CrossLine)`
   width: 16px;
   height: 16px;
+
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
