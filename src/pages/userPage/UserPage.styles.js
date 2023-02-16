@@ -5,7 +5,7 @@ export const Main = styled.main`
 `;
 
 export const UserPageContainer = styled.div`
-
+position: relative;
 margin-right: auto;
 margin-left: auto;
 
@@ -32,7 +32,7 @@ margin-left: auto;
   }
 `;
 export const UserInfo = styled.div`
-  position: relative;
+
   box-sizing: border-box;
 
   justify-content: center;
@@ -137,7 +137,13 @@ export const UserCardWrapper = styled.div`
     margin-right: 32px;
   }
 `;
-export const AddPetBtnContainer = styled.div``;
+export const AddPetBtnContainer = styled.div`
+@media screen and (min-width: 768px) {
+  position: absolute;
+  top: 0px;
+  right: 50px;
+}
+`;
 export const PetsContainerWrapper = styled.div`
 
   margin-top: 46px;
@@ -186,16 +192,18 @@ align-items: center;
 margin-bottom: 26px;
 
 @media screen and (min-width: 768px) {
+
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
   font-size: 28px;
   line-height: 135%;
-  position: relative;
+
 }
 @media screen and (min-width: 1280px) {
-position: relative;
-
+  width: 805px;
+  display: flex;
+  justify-content: space-between;
 }
 `
 export const PetsPhoto = styled.ul`
