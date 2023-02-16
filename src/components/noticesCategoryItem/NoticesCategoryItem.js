@@ -25,6 +25,7 @@ import {
   PickIcon,
   Try,
   Buttonlist,
+  ImageWrapper,
 } from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
 import { IconWasteBasket } from 'components/modalNotice/ModalNotice.styled';
 
@@ -71,7 +72,9 @@ export const NoticeCategoryItem = ({ item }) => {
 
   return (
     <CardItem key={_id}>
-      <CardImage src={imageURL} alt="Pet photo" />
+      <ImageWrapper>
+        <CardImage src={imageURL} alt="Pet photo" />
+      </ImageWrapper>
       <Notiece>
         <span>{category} </span>
       </Notiece>

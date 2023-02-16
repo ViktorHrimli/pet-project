@@ -20,6 +20,11 @@ import {
   ButtonList,
   PaginationButton,
 } from 'components/noticesCategoryList/NoticeCategoryList.styled';
+import {
+  EmptyRequestText,
+  EmptyRequestImg,
+} from 'components/newsPage/newsList/NewsList.styled';
+import dog from 'images/fiends/dog.jpg';
 
 export const NoticeCategoryList = () => {
   const [limit, setLimit] = useState(12);
@@ -80,47 +85,59 @@ export const NoticeCategoryList = () => {
   useLayoutEffect(() => {
     dispatch(currentNotices(toRender));
   }, [dispatch, toRender, visibleNotices]);
-
+  console.log(toRender.length);
   const finishedRender = isSearch ? visibleNotices : toRender;
   return (
     <>
-      <CardList>
-        {finishedRender?.map(item => {
-          return <NoticeCategoryItem key={item._id} item={item} />;
-        })}
-      </CardList>
-      <ButtonList>
-        <li>
-          {' '}
-          {result && !toDisableButton && (
-            <PaginationButton
-              type="button"
-              onClick={() => {
-                setLimit(limit + 12);
-              }}
-            >
-              Load more
-            </PaginationButton>
-          )}
-        </li>
-        <li>
-          {' '}
-          {isToTurn && (
-            <PaginationButton
-              type="button"
-              onClick={() => {
-                setLimit(12);
-                window.scrollTo({
-                  top: 0,
-                  behavior: 'smooth',
-                });
-              }}
-            >
-              To turn
-            </PaginationButton>
-          )}
-        </li>
-      </ButtonList>
+      {toRender.length > 1 ? (
+        <>
+          <CardList>
+            {finishedRender?.map(item => {
+              return <NoticeCategoryItem key={item._id} item={item} />;
+            })}
+          </CardList>
+          <ButtonList>
+            <li>
+              {result && !toDisableButton && (
+                <PaginationButton
+                  type="button"
+                  onClick={() => {
+                    setLimit(limit + 12);
+                  }}
+                >
+                  Load more
+                </PaginationButton>
+              )}
+            </li>
+            <li>
+              {isToTurn && (
+                <PaginationButton
+                  type="button"
+                  onClick={() => {
+                    setLimit(12);
+                    window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth',
+                    });
+                  }}
+                >
+                  To turn
+                </PaginationButton>
+              )}
+            </li>
+          </ButtonList>
+        </>
+      ) : (
+        <>
+          <EmptyRequestText>
+            I don't see any pets on your request
+          </EmptyRequestText>
+          <EmptyRequestText>
+            Please add your pets or go to registration/login
+          </EmptyRequestText>
+          <EmptyRequestImg src={dog} alt="No news" />
+        </>
+      )}
     </>
   );
 };
