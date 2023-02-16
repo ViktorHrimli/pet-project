@@ -67,6 +67,7 @@ export const AddButton = styled.button`
 export const ButtonName = styled.p`
   margin-bottom: 0;
   font-size: ${p => p.theme.fontSizes.xxxs};
+  font-weight: ${p => p.theme.fontWeights.medium};
   line-height: ${p => p.theme.lineHeights.min};
   color: ${p => p.theme.colors.white};
 

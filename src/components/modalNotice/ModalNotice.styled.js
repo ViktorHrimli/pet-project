@@ -46,9 +46,9 @@ export const WrapperPetPhoto = styled.div`
 export const CategoryNotice = styled.div`
 position: absolute;
 display: flex;
-justify-content: space-around;
 top: 20px;
 left: 0;
+padding-left: 20px;
 width: 158px;
 height: 28px;
 align-items: center;
@@ -58,11 +58,11 @@ background: rgba(255, 255, 255, 0.6);
 backdrop-filter: blur(50px);
 `;
 
-export const TitleCategory = styled.p`
-margin: 0;
+export const TitleCategory = styled.span`
 font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xxxs};
-line-height: ${p => p.theme.letterSpacings.min};
+line-height: ${p => p.theme.lineHeights.min};
+letter-spacing: ${p => p.theme.letterSpacings.normal}
 `;
 
 export const FirstPartOfWord = styled.span`
@@ -91,7 +91,6 @@ export const TitleModalNotice = styled.h3`
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.bold};
   letter-spacing: ${p => p.theme.letterSpacings.min};
-  width: 200px;
 
   @media screen and (max-width: 767px) {
     margin: 16px 0;
@@ -101,11 +100,12 @@ export const TitleModalNotice = styled.h3`
   @media screen and (min-width: 768px) {
     margin-bottom: 20px;
     font-size: ${p => p.theme.fontSizes.l};
+    line-height: ${p => p.theme.lineHeights.normal};
   }
 `;
 
 export const ReferenceList = styled.div`
-width: 240px;
+width: 100%;
 @media screen and (min-width: 768px) {
 width: 320px;
 }
@@ -123,9 +123,23 @@ margin-bottom: 40px;
 width: 100%;
 height: 95px;
 overflow: auto;
+word-wrap: break-word;
 @media screen and (min-width: 768px) {
 margin-bottom: 32px;
 height: 48px;
+}
+`;
+
+export const LableNotice = styled.span`
+width: 118px;
+font-size: ${p => p.theme.fontSizes.xxs};
+line-height: ${p => p.theme.lineHeights.normal};
+font-weight: 600;
+
+@media screen and (min-width: 768px) {
+  font-size: ${p => p.theme.fontSizes.xs};
+  lineHeight: ${p => p.theme.lineHeights.max};
+  width: 120px; 
 }
 `;
 
@@ -136,18 +150,6 @@ export const Link = styled.a`
  color: ${p => p.theme.colors.focus};
 }
 `;
-export const LableNotice = styled.p`
-margin-bottom: 0;
-width: 80px;
-font-size: ${p => p.theme.fontSizes.xxs};
-font-weight: 600;
-
-@media screen and (min-width: 768px) {
-  font-size: ${p => p.theme.fontSizes.xs};
-  lineHeight: ${p => p.theme.lineHeights.max};
-  width: 120px; 
-}
-`;
 
 export const DateModalNotice = styled.p`
   margin-bottom: 0;
@@ -156,31 +158,36 @@ export const DateModalNotice = styled.p`
 
 @media screen and (min-width: 768px) {
   font-size: ${p => p.theme.fontSizes.xs};
-  lineHeight: ${p => p.theme.lineHeights.max};
+  line-height: ${p => p.theme.lineHeights.max};
 }
 `;
 
 export const NoticeComments = styled.p`
   margin-bottom: 0;
   width: 240px;
-  font-weight: ${p => p.theme.fontWeights.normal};
   font-size: ${p => p.theme.fontSizes.xxs};
+  font-weight: ${p => p.theme.fontWeights.normal};
+  line-height: ${p => p.theme.lineHeights.normal};
 
   @media screen and (min-width: 768px) {
     width: 660px;
     font-size: ${p => p.theme.fontSizes.xs};
-    lineHeight: 1.5;
+    letter-spacing: ${p => p.theme.letterSpacings.normal};
+    font-weight: ${p => p.theme.fontWeights.medium};
+    line-height: 1.5;
 }
 `;
 
 export const LableComments = styled.span`
 margin-bottom: 0;
 font-size: ${p => p.theme.fontSizes.xxs};
+lineHeight: ${p => p.theme.lineHeights.normal};
 font-weight: 600;
 
 @media screen and (min-width: 768px) {
   font-size: ${p => p.theme.fontSizes.xs};
-  lineHeight: ${p => p.theme.lineHeights.max};
+  line-height: ${p => p.theme.lineHeights.max};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
 `;
 
 export const ButtonModalWrapper = styled.div`
@@ -265,11 +272,11 @@ export const AddToFavoriteButton = styled.button`
 }
 `;
 
-export const TitleNoticeButton = styled.p`
-  margin-bottom: 0;
+export const TitleNoticeButton = styled.span`
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.medium};
-  line-height: ${p => p.theme.lineHeights.min};
+  line-height: ${p => p.theme.lineHeights.max};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
 `;
 
 export const IconRedHeart = styled(RedHeart)`
