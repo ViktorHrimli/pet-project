@@ -27,7 +27,7 @@ export const ButtonBack = styled.button`
   border-radius: ${p => p.theme.radii.big};
 
   cursor: pointer;
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     color: ${p => p.theme.colors.white};
@@ -61,7 +61,7 @@ export const Submit = styled.button`
   border-radius: ${p => p.theme.radii.big};
 
   cursor: pointer;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover,
   &:focus {
     background-color: ${p => p.theme.colors.focus};
