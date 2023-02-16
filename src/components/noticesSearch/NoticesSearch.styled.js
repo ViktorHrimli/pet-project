@@ -7,6 +7,7 @@ export const SearchForm = styled.form`
   width: 100%;
   height: 40px;
   margin-bottom: 40px;
+
   @media screen and (min-width: 768px) {
     margin-left: auto;
     margin-right: auto;
@@ -26,10 +27,14 @@ export const SearchInput = styled.input`
   border: none;
   border-radius: ${p => p.theme.radii.normal};
 
-  transition-property: background-color;
-  transition-duration: 0.25s;
+  ::placeholder {
+  transition-property: color;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
   box-shadow: ${p => p.theme.shadows.normal};
+  background-color: ${p => p.theme.colors.white};
   
   &:hover {
     ::placeholder {
@@ -71,21 +76,12 @@ export const BtnSearch = styled.button`
   right: 13px;
   width: 15px;
   height: 15px;
-
-  &:hover,
-  &:focus {
-    fill: ${p => p.theme.colors.focus};
-  }
-  @media screen and (min-width: 768px) {
-    width: 18px;
-    height: 18px;
-  }
-`;
-
-export const IconSearch = styled(search)`
-  width: 15px;
-  height: 15px;
+  outline: none;
   border: none;
+
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
@@ -98,15 +94,21 @@ export const IconSearch = styled(search)`
   }
 `;
 
-export const IconCross = styled(crossNotice)`
+export const IconSearch = styled(search)`
   width: 15px;
   height: 15px;
   border: none;
 
-  &:hover, 
-  &:focus {
-    fill: ${p => p.theme.colors.focus};
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
   }
+`;
+
+export const IconCross = styled(crossNotice)`
+  width: 15px;
+  height: 15px;
+  border: none;
 
   @media screen and (min-width: 768px) {
     width: 18px;

@@ -23,7 +23,7 @@ export const List = styled.li`
 
     box-shadow: 10px 0px 8px 3px rgba(112, 109, 106, 0.75);
     transition-property: transform;
-    transition-duration: 250ms;
+    transition-duration: 300ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   &:hover,

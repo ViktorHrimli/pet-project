@@ -1,5 +1,6 @@
 import {
     InputCont,
+    SearchForm,
     FindNews,
     FindNewsBtn,
     IconCross,
@@ -10,7 +11,7 @@ export const NewsSeachInput = ({getFindedNews, value, handlFindNews, isSearch}) 
 return (
     <>
         <InputCont>
-            <form onSubmit={getFindedNews}>
+            <SearchForm onSubmit={getFindedNews}>
             <FindNews
                 type="text"
                 placeholder="Search"
@@ -22,7 +23,7 @@ return (
             <FindNewsBtn type="submit" >
                     {isSearch ? <IconCross/> : <IconSearch/>}
             </FindNewsBtn>
-            </form>
+            </SearchForm>
         </InputCont>
     </>
 )

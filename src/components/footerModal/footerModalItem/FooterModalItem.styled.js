@@ -22,8 +22,8 @@ export const TeamPhoto = styled.img`
   width: 160px;
   height: 160px;
   border-radius: 10px;
-  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   box-shadow: 5px 0px 8px 3px rgba(112, 109, 106, 0.75);
 `;
@@ -63,7 +63,7 @@ export const SvgGit = styled(AiFillGithub)`
   height: 30px;
 
   transition-property: transform;
-  transition-duration: 250ms;
+  transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
@@ -86,7 +86,7 @@ export const SvgLinkedin = styled(AiFillLinkedin)`
   height: 30px;
 
   transition-property: transform;
-  transition-duration: 250ms;
+  transition-duration: 300ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {

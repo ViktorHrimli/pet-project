@@ -22,6 +22,7 @@ export const WrapperInfoBlock = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 40px;
+
 @media screen and (min-width: 768px) {
   flex-direction: row;
   margin-top: 12px;
@@ -102,36 +103,38 @@ export const TitleModalNotice = styled.h3`
 `;
 
 export const ReferenceList = styled.div`
-width: 100%;
-@media screen and (min-width: 768px) {
-width: 320px;
+  width: 100%;
+
+ @media screen and (min-width: 768px) {
+  width: 320px;
 }
 `;
 
 export const InfoItem = styled.div`
-display: flex;
-margin-bottom: 8px;
+  display: flex;
+  margin-bottom: 8px;
 `;
 
 export const CommentsItem = styled.div`
-display: flex;
-margin-top: 28px;
-margin-bottom: 40px;
-width: 100%;
-height: 95px;
-overflow: auto;
-word-wrap: break-word;
+  display: flex;
+  margin-top: 28px;
+  margin-bottom: 40px;
+  width: 100%;
+  height: 95px;
+  overflow: auto;
+  word-wrap: break-word;
+
 @media screen and (min-width: 768px) {
-margin-bottom: 32px;
-height: 48px;
+  margin-bottom: 32px;
+  height: 48px;
 }
 `;
 
 export const LableNotice = styled.span`
-width: 118px;
-font-size: ${p => p.theme.fontSizes.xxs};
-line-height: ${p => p.theme.lineHeights.normal};
-font-weight: 600;
+  width: 118px;
+  font-size: ${p => p.theme.fontSizes.xxs};
+  line-height: ${p => p.theme.lineHeights.normal};
+  font-weight: 600;
 
 @media screen and (min-width: 768px) {
   font-size: ${p => p.theme.fontSizes.xs};
@@ -141,15 +144,18 @@ font-weight: 600;
 `;
 
 export const Link = styled.a`
+  transition-property: color, text-decoration-color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 &:hover {
- text-decoration: underline;
- text-decoration-color: ${p => p.theme.colors.focus};
- color: ${p => p.theme.colors.focus};
+  text-decoration: underline;
+  text-decoration-color: ${p => p.theme.colors.focus};
+  color: ${p => p.theme.colors.focus};
 }
 `;
 
-export const DateModalNotice = styled.p`
-  margin-bottom: 0;
+export const DateModalNotice = styled.span`
   font-size: ${p => p.theme.fontSizes.xxs};
   font-weight: ${p => p.theme.fontWeights.medium};
 
@@ -159,27 +165,26 @@ export const DateModalNotice = styled.p`
 }
 `;
 
-export const NoticeComments = styled.p`
-  margin-bottom: 0;
+export const NoticeComments = styled.span`
   width: 240px;
   font-size: ${p => p.theme.fontSizes.xxs};
   font-weight: ${p => p.theme.fontWeights.normal};
   line-height: ${p => p.theme.lineHeights.normal};
 
-  @media screen and (min-width: 768px) {
-    width: 660px;
-    font-size: ${p => p.theme.fontSizes.xs};
-    letter-spacing: ${p => p.theme.letterSpacings.normal};
-    font-weight: ${p => p.theme.fontWeights.medium};
-    line-height: 1.5;
+@media screen and (min-width: 768px) {
+  width: 660px;
+  font-size: ${p => p.theme.fontSizes.xs};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
+  font-weight: ${p => p.theme.fontWeights.medium};
+  line-height: 1.5;
 }
 `;
 
 export const LableComments = styled.span`
-margin-bottom: 0;
-font-size: ${p => p.theme.fontSizes.xxs};
-lineHeight: ${p => p.theme.lineHeights.normal};
-font-weight: 600;
+  margin-bottom: 0;
+  font-size: ${p => p.theme.fontSizes.xxs};
+  lineHeight: ${p => p.theme.lineHeights.normal};
+  font-weight: 600;
 
 @media screen and (min-width: 768px) {
   font-size: ${p => p.theme.fontSizes.xs};
@@ -208,6 +213,10 @@ export const ContactButton = styled.button`
   border: 2px solid ${p => p.theme.colors.primary};
   color: ${p => p.theme.colors.white};
 
+  transition-property: background-color, border;
+  transition-duration: 0.25s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover {
     background-color: ${p => p.theme.colors.focus};
     border: 2px solid ${p => p.theme.colors.focus};
@@ -232,11 +241,16 @@ export const DeleteButton = styled.button`
   border: 2px solid ${p => p.theme.colors.primary};
   color: ${p => p.theme.colors.black};
 
+
+  transition-property: border-color, color, background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &:focus {
-    border: 2px solid ${p => p.theme.colors.focus};
+    border-color: ${p => p.theme.colors.focus};
     color: ${p => p.theme.colors.white};
-    background: ${p => p.theme.colors.primary};
+    background-color: ${p => p.theme.colors.focus};
   }
 
 @media screen and (max-width: 767px) {
@@ -258,9 +272,16 @@ export const AddToFavoriteButton = styled.button`
   border-radius: 40px;
   border: 2px solid ${p => p.theme.colors.primary};
 
+  transition-property: border-color, filter, color, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   &:hover,
   &focus {
-    border: 2px solid ${p => p.theme.colors.focus};
+    border-color: ${p => p.theme.colors.focus};
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: ${p => p.theme.colors.focus};
+    stroke: ${p => p.theme.colors.focus};
   }
 
 @media screen and (min-width: 768px) {
@@ -283,17 +304,18 @@ export const IconRedHeart = styled(RedHeart)`
   color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
 
-  &:hover,
-  &:focus {
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    color: ${p => p.theme.colors.focus};
-    stroke: ${p => p.theme.colors.focus};
-  }
+  transition-property: filter, color, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const IconWasteBasket = styled(WasteBasket)`
-margin-left: 15px;
-width: 20px;
-height: 20px;
-opacity: 1;
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+  opacity: 1;
+  
+  &:hover {
+    color: ${p => p.theme.colors.white};
+  }
 `;
