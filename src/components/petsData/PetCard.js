@@ -37,7 +37,7 @@ export const PetCard = ({ cardData }) => {
                 </PetsListItem>
               )
             )
-          : 'no pets yet'}
+          : <div>Add your pets</div>}
       </PetsUl>
     </Container>
   );

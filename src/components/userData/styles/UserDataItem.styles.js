@@ -62,7 +62,8 @@ export const EditInputBtn = styled.button`
     }
   }
   @media screen and (min-width: 1280px) {
-    & * {
+    width: 32px;
+    height: 32px;
     }
   }
 `;
@@ -131,6 +132,7 @@ cursor: pointer;
   justify-content: center;
   margin-left: auto;
   border-radius: 50%;
+
   border: none;
   background-color: ${p => p.theme.colors.background};
 
@@ -139,11 +141,13 @@ cursor: pointer;
     transition: 0.3s;
   }
   @media screen and (min-width: 768px) {
-    & * {
-      width: 20px;
-      height: 20px;
-    }
+
+    width: 32px;
+    height: 32px;
+
   }
   @media screen and (min-width: 1280px) {
+    width: 32px;
+    height: 32px;
   }
 `;

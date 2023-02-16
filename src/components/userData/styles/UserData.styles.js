@@ -54,11 +54,13 @@ right: 24px;
 flex-shrink: 1;
 }
 @media screen and (min-width: 768px) {
-  margin-top: 8px;
+  margin-top: 9px;
   right: 0px;
 }
 @media screen and (min-width: 1280px) {
-
+  position: absolute;
+  margin-top: 0px;
+  bottom: 0px;
 }
 `
 export const PhotoEditText = styled.p`
@@ -74,14 +76,14 @@ font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: 22px;
 color: ${p => p.theme.colors.black}
 
-@media screen and (min-width: 1280px) {
-
+@media screen and (min-width: 768px) {
+  margin-top: 9px;
   }
 `
 export const PhotoContainer = styled.div`
 position: relative;
 @media screen and (min-width: 1280px) {
-
+  margin-bottom: 36px;
  }
 `
 export const EditPhotoBtn = styled.button`
@@ -153,13 +155,20 @@ font-weight: ${p => p.theme.fontWeights.normal};
 font-size: ${p => p.theme.fontSizes.xxxs}
 line-height: 22px;
 color: ${p => p.theme.colors.black}
+
+@media screen and (min-width: 768px) {
+  margin-top: 9px;
+}
+@media screen and (min-width: 1280px) {
+  margin-top: 0px;
+}
 `
 export const PhotoEditSubmitWrapper = styled.div`
 display: flex;
 justify-content: flex-end;
 
 @media screen and (min-width: 768px) {
-  margin-top: 8px;
+  margin-top: 9px;
   right: 0px;
 }
 @media screen and (max-width: 1279px) {
@@ -182,4 +191,3 @@ margin-bottom: 0px;
 `
 export const UserFormWrapper = styled.div`
 margin-bottom: 0px;`
-

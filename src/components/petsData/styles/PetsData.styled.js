@@ -109,23 +109,34 @@ margin-bottom: 20px;
 `
 
 export const PetsDataWrapper = styled.div`
-
+@media screen and (max-width: 767px) {
+position: relative;}
 `
 
 export const DeleteBtnDiv = styled.div`
-
-
 position: absolute;
-right: 30px;
+top: 0px;
+right: 0px;
+
 @media screen and (min-width: 768px) {
-
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #FDF7F2;
   top: 20px;
   right: 20px;
+
 }
 @media screen and (min-width: 1280px) {
   top: 20px;
   right: 20px;
+  &:hover {
+    border-radius: 50%;
+    background-color: ${p => p.theme.colors.primary};
+  }
 }
 `
 
@@ -142,13 +153,27 @@ margin-top: 26px;
 `
 
 export const PetsDataText = styled.p`
+display: flex;
 font-weight: 500;
-font-size: 14px;
-line-height: 1.35;
-max-width: 580px;`
+font-size: 12px;
+line-height: 1.375;
+max-width: 580px;
+
+@media screen and (min-width: 768px) {
+  font-size: 16px;
+}
+`
 
 export const PetsUl = styled.ul`
 
   `
 export const EditButton = styled.div`
 cursor: pointer;`
+
+export const PetsDataItemKey = styled.div`
+font-weight: 500;
+margin-right: 2px;
+`
+export const PetsDataItemValue = styled.div`
+font-weight: 400;
+`
