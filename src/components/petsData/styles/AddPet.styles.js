@@ -7,7 +7,8 @@ display: flex;
 flex-direction: row-reverse;
 align-items: center;
 justify-content: center;
-&:hover {
+&:hover,
+&:focus {
   color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
 }
@@ -18,8 +19,13 @@ justify-content: center;
 
 	@media screen and (min-width: 768px) {
     position: absolute;
-    top: 119px;
+    top: -430px;
     right: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 0px;
+    right: 32px;
+
   }
 }
 `;

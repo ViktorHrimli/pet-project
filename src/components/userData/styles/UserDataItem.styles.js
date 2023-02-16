@@ -33,9 +33,15 @@ justify-content: space-between;
 }
   @media screen and (min-width: 768px) {
     &:not(:last-child) {
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+    }
+    @media screen and (min-width: 1280px) {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
     }
   }
+
 `;
 
 export const EditInputBtn = styled.button`
@@ -47,7 +53,8 @@ export const EditInputBtn = styled.button`
   border-radius: 50%;
   border: none;
   background-color: ${p => p.theme.colors.background};
-  &:hover {
+  &:hover,
+  &:focus {
     background: #ffdec3;
     transition: 0.3s;
   }
@@ -56,7 +63,8 @@ export const EditInputBtn = styled.button`
     }
   }
   @media screen and (min-width: 1280px) {
-    & * {
+    width: 32px;
+    height: 32px;
     }
   }
 `;
@@ -75,6 +83,7 @@ export const EditInput = styled.input`
   padding-left: 12px;
   padding-bottom: 0px;
   padding-top: 0px;
+  &:hover,
   &:focus {
     outline: 0;
   }
@@ -85,12 +94,16 @@ export const EditInput = styled.input`
     font-size: 18px;
     ${p => p.theme.lineHeights.max}
   }
+  @media screen and (min-width: 1280px) {
+  position: static;
+  }
 `;
 
-export const UserInfoWrapper = styled.div`
-  margin-top: 32px;
+
+export const EditInputContainer = styled.div`
+@media screen and (min-width: 1280px) {
+
 `;
-export const EditInputContainer = styled.div``;
 
 export const TextInInput = styled.p`
   font-size: 12px;
@@ -121,19 +134,23 @@ cursor: pointer;
   justify-content: center;
   margin-left: auto;
   border-radius: 50%;
+
   border: none;
   background-color: ${p => p.theme.colors.background};
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: #ffdec3;
     transition: 0.3s;
   }
   @media screen and (min-width: 768px) {
-    & * {
-      width: 20px;
-      height: 20px;
-    }
+
+    width: 32px;
+    height: 32px;
+
   }
   @media screen and (min-width: 1280px) {
+    width: 32px;
+    height: 32px;
   }
 `;

@@ -7,7 +7,7 @@ align-items: stretch;
 font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xs};
 line-height: ${p => p.theme.lineHeights.max};
-letter-spacing: ${p => p.theme.letrerSpacings.normal};
+letter-spacing: ${p => p.theme.letterSpacings.normal};
 color: ${p => p.theme.colors.muted};
 
 &:hover {

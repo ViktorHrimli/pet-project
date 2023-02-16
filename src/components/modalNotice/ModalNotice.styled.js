@@ -35,6 +35,9 @@ export const WrapperPetPhoto = styled.div`
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
   background-color: ${p => p.theme.colors.white};
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     margin-right: 20px;
@@ -74,17 +77,11 @@ export const SecondPartOfWord = styled.span`
 `;
 
 export const PetPhoto = styled.img`
-  width: 240px;
-  height: 240px;
-  background-size: contain;
-  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
-
-  @media screen and (min-width: 768px) {
-    width: 288px;
-    height: 328px;
-  }
 `;
 
 export const TitleModalNotice = styled.h3`

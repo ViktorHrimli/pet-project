@@ -85,7 +85,7 @@ export const UserItem = ({
             }}
           >
             <EditIcon
-              fill={isDisabled ? 'rgba(17, 17, 17, 0.6)' : 'currentColor'}
+              fill='rgba(17, 17, 17, 0.6)'
               width="20px"
               height="20px"
             />
