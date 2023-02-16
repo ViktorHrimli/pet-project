@@ -23,18 +23,24 @@ export const CardItem = styled.li`
   } ;
 `;
 
-export const CardImage = styled.img`
+export const ImageWrapper = styled.div`
   margin-bottom: ${p => p.theme.space[4]};
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   width: 100%;
   height: 288px;
-  object-fit: contain;
   @media screen and (min-width: 768px) {
     width: 336px;
   }
-
   @media screen and (min-width: 1280px) {
     width: 288px;
   } ;
+`;
+export const CardImage = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 `;
 
 export const Notiece = styled.span`
