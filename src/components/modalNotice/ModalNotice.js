@@ -26,11 +26,15 @@ import {
   DeleteButton,
   IconWasteBasket,
   TitleNoticeButton,
-  Link
+  Link,
 } from 'components/modalNotice/ModalNotice.styled';
 
 import { selectUser } from 'redux/auth/selectors';
-import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
+import {
+  addFavoriteNotices,
+  deleteNotices,
+  removeFavoriteNotices,
+} from 'redux/notices/operations';
 import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({ data, onClose }) => {
@@ -47,7 +51,7 @@ export const ModalNotice = ({ data, onClose }) => {
     sex,
     phone,
     email,
-    comments
+    comments,
   } = data;
 
   const dispatch = useDispatch();
@@ -108,9 +112,11 @@ export const ModalNotice = ({ data, onClose }) => {
             </InfoItem>
             <InfoItem>
               <LableNotice>Email:</LableNotice>
-              {email && <Link href={`mailto:${email}`}>
-                <DateModalNotice>{toFormatTitle()}</DateModalNotice>
-              </Link>}
+              {email && (
+                <Link href={`mailto:${email}`}>
+                  <DateModalNotice>{toFormatTitle()}</DateModalNotice>
+                </Link>
+              )}
             </InfoItem>
             <InfoItem>
               <LableNotice>Phone:</LableNotice>
@@ -154,7 +160,8 @@ export const ModalNotice = ({ data, onClose }) => {
               type="button"
               onClick={() => {
                 onClose(false);
-                document.body.style.overflow = "";
+                document.body.style.overflow = '';
+                dispatch(removeFavoriteNotices(_id));
                 dispatch(deleteNotices(_id));
               }}
             >
@@ -169,7 +176,7 @@ export const ModalNotice = ({ data, onClose }) => {
 };
 
 ModalNotice.propTypes = {
-	onClick: PropTypes.func,
+  onClick: PropTypes.func,
   onClose: PropTypes.func,
   _id: PropTypes.string,
   category: PropTypes.string,
