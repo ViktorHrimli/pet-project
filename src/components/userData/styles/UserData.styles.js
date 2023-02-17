@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 
+
 export const Title = styled.h2`
   font-family: 'Manrope';
-
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
   font-weight: 500;
   font-size: 20px;
   line-height: ${p => p.theme.lineHeights.normal};
@@ -109,6 +110,8 @@ margin-bottom: 68px;
  }`
 
 export const LogOutBtn = styled.button`
+top: -2270px;
+left: 175px;
 cursor: pointer;
 display: flex;
 align-items: center;
@@ -132,7 +135,7 @@ justify-content: center;
 
 @media screen and (min-width: 768px) {
   display: flex;
-  margin-top: 5px;
+  margin-top: 7px;
   margin-bottom: 0px;
 }
 
@@ -192,7 +195,5 @@ align-items: center;
 justify-content: center;
 margin-bottom: 0px;
 `
-export const UserFormWrapper = styled.div`
-margin-bottom: 0px;`
 
 

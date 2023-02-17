@@ -4,7 +4,7 @@ import { TbLogout } from "react-icons/tb";
 export const ButtonLogOut = styled.button`
 display: flex;
 align-items: center;
-margin-top: 42px;
+margin-top: 44px;
 font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xs};
 line-height: ${p => p.theme.lineHeights.max};
@@ -21,10 +21,10 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 768px) {
-  margin-top: 33px;
+  margin-top: 8px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
   margin-top: 26px;
 }
 `;

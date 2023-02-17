@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { ReactComponent as TrashIcon } from 'images/svg/delete.svg';
 
 export const PetsContainer = styled.div`
 
@@ -135,9 +136,8 @@ right: 0px;
   right: 20px;
   transition: color 250ms linear, background-color 250ms linear;
 
-  &:hover {
-    background-color: ${p => p.theme.colors.focus};
-  }
+}
+cursor: pointer;
 }
 `
 
@@ -149,8 +149,6 @@ background-color: #FDF7F2;`
 
 export const PetsList = styled.ul`
 margin-top: 26px;
-
-
 `
 
 export const PetsDataText = styled.p`
@@ -177,3 +175,8 @@ margin-right: 2px;
 export const PetsDataItemValue = styled.span`
 font-weight: 400;
 `
+export const DeleteBtn = styled(TrashIcon)`
+:hover {
+  fill: ${p => p.theme.colors.primary};
+  transition: 0.3s;
+}`
