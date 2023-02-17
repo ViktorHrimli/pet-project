@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleIsDisablet } from 'redux/user/slice';
 import { ReactComponent as ApproveIcon } from '../../images/svg/stroke.svg';
-import { ReactComponent as EditIcon } from '../../images/svg/ci_edit.svg';
 import * as userSelectors from 'redux/user/selectors'
 
-import { EditInput, TextInInput, EditInputBtnSubmit, InfoItem, Form, Userlabel, EditInputBtn, EditInputContainer } from 'components/userData/styles/UserDataItem.styles';
+import { EditInput, TextInInput, IconEdit, EditInputBtnSubmit, InfoItem, Form, Userlabel, EditInputBtn, EditInputContainer } from 'components/userData/styles/UserDataItem.styles';
 
 export const UserItem = ({
   data,
@@ -84,7 +83,7 @@ export const UserItem = ({
               checkDisabled();
             }}
           >
-            <EditIcon
+            <IconEdit
               fill='rgba(17, 17, 17, 0.6)'
               width="20px"
               height="20px"

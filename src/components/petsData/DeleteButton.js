@@ -1,6 +1,7 @@
 import { useMediaQuery } from 'react-responsive';
 import { ReactComponent as TrashIcon } from 'images/svg/delete.svg';
 import { Loader } from 'components/loader/Loader';
+import {DeleteBtn} from 'components/petsData/styles/PetsData.styled'
 
 export const DeleteButton = ({ id, onDeletePet, isPetsLoading }) => {
   const isTablet = useMediaQuery({ query: '(min-width: 768px)' });
@@ -8,7 +9,7 @@ export const DeleteButton = ({ id, onDeletePet, isPetsLoading }) => {
   return (
     <>
       {isTablet ? (
-        <button
+        <DeleteBtn
           id={id}
           type="button"
 
@@ -19,30 +20,30 @@ export const DeleteButton = ({ id, onDeletePet, isPetsLoading }) => {
           ) : (
             <TrashIcon
 
-              fill="currentColor"
+              fill="rgba(17, 17, 17, 0.6)"
               width={24}
               height={24}
             />
           )}
-        </button>
+        </DeleteBtn>
       ) : (
-        <button
+        <DeleteBtn
           id={id}
           onClick={id => onDeletePet(id)}
           type="button"
 
         >
           {isPetsLoading ? (
-            <div>"Loading" </div>
+            <Loader/>
           ) : (
-            <TrashIcon
+            <DeleteBtn
 
-              fill="currentColor"
+              fill="rgba(17, 17, 17, 0.6)"
               width={15}
               height={15}
             />
           )}
-        </button>
+        </DeleteBtn>
       )}
     </>
   );

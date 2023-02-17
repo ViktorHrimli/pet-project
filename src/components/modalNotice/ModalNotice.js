@@ -32,10 +32,14 @@ import {
 } from 'components/modalNotice/ModalNotice.styled';
 
 import { selectUser } from 'redux/auth/selectors';
-import { addFavoriteNotices, deleteNotices } from 'redux/notices/operations';
-import defaultPetPhoto from '../../images/defaultPetPhoto.png';
+import {
+  addFavoriteNotices,
+  deleteNotices,
+  removeFavoriteNotices,
+} from 'redux/notices/operations';
 
 export const ModalNotice = ({ data, onClose }) => {
+  
   const {
     _id,
     title,
@@ -49,7 +53,7 @@ export const ModalNotice = ({ data, onClose }) => {
     sex,
     phone,
     email,
-    comments
+    comments,
   } = data;
 
   const dispatch = useDispatch();
@@ -77,11 +81,7 @@ export const ModalNotice = ({ data, onClose }) => {
       <WrapperContainer>
         <WrapperInfoBlock>
           <WrapperPetPhoto>
-            {imageURL ? (
-              <PetPhoto src={imageURL} alt="Pet photo" />
-            ) : (
-              <PetPhoto src={defaultPetPhoto} alt="Not pet photo" />
-            )}
+            {imageURL && <PetPhoto src={imageURL} alt="Pet photo" />}
             <CategoryNotice>
               {category && <TitleCategory>
                 <FirstPartOfWord>{category.slice(0, 1)}</FirstPartOfWord>
@@ -95,32 +95,34 @@ export const ModalNotice = ({ data, onClose }) => {
             </CategoryNotice>
           </WrapperPetPhoto>
           <ReferenceList>
-            <TitleModalNotice>{title}</TitleModalNotice>
+            {title && <TitleModalNotice>{title}</TitleModalNotice>}
             <InfoItem>
               <LableNotice>Name:</LableNotice>
-              <DateModalNotice>{name}</DateModalNotice>
+              {name && <DateModalNotice>{name}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Birthday:</LableNotice>
-              <DateModalNotice>{birthday}</DateModalNotice>
+              {birthday && <DateModalNotice>{birthday}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Breed:</LableNotice>
-              <DateModalNotice>{breed}</DateModalNotice>
+              {breed && <DateModalNotice>{breed}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Place:</LableNotice>
-              <DateModalNotice>{city}</DateModalNotice>
+              {city && <DateModalNotice>{city}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>The sex:</LableNotice>
-              <DateModalNotice>{sex}</DateModalNotice>
+              {sex && <DateModalNotice>{sex}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Email:</LableNotice>
-              {email && <Link href={`mailto:${email}`}>
-                <DateModalNotice>{toFormatTitle()}</DateModalNotice>
-              </Link>}
+              {email && (
+                <Link href={`mailto:${email}`}>
+                  <DateModalNotice>{toFormatTitle()}</DateModalNotice>
+                </Link>
+              )}
             </InfoItem>
             <InfoItem>
               <LableNotice>Phone:</LableNotice>
@@ -164,7 +166,8 @@ export const ModalNotice = ({ data, onClose }) => {
               type="button"
               onClick={() => {
                 onClose(false);
-                document.body.style.overflow = "";
+                document.body.style.overflow = '';
+                dispatch(removeFavoriteNotices(_id));
                 dispatch(deleteNotices(_id));
               }}
             >
@@ -179,7 +182,7 @@ export const ModalNotice = ({ data, onClose }) => {
 };
 
 ModalNotice.propTypes = {
-	onClick: PropTypes.func,
+  onClick: PropTypes.func,
   onClose: PropTypes.func,
   _id: PropTypes.string,
   category: PropTypes.string,

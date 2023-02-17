@@ -34,15 +34,7 @@ const noticesSlice = createSlice({
   extraReducers: {
     [getAll.pending]: handlePending,
     [getUserNotices.pending]: handlePending,
-    [getNoticesById.pending]: handlePending,
-
-    [addNotices.pending]: handlePending,
-    [addFavoriteNotices.pending]: handlePending,
-
     [favoriteNotices.pending]: handlePending,
-    [removeFavoriteNotices.pending]: handlePending,
-
-    [deleteNotices.pending]: handlePending,
 
     [getAll.rejected]: handleRejected,
     [getUserNotices.rejected]: handleRejected,
@@ -81,12 +73,12 @@ const noticesSlice = createSlice({
         for (const item of state.items) {
           const isCategory = item.category === action.payload.category;
           if (isCategory) {
-            return action.payload;
+            return state.items.unshift(action.payload);
           }
         }
-        return null;
+        return;
       }
-      state.items.unshift(foo());
+      foo();
     },
     [addFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
@@ -105,13 +97,11 @@ const noticesSlice = createSlice({
       state.userItems = state.userItems.filter(
         item => item._id !== action.payload.noticeId
       );
-      state.myFavoriteItems = state.userItems.filter(
-        item => item._id !== action.payload.noticeId
-      );
       state.items = state.userItems.filter(
         item => item._id !== action.payload.noticeId
       );
     },
+
     [removeFavoriteNotices.fulfilled](state, action) {
       state.isLoading = false;
       state.myFavoriteItems = state.myFavoriteItems.filter(

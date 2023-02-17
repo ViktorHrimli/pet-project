@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useLocation } from 'react-router-dom';
 
 import { setFilterNotices, setSearchNotices } from "redux/notices/filterSlice";
+import {
+  getAll
+} from 'redux/notices/operations';
 
 import {
   SearchForm,
@@ -15,7 +19,33 @@ export const NoticesSearch = () => {
   const [keyword, setKeyword] = useState('');
   const [isSearch, setIsSearch] = useState(false);
 
+  const history = useLocation();
   const dispatch = useDispatch();
+
+  const limit = 1000;
+  const pathName = history.pathname.slice(9);
+
+  let result;
+  switch (pathName) {
+    case 'sell':
+      result = 'sell';
+      break;
+    case 'lost-found':
+      result = 'lost-found';
+      break;
+    case 'for-free':
+      result = 'in-good-hands';
+      break;
+    case 'favorite':
+      break;
+    case 'own':
+      break;
+
+    default:
+      result = false;
+      break;
+  }
+
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -33,9 +63,10 @@ export const NoticesSearch = () => {
   };
 
   useEffect(() => {
+    dispatch(getAll({result, limit}))
     dispatch(setFilterNotices(keyword));
     dispatch(setSearchNotices(isSearch));
-  }, [dispatch, isSearch, keyword])
+  }, [dispatch, isSearch, keyword, result])
 
   return <SearchForm onSubmit={handleSubmit}>
       <SearchInput

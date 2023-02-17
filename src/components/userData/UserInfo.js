@@ -11,6 +11,7 @@ import {
   UserInfoContainer,
   UserDataWrapper,
 } from 'pages/userPage/UserPage.styles';
+import { Loader } from 'components/loader/Loader';
 
 export const UserForm = ({ formData }) => {
   const {
@@ -48,7 +49,7 @@ export const UserForm = ({ formData }) => {
     <div>
       <div>
         {isUserLoading || isCurrentLoading ? (
-          <div>"loading" </div>
+          <Loader/>
         ) : (
           <UserDataWrapper>
             <UserPhoto
