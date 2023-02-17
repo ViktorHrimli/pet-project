@@ -26,7 +26,9 @@ import {
   DeleteButton,
   IconWasteBasket,
   TitleNoticeButton,
-  Link,
+  FirstPartOfWord,
+  SecondPartOfWord,
+  Link
 } from 'components/modalNotice/ModalNotice.styled';
 
 import { selectUser } from 'redux/auth/selectors';
@@ -35,9 +37,9 @@ import {
   deleteNotices,
   removeFavoriteNotices,
 } from 'redux/notices/operations';
-import defaultPetPhoto from '../../images/defaultPetPhoto.png';
 
 export const ModalNotice = ({ data, onClose }) => {
+  
   const {
     _id,
     title,
@@ -56,7 +58,7 @@ export const ModalNotice = ({ data, onClose }) => {
 
   const dispatch = useDispatch();
   const { token } = useAuth();
-
+  
   const showErrorRegister = () => {
     toast.error(
       'Only registered users can add on our site, so first log in or register.',
@@ -79,36 +81,40 @@ export const ModalNotice = ({ data, onClose }) => {
       <WrapperContainer>
         <WrapperInfoBlock>
           <WrapperPetPhoto>
-            {imageURL ? (
-              <PetPhoto src={imageURL} alt="Pet photo" />
-            ) : (
-              <PetPhoto src={defaultPetPhoto} alt="Not pet photo" />
-            )}
+            {imageURL && <PetPhoto src={imageURL} alt="Pet photo" />}
             <CategoryNotice>
-              <TitleCategory>{category}</TitleCategory>
+              {category && <TitleCategory>
+                <FirstPartOfWord>{category.slice(0, 1)}</FirstPartOfWord>
+                <SecondPartOfWord>{
+                category.split("")
+                .map(letter => letter === "-" ? letter = " " : letter )
+                .join("")
+                .slice(1, category.length)
+                }</SecondPartOfWord>
+                </TitleCategory>}
             </CategoryNotice>
           </WrapperPetPhoto>
           <ReferenceList>
-            <TitleModalNotice>{title}</TitleModalNotice>
+            {title && <TitleModalNotice>{title}</TitleModalNotice>}
             <InfoItem>
               <LableNotice>Name:</LableNotice>
-              <DateModalNotice>{name}</DateModalNotice>
+              {name && <DateModalNotice>{name}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Birthday:</LableNotice>
-              <DateModalNotice>{birthday}</DateModalNotice>
+              {birthday && <DateModalNotice>{birthday}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Breed:</LableNotice>
-              <DateModalNotice>{breed}</DateModalNotice>
+              {breed && <DateModalNotice>{breed}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Place:</LableNotice>
-              <DateModalNotice>{city}</DateModalNotice>
+              {city && <DateModalNotice>{city}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>The sex:</LableNotice>
-              <DateModalNotice>{sex}</DateModalNotice>
+              {sex && <DateModalNotice>{sex}</DateModalNotice>}
             </InfoItem>
             <InfoItem>
               <LableNotice>Email:</LableNotice>

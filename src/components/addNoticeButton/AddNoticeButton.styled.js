@@ -13,10 +13,13 @@ export const AddButton = styled.button`
   align-items: center;
   justify-content: center;
 
+  font-size: ${p => p.theme.fontSizes.xxxs};
   font-weight: ${p => p.theme.fontWeights.medium};
-  font-size: ${p => p.theme.fontSizes.s};
-  line-height: ${p => p.theme.lineHeights.normal};
+  line-height: ${p => p.theme.lineHeights.min};
+  
+  color: ${p => p.theme.colors.white};
   border: none;
+  outline: none;
 
   @media screen and (max-width: 767px) {
     position: fixed;
@@ -30,9 +33,6 @@ export const AddButton = styled.button`
     background-color: rgba(245, 146, 86, 1);
     box-shadow: ${p => p.theme.shadows.normal};
 
-    &:hover {
-      background-color: ${p => p.theme.colors.focus};
-    }
     animation: mymove 3s infinite;
     @keyframes mymove {
       20% {
@@ -53,28 +53,33 @@ export const AddButton = styled.button`
       }
     }
   }
+
   @media screen and (min-width: 768px) {
     top: 1px;
     left: 577px;
     width: 129px;
+
+    font-size: ${p => p.theme.fontSizes.s};
+    line-height: ${p => p.theme.lineHeights.normal};
+    color: ${p => p.theme.colors.black};
+
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      color: ${p => p.theme.colors.primary};
+    }
   }
 
   @media screen and (min-width: 1280px) {
     left: 1118px;
-  } ;
+  };
 `;
 
-export const ButtonName = styled.p`
-  margin-bottom: 0;
-  font-size: ${p => p.theme.fontSizes.xxxs};
-  line-height: ${p => p.theme.lineHeights.min};
-  color: ${p => p.theme.colors.white};
-
+export const ButtonName = styled.span`
   @media screen and (min-width: 768px) {
     padding-right: 12px;
-    font-size: ${p => p.theme.fontSizes.s};
-    line-height: ${p => p.theme.lineHeights.normal};
-    color: ${p => p.theme.colors.black};
   }
 `;
 
@@ -88,6 +93,10 @@ export const Circle = styled.div`
   border-radius: ${p => p.theme.radii.round};
   background-color: inherit;
 
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
   @media screen and (min-width: 768px) {
     width: 44px;
     height: 44px;
@@ -96,6 +105,7 @@ export const Circle = styled.div`
     &:hover {
       background-color: ${p => p.theme.colors.focus};
     }
+    
     animation: mymove 3s infinite;
     @keyframes mymove {
       20% {

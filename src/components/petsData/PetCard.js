@@ -25,11 +25,11 @@ export const PetCard = ({ cardData }) => {
                   <CardImg petImg={urlAvatar} />
                   <PetsDataWrapper>
                     <DeleteBtnDiv>
-                  <DeleteButton
-                    id={_id}
+                     <DeleteButton
+                      id={_id}
 
-                    onDeletePet={onDeletePet}
-                    isPetsLoading={isPetsLoading}
+                      onDeletePet={onDeletePet}
+                     isPetsLoading={isPetsLoading}
                   />
                   </DeleteBtnDiv>
                   <CardMarkUp cardData={userPets} id={_id} />
@@ -37,7 +37,7 @@ export const PetCard = ({ cardData }) => {
                 </PetsListItem>
               )
             )
-          : 'no pets yet'}
+          : <div>Add your pets</div>}
       </PetsUl>
     </Container>
   );

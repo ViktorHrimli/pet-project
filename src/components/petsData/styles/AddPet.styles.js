@@ -7,10 +7,7 @@ display: flex;
 flex-direction: row-reverse;
 align-items: center;
 justify-content: center;
-&:hover {
-  color: ${p => p.theme.colors.primary};
-  stroke: ${p => p.theme.colors.primary};
-}
+};
 	font-weight: ${p => p.theme.fontWeights.medium};
 	font-size: ${p => p.theme.fontSizes.s};
 	line-height: ${p => p.theme.lineHeights.normal};
@@ -18,8 +15,12 @@ justify-content: center;
 
 	@media screen and (min-width: 768px) {
     position: absolute;
-    top: 119px;
+    top: -430px;
     right: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-left: 400px;
+
   }
 }
 `;
@@ -48,7 +49,31 @@ export const Circle = styled.div`
 	border-radius: 50%;
 	width: 27px;
 	height: 27px;
+  transition: color 300ms linear, background-color 300ms linear;
 	background-color: ${p => p.theme.colors.primary};
+  &:hover {
+    background-color: ${p => p.theme.colors.focus};
+  }
+  animation: mymove 3s infinite;
+  @keyframes mymove {
+    20% {
+      opacity: 0.7;
+    }
+    40% {
+      box-shadow: #fff 0 -1px 8px, rgb(255, 111, 0) 0 -2px 8px,
+        #ff8000 0 -4px 8px, 3px 3px 5px 8px rgba(0, 0, 0, 0);
+      opacity: 0.8;
+    }
+    50% {
+      box-shadow: 2px 2px 5px 8px rgba(0, 0, 0, 0), #ff8000 0 -4px 8px,
+        rgb(255, 111, 0) 0 -2px 8px, #fff 0 -1px 8px;
+      opacity: 0.9;
+    }
+    85% {
+      box-shadow: none;
+    }
+  }
+
 
 	@media screen and (min-width: 768px) {
 		width: 44px;

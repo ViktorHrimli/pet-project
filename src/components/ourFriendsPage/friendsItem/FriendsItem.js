@@ -3,6 +3,7 @@ import { Transition } from 'react-transition-group';
 import PropTypes from 'prop-types';
 import {
     FriendName,
+    FriendNameLink,
     FriendItem,
     DataFriendCont,
     ContImg,
@@ -43,7 +44,9 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
         <>
             <FriendItem>
                 {urlFriend ?
-                    <a href={urlFriend} target="_blank" rel="noreferrer noopener"><FriendName>{name}</FriendName></a> :
+                    <FriendNameLink href={urlFriend} target="_blank" rel="noreferrer noopener">
+                        <FriendName>{name}</FriendName>
+                    </FriendNameLink> :
                     <FriendName>{name}</FriendName>}
                 <DataFriendCont>
                     <ContImg>
@@ -55,7 +58,8 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
                                 {time ?
                                     <TimeCont>
                                         <p style={{margin: "0"}}> Time:</p>
-                                        <Button onClick={handleToggle}>{time.monday}</Button>
+                                        <Button onClick={handleToggle}>
+                                            {time.monday}</Button>
                                     </TimeCont> :
                                     <>
                                         <p style={{margin: "0"}}>Time:</p> 

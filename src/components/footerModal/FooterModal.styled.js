@@ -15,7 +15,7 @@ export const Overlay = styled.div`
 
   overflow-y: auto;
   z-index: 2;
-  transition: opacity 250ms, visibility 250ms ease-in-out;
+  transition: opacity 300ms, visibility 250ms ease-in-out;
 `;
 
 export const ModalContainer = styled.div`
@@ -87,9 +87,9 @@ export const ButtonCloseModal = styled.button`
   border: ${p => p.theme.borders.none};
   cursor: pointer;
   background-color: transparent;
-
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
-    color: ${p => p.theme.colors.focus};
+    color: ${p => p.theme.colors.primary};
   }
 `;
 
