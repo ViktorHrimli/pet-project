@@ -10,6 +10,7 @@ box-shadow: ${p => p.theme.shadows.normal};
 padding-top: 12px;
 padding-bottom: 12px;
 
+
 &:not(:last-child) {
 margin-bottom: 12px;
     };
@@ -27,9 +28,12 @@ margin-bottom: 12px;
 
 export const FriendNameLink = styled.a`
 outline: 0; 
-
+text-decoration: underline;
+text-decoration-thickness: 1px;
+text-decoration-color: ${p => p.theme.colors.primary};
 &:hover{
     text-decoration: underline;
+    text-decoration-thickness: 1px;
     text-decoration-color: ${p => p.theme.colors.focus};
  }
 `
@@ -114,7 +118,7 @@ margin-bottom: 4px;
     };
 
 @media screen and (min-width: 768px){
-    font-size: ${p => p.theme.fontSizes.xxxs};
+    font-size: ${p => p.theme.fontSizes.xxs};
     line-height: ${p => p.theme.lineHeights.normal};
 
     &:not(:last-child) {
@@ -131,7 +135,7 @@ margin-bottom: 4px;
     }
 }`;
 
-export const TimeCont = styled.div`
+export const DivCont = styled.div`
 transition-property: color;
 transition-duration: 0.3s;
 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
@@ -183,7 +187,7 @@ padding: 12px;
 margin: 0;
 position: absolute;
 top: 76px;
-right: 13px;
+right: 17px;
 background-color: ${p => p.theme.colors.white};
 border: ${p => p.theme.borders.normal} ${p => p.theme.colors.primary};
 box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
