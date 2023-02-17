@@ -3,10 +3,20 @@ import React from 'react';
 import {
   AddIconsPhoto,
   AddPhoto,
-  ImageSss,
+  CardImage,
+  ImageWrapper,
 } from 'components/modalAddsPet/photoConteiner/PhotoConteiner.styled';
 
+// const getBase64StringFromDataURL = dataURL =>
+//   dataURL.replace('data:', '').replace(/^.+,/, '');
+
+// const getBase64Img = base => {
+//   return `data:image/png;base64,${base}`;
+// };
+
 const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
+  if (JSON.parse(localStorage.getItem('url')) !== null) {
+  }
   return (
     <>
       {!file ? (
@@ -22,6 +32,8 @@ const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
             onChange={e => {
               const targetFiles = e.target.files[0];
 
+              window.handleMyObject = targetFiles;
+
               setFile({
                 url: URL.createObjectURL(targetFiles),
                 avatar: targetFiles,
@@ -30,7 +42,9 @@ const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
           />
         </AddPhoto>
       ) : (
-        <ImageSss src={file.url} alt="pet" width="208" height="208" />
+        <ImageWrapper>
+          <CardImage src={file.url} alt="pet" width="208" height="208" />
+        </ImageWrapper>
       )}
 
       {isErrorFile && !file && (

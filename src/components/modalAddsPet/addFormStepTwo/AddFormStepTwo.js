@@ -13,6 +13,7 @@ import {
   AddErrorMessageGlobal,
   LabelGlobal,
   TextGlobal,
+  NoticeReqiredSymbol,
 } from 'components/modalAddNotice/GlobalForm.styled';
 
 import { ButtonFormDoneCancel } from 'components/modalAddNotice/buttonForm/ButtonForm';
@@ -26,7 +27,17 @@ const shamaStepTwo = Yup.object().shape({
 });
 
 const StepTwo = ({ step, state, setIsOpen }) => {
-  const [file, setFile] = useState(null);
+  const localStorageObj = {
+    url: window.handleMyObject
+      ? URL.createObjectURL(window.handleMyObject)
+      : null,
+    avatar: window.handleMyObject,
+  };
+
+  const [file, setFile] = useState(
+    window.handleMyObject ? localStorageObj : null
+  );
+
   const [isErrorFile, setIsErrorFile] = useState(false);
 
   const handleSubmit = (values, action) => {
@@ -47,7 +58,10 @@ const StepTwo = ({ step, state, setIsOpen }) => {
     <>
       <TextGlobal>Add pet</TextGlobal>
 
-      <AddStepTwoParagraph>Add photo and some comments</AddStepTwoParagraph>
+      <AddStepTwoParagraph>
+        Add photo and some comments
+        <NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+      </AddStepTwoParagraph>
 
       <Formik
         onSubmit={handleSubmit}
@@ -66,7 +80,10 @@ const StepTwo = ({ step, state, setIsOpen }) => {
 
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
-                Comments
+                <div>
+                  Comments<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                </div>
+
                 <AddComments
                   as="textarea"
                   placeholder="Enter comments"

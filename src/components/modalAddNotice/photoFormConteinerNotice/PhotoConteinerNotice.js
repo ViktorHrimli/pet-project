@@ -2,27 +2,12 @@ import React from 'react';
 
 import {
   AddIconsPhoto,
-  ImageSss,
   NoticeAddPhoto,
+  CardImage,
+  ImageWrapper,
 } from 'components/modalAddNotice/photoFormConteinerNotice/PhotoConteinerNotice.styled';
 
 import { AddErrorMessageGlobal } from 'components/modalAddNotice/GlobalForm.styled';
-
-// const createDb = obj => {
-//   let openRequest = indexedDB.open('store', 1);
-
-//   openRequest.onupgradeneeded = function () {
-//     let db = openRequest.result;
-//     if (!db.objectStoreNames.contains('photo')) {
-//       db.createObjectStore('photo', { keyPath: 'url' });
-//     }
-
-//     let transaction = db.transaction('photo', 'readwrite');
-//     let photo = transaction.objectStore('photo');
-
-//     let request = photo.add(obj); // (3)
-//   };
-// };
 
 const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
   return (
@@ -38,19 +23,21 @@ const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
             size={50000}
             accept=".png, .jpg, .jpeg, .webp"
             onChange={e => {
+              const targetFiles = e.target.files[0];
+
+              window.handleMyObject = targetFiles;
+
               setFile({
-                url: URL.createObjectURL(e.target.files[0]),
-                avatar: e.target.files[0],
+                url: URL.createObjectURL(targetFiles),
+                avatar: targetFiles,
               });
-              localStorage.setItem(
-                'url',
-                JSON.stringify(URL.createObjectURL(e.target.files[0]))
-              );
             }}
           />
         </NoticeAddPhoto>
       ) : (
-        <ImageSss src={file.url} alt="pet" width="208" height="208" />
+        <ImageWrapper>
+          <CardImage src={file.url} alt="pet" width="208" height="208" />
+        </ImageWrapper>
       )}
 
       {isErrorFile && !file && (

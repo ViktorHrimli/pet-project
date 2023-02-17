@@ -34,11 +34,8 @@ const schema = Yup.object().shape({
   breed: Yup.string()
     .min(2)
     .max(16)
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!')
-    .required(),
-  date: Yup.string()
-    .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
-    .required(),
+    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!'),
+  date: Yup.string().matches(regexDate, 'Date should be a (DD.MM.yyyy)'),
 });
 
 export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
@@ -80,7 +77,7 @@ export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
                 <div>
-                  Title ad<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                  Title for add<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
                 </div>
 
                 <InputGlobal placeholder="Enter title" name="title" />

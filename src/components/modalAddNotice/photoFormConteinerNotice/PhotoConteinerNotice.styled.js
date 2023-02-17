@@ -21,24 +21,6 @@ const NoticeAddPhoto = styled.label`
   }
 `;
 
-const ImageSss = styled.img`
-  display: block;
-
-  width: 116px;
-  height: 116px;
-
-  border-radius: ${p => p.theme.radii.normal};
-
-  :hover {
-    cursor: pointer;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 140px;
-    height: 140px;
-  }
-`;
-
 const AddIconsPhoto = styled(VscAdd)`
   position: absolute;
   width: 48px;
@@ -52,4 +34,27 @@ const AddIconsPhoto = styled(VscAdd)`
   transform: translate(-50%, -50%);
 `;
 
-export { AddIconsPhoto, ImageSss, NoticeAddPhoto };
+const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+
+  width: 116px;
+  height: 116px;
+
+  border-radius: ${p => p.theme.radii.normal};
+
+  overflow: hidden;
+
+  @media screen and (min-width: 768px) {
+    width: 140px;
+    height: 140px;
+  }
+`;
+
+const CardImage = styled.img`
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+`;
+
+export { AddIconsPhoto, NoticeAddPhoto, CardImage, ImageWrapper };

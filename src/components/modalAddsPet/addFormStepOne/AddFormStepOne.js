@@ -13,13 +13,21 @@ import {
 
 import { ButtonFormNextCancel } from 'components/modalAddNotice/buttonForm/ButtonForm';
 
+import { NoticeReqiredSymbol } from 'components/modalAddNotice/GlobalForm.styled';
+
 const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
 const textMatch = /^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/;
 
 const schema = Yup.object().shape({
-  name: Yup.string().min(2).max(16).matches(textMatch, 'Incorrect symbol!'),
-  breed: Yup.string().min(2).max(16),
-  date: Yup.string().matches(regexDate, 'Date should be a (DD.MM.yyyy)'),
+  name: Yup.string()
+    .min(2)
+    .max(16)
+    .matches(textMatch, 'Incorrect symbol!')
+    .required('Field required!'),
+  breed: Yup.string().min(2).max(16).required('Field required!'),
+  date: Yup.string()
+    .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
+    .required('Field required!'),
 });
 
 const StepOne = ({ step, state, setIsOpen }) => {
@@ -52,7 +60,10 @@ const StepOne = ({ step, state, setIsOpen }) => {
           <FormGlobal>
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
-                Name pet
+                <div>
+                  Name pet<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                </div>
+
                 <InputGlobal placeholder="Enter name pet" name="name" />
               </LabelGlobal>
               {touched.name && errors.name && (
@@ -61,7 +72,10 @@ const StepOne = ({ step, state, setIsOpen }) => {
             </div>
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
-                Date of birth
+                <div>
+                  Date of birth<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                </div>
+
                 <InputGlobal placeholder="Enter date of birth" name="date" />
               </LabelGlobal>
               {touched.date && errors.date && (
@@ -70,7 +84,10 @@ const StepOne = ({ step, state, setIsOpen }) => {
             </div>
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
-                Breed
+                <div>
+                  Breed<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                </div>
+
                 <InputGlobal placeholder="Enter breed" name="breed" />
               </LabelGlobal>
               {touched.breed && errors.breed && (
