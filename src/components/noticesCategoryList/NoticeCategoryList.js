@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLayoutEffect, useState } from 'react';
+import { ThreeCircles } from 'react-loader-spinner';
 import {
   getAll,
   favoriteNotices,
@@ -10,6 +11,7 @@ import {
   selectItems,
   selectFavoriteItems,
   selectUserItems,
+  selectIsLoading,
 } from 'redux/notices/selectors';
 import { currentNotices } from 'redux/notices/filterSlice';
 import { selectVisibleNotices, selectIsSearch } from 'redux/notices/selectors';
@@ -30,6 +32,7 @@ export const NoticeCategoryList = () => {
   const [limit, setLimit] = useState(12);
   const dispatch = useDispatch();
   const history = useLocation();
+
   const pathName = history.pathname.slice(9);
   const isToTurn = limit > 12;
 
@@ -60,8 +63,6 @@ export const NoticeCategoryList = () => {
       break;
   }
 
-  const toRender = useSelector(selected);
-
   useLayoutEffect(() => {
     dispatch(getAll({ result, limit }));
   }, [dispatch, result, limit]);
@@ -78,18 +79,21 @@ export const NoticeCategoryList = () => {
     setLimit(12);
   }, [result]);
 
-  const toDisableButton = limit > toRender.length;
+  const toRender = useSelector(selected);
+  const isLoading = useSelector(selectIsLoading);
+
   const visibleNotices = useSelector(selectVisibleNotices);
   const isSearch = useSelector(selectIsSearch);
 
   useLayoutEffect(() => {
     dispatch(currentNotices(toRender));
   }, [dispatch, toRender, visibleNotices]);
-  console.log(toRender.length);
   const finishedRender = isSearch ? visibleNotices : toRender;
+  const toDisableButton =
+    limit > toRender.length || limit > finishedRender.length;
   return (
     <>
-      {toRender.length > 1 ? (
+      {toRender.length >= 1 ? (
         <>
           <CardList>
             {finishedRender?.map(item => {
@@ -98,7 +102,7 @@ export const NoticeCategoryList = () => {
           </CardList>
           <ButtonList>
             <li>
-              {result && !toDisableButton && (
+              {result && !toDisableButton && !isSearch && (
                 <PaginationButton
                   type="button"
                   onClick={() => {
@@ -129,13 +133,40 @@ export const NoticeCategoryList = () => {
         </>
       ) : (
         <>
-          <EmptyRequestText>
-            I don't see any pets on your request
-          </EmptyRequestText>
-          <EmptyRequestText>
-            Please add your pets or go to registration/login
-          </EmptyRequestText>
-          <EmptyRequestImg src={dog} alt="No news" />
+          {isLoading ? (
+            <>
+              <ThreeCircles
+                height="100"
+                width="100"
+                color="#f59256"
+                display="block"
+                wrapperStyle={{
+                  display: 'block',
+                  textAlign: 'center',
+                  left: '50%',
+                  right: '50%',
+                  top: '50%',
+                  bottom: '50%',
+                }}
+                wrapperClass=""
+                visible={true}
+                ariaLabel="three-circles-rotating"
+                outerCircleColor="#FF6101"
+                innerCircleColor="rotating"
+                middleCircleColor=""
+              />
+            </>
+          ) : (
+            <div>
+              <EmptyRequestText>
+                I don't see any pets on your request
+              </EmptyRequestText>
+              <EmptyRequestText>
+                Please add your pets or go to registration/login
+              </EmptyRequestText>
+              <EmptyRequestImg src={dog} alt="No news" />
+            </div>
+          )}
         </>
       )}
     </>

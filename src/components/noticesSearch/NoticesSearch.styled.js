@@ -21,6 +21,7 @@ export const SearchInput = styled.input`
   font-size: ${p => p.theme.fontSizes.xs};
   line-height: ${p => p.theme.lineHeights.max};
   font-weight: ${p => p.theme.fontWeights.medium};
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
   width: 100%;
   height: 40px;
   padding: 0 0 0 12px;
