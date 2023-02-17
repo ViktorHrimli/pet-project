@@ -6,6 +6,24 @@ import {
   NoticeAddPhoto,
 } from 'components/modalAddNotice/photoFormConteinerNotice/PhotoConteinerNotice.styled';
 
+import { AddErrorMessageGlobal } from 'components/modalAddNotice/GlobalForm.styled';
+
+// const createDb = obj => {
+//   let openRequest = indexedDB.open('store', 1);
+
+//   openRequest.onupgradeneeded = function () {
+//     let db = openRequest.result;
+//     if (!db.objectStoreNames.contains('photo')) {
+//       db.createObjectStore('photo', { keyPath: 'url' });
+//     }
+
+//     let transaction = db.transaction('photo', 'readwrite');
+//     let photo = transaction.objectStore('photo');
+
+//     let request = photo.add(obj); // (3)
+//   };
+// };
+
 const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
   return (
     <>
@@ -24,6 +42,10 @@ const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
                 url: URL.createObjectURL(e.target.files[0]),
                 avatar: e.target.files[0],
               });
+              localStorage.setItem(
+                'url',
+                JSON.stringify(URL.createObjectURL(e.target.files[0]))
+              );
             }}
           />
         </NoticeAddPhoto>
@@ -32,7 +54,7 @@ const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
       )}
 
       {isErrorFile && !file && (
-        <div style={{ color: '#8b0000' }}>{'Field reqiured!'}</div>
+        <AddErrorMessageGlobal>{'Field reqiured!'}</AddErrorMessageGlobal>
       )}
     </>
   );

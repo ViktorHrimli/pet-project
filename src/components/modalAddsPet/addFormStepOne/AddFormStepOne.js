@@ -17,19 +17,19 @@ const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
 const textMatch = /^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/;
 
 const schema = Yup.object().shape({
-  name: Yup.string()
-    .min(2)
-    .max(16)
-    .required('Required field!')
-    .matches(textMatch, 'Incorrect symbol!'),
-  breed: Yup.string().min(2).max(16).required('Required field!'),
-  date: Yup.string()
-    .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
-    .required('Required field!'),
+  name: Yup.string().min(2).max(16).matches(textMatch, 'Incorrect symbol!'),
+  breed: Yup.string().min(2).max(16),
+  date: Yup.string().matches(regexDate, 'Date should be a (DD.MM.yyyy)'),
 });
 
 const StepOne = ({ step, state, setIsOpen }) => {
-  const [prevDate] = useState(JSON.parse(localStorage.getItem('prev')) || '');
+  const [prevDate] = useState(
+    JSON.parse(localStorage.getItem('prev')) || {
+      name: '',
+      date: '',
+      breed: '',
+    }
+  );
 
   const handleSubmit = (values, action) => {
     localStorage.setItem('prev', JSON.stringify(values));
