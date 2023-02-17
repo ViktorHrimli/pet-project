@@ -9,6 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { combineReducers } from 'redux';
 
 import storage from 'redux-persist/lib/storage';
 import {authReducer} from './auth/slice';
@@ -24,8 +25,7 @@ const authPersistConfig = {
   whitelist: ['token'],
 };
 
-export const store = configureStore({
-  reducer: {
+const combinedReducer = combineReducers({
   auth: persistReducer(authPersistConfig, authReducer),
   user: userReducer,
   pets: petsReducer,
@@ -33,7 +33,17 @@ export const store = configureStore({
   news: newsReducer,
   friends: friendsReducer,
   filterNotices: filterNoticesReducer,
-  },
+});
+
+const rootReducer = (state, action) => {
+  if (action.type === "notices/getAll/pending") {
+    state.items = [];
+  }
+  return combinedReducer(state, action);
+};
+
+export const store = configureStore({
+  reducer: rootReducer,
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
       serializableCheck: {
