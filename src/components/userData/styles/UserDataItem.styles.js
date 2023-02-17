@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { ReactComponent as EditIcon } from 'images/svg/ci_edit.svg';
 
 export const InfoItem = styled.div`
   font-size: ${p => p.theme.fontSizes.xxxs};
@@ -138,11 +139,7 @@ cursor: pointer;
   border: none;
   background-color: ${p => p.theme.colors.background};
 
-  &:hover,
-  &:focus {
-    background: #ffdec3;
-    transition: 0.3s;
-  }
+
   @media screen and (min-width: 768px) {
 
     width: 32px;
@@ -154,3 +151,10 @@ cursor: pointer;
     height: 32px;
   }
 `;
+
+export const IconEdit = styled(EditIcon)`
+:hover {
+  fill: ${p => p.theme.colors.primary};
+  transition: 0.3s;
+}
+`
