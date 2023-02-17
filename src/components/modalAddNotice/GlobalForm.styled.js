@@ -105,9 +105,13 @@ const AddErrorMessageGlobal = styled.span`
   color: #8b0000;
 
   @media screen and (min-width: 768px) {
-    bottom: -26px;
+    bottom: -20px;
     font-size: ${p => p.theme.fontSizes.xxs};
   }
+`;
+
+const NoticeReqiredSymbol = styled.span`
+  color: ${p => p.theme.colors.primary};
 `;
 
 export {
@@ -116,4 +120,5 @@ export {
   LabelGlobal,
   TextGlobal,
   AddErrorMessageGlobal,
+  NoticeReqiredSymbol,
 };
