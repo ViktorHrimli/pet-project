@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 
+
 export const Title = styled.h2`
   font-family: 'Manrope';
 
@@ -192,7 +193,5 @@ align-items: center;
 justify-content: center;
 margin-bottom: 0px;
 `
-export const UserFormWrapper = styled.div`
-margin-bottom: 0px;`
 
 
