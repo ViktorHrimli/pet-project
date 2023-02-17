@@ -187,7 +187,7 @@ padding: 12px;
 margin: 0;
 position: absolute;
 top: 76px;
-right: 13px;
+right: 17px;
 background-color: ${p => p.theme.colors.white};
 border: ${p => p.theme.borders.normal} ${p => p.theme.colors.primary};
 box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);

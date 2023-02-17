@@ -18,12 +18,10 @@ import {
     DivCont
 } from 'components/ourFriendsPage/friendsItem/FriendsItem.styled'
 
-
-
 const duration = 300;
 
 const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
+  transition: `opacity ${duration}ms cubic-bezier(0.4, 0, 0.2, 1)`,
   opacity: 0,
 }
 
