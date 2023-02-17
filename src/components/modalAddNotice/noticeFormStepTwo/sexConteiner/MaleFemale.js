@@ -13,6 +13,7 @@ import {
 import {
   LabelGlobal,
   AddErrorMessageGlobal,
+  NoticeReqiredSymbol,
 } from 'components/modalAddNotice/GlobalForm.styled';
 
 import male from '../../../../images/svg/male.svg';
@@ -25,7 +26,11 @@ const MaleFemale = ({ touched, errors }) => {
 
   return (
     <NoticeConteinerSex>
-      <LabelGlobal>The sex:</LabelGlobal>
+      <LabelGlobal>
+        <div>
+          The sex<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+        </div>
+      </LabelGlobal>
       <NoticeSexRadioBtnConteiner>
         <div>
           <NoticeIconMale

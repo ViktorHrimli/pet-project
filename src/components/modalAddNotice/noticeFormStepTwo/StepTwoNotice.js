@@ -14,13 +14,21 @@ import {
   LabelGlobal,
   TextGlobal,
   AddErrorMessageGlobal,
+  NoticeReqiredSymbol,
 } from 'components/modalAddNotice/GlobalForm.styled';
 
 import { ButtonFormDoneCancel } from 'components/modalAddNotice/buttonForm/ButtonForm';
 import { MaleFemale } from 'components/modalAddNotice/noticeFormStepTwo/sexConteiner/MaleFemale';
 import { PhotoConteinerNotice } from 'components/modalAddNotice/photoFormConteinerNotice/PhotoConteinerNotice';
 
-const pricePattern = /^[0-9][0-9]*$/;
+const pricePattern = /^[1-9][0-9]*$/;
+
+// const getBase64StringFromDataURL = dataURL =>
+//   dataURL.replace('data:', '').replace(/^.+,/, '');
+
+// const getBase64Img = base => {
+//   return `data:image/png;base64,${base}`;
+// };
 
 const shemaMultipleModal = isPrice => {
   return Yup.object().shape({
@@ -37,7 +45,7 @@ const shemaMultipleModal = isPrice => {
       .max(120),
     price: isPrice
       ? Yup.string()
-          .matches(pricePattern, 'Only numbers')
+          .matches(pricePattern, 'Price must be more 0!')
           .required('Field required!')
       : Yup.string().matches(pricePattern, 'Only numbers').notRequired(),
   });
@@ -49,7 +57,7 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
 
   const [localeState] = useState({
     location: JSON.parse(localStorage.getItem('notice-location')) || '',
-    price: JSON.parse(localStorage.getItem('notice-price')) || '0',
+    price: JSON.parse(localStorage.getItem('notice-price')) || '',
     comments: JSON.parse(localStorage.getItem('notice-comments')) || '',
     sex:
       JSON.parse(localStorage.getItem('notice-sex')) === true
@@ -58,6 +66,20 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
   });
 
   const shema = shemaMultipleModal(isUseSell);
+
+  if (JSON.parse(localStorage.getItem('url')) !== null) {
+    // const str = JSON.parse(localStorage.getItem('url')).slice(5);
+    // fetch(str)
+    //   .then(res => res.blob())
+    //   .then(blob => {
+    //     const reader = new FileReader();
+    //     reader.onloadend = () => {
+    //       const base64 = getBase64StringFromDataURL(reader.result);
+    //       // const img = getBase64Img(base64);
+    //     };
+    //     reader.readAsDataURL(blob);
+    //   });
+  }
 
   const handleSubmit = (values, action) => {
     if (file) {
@@ -95,7 +117,11 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
             >
               <div style={{ position: 'relative' }}>
                 <LabelGlobal>
-                  <LabelGlobal>Location:</LabelGlobal>
+                  <LabelGlobal>
+                    <div>
+                      Location<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                    </div>
+                  </LabelGlobal>
                   <InputGlobal
                     placeholder="Your pet location"
                     name="location"
@@ -117,7 +143,11 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
               {isUseSell && (
                 <div style={{ position: 'relative' }}>
                   <LabelGlobal>
-                    <LabelGlobal>Price:</LabelGlobal>
+                    <LabelGlobal>
+                      <div>
+                        Price<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                      </div>
+                    </LabelGlobal>
                     <InputGlobal
                       placeholder="Your pet price"
                       name="price"
@@ -139,7 +169,12 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
             </div>
 
             <NoticeAddPhotoConteiner>
-              <LabelGlobal>Load the pet’s image</LabelGlobal>
+              <LabelGlobal>
+                <div>
+                  Load the pet’s image
+                  <NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                </div>
+              </LabelGlobal>
 
               <PhotoConteinerNotice
                 file={file}
@@ -150,7 +185,10 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
 
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
-                Comments
+                <div>
+                  Comments<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                </div>
+
                 <AddComments
                   as="textarea"
                   placeholder="Enter comments"

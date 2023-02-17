@@ -27,7 +27,7 @@ const shamaStepTwo = Yup.object().shape({
 
 const StepTwo = ({ step, state, setIsOpen }) => {
   const [file, setFile] = useState(null);
-  const [isErrorFile, setIsErrorFile] = useState(true);
+  const [isErrorFile, setIsErrorFile] = useState(false);
 
   const handleSubmit = (values, action) => {
     if (file) {
@@ -36,10 +36,10 @@ const StepTwo = ({ step, state, setIsOpen }) => {
       localStorage.removeItem('stepTwo');
 
       action.resetForm();
-      setIsErrorFile(true);
+      setIsErrorFile(false);
       setIsOpen(false);
     } else {
-      setIsErrorFile(false);
+      setIsErrorFile(true);
     }
   };
 
@@ -87,7 +87,7 @@ const StepTwo = ({ step, state, setIsOpen }) => {
               )}
             </div>
 
-            <ButtonFormDoneCancel step={step} />
+            <ButtonFormDoneCancel step={step} setIsErrorFile={setIsErrorFile} />
           </AddStepTwoFormPets>
         )}
       </Formik>
