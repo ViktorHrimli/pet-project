@@ -20,7 +20,7 @@ margin-left: auto;
 @media screen and (min-width: 1280px) {
   width: 1280px;
 }
-  margin-top: 119px;
+  margin-top: 126px;
   padding-left: 20px;
   padding-right: 20px;
   @media screen and (min-width: 768px) {
@@ -43,6 +43,7 @@ export const UserInfo = styled.div`
   box-shadow: 7px 4px 14px rgba(0, 0, 0, 0.11);
 
   @media screen and (min-width: 768px) {
+    height: 311px;
     padding-left: 0px;
     padding: 24px 40px 24px 32px;
     margin-right: 32px;
@@ -59,6 +60,7 @@ export const UserInfo = styled.div`
     justify-content: flex-start;
     padding: 20px 16px 40px 16px;
     width: 411px;
+    height: auto;
     margin-right: 0px;
   }
 `;
@@ -167,7 +169,7 @@ export const PetsContainerWrapper = styled.div`
 export const UserInfoContainer = styled.div`
   margin-bottom: 42px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 0px;
+    margin-bottom: 20px;
   }
   @media screen and (min-width: 1280px) {
 
