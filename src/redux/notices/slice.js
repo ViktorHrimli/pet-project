@@ -38,6 +38,10 @@ const noticesSlice = createSlice({
     [getAll.pending]: handlePending,
     [getUserNotices.pending]: handlePending,
     [favoriteNotices.pending]: handlePending,
+    [getNoticesById.pending](state) {
+      state.isLoading = true;
+      state.noticesById = [];
+    },
 
     [getAll.rejected]: handleRejected,
     [getUserNotices.rejected]: handleRejected,
