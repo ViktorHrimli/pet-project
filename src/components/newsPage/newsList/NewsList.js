@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchNews } from "../../../redux/news/operations";
 import { selectorNews } from "../../../redux/news/selectors";
 import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
-import {ButtonUp} from "components/newsPage/buttonUp/ButtonUp"
+// import {ButtonUp} from "components/newsPage/buttonUp/ButtonUp"
 import dog from '../../../images/fiends/dog.jpg';
 
 export const NewsList = () => {
@@ -85,7 +85,7 @@ export const NewsList = () => {
                             </li>
                     }
                 </ListOfNews>
-                <ButtonUp/> 
+                {/* <ButtonUp/>  */}
             </Section>
         </main>
     )
