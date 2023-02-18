@@ -13,7 +13,7 @@ export const InfoItem = styled.div`
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
-    line-height: 1.38;
+    line-height: 1.375;
   }
 `;
 
@@ -89,6 +89,7 @@ export const EditInput = styled.input`
     padding-bottom: 0px;
     padding-top: 0px;
     width: 216px;
+    height: 32px;
     font-size: 18px;
     ${p => p.theme.lineHeights.max}
   }
@@ -96,10 +97,7 @@ export const EditInput = styled.input`
     position: static;
   }
 `;
-export const ErrorsWrapper = styled.div`
-  position: absolute;
-  padding-left: 10px;
-`;
+
 export const EditInputContainer = styled.div``;
 
 export const TextInInput = styled.p`
@@ -146,8 +144,12 @@ export const EditInputBtnSubmit = styled.div`
 `;
 
 export const IconEdit = styled(EditIcon)`
-  :hover {
-    fill: ${p => p.theme.colors.primary};
-    transition: 0.3s;
-  }
-`;
+:hover {
+  fill: ${p => p.theme.colors.primary};
+  transition: 0.3s;
+}
+`
+export const ErrorMessege = styled.div`
+position: absolute;
+margin-left: 10px;
+color: red`;

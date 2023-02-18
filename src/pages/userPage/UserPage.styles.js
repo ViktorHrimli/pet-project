@@ -136,6 +136,7 @@ color: #111111;
 export const UserCardWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     margin-right: 32px;
+    margin-bottom: 30px;
   }
 `;
 export const AddPetBtnContainer = styled.div`
