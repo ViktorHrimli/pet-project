@@ -11,7 +11,7 @@ import {
 } from './operations';
 
 const handlePending = state => {
-  state.items = [];
+  // state.items = [];
   state.isLoading = true;
 };
 
