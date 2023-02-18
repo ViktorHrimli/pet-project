@@ -59,7 +59,7 @@ export const NoticesSearch = () => {
     setIsSearch(prevState => !prevState);
 
     if(isSearch){
-      setKeyword("");
+      // setKeyword("");
       setLimit(12);
     }
   };
@@ -76,7 +76,7 @@ export const NoticesSearch = () => {
       placeholder="Search"
       name="value"
       value={keyword}
-      disabled={isSearch}
+      // disabled={isSearch}
       onChange={handleChange}
       />
       <BtnSearch type="submit">
