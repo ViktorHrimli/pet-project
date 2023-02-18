@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { RxCrossCircled } from "react-icons/rx";
 
 export const ListOfNews = styled.ul`
   margin-bottom: 60px;
@@ -42,4 +43,28 @@ export const EmptyRequestImg = styled.img`
   margin-left: auto;
   margin-right: auto;
   margin-bottom: ${p => p.theme.space[4]};
+`;
+
+export const IconCross = styled(RxCrossCircled)`
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 26px;
+  right: 38px;
+
+  color: ${p => p.theme.colors.focus};
+  @media screen and (min-width: 768px) {
+    width: 22px;
+    height: 22px;
+    margin-top: auto;
+
+    top:8px;
+    right: 12px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 24px;
+    top: 7px;
+  }
+
 `;

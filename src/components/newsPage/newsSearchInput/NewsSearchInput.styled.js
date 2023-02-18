@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { ReactComponent as search } from '../../../images/svg/search.svg';
-import { ReactComponent as crossNotice } from '../../../images/svg/close-line.svg';
+import { RxCrossCircled } from "react-icons/rx";
 
 export const InputCont = styled.div`
 width: 280px;
@@ -102,7 +102,7 @@ export const IconSearch = styled(search)`
   }
 `;
 
-export const IconCross = styled(crossNotice)`
+export const IconCross = styled(RxCrossCircled)`
   width: 15px;
   height: 15px;
   transition-property: color;
