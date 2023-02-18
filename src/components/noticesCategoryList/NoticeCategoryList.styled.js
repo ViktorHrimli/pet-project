@@ -53,7 +53,7 @@ export const PaginationButton = styled.button`
 
 export const Plug = styled.div`
   animation-name: appearance;
-  animation-duration: 2000ms;
+  animation-duration: 1000ms;
   animation-iteration-count: 1;
 
   @keyframes appearance {
