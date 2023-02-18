@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
@@ -48,5 +49,10 @@ const ModalNoticeLayout = ({ onClose, children }) => {
     modalRoot
   );
 };
+
+ModalNoticeLayout.propTypes = {
+  onClickBackdrop: PropTypes.func,
+  onClick: PropTypes.func,
+}
 
 export default ModalNoticeLayout;
