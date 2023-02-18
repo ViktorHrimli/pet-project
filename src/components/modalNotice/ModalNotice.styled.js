@@ -214,7 +214,7 @@ export const ContactButton = styled.button`
   color: ${p => p.theme.colors.white};
 
   transition-property: background-color, border;
-  transition-duration: 0.25s;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {

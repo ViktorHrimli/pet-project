@@ -40,7 +40,7 @@ export const PaginationButton = styled.button`
     rgb(0 0 0 / 60%) -23px 0px 20px -23px, rgb(0 0 0 / 60%) 23px 0px 20px -23px,
     rgb(0 0 0 / 10%) 0px 0px 40px inset;
   transition-property: background-color, color, font-weight, scale;
-  transition-duration: 0.25s;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
@@ -48,5 +48,24 @@ export const PaginationButton = styled.button`
     color: ${p => p.theme.colors.white};
     scale: 1.05;
     font-weight: bolder;
+  }
+`;
+
+export const Plug = styled.div`
+  animation-name: rotate;
+  animation-duration: 3895ms;
+  animation-iteration-count: 1;
+
+  @keyframes rotate {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      scale: 0.5;
+      opacity: 0.3;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 `;
