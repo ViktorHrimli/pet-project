@@ -2,11 +2,16 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavoriteItems, selectItemById } from 'redux/notices/selectors';
+import {
+  selectFavoriteItems,
+  selectItemById,
+  selectUserItems,
+} from 'redux/notices/selectors';
 import {
   addFavoriteNotices,
   removeFavoriteNotices,
   getNoticesById,
+  deleteNotices,
 } from 'redux/notices/operations';
 import { useAuth } from 'hooks/useAuth';
 
@@ -22,6 +27,7 @@ import {
   DeleteButton,
   Notiece,
   Pick,
+  Picked,
   PickIcon,
   Try,
   Buttonlist,
@@ -39,7 +45,8 @@ export const NoticeCategoryItem = ({ item }) => {
   const dispatch = useDispatch();
   const { token } = useAuth();
   const [isModalOpen, seIsModalOpen] = useState(false);
-  const allFavorite = useSelector(selectFavoriteItems);
+  const allFavoriteItems = useSelector(selectFavoriteItems);
+  const allUserItems = useSelector(selectUserItems);
   const selectItem = useSelector(selectItemById);
 
   const showErrorRegister = () => {
@@ -50,7 +57,8 @@ export const NoticeCategoryItem = ({ item }) => {
       }
     );
   };
-  const isFavorite = allFavorite.find(card => card._id === _id);
+  const isUFavoriteItem = allFavoriteItems.find(card => card._id === _id);
+  const isUserItem = allUserItems.find(card => card._id === _id);
   function toFormatTitle() {
     return title.length < 30 ? title : title.slice(0, 30) + '...';
   }
@@ -76,76 +84,88 @@ export const NoticeCategoryItem = ({ item }) => {
     .split('')
     .map(letter => (letter === '-' ? (letter = ' ') : letter))
     .join('');
-
+  const toCurrentTitle = 'lost-found';
   return (
-    <CardItem key={_id}>
-      <ImageWrapper>
-        <CardImage src={imageURL} alt="Pet photo" />
-      </ImageWrapper>
-      <Notiece>
-        <span>
-          <FirstPartOfWord>{correctCategory.slice(0, 1)}</FirstPartOfWord>
-          <SecondPartOfWord>
-            {correctCategory.slice(1, category.length)}
-          </SecondPartOfWord>
-        </span>
-      </Notiece>
-      <Pick
-        onClick={() =>
-          token ? dispatch(addFavoriteNotices(_id)) : showErrorRegister()
-        }
-      >
-        <PickIcon />
-      </Pick>
-      <CardTitle>{toFormatTitle()}</CardTitle>
-      <InfoList>
-        <InfoItem>
-          <span>Breed:</span>
-          <Try>{breed}</Try>
-        </InfoItem>
-        <InfoItem>
-          <span>Place:</span>
-          <Try>{city}</Try>
-        </InfoItem>
-        <InfoItem>
-          <span>Age:</span>
-          <Try>{toFormatData()}</Try>
-        </InfoItem>{' '}
-        {price >= 1 ? (
-          <InfoItem>
-            <span>Price:</span>
-            <Try>{price}&#8372;</Try>
-          </InfoItem>
-        ) : null}
-      </InfoList>
-      <Buttonlist>
-        <div>
-          <CardButton
-            type="button"
-            onClick={() => {
-              dispatch(getNoticesById(_id));
-              seIsModalOpen(true);
-              document.body.style.overflow = 'hidden';
-            }}
+    _id && (
+      <CardItem key={_id}>
+        <ImageWrapper>
+          <CardImage src={imageURL} alt="Pet photo" />
+        </ImageWrapper>
+        <Notiece>
+          {category === toCurrentTitle ? (
+            <span>Lost/found </span>
+          ) : (
+            <span>
+              <FirstPartOfWord>{correctCategory.slice(0, 1)}</FirstPartOfWord>
+              <SecondPartOfWord>
+                {correctCategory.slice(1, category.length)}
+              </SecondPartOfWord>
+            </span>
+          )}
+        </Notiece>
+        {isUFavoriteItem ? (
+          <Picked onClick={() => dispatch(removeFavoriteNotices(_id))}>
+            <PickIcon />
+          </Picked>
+        ) : (
+          <Pick
+            onClick={() =>
+              token ? dispatch(addFavoriteNotices(_id)) : showErrorRegister()
+            }
           >
-            Learn more
-          </CardButton>
-        </div>
-        {token && isFavorite && (
-          <DeleteButton
-            type="button"
-            onClick={() => dispatch(removeFavoriteNotices(_id))}
-          >
-            Delete
-            <IconWasteBasket />
-          </DeleteButton>
+            <PickIcon />
+          </Pick>
         )}
-      </Buttonlist>
-      {isModalOpen && (
-        <ModalNoticeLayout onClose={seIsModalOpen}>
-          <ModalNotice data={selectItem} onClose={seIsModalOpen} />
-        </ModalNoticeLayout>
-      )}
-    </CardItem>
+        <CardTitle>{toFormatTitle()}</CardTitle>
+        <InfoList>
+          <InfoItem>
+            <span>Breed:</span>
+            <Try>{breed}</Try>
+          </InfoItem>
+          <InfoItem>
+            <span>Place:</span>
+            <Try>{city}</Try>
+          </InfoItem>
+          <InfoItem>
+            <span>Age:</span>
+            <Try>{toFormatData()}</Try>
+          </InfoItem>{' '}
+          {price >= 1 ? (
+            <InfoItem>
+              <span>Price:</span>
+              <Try>{price}&#8372;</Try>
+            </InfoItem>
+          ) : null}
+        </InfoList>
+        <Buttonlist>
+          <div>
+            <CardButton
+              type="button"
+              onClick={() => {
+                dispatch(getNoticesById(_id));
+                seIsModalOpen(true);
+                document.body.style.overflow = 'hidden';
+              }}
+            >
+              Learn more
+            </CardButton>
+          </div>
+          {token && isUserItem && (
+            <DeleteButton
+              type="button"
+              onClick={() => dispatch(deleteNotices(_id))}
+            >
+              Delete
+              <IconWasteBasket />
+            </DeleteButton>
+          )}
+        </Buttonlist>
+        {isModalOpen && (
+          <ModalNoticeLayout onClose={seIsModalOpen}>
+            <ModalNotice data={selectItem} onClose={seIsModalOpen} />
+          </ModalNoticeLayout>
+        )}
+      </CardItem>
+    )
   );
 };

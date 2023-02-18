@@ -12,10 +12,10 @@ import {
 import { combineReducers } from 'redux';
 
 import storage from 'redux-persist/lib/storage';
-import {authReducer} from './auth/slice';
+import { authReducer } from './auth/slice';
 import { petsReducer } from './pets/slice';
 import { noticesReducer } from './notices/slice';
-import { userReducer } from "../redux/user/slice";
+import { userReducer } from '../redux/user/slice';
 import { newsReducer } from './news/slice';
 import { friendsReducer } from './friends/slice';
 import { filterNoticesReducer } from './notices/filterSlice';
@@ -36,7 +36,7 @@ const combinedReducer = combineReducers({
 });
 
 const rootReducer = (state, action) => {
-  if (action.type === "notices/getAll/pending") {
+  if (action.type === 'notices/getAll/pending') {
     state.items = [];
   }
   return combinedReducer(state, action);
@@ -49,8 +49,8 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    })
+    });
   },
-})
+});
 
 export const persistor = persistStore(store);

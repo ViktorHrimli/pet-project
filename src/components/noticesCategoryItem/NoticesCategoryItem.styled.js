@@ -69,6 +69,34 @@ export const FirstPartOfWord = styled.span`
 
 export const SecondPartOfWord = styled.span``;
 
+export const Picked = styled.button`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.6);
+
+  top: 12px;
+  right: 12px;
+  border-radius: ${p => p.theme.radii.round};
+  color: ${p => p.theme.colors.primary};
+
+  opacity: 0, 8;
+
+  transition-property: opacity, color, scale;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.6);
+    scale: 1.05;
+    opacity: 1;
+  }
+`;
+
 export const Pick = styled.button`
   position: absolute;
   display: flex;
