@@ -3,12 +3,14 @@ import React from 'react';
 import {
   AddIconsPhoto,
   NoticeAddPhoto,
-  CardImage,
-  ImageWrapper,
-  IconsDelete,
 } from 'components/modalAddNotice/photoFormConteinerNotice/PhotoConteinerNotice.styled';
 
-import { AddErrorMessageGlobal } from 'components/modalAddNotice/GlobalForm.styled';
+import {
+  AddErrorMessageGlobal,
+  CardImage,
+  IconsDelete,
+  ImageWrapper,
+} from 'components/modalAddNotice/GlobalForm.styled';
 
 const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
   const handleDeletePhoto = () => {

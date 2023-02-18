@@ -3,10 +3,13 @@ import React from 'react';
 import {
   AddIconsPhoto,
   AddPhoto,
-  CardImage,
   ImageWrapper,
-  IconsDelete,
 } from 'components/modalAddsPet/photoConteiner/PhotoConteiner.styled';
+
+import {
+  CardImage,
+  IconsDelete,
+} from 'components/modalAddNotice/GlobalForm.styled';
 
 const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
   const handleDeletePhoto = () => {
@@ -41,13 +44,14 @@ const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
       ) : (
         <ImageWrapper>
           <IconsDelete onClick={handleDeletePhoto} />
-
           <CardImage src={file.url} alt="pet" width="208" height="208" />
         </ImageWrapper>
       )}
 
       {isErrorFile && !file && (
-        <div style={{ color: '#8b0000' }}>{'Field reqiured!'}</div>
+        <div style={{ color: '#8b0000', position: 'absolute', top: '320px' }}>
+          {'Field reqiured!'}
+        </div>
       )}
     </>
   );

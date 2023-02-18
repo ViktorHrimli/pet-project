@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { VscAdd } from 'react-icons/vsc';
-import { TiDeleteOutline } from 'react-icons/ti';
 
 const AddPhoto = styled.label`
   position: relative;
@@ -18,19 +17,6 @@ const AddPhoto = styled.label`
     width: 182px;
     height: 182px;
   }
-`;
-
-const AddIconsPhoto = styled(VscAdd)`
-  position: absolute;
-  width: 48px;
-  height: 48px;
-
-  color: rgba(17, 17, 17, 0.6);
-
-  top: 50%;
-  left: 50%;
-
-  transform: translate(-50%, -50%);
 `;
 
 const ImageWrapper = styled.div`
@@ -51,30 +37,17 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const CardImage = styled.img`
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-`;
-
-const IconsDelete = styled(TiDeleteOutline)`
+const AddIconsPhoto = styled(VscAdd)`
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 48px;
+  height: 48px;
 
-  color: black;
+  color: rgba(17, 17, 17, 0.6);
 
-  top: 0px;
-  right: 0px;
+  top: 50%;
+  left: 50%;
 
-  opacity: 0.5;
-
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 300ms all;
-
-  :hover {
-    opacity: 0.9;
-    cursor: pointer;
-  }
+  transform: translate(-50%, -50%);
 `;
 
-export { AddIconsPhoto, AddPhoto, CardImage, ImageWrapper, IconsDelete };
+export { AddIconsPhoto, AddPhoto, ImageWrapper };
