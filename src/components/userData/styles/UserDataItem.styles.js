@@ -14,7 +14,7 @@ export const InfoItem = styled.div`
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
-    line-height: 1.38;
+    line-height: 1.375;
 
   }
 `;
@@ -92,6 +92,7 @@ export const EditInput = styled.input`
     padding-bottom: 0px;
     padding-top: 0px;
     width: 216px;
+    height: 32px;
     font-size: 18px;
     ${p => p.theme.lineHeights.max}
   }
@@ -158,3 +159,7 @@ export const IconEdit = styled(EditIcon)`
   transition: 0.3s;
 }
 `
+export const ErrorMessege = styled.div`
+position: absolute;
+margin-left: 10px;
+color: red`

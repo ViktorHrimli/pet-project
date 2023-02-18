@@ -4,7 +4,7 @@ import { toggleIsDisablet } from 'redux/user/slice';
 import { ReactComponent as ApproveIcon } from '../../images/svg/stroke.svg';
 import * as userSelectors from 'redux/user/selectors'
 
-import { EditInput, TextInInput, IconEdit, EditInputBtnSubmit, InfoItem, Form, Userlabel, EditInputBtn, EditInputContainer } from 'components/userData/styles/UserDataItem.styles';
+import { EditInput, TextInInput, ErrorMessege, IconEdit, EditInputBtnSubmit, InfoItem, Form, Userlabel, EditInputBtn, EditInputContainer } from 'components/userData/styles/UserDataItem.styles';
 
 export const UserItem = ({
   data,
@@ -62,9 +62,9 @@ export const UserItem = ({
             />
 
             {errors[field] && (
-              <div>
+              <ErrorMessege>
                 {errors[field]?.message}
-              </div>
+              </ErrorMessege>
             )}
           </EditInputContainer>
         ) : (
