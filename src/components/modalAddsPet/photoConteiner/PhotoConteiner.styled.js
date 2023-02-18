@@ -19,17 +19,17 @@ const AddPhoto = styled.label`
   }
 `;
 
-const ImageSss = styled.img`
-  display: block;
+const ImageWrapper = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
 
   width: 208px;
   height: 208px;
 
   border-radius: ${p => p.theme.radii.normal};
 
-  :hover {
-    cursor: pointer;
-  }
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     width: 182px;
@@ -50,4 +50,4 @@ const AddIconsPhoto = styled(VscAdd)`
   transform: translate(-50%, -50%);
 `;
 
-export { AddIconsPhoto, AddPhoto, ImageSss };
+export { AddIconsPhoto, AddPhoto, ImageWrapper };

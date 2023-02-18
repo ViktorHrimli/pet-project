@@ -15,13 +15,14 @@ export const ModalsLayout = ({ children, setIsOpen, isOpen }) => {
   const closeModal = () => {
     setIsOpen(false);
   };
-  
+
   return (
     <>
       <ReactModal
         isOpen={isOpen}
         onRequestClose={closeModal}
         className="bodyModal"
+        bodyOpenClassName="bodyAfterOpen"
         style={{
           overlay: {
             position: 'fixed',

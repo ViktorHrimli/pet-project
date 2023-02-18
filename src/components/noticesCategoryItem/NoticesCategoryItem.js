@@ -103,7 +103,7 @@ export const NoticeCategoryItem = ({ item }) => {
             </span>
           )}
         </Notiece>
-        {isUFavoriteItem ? (
+        {isUFavoriteItem && token ? (
           <Picked onClick={() => dispatch(removeFavoriteNotices(_id))}>
             <PickIcon />
           </Picked>

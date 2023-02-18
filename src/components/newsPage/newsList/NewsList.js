@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ListOfNews,EmptyRequestText, EmptyRequestImg} from "components/newsPage/newsList/NewsList.styled";
+import { ListOfNews,EmptyRequestText, EmptyRequestImg, IconCross} from "components/newsPage/newsList/NewsList.styled";
 import Section from "components/section/Section";
 import { TitleSection } from "components/section/Section.styled";
 import { NewsItem } from "components/newsPage/newsItem/NewsItem";
@@ -11,7 +11,6 @@ import dog from '../../../images/fiends/dog.jpg';
 
 export const NewsList = () => {
     const [nameNews, setNameNews] = useState("");
-    const [filteredNews, setFilteredNews] = useState(null);
     const [isSearch, setIsSearch] = useState(false);
     const [emptyAnswer, setEmptyAnswer] = useState(false);
 
@@ -21,22 +20,26 @@ export const NewsList = () => {
     useEffect(() => {
         dispatch(fetchNews());
         window.scroll({ top: 0 });
-    }, [dispatch]);
+    }, [dispatch,]);
 
     const handlFindNews = (e) => {
         const { value } = e.currentTarget;
         setNameNews(value);
     };
 
+    const getFilteredNews = () => {
+         const normalizedNameNews =  nameNews.toLowerCase();
+       return  news.filter(item => item.title.toLowerCase().includes(normalizedNameNews));
+    }
+
+    const filteredNews = getFilteredNews()
+    
     const getFindedNews = (e) => {
         e.preventDefault();
         setEmptyAnswer(false);
-        const normalizedNameNews = nameNews.toLowerCase();
-        const filteredNews = news.filter(item => item.title.toLowerCase().includes(normalizedNameNews));
-        setFilteredNews(filteredNews);
-        if (filteredNews.length === 0 && !emptyAnswer) {
+        
+        if (nameNews === "" && !emptyAnswer) {
             setEmptyAnswer(true)
-            setFilteredNews(null)
         }
         
         setIsSearch(prevState => !prevState);
@@ -66,9 +69,13 @@ export const NewsList = () => {
                             sortNewsList.map(({ date, description, title, url, _id }) =>
                                 <NewsItem key={_id} date={date} description={description} title={title} url={url} />)
                             : <li>
-                                <EmptyRequestText >I don't see any news on your request</EmptyRequestText>
-                                <EmptyRequestText >Try again!</EmptyRequestText>
-                                <EmptyRequestImg src={dog} alt='No news'/>
+                                <div style={{ position: 'relative'}}>
+                                <EmptyRequestText >
+                                    The search didn't give result, to try again or go back press 
+                                </EmptyRequestText>
+                            <IconCross/>
+                                </div>
+                                <EmptyRequestImg src={dog} alt='No news' />
                             </li>
                     }
                 </ListOfNews>

@@ -33,7 +33,7 @@ export const InputArea = styled(Field)`
     border-color: ${p => p.theme.colors.primary};
     transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
     ::placeholder {
-      color: ${p => p.theme.colors.focus};
+      color: ${p => p.theme.colors.background};
     }
   }
   &::placeholder {
@@ -55,8 +55,18 @@ export const InputArea = styled(Field)`
   }
 `;
 
-export const Message = styled.div`
-  margin-bottom: 10px;
+export const Message = styled.span`
+  position: absolute;
+  bottom: -15px;
+  left: 32px;
+  margin: 0px;
   font-size: 10px;
-  color: #8b0000;
+  line-height: calc(1.5);
+  color: red;
+
+  /* position: absolute;
+  width: 100%;
+  bottom: -16px;
+  font-size: 10px;
+  color: #8b0000; */
 `;

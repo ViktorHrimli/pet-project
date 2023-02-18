@@ -18,7 +18,7 @@ return (
                 name="find"
                 value={value}
                 onChange={handlFindNews}
-                disabled={isSearch}
+                // disabled={isSearch}
             />
             <FindNewsBtn type="submit" >
                     {isSearch ? <IconCross/> : <IconSearch/>}

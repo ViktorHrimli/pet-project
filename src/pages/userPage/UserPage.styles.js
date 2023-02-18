@@ -8,6 +8,7 @@ export const UserPageContainer = styled.div`
   position: relative;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: ${p => p.theme.space[6]};
 
   @media screen and (min-width: 320px) {
     width: 320px;

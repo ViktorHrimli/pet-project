@@ -33,6 +33,8 @@ export const ModalAddNotice = ({ setIsOpen }) => {
 
       localStorage.removeItem('prev');
 
+      console.log(state);
+
       if (key.includes('sell')) {
         dispatch(addNotices({ ...state, token, key }));
       }

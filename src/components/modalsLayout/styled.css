@@ -20,7 +20,7 @@
 
   z-index: 11;
 
-  /* overflow: hidden; */
+  overflow: hidden;
 
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
 }
@@ -29,4 +29,8 @@
   .bodyModal {
     width: 608px;
   }
+}
+
+.bodyAfterOpen {
+  overflow: hidden;
 }

@@ -25,6 +25,9 @@ export const ModalAddPet = ({ setIsOpen }) => {
   useEffect(() => {
     if (state.photo) {
       localStorage.removeItem('prev');
+
+      delete window.handleMyObject;
+
       dispatch(addUserPet({ ...state, token }));
     }
   }, [dispatch, state, token]);
