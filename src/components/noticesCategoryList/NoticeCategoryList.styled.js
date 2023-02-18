@@ -52,17 +52,16 @@ export const PaginationButton = styled.button`
 `;
 
 export const Plug = styled.div`
-  animation-name: rotate;
-  animation-duration: 3895ms;
+  animation-name: appearance;
+  animation-duration: 2000ms;
   animation-iteration-count: 1;
 
-  @keyframes rotate {
+  @keyframes appearance {
     0% {
       opacity: 0;
     }
     40% {
-      scale: 0.5;
-      opacity: 0.3;
+      opacity: 0;
     }
     100% {
       opacity: 1;
