@@ -55,8 +55,10 @@ export const InputArea = styled(Field)`
   }
 `;
 
-export const Message = styled.div`
-  margin-bottom: 10px;
+export const Message = styled.span`
+  position: absolute;
+  width: 100%;
+  bottom: -16px;
   font-size: 10px;
   color: #8b0000;
 `;
