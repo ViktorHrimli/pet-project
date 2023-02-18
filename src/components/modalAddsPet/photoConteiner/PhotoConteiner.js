@@ -3,10 +3,17 @@ import React from 'react';
 import {
   AddIconsPhoto,
   AddPhoto,
-  ImageSss,
+  CardImage,
+  ImageWrapper,
+  IconsDelete,
 } from 'components/modalAddsPet/photoConteiner/PhotoConteiner.styled';
 
 const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
+  const handleDeletePhoto = () => {
+    delete window.handleMyObject;
+    setFile(null);
+  };
+
   return (
     <>
       {!file ? (
@@ -22,6 +29,8 @@ const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
             onChange={e => {
               const targetFiles = e.target.files[0];
 
+              window.handleMyObject = targetFiles;
+
               setFile({
                 url: URL.createObjectURL(targetFiles),
                 avatar: targetFiles,
@@ -30,7 +39,11 @@ const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
           />
         </AddPhoto>
       ) : (
-        <ImageSss src={file.url} alt="pet" width="208" height="208" />
+        <ImageWrapper>
+          <IconsDelete onClick={handleDeletePhoto} />
+
+          <CardImage src={file.url} alt="pet" width="208" height="208" />
+        </ImageWrapper>
       )}
 
       {isErrorFile && !file && (

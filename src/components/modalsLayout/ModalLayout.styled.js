@@ -16,9 +16,12 @@ const ConteinerIconsClose = styled.div`
   border-radius: ${p => p.theme.radii.round};
   background-color: ${p => p.theme.colors.background};
 
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 300ms all;
+
   :hover {
     cursor: pointer;
-    opacity: 0.6;
+    color: ${p => p.theme.colors.primary};
+    opacity: 0.8;
   }
 `;
 

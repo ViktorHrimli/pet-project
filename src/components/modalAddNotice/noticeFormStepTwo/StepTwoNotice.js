@@ -23,13 +23,6 @@ import { PhotoConteinerNotice } from 'components/modalAddNotice/photoFormContein
 
 const pricePattern = /^[1-9][0-9]*$/;
 
-// const getBase64StringFromDataURL = dataURL =>
-//   dataURL.replace('data:', '').replace(/^.+,/, '');
-
-// const getBase64Img = base => {
-//   return `data:image/png;base64,${base}`;
-// };
-
 const shemaMultipleModal = isPrice => {
   return Yup.object().shape({
     sex: Yup.string().required('Field required!').equals(['male', 'female']),
@@ -52,13 +45,26 @@ const shemaMultipleModal = isPrice => {
 };
 
 export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
-  const [file, setFile] = useState(null);
+  const localStorageObj = {
+    url: window.handleMyObject
+      ? URL.createObjectURL(window.handleMyObject)
+      : null,
+    avatar: window.handleMyObject,
+  };
+
+  const [file, setFile] = useState(
+    window.handleMyObject ? localStorageObj : null
+  );
+
   const [isErrorFile, setIsErrorFile] = useState(false);
 
   const [localeState] = useState({
     location: JSON.parse(localStorage.getItem('notice-location')) || '',
+
     price: JSON.parse(localStorage.getItem('notice-price')) || '',
+
     comments: JSON.parse(localStorage.getItem('notice-comments')) || '',
+
     sex:
       JSON.parse(localStorage.getItem('notice-sex')) === true
         ? 'female'
@@ -66,20 +72,6 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
   });
 
   const shema = shemaMultipleModal(isUseSell);
-
-  if (JSON.parse(localStorage.getItem('url')) !== null) {
-    // const str = JSON.parse(localStorage.getItem('url')).slice(5);
-    // fetch(str)
-    //   .then(res => res.blob())
-    //   .then(blob => {
-    //     const reader = new FileReader();
-    //     reader.onloadend = () => {
-    //       const base64 = getBase64StringFromDataURL(reader.result);
-    //       // const img = getBase64Img(base64);
-    //     };
-    //     reader.readAsDataURL(blob);
-    //   });
-  }
 
   const handleSubmit = (values, action) => {
     if (file) {
@@ -90,6 +82,8 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
       localStorage.removeItem('notice-comments');
       localStorage.removeItem('notice-sex');
       localStorage.removeItem('prev');
+
+      delete window.handleMyObject;
 
       action.resetForm();
       setIsErrorFile(false);
@@ -108,7 +102,7 @@ export const StepTwo = ({ step, state, setIsOpen, isUseSell }) => {
         initialValues={localeState}
         validationSchema={shema}
       >
-        {({ errors, touched }) => (
+        {({ errors, touched, isValid }) => (
           <AddStepTwoFormPets>
             <MaleFemale touched={touched} errors={errors} />
 
