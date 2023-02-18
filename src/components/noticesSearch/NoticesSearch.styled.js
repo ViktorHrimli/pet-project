@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { ReactComponent as search } from '../../images/svg/search.svg';
-import { ReactComponent as crossNotice } from '../../images/svg/close-line.svg';
+// import { ReactComponent as crossNotice } from '../../images/svg/close-line.svg';
+import { RxCrossCircled } from "react-icons/rx";
 
 export const SearchForm = styled.form`
   position: relative;
@@ -106,7 +107,7 @@ export const IconSearch = styled(search)`
   }
 `;
 
-export const IconCross = styled(crossNotice)`
+export const IconCross = styled(RxCrossCircled)`
   width: 15px;
   height: 15px;
   border: none;
@@ -115,4 +116,22 @@ export const IconCross = styled(crossNotice)`
     width: 18px;
     height: 18px;
   }
+`;
+
+export const Message = styled.div`
+position: absolute;
+display: flex;
+align-items: center;
+bottom: -16px;
+left: 12px;
+font-size: 9px;
+line-height: ${p => p.theme.lineHeights.min};
+font-weight: ${p => p.theme.fontWeights.medium};
+color: red;
+
+@media screen and (min-width: 768px) {
+  font-size: ${p => p.theme.fontSizes.xxxs};
+  line-height: ${p => p.theme.lineHeights.min};
+  left: 25%;
+}
 `;
