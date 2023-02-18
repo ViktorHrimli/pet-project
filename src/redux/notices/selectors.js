@@ -28,6 +28,8 @@ export const selectVisibleNotices = createSelector(
   [selectCurrentNotices, selectFilterNotices],
   (currentNotices, setFilterNotices) => {
     switch (setFilterNotices) {
+      case '':
+        return [];
       case setFilterNotices:
         return currentNotices.filter(notice =>
           notice.title.toLowerCase().includes(setFilterNotices)
