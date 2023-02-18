@@ -12,8 +12,11 @@ import {
   SearchInput,
   IconSearch,
   IconCross,
-  BtnSearch 
+  BtnSearch,
+  Message
 } from "components/noticesSearch/NoticesSearch.styled";
+
+import { RxCrossCircled } from "react-icons/rx";
 
 export const NoticesSearch = () => {
   const [keyword, setKeyword] = useState('');
@@ -59,7 +62,7 @@ export const NoticesSearch = () => {
     setIsSearch(prevState => !prevState);
 
     if(isSearch){
-      // setKeyword("");
+      setKeyword("");
       setLimit(12);
     }
   };
@@ -76,11 +79,14 @@ export const NoticesSearch = () => {
       placeholder="Search"
       name="value"
       value={keyword}
-      // disabled={isSearch}
       onChange={handleChange}
       />
       <BtnSearch type="submit">
         {isSearch ? <IconCross/> : <IconSearch/>}
       </BtnSearch>
+      {isSearch && !keyword && <Message>
+        <span style={{marginRight: '3px'}}>The search didn't give result, to try again or go back press</span>
+        <RxCrossCircled size={10}/>
+        </Message>}
     </SearchForm>
 };
