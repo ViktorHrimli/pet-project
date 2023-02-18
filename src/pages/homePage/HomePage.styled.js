@@ -13,7 +13,7 @@ import BgT2x from '../../images/home/BgT@2x.png';
 import BgD from '../../images/home/BgD.png';
 import BgD2x from '../../images/home/BgD@2x.png';
 import Union from '../../images/home/Union.png';
-import Union2x from '../../images/home/Union@2x.png';
+// import Union2x from '../../images/home/Union@2x.png';
 
 export const Main = styled.main`
   min-height: calc(100vh - 100px);
@@ -89,7 +89,7 @@ export const HomeSection = styled.section`
       position: absolute;
       animation: heartbeat 1.3s infinite;
       width: 92px;
-      height: 90px;
+      height: 89px;
       background-image: url(${Union});
       top: calc(50% - 180px);
       left: calc(50% + 64px);
@@ -127,7 +127,7 @@ export const HomeSection = styled.section`
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${portraitD2x}), url(${BgD2x}), url(${Union2x});
+      background-image: url(${portraitD2x}), url(${BgD2x});
     }
   }
 `;

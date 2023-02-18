@@ -21,6 +21,9 @@ const handleRejected = (state, action) => {
 
 const noticesInitialState = {
   items: [],
+  sellItems: [],
+  lostItems: [],
+  freeItems: [],
   userItems: [],
   myFavoriteItems: [],
   noticesById: [],
@@ -35,6 +38,10 @@ const noticesSlice = createSlice({
     [getAll.pending]: handlePending,
     [getUserNotices.pending]: handlePending,
     [favoriteNotices.pending]: handlePending,
+    [getNoticesById.pending](state) {
+      state.isLoading = true;
+      state.noticesById = [];
+    },
 
     [getAll.rejected]: handleRejected,
     [getUserNotices.rejected]: handleRejected,
@@ -49,20 +56,33 @@ const noticesSlice = createSlice({
     [deleteNotices.rejected]: handleRejected,
 
     [getAll.fulfilled](state, action) {
-      state.isLoading = false;
       state.items = action.payload;
+      function currentCategory() {
+        for (const item of state.items) {
+          if (item.category === 'sell') {
+            return (state.sellItems = action.payload);
+          } else if (item.category === 'lost-found') {
+            return (state.lostItems = action.payload);
+          } else if (item.category === 'in-good-hands') {
+            return (state.freeItems = action.payload);
+          }
+        }
+        return;
+      }
+      currentCategory();
+      state.isLoading = false;
     },
     [favoriteNotices.fulfilled](state, action) {
-      state.isLoading = false;
       state.myFavoriteItems = action.payload;
+      state.isLoading = false;
     },
     [getUserNotices.fulfilled](state, action) {
-      state.isLoading = false;
       state.userItems = action.payload;
+      state.isLoading = false;
     },
     [getNoticesById.fulfilled](state, action) {
-      state.isLoading = false;
       state.noticesById = action.payload;
+      state.isLoading = false;
     },
 
     [addNotices.fulfilled](state, action) {
@@ -97,7 +117,10 @@ const noticesSlice = createSlice({
       state.userItems = state.userItems.filter(
         item => item._id !== action.payload.noticeId
       );
-      state.items = state.userItems.filter(
+      state.items = state.items.filter(
+        item => item._id !== action.payload.noticeId
+      );
+      state.myFavoriteItems = state.myFavoriteItems.filter(
         item => item._id !== action.payload.noticeId
       );
     },

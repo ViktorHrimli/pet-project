@@ -7,11 +7,14 @@ import {
   favoriteNotices,
   getUserNotices,
 } from 'redux/notices/operations';
+// import { clearItems } from 'redux/notices/slice';
 import {
-  selectItems,
   selectFavoriteItems,
   selectUserItems,
   selectIsLoading,
+  selectSellItems,
+  selectLostItems,
+  selectFreeItems,
 } from 'redux/notices/selectors';
 import { currentNotices } from 'redux/notices/filterSlice';
 import { selectVisibleNotices, selectIsSearch } from 'redux/notices/selectors';
@@ -21,6 +24,7 @@ import {
   CardList,
   ButtonList,
   PaginationButton,
+  Plug,
 } from 'components/noticesCategoryList/NoticeCategoryList.styled';
 import {
   EmptyRequestText,
@@ -30,7 +34,9 @@ import dog from 'images/fiends/dog.jpg';
 
 export const NoticeCategoryList = () => {
   const [limit, setLimit] = useState(12);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
+
   const history = useLocation();
 
   const pathName = history.pathname.slice(9);
@@ -41,15 +47,15 @@ export const NoticeCategoryList = () => {
   switch (pathName) {
     case 'sell':
       result = 'sell';
-      selected = selectItems;
+      selected = selectSellItems;
       break;
     case 'lost-found':
       result = 'lost-found';
-      selected = selectItems;
+      selected = selectLostItems;
       break;
     case 'for-free':
       result = 'in-good-hands';
-      selected = selectItems;
+      selected = selectFreeItems;
       break;
     case 'favorite':
       selected = selectFavoriteItems;
@@ -80,7 +86,6 @@ export const NoticeCategoryList = () => {
   }, [result]);
 
   const toRender = useSelector(selected);
-  const isLoading = useSelector(selectIsLoading);
 
   const visibleNotices = useSelector(selectVisibleNotices);
   const isSearch = useSelector(selectIsSearch);
@@ -91,9 +96,10 @@ export const NoticeCategoryList = () => {
   const finishedRender = isSearch ? visibleNotices : toRender;
   const toDisableButton =
     limit > toRender.length || limit > finishedRender.length;
+
   return (
     <>
-      {toRender.length >= 1 ? (
+      {toRender.length ? (
         <>
           <CardList>
             {finishedRender?.map(item => {
@@ -157,7 +163,7 @@ export const NoticeCategoryList = () => {
               />
             </>
           ) : (
-            <div>
+            <Plug>
               <EmptyRequestText>
                 I don't see any pets on your request
               </EmptyRequestText>
@@ -165,7 +171,7 @@ export const NoticeCategoryList = () => {
                 Please add your pets or go to registration/login
               </EmptyRequestText>
               <EmptyRequestImg src={dog} alt="No news" />
-            </div>
+            </Plug>
           )}
         </>
       )}

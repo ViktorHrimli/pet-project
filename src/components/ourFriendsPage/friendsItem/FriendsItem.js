@@ -35,7 +35,7 @@ const transitionStyles = {
 export const FriendsItem = ({image, name,email,time,address,phone, urlFriend}) => {
     const [timeSchedule, setTimeSchedule] = useState(false);
     const nodeRef = useRef(null);
-    console.log(address)
+    
     const handleToggle = () => {
         setTimeSchedule(state => !state)
     };

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAuth } from 'hooks/useAuth';
 import { toast } from 'react-toastify';
+import { ThreeCircles } from 'react-loader-spinner';
 import 'react-toastify/dist/ReactToastify.css';
 
 import {
@@ -28,10 +29,14 @@ import {
   TitleNoticeButton,
   FirstPartOfWord,
   SecondPartOfWord,
-  Link
+  DeleteFromFavoriteButton,
+  WrapperFavoriteButton,
+  IconWhiteHeart,
+  Link,
 } from 'components/modalNotice/ModalNotice.styled';
 
 import { selectUser } from 'redux/auth/selectors';
+import { selectFavoriteItems, selectIsLoading } from 'redux/notices/selectors';
 import {
   addFavoriteNotices,
   deleteNotices,
@@ -39,7 +44,6 @@ import {
 } from 'redux/notices/operations';
 
 export const ModalNotice = ({ data, onClose }) => {
-  
   const {
     _id,
     title,
@@ -58,7 +62,8 @@ export const ModalNotice = ({ data, onClose }) => {
 
   const dispatch = useDispatch();
   const { token } = useAuth();
-  
+  const isLoading = useSelector(selectIsLoading);
+
   const showErrorRegister = () => {
     toast.error(
       'Only registered users can add on our site, so first log in or register.',
@@ -73,109 +78,178 @@ export const ModalNotice = ({ data, onClose }) => {
   }
 
   const userEmail = useSelector(selectUser);
+  let favoriteItem = useSelector(selectFavoriteItems).filter(
+    item => item._id === _id
+  );
 
+  // const correctCategory = category
+  //   .split('')
+  //   .map(letter => (letter === '-' ? (letter = ' ') : letter))
+  //   .join('');
+  const toCurrentTitle = 'lost-found';
   const isPrivate = userEmail.email === email;
 
   return (
     <>
       <WrapperContainer>
-        <WrapperInfoBlock>
-          <WrapperPetPhoto>
-            {imageURL && <PetPhoto src={imageURL} alt="Pet photo" />}
-            <CategoryNotice>
-              {category && <TitleCategory>
-                <FirstPartOfWord>{category.slice(0, 1)}</FirstPartOfWord>
-                <SecondPartOfWord>{
-                category.split("")
-                .map(letter => letter === "-" ? letter = " " : letter )
-                .join("")
-                .slice(1, category.length)
-                }</SecondPartOfWord>
-                </TitleCategory>}
-            </CategoryNotice>
-          </WrapperPetPhoto>
-          <ReferenceList>
-            {title && <TitleModalNotice>{title}</TitleModalNotice>}
-            <InfoItem>
-              <LableNotice>Name:</LableNotice>
-              {name && <DateModalNotice>{name}</DateModalNotice>}
-            </InfoItem>
-            <InfoItem>
-              <LableNotice>Birthday:</LableNotice>
-              {birthday && <DateModalNotice>{birthday}</DateModalNotice>}
-            </InfoItem>
-            <InfoItem>
-              <LableNotice>Breed:</LableNotice>
-              {breed && <DateModalNotice>{breed}</DateModalNotice>}
-            </InfoItem>
-            <InfoItem>
-              <LableNotice>Place:</LableNotice>
-              {city && <DateModalNotice>{city}</DateModalNotice>}
-            </InfoItem>
-            <InfoItem>
-              <LableNotice>The sex:</LableNotice>
-              {sex && <DateModalNotice>{sex}</DateModalNotice>}
-            </InfoItem>
-            <InfoItem>
-              <LableNotice>Email:</LableNotice>
-              {email && (
-                <Link href={`mailto:${email}`}>
-                  <DateModalNotice>{toFormatTitle()}</DateModalNotice>
-                </Link>
-              )}
-            </InfoItem>
-            <InfoItem>
-              <LableNotice>Phone:</LableNotice>
-              {phone && (
-                <Link href={`tel:${phone}`}>
-                  <DateModalNotice>{phone}</DateModalNotice>
-                </Link>
-              )}
-            </InfoItem>
-            {price >= 1 && (
-              <InfoItem>
-                <LableNotice>Price:</LableNotice>
-                <DateModalNotice>{price}&#8372;</DateModalNotice>
-              </InfoItem>
-            )}
-          </ReferenceList>
-        </WrapperInfoBlock>
-        <CommentsItem>
-          <NoticeComments>
-            <LableComments>Comments: </LableComments>
-            {comments}
-          </NoticeComments>
-        </CommentsItem>
-        <ButtonModalWrapper>
-          <a href={`tel:${phone}`}>
-            <ContactButton type="button">
-              <TitleNoticeButton>Contact </TitleNoticeButton>
-            </ContactButton>
-          </a>
-          <AddToFavoriteButton
-            type="button"
-            onClick={() =>
-              token ? dispatch(addFavoriteNotices(_id)) : showErrorRegister()
-            }
-          >
-            <TitleNoticeButton>Add to </TitleNoticeButton>
-            <IconRedHeart />
-          </AddToFavoriteButton>
-          {isPrivate && (
-            <DeleteButton
-              type="button"
-              onClick={() => {
-                onClose(false);
-                document.body.style.overflow = '';
-                dispatch(removeFavoriteNotices(_id));
-                dispatch(deleteNotices(_id));
+        {isLoading ? (
+          <>
+            {' '}
+            <ThreeCircles
+              height="100"
+              width="100"
+              color="#f59256"
+              display="block"
+              wrapperStyle={{
+                display: 'block',
+                marginBottom: 'auto',
+                marginTop: 'auto',
+                textAlign: 'center',
+                left: '50%',
+                right: '50%',
+                top: '50%',
+                bottom: '50%',
               }}
-            >
-              <TitleNoticeButton>Delete </TitleNoticeButton>
-              <IconWasteBasket />
-            </DeleteButton>
-          )}
-        </ButtonModalWrapper>
+              wrapperClass=""
+              visible={true}
+              ariaLabel="three-circles-rotating"
+              outerCircleColor="#FF6101"
+              innerCircleColor="rotating"
+              middleCircleColor=""
+            />
+          </>
+        ) : (
+          <>
+            <WrapperInfoBlock>
+              <WrapperPetPhoto>
+                {imageURL && <PetPhoto src={imageURL} alt="Pet photo" />}
+                <CategoryNotice>
+                  {category && (
+                    <TitleCategory>
+                      {category === toCurrentTitle ? (
+                        <span>Lost/found </span>
+                      ) : (
+                        <>
+                          <FirstPartOfWord>
+                            {category.slice(0, 1)}
+                          </FirstPartOfWord>
+                          <SecondPartOfWord>
+                            {category
+                              .split('')
+                              .map(letter =>
+                                letter === '-' ? (letter = ' ') : letter
+                              )
+                              .join('')
+                              .slice(1, category.length)}
+                          </SecondPartOfWord>
+                        </>
+                      )}
+                    </TitleCategory>
+                  )}
+                </CategoryNotice>
+              </WrapperPetPhoto>
+              <ReferenceList>
+                {title && <TitleModalNotice>{title}</TitleModalNotice>}
+                <InfoItem>
+                  <LableNotice>Name:</LableNotice>
+                  {name && <DateModalNotice>{name}</DateModalNotice>}
+                </InfoItem>
+                <InfoItem>
+                  <LableNotice>Birthday:</LableNotice>
+                  {birthday && <DateModalNotice>{birthday}</DateModalNotice>}
+                </InfoItem>
+                <InfoItem>
+                  <LableNotice>Breed:</LableNotice>
+                  {breed && <DateModalNotice>{breed}</DateModalNotice>}
+                </InfoItem>
+                <InfoItem>
+                  <LableNotice>Place:</LableNotice>
+                  {city && <DateModalNotice>{city}</DateModalNotice>}
+                </InfoItem>
+                <InfoItem>
+                  <LableNotice>The sex:</LableNotice>
+                  {sex && <DateModalNotice>{sex}</DateModalNotice>}
+                </InfoItem>
+                <InfoItem>
+                  <LableNotice>Email:</LableNotice>
+                  {email && (
+                    <Link href={`mailto:${email}`}>
+                      <DateModalNotice>{toFormatTitle()}</DateModalNotice>
+                    </Link>
+                  )}
+                </InfoItem>
+                <InfoItem>
+                  <LableNotice>Phone:</LableNotice>
+                  {phone && (
+                    <Link href={`tel:${phone}`}>
+                      <DateModalNotice>{phone}</DateModalNotice>
+                    </Link>
+                  )}
+                </InfoItem>
+                {price >= 1 && (
+                  <InfoItem>
+                    <LableNotice>Price:</LableNotice>
+                    <DateModalNotice>{price}&#8372;</DateModalNotice>
+                  </InfoItem>
+                )}
+              </ReferenceList>
+            </WrapperInfoBlock>
+            <CommentsItem>
+              <NoticeComments>
+                <LableComments>Comments: </LableComments>
+                {comments}
+              </NoticeComments>
+            </CommentsItem>
+            <ButtonModalWrapper>
+              <a href={`tel:${phone}`}>
+                <ContactButton type="button">
+                  <TitleNoticeButton>Contact </TitleNoticeButton>
+                </ContactButton>
+              </a>
+              <WrapperFavoriteButton>
+                {favoriteItem.length !== 1 ? (
+                  <AddToFavoriteButton
+                    type="button"
+                    onClick={() =>
+                      token
+                        ? dispatch(addFavoriteNotices(_id))
+                        : showErrorRegister()
+                    }
+                  >
+                    <TitleNoticeButton>Add to </TitleNoticeButton>
+                    <IconRedHeart />
+                  </AddToFavoriteButton>
+                ) : (
+                  <DeleteFromFavoriteButton
+                    type="button"
+                    onClick={() =>
+                      token
+                        ? dispatch(removeFavoriteNotices(_id))
+                        : showErrorRegister()
+                    }
+                  >
+                    <TitleNoticeButton>Delete from </TitleNoticeButton>
+                    <IconWhiteHeart />
+                  </DeleteFromFavoriteButton>
+                )}
+              </WrapperFavoriteButton>
+              {isPrivate && (
+                <DeleteButton
+                  type="button"
+                  onClick={() => {
+                    onClose(false);
+                    document.body.style.overflow = '';
+                    dispatch(removeFavoriteNotices(_id));
+                    dispatch(deleteNotices(_id));
+                  }}
+                >
+                  <TitleNoticeButton>Delete </TitleNoticeButton>
+                  <IconWasteBasket />
+                </DeleteButton>
+              )}
+            </ButtonModalWrapper>
+          </>
+        )}
       </WrapperContainer>
     </>
   );
@@ -198,4 +272,6 @@ ModalNotice.propTypes = {
   comments: PropTypes.string,
   token: PropTypes.string,
   defaultPetPhoto: PropTypes.string,
+  handleFavoriteNotice: PropTypes.func,
+  showErrorRegister: PropTypes.func,
 };

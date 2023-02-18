@@ -87,11 +87,7 @@ export default function RegisterForm() {
     <ContainerRegister>
       <PageTitle>Registration</PageTitle>
       <MultiStepForm initialValues={initialValues} onSubmit={handleSubmit}>
-        <FormStep
-          stepName="Person"
-          onSubmit={() => console.log('Step1')}
-          validationSchema={validationSchema1}
-        >
+        <FormStep stepName="Person" validationSchema={validationSchema1}>
           <EntryFieldLabel htmlFor={EmailInputId}>
             <InputField
               autoComplete="off"
@@ -133,11 +129,7 @@ export default function RegisterForm() {
           </LabelConfirmPass>
         </FormStep>
         {/* step 2 */}
-        <FormStep
-          stepName="Address"
-          onSubmit={() => console.log('Step2 - Register')}
-          validationSchema={validationSchema2}
-        >
+        <FormStep stepName="Address" validationSchema={validationSchema2}>
           <EntryFieldLabel htmlFor={NameInputId}>
             <InputField
               type="text"
