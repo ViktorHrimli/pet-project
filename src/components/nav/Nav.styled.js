@@ -14,7 +14,6 @@ export const NavigationWrapper = styled.div`
     padding-top: 0;
     flex-direction: row;
     justify-content: space-between;
-    width: 50%;
   }
 `;
 
@@ -47,9 +46,14 @@ export const StyledNavLink = styled(NavLink)`
   }
 
   @media screen and (min-width: 1280px) {
+    margin-right: 80px;
     line-height: 1.35;
     font-size: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
   }
 `;
