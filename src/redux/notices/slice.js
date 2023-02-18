@@ -11,7 +11,6 @@ import {
 } from './operations';
 
 const handlePending = state => {
-  // state.items = [];
   state.isLoading = true;
 };
 
@@ -22,6 +21,9 @@ const handleRejected = (state, action) => {
 
 const noticesInitialState = {
   items: [],
+  sellItems: [],
+  lostItems: [],
+  freeItems: [],
   userItems: [],
   myFavoriteItems: [],
   noticesById: [],
@@ -50,20 +52,34 @@ const noticesSlice = createSlice({
     [deleteNotices.rejected]: handleRejected,
 
     [getAll.fulfilled](state, action) {
-      state.isLoading = false;
       state.items = action.payload;
+      console.log(state.sellItems);
+      function currentCategory() {
+        for (const item of state.items) {
+          if (item.category === 'sell') {
+            return (state.sellItems = action.payload);
+          } else if (item.category === 'lost-found') {
+            return (state.lostItems = action.payload);
+          } else if (item.category === 'in-good-hands') {
+            return (state.freeItems = action.payload);
+          }
+        }
+        return;
+      }
+      currentCategory();
+      state.isLoading = false;
     },
     [favoriteNotices.fulfilled](state, action) {
-      state.isLoading = false;
       state.myFavoriteItems = action.payload;
+      state.isLoading = false;
     },
     [getUserNotices.fulfilled](state, action) {
-      state.isLoading = false;
       state.userItems = action.payload;
+      state.isLoading = false;
     },
     [getNoticesById.fulfilled](state, action) {
-      state.isLoading = false;
       state.noticesById = action.payload;
+      state.isLoading = false;
     },
 
     [addNotices.fulfilled](state, action) {
