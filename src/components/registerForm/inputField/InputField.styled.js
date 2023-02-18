@@ -33,7 +33,7 @@ export const InputArea = styled(Field)`
     border-color: ${p => p.theme.colors.primary};
     transition: border-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
     ::placeholder {
-      color: ${p => p.theme.colors.focus};
+      color: ${p => p.theme.colors.background};
     }
   }
   &::placeholder {
