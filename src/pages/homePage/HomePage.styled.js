@@ -61,8 +61,8 @@ export const HomeSection = styled.section`
     padding-top: 130px;
 
     background-image: url(${portraitT}), url(${BgT});
-    /* background-size: 645px 715px, 100vw 1085px; */
-    background-size: 395px 465px, 100vw 685px;
+    background-size: 645px 715px, 100vw 1085px;
+    /* background-size: 395px 465px, 100vw 685px; */
     /* background-size: 335px 405px, 100vw 615px; */
 
     @media (min-device-pixel-ratio: 2),

@@ -17,6 +17,12 @@ export const Burger = ({ open, setOpen }) => {
 
 export const BurgerZone = ({ children, open, setOpen }) => {
   const node = React.useRef();
+  const body = document.body;
+  if (open) {
+    body.style.overflow = 'hidden';
+  } else {
+    body.style.overflow = 'auto';
+  }
   return (
     <div ref={node}>
       <Burger open={open} setOpen={setOpen} />

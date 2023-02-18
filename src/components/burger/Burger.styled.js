@@ -9,10 +9,10 @@ export const StyledMenu = styled.div`
   background: ${p => p.theme.colors.background};
   transform: ${({ open }) => (!open ? 'translateX(100%)' : 'translateX(0)')};
   height: 100vh;
-  width: -webkit-fill-available;
-  text-align: center;
 
+  text-align: center;
   position: absolute;
+  overflow: scroll !important;
   top: 0;
   left: 0;
   transition: transform 0.3s ease-in-out;
