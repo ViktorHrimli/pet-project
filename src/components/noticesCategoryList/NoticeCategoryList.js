@@ -7,7 +7,6 @@ import {
   favoriteNotices,
   getUserNotices,
 } from 'redux/notices/operations';
-// import { clearItems } from 'redux/notices/slice';
 import {
   selectFavoriteItems,
   selectUserItems,
