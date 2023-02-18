@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchNews } from "../../../redux/news/operations";
 import { selectorNews } from "../../../redux/news/selectors";
 import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
+import {ButtonUp} from "components/newsPage/buttonUp/ButtonUp"
 import dog from '../../../images/fiends/dog.jpg';
 
 export const NewsList = () => {
@@ -28,7 +29,10 @@ export const NewsList = () => {
     };
 
     const getFilteredNews = () => {
-         const normalizedNameNews =  nameNews.toLowerCase();
+        const normalizedNameNews = nameNews.toLowerCase();
+        if (normalizedNameNews === '') {
+            return []
+        }
        return  news.filter(item => item.title.toLowerCase().includes(normalizedNameNews));
     }
 
@@ -38,7 +42,7 @@ export const NewsList = () => {
         e.preventDefault();
         setEmptyAnswer(false);
         
-        if (nameNews === "" && !emptyAnswer) {
+        if (nameNews === "" && !emptyAnswer && filteredNews === []) {
             setEmptyAnswer(true)
         }
         
@@ -50,13 +54,14 @@ export const NewsList = () => {
     }
     
     const newsList = isSearch ? filteredNews : news;
-    
+
     const sortNewsList = !emptyAnswer && [...newsList].sort((ferstNews, secondNews) => {
         const a = new Date(ferstNews.date).getTime();
         const b = new Date(secondNews.date).getTime();
 
         return b - a;
     })
+    
 
     return (
         <main>
@@ -64,12 +69,13 @@ export const NewsList = () => {
                 <TitleSection>News</TitleSection>
                 <NewsSeachInput getFindedNews={getFindedNews} value={nameNews} handlFindNews={handlFindNews} isSearch={isSearch} />
                 <ListOfNews>
-                    { 
+                    {
+                        sortNewsList.length > 0 &&
                         !emptyAnswer ?
                             sortNewsList.map(({ date, description, title, url, _id }) =>
                                 <NewsItem key={_id} date={date} description={description} title={title} url={url} />)
                             : <li>
-                                <div style={{ position: 'relative'}}>
+                                <div style={{ position: 'relative', }}>
                                 <EmptyRequestText >
                                     The search didn't give result, to try again or go back press 
                                 </EmptyRequestText>
@@ -79,7 +85,7 @@ export const NewsList = () => {
                             </li>
                     }
                 </ListOfNews>
-                
+                <ButtonUp/> 
             </Section>
         </main>
     )

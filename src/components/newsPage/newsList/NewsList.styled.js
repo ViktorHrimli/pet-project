@@ -3,6 +3,7 @@ import { RxCrossCircled } from "react-icons/rx";
 
 export const ListOfNews = styled.ul`
   margin-bottom: 60px;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
