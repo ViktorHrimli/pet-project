@@ -126,13 +126,13 @@ const noticesSlice = createSlice({
       state.userItems = state.userItems.filter(
         item => item._id !== action.payload.noticeId
       );
-      state.items = state.sellItems.filter(
+      state.sellItems = state.sellItems.filter(
         item => item._id !== action.payload.noticeId
       );
-      state.items = state.lostItems.filter(
+      state.lostItems = state.lostItems.filter(
         item => item._id !== action.payload.noticeId
       );
-      state.items = state.freeItems.filter(
+      state.freeItems = state.freeItems.filter(
         item => item._id !== action.payload.noticeId
       );
       state.myFavoriteItems = state.myFavoriteItems.filter(
