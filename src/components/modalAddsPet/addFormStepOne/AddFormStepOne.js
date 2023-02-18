@@ -12,11 +12,9 @@ import {
 } from 'components/modalAddNotice/GlobalForm.styled';
 
 import { ButtonFormNextCancel } from 'components/modalAddNotice/buttonForm/ButtonForm';
-
 import { NoticeReqiredSymbol } from 'components/modalAddNotice/GlobalForm.styled';
 
-const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
-const textMatch = /^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/;
+import { dateFn, regexDate, textMatch } from 'components/modalAddsPet/helpers';
 
 const schema = Yup.object().shape({
   name: Yup.string()
@@ -26,7 +24,11 @@ const schema = Yup.object().shape({
     .required('Field required!'),
   breed: Yup.string().min(2).max(16).required('Field required!'),
   date: Yup.string()
-    .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
+    .transform(dateFn)
+    .matches(
+      regexDate,
+      'Date should be a (DD.MM.yyyy) after 1900-01-01 and before today!'
+    )
     .required('Field required!'),
 });
 
