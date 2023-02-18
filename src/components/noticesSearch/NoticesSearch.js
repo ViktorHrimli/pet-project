@@ -18,11 +18,11 @@ import {
 export const NoticesSearch = () => {
   const [keyword, setKeyword] = useState('');
   const [isSearch, setIsSearch] = useState(false);
+  const [limit, setLimit] = useState(12);
 
   const history = useLocation();
   const dispatch = useDispatch();
 
-  const limit = 1000;
   const pathName = history.pathname.slice(9);
 
   let result;
@@ -55,10 +55,12 @@ export const NoticesSearch = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLimit(1000);
     setIsSearch(prevState => !prevState);
 
     if(isSearch){
       setKeyword("");
+      setLimit(12);
     }
   };
 
@@ -66,7 +68,7 @@ export const NoticesSearch = () => {
     dispatch(getAll({result, limit}))
     dispatch(setFilterNotices(keyword));
     dispatch(setSearchNotices(isSearch));
-  }, [dispatch, isSearch, keyword, result])
+  }, [dispatch, isSearch, keyword, result, limit])
 
   return <SearchForm onSubmit={handleSubmit}>
       <SearchInput

@@ -28,10 +28,14 @@ import {
   TitleNoticeButton,
   FirstPartOfWord,
   SecondPartOfWord,
+  DeleteFromFavoriteButton,
+  WrapperFavoriteButton,
+  IconWhiteHeart,
   Link
 } from 'components/modalNotice/ModalNotice.styled';
 
 import { selectUser } from 'redux/auth/selectors';
+import { selectFavoriteItems } from 'redux/notices/selectors';
 import {
   addFavoriteNotices,
   deleteNotices,
@@ -39,7 +43,7 @@ import {
 } from 'redux/notices/operations';
 
 export const ModalNotice = ({ data, onClose }) => {
-  
+
   const {
     _id,
     title,
@@ -73,7 +77,14 @@ export const ModalNotice = ({ data, onClose }) => {
   }
 
   const userEmail = useSelector(selectUser);
+  let favoriteItem = useSelector(selectFavoriteItems)
+  .filter(item => item._id === _id);
 
+  // const correctCategory = category
+  //   .split('')
+  //   .map(letter => (letter === '-' ? (letter = ' ') : letter))
+  //   .join('');
+  const toCurrentTitle = 'lost-found';
   const isPrivate = userEmail.email === email;
 
   return (
@@ -84,13 +95,16 @@ export const ModalNotice = ({ data, onClose }) => {
             {imageURL && <PetPhoto src={imageURL} alt="Pet photo" />}
             <CategoryNotice>
               {category && <TitleCategory>
+                {category === toCurrentTitle ? (
+            <span>Lost/found </span>
+          ) : (<>
                 <FirstPartOfWord>{category.slice(0, 1)}</FirstPartOfWord>
                 <SecondPartOfWord>{
                 category.split("")
                 .map(letter => letter === "-" ? letter = " " : letter )
                 .join("")
                 .slice(1, category.length)
-                }</SecondPartOfWord>
+                }</SecondPartOfWord></>)}
                 </TitleCategory>}
             </CategoryNotice>
           </WrapperPetPhoto>
@@ -152,15 +166,25 @@ export const ModalNotice = ({ data, onClose }) => {
               <TitleNoticeButton>Contact </TitleNoticeButton>
             </ContactButton>
           </a>
+          <WrapperFavoriteButton>
+          {favoriteItem.length !== 1 ? (
           <AddToFavoriteButton
             type="button"
-            onClick={() =>
-              token ? dispatch(addFavoriteNotices(_id)) : showErrorRegister()
-            }
+            onClick={() => token ? dispatch(addFavoriteNotices(_id)) : showErrorRegister()}
           >
             <TitleNoticeButton>Add to </TitleNoticeButton>
             <IconRedHeart />
           </AddToFavoriteButton>
+          ) : (
+          <DeleteFromFavoriteButton
+            type="button"
+            onClick={() => token ? dispatch(removeFavoriteNotices(_id)) : showErrorRegister()}
+          >
+            <TitleNoticeButton>Delete from </TitleNoticeButton>
+            <IconWhiteHeart />
+          </DeleteFromFavoriteButton>
+          )}
+          </WrapperFavoriteButton>
           {isPrivate && (
             <DeleteButton
               type="button"
@@ -198,4 +222,6 @@ ModalNotice.propTypes = {
   comments: PropTypes.string,
   token: PropTypes.string,
   defaultPetPhoto: PropTypes.string,
+  handleFavoriteNotice: PropTypes.func,
+  showErrorRegister: PropTypes.func,
 };

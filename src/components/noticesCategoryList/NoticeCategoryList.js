@@ -7,6 +7,7 @@ import {
   favoriteNotices,
   getUserNotices,
 } from 'redux/notices/operations';
+// import { clearItems } from 'redux/notices/slice';
 import {
   selectItems,
   selectFavoriteItems,
@@ -21,6 +22,7 @@ import {
   CardList,
   ButtonList,
   PaginationButton,
+  Plug,
 } from 'components/noticesCategoryList/NoticeCategoryList.styled';
 import {
   EmptyRequestText,
@@ -30,7 +32,9 @@ import dog from 'images/fiends/dog.jpg';
 
 export const NoticeCategoryList = () => {
   const [limit, setLimit] = useState(12);
+  const isLoading = useSelector(selectIsLoading);
   const dispatch = useDispatch();
+
   const history = useLocation();
 
   const pathName = history.pathname.slice(9);
@@ -80,7 +84,6 @@ export const NoticeCategoryList = () => {
   }, [result]);
 
   const toRender = useSelector(selected);
-  const isLoading = useSelector(selectIsLoading);
 
   const visibleNotices = useSelector(selectVisibleNotices);
   const isSearch = useSelector(selectIsSearch);
@@ -91,6 +94,7 @@ export const NoticeCategoryList = () => {
   const finishedRender = isSearch ? visibleNotices : toRender;
   const toDisableButton =
     limit > toRender.length || limit > finishedRender.length;
+
   return (
     <>
       {toRender.length >= 1 ? (
@@ -157,7 +161,7 @@ export const NoticeCategoryList = () => {
               />
             </>
           ) : (
-            <div>
+            <Plug>
               <EmptyRequestText>
                 I don't see any pets on your request
               </EmptyRequestText>
@@ -165,7 +169,7 @@ export const NoticeCategoryList = () => {
                 Please add your pets or go to registration/login
               </EmptyRequestText>
               <EmptyRequestImg src={dog} alt="No news" />
-            </div>
+            </Plug>
           )}
         </>
       )}
