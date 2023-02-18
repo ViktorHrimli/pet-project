@@ -69,6 +69,7 @@ export const ImageWrapper = styled.div`
   min-width: 240px;
   min-height: 240px;
   overflow: hidden;
+
   @media screen and (min-width: 768px) {
     border-radius: 40px;
     width: 161px;
