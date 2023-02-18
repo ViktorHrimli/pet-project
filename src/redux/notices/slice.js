@@ -53,7 +53,6 @@ const noticesSlice = createSlice({
 
     [getAll.fulfilled](state, action) {
       state.items = action.payload;
-      console.log(state.sellItems);
       function currentCategory() {
         for (const item of state.items) {
           if (item.category === 'sell') {

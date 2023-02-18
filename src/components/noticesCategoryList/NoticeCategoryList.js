@@ -86,8 +86,6 @@ export const NoticeCategoryList = () => {
   }, [result]);
 
   const toRender = useSelector(selected);
-  // const sellItem = useSelector(selectSellItems);
-  // console.log(sellItem);
 
   const visibleNotices = useSelector(selectVisibleNotices);
   const isSearch = useSelector(selectIsSearch);

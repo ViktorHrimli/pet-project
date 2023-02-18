@@ -32,7 +32,7 @@ export const selectVisibleNotices = createSelector(
         return [];
       case setFilterNotices:
         return currentNotices.filter(notice =>
-          notice.title.toLowerCase().includes(setFilterNotices)
+          notice.title.toLowerCase().includes(setFilterNotices.toLowerCase())
         );
       default:
         return currentNotices;

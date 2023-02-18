@@ -50,7 +50,7 @@ export const NoticesSearch = () => {
   const handleChange = (e) => {
     e.preventDefault();
     const form = e.target;
-    setKeyword(form.value.toLowerCase());
+    setKeyword(form.value);
   };
 
   const handleSubmit = (e) => {
