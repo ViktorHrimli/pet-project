@@ -11,7 +11,7 @@ import {
 } from './operations';
 
 const handlePending = state => {
-  state.items = [];
+  // state.items = [];
   state.isLoading = true;
 };
 
@@ -98,7 +98,10 @@ const noticesSlice = createSlice({
       state.userItems = state.userItems.filter(
         item => item._id !== action.payload.noticeId
       );
-      state.items = state.userItems.filter(
+      state.items = state.items.filter(
+        item => item._id !== action.payload.noticeId
+      );
+      state.myFavoriteItems = state.myFavoriteItems.filter(
         item => item._id !== action.payload.noticeId
       );
     },
