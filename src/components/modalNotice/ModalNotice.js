@@ -80,7 +80,11 @@ export const ModalNotice = ({ data, onClose }) => {
   let favoriteItem = useSelector(selectFavoriteItems)
   .filter(item => item._id === _id);
 
-
+  // const correctCategory = category
+  //   .split('')
+  //   .map(letter => (letter === '-' ? (letter = ' ') : letter))
+  //   .join('');
+  const toCurrentTitle = 'lost-found';
   const isPrivate = userEmail.email === email;
 
   return (
@@ -91,13 +95,16 @@ export const ModalNotice = ({ data, onClose }) => {
             {imageURL && <PetPhoto src={imageURL} alt="Pet photo" />}
             <CategoryNotice>
               {category && <TitleCategory>
+                {category === toCurrentTitle ? (
+            <span>Lost/found </span>
+          ) : (<>
                 <FirstPartOfWord>{category.slice(0, 1)}</FirstPartOfWord>
                 <SecondPartOfWord>{
                 category.split("")
                 .map(letter => letter === "-" ? letter = " " : letter )
                 .join("")
                 .slice(1, category.length)
-                }</SecondPartOfWord>
+                }</SecondPartOfWord></>)}
                 </TitleCategory>}
             </CategoryNotice>
           </WrapperPetPhoto>
