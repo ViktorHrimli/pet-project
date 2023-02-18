@@ -75,9 +75,18 @@ export const NoticeCategoryItem = ({ item }) => {
       );
     }
     const toCurrentWord = () => (toAge > 1 ? 'years' : 'year');
-    return toAge < 1
-      ? 'less than a year'
-      : `${transferNumberToWord} ${toCurrentWord()} `;
+    const lessOneYear = 'less than a year';
+    const normalAge = `${transferNumberToWord} ${toCurrentWord()} `;
+    const overhundred = 'over a hundred years';
+    let result;
+    if (toAge < 1) {
+      return (result = lessOneYear);
+    } else if (toAge > 99) {
+      return (result = overhundred);
+    } else {
+      return (result = normalAge);
+    }
+    return result;
   }
 
   const correctCategory = category
