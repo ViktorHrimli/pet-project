@@ -27,7 +27,7 @@ import {
   Buttonlist,
   FirstPartOfWord,
   SecondPartOfWord,
-  ImageWrapper
+  ImageWrapper,
 } from 'components/noticesCategoryItem/NoticesCategoryItem.styled';
 import { IconWasteBasket } from 'components/modalNotice/ModalNotice.styled';
 
@@ -73,9 +73,9 @@ export const NoticeCategoryItem = ({ item }) => {
   }
 
   const correctCategory = category
-  .split("")
-  .map(letter => letter === "-" ? letter = " " : letter )
-  .join("");
+    .split('')
+    .map(letter => (letter === '-' ? (letter = ' ') : letter))
+    .join('');
 
   return (
     <CardItem key={_id}>
@@ -85,7 +85,9 @@ export const NoticeCategoryItem = ({ item }) => {
       <Notiece>
         <span>
           <FirstPartOfWord>{correctCategory.slice(0, 1)}</FirstPartOfWord>
-          <SecondPartOfWord>{correctCategory.slice(1, category.length)}</SecondPartOfWord>
+          <SecondPartOfWord>
+            {correctCategory.slice(1, category.length)}
+          </SecondPartOfWord>
         </span>
       </Notiece>
       <Pick

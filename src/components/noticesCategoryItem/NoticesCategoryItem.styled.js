@@ -64,11 +64,10 @@ export const Notiece = styled.span`
 `;
 
 export const FirstPartOfWord = styled.span`
-text-transform: uppercase;
+  text-transform: uppercase;
 `;
 
-export const SecondPartOfWord = styled.span`
-`;
+export const SecondPartOfWord = styled.span``;
 
 export const Pick = styled.button`
   position: absolute;
@@ -87,7 +86,7 @@ export const Pick = styled.button`
   opacity: 0, 8;
 
   transition-property: opacity, color, scale;
-  transition-duration: 0.25s;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
@@ -104,7 +103,7 @@ export const PickIcon = styled(FaHeart)`
   stroke: ${p => p.theme.colors.primary};
 
   transition-property: fill;
-  transition-duration: 0.25s;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
@@ -170,7 +169,7 @@ export const CardButton = styled.button`
   opacity: 0, 8;
 
   transition-property: background-color, color, font-weight, scale, opacity;
-  transition-duration: 0.25s;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
@@ -203,7 +202,7 @@ export const DeleteButton = styled.button`
   opacity: 0, 8;
 
   transition-property: background-color, color, font-weight, scale, opacity;
-  transition-duration: 0.25s;
+  transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
