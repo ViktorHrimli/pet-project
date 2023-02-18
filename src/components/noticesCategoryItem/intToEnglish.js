@@ -7,7 +7,7 @@ export function intToEnglish(number) {
     { value: 1000000000, str: 'billion' },
     { value: 1000000, str: 'million' },
     { value: 1000, str: 'thousand' },
-    { value: 100, str: 'hundred' },
+    { value: 100, str: 'one hundred' },
     { value: 90, str: 'ninety' },
     { value: 80, str: 'eighty' },
     { value: 70, str: 'seventy' },
