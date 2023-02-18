@@ -263,6 +263,11 @@ export const DeleteButton = styled.button`
 }
 `;
 
+export const WrapperFavoriteButton = styled.div`
+
+`;
+
+
 export const AddToFavoriteButton = styled.button`
   display: flex;
   align-items: center;
@@ -290,6 +295,35 @@ export const AddToFavoriteButton = styled.button`
 }
 `;
 
+export const DeleteFromFavoriteButton = styled.button`
+display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 40px;
+  border-radius: 40px;
+  color: ${p => p.theme.colors.white};
+  background-color: ${p => p.theme.colors.primary};
+  border: 2px solid ${p => p.theme.colors.primary};
+
+  transition-property: border-color, filter, color, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &focus {
+    border-color: ${p => p.theme.colors.primary};
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    color: ${p => p.theme.colors.white};
+    stroke: ${p => p.theme.colors.white};
+  }
+
+@media screen and (min-width: 768px) {
+  width: 160px;
+  margin-right: 12px;
+}
+`
+
 export const TitleNoticeButton = styled.span`
   font-size: ${p => p.theme.fontSizes.xs};
   font-weight: ${p => p.theme.fontWeights.medium};
@@ -302,7 +336,18 @@ export const IconRedHeart = styled(RedHeart)`
   height: 16px;
   margin-left: 8px;
   color: ${p => p.theme.colors.primary};
-  stroke: ${p => p.theme.colors.primary};
+
+  transition-property: filter, color, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+`;
+
+export const IconWhiteHeart = styled(RedHeart)`
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  color: ${p => p.theme.colors.white};
+  stroke: ${p => p.theme.colors.white};
 
   transition-property: filter, color, stroke;
   transition-duration: 0.3s;
@@ -314,7 +359,7 @@ export const IconWasteBasket = styled(WasteBasket)`
   width: 20px;
   height: 20px;
   opacity: 1;
-  
+
   &:hover {
     color: ${p => p.theme.colors.white};
   }
