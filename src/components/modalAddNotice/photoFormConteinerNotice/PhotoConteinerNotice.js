@@ -5,11 +5,16 @@ import {
   NoticeAddPhoto,
   CardImage,
   ImageWrapper,
+  IconsDelete,
 } from 'components/modalAddNotice/photoFormConteinerNotice/PhotoConteinerNotice.styled';
 
 import { AddErrorMessageGlobal } from 'components/modalAddNotice/GlobalForm.styled';
 
 const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
+  const handleDeletePhoto = () => {
+    delete window.handleMyObject;
+    setFile(null);
+  };
   return (
     <>
       {!file ? (
@@ -36,6 +41,7 @@ const PhotoConteinerNotice = ({ file, setFile, isErrorFile }) => {
         </NoticeAddPhoto>
       ) : (
         <ImageWrapper>
+          <IconsDelete onClick={handleDeletePhoto} />
           <CardImage src={file.url} alt="pet" width="208" height="208" />
         </ImageWrapper>
       )}

@@ -5,18 +5,15 @@ import {
   AddPhoto,
   CardImage,
   ImageWrapper,
+  IconsDelete,
 } from 'components/modalAddsPet/photoConteiner/PhotoConteiner.styled';
 
-// const getBase64StringFromDataURL = dataURL =>
-//   dataURL.replace('data:', '').replace(/^.+,/, '');
-
-// const getBase64Img = base => {
-//   return `data:image/png;base64,${base}`;
-// };
-
 const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
-  if (JSON.parse(localStorage.getItem('url')) !== null) {
-  }
+  const handleDeletePhoto = () => {
+    delete window.handleMyObject;
+    setFile(null);
+  };
+
   return (
     <>
       {!file ? (
@@ -43,6 +40,8 @@ const PhotoConteiner = ({ file, setFile, isErrorFile }) => {
         </AddPhoto>
       ) : (
         <ImageWrapper>
+          <IconsDelete onClick={handleDeletePhoto} />
+
           <CardImage src={file.url} alt="pet" width="208" height="208" />
         </ImageWrapper>
       )}

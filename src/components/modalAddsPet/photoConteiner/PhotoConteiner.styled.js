@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { VscAdd } from 'react-icons/vsc';
+import { TiDeleteOutline } from 'react-icons/ti';
 
 const AddPhoto = styled.label`
   position: relative;
@@ -33,6 +34,7 @@ const AddIconsPhoto = styled(VscAdd)`
 `;
 
 const ImageWrapper = styled.div`
+  position: relative;
   display: flex;
   justify-content: center;
 
@@ -55,4 +57,24 @@ const CardImage = styled.img`
   height: 100%;
 `;
 
-export { AddIconsPhoto, AddPhoto, CardImage, ImageWrapper };
+const IconsDelete = styled(TiDeleteOutline)`
+  position: absolute;
+  width: 25px;
+  height: 25px;
+
+  color: black;
+
+  top: 0px;
+  right: 0px;
+
+  opacity: 0.5;
+
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 300ms all;
+
+  :hover {
+    opacity: 0.9;
+    cursor: pointer;
+  }
+`;
+
+export { AddIconsPhoto, AddPhoto, CardImage, ImageWrapper, IconsDelete };
