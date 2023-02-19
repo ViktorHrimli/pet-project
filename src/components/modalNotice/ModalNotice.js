@@ -82,10 +82,6 @@ export const ModalNotice = ({ data, onClose }) => {
     item => item._id === _id
   );
 
-  // const correctCategory = category
-  //   .split('')
-  //   .map(letter => (letter === '-' ? (letter = ' ') : letter))
-  //   .join('');
   const toCurrentTitle = 'lost-found';
   const isPrivate = userEmail.email === email;
 
