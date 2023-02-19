@@ -20,26 +20,27 @@ export const SearchForm = styled.form`
   transition: color 300ms ease-in-out;
 `;
 export const FindNews = styled.input`
-  font-family: ${p => p.theme.fonts.body};
-  font-size: ${p => p.theme.fontSizes.xs};
-  line-height: ${p => p.theme.lineHeights.max};
-  font-weight: ${p => p.theme.fontWeights.medium};
-  letter-spacing: ${p => p.theme.letterSpacings.normal};
-  width: 100%;
-  height: 40px;
-  border: 0;
-  border-radius: ${p => p.theme.radii.normal};
-  padding: 0;
-  padding-left: 12px;
-  cursor: pointer;
-  outline: none;
-  color: ${p => p.theme.colors.black};
-  box-shadow: ${p => p.theme.shadows.normal};
-  background-color: ${p => p.theme.colors.white};
-  transition-property: background-color;
-  transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition: box-shadow 300ms linear;
+font-family: ${p => p.theme.fonts.body};
+font-size: ${p => p.theme.fontSizes.xs};
+line-height: ${p => p.theme.lineHeights.max};
+font-weight: ${p => p.theme.fontWeights.medium};
+letter-spacing: ${p => p.theme.letterSpacings.normal};
+width: 100%;
+height: 40px;
+border: 0;
+border-radius: ${p => p.theme.radii.normal};
+padding: 0;
+padding-left: 12px;
+padding-right: 35px;
+cursor: pointer;
+outline: none;
+color: ${p => p.theme.colors.black};
+box-shadow: ${p => p.theme.shadows.normal};
+background-color: ${p => p.theme.colors.white};
+transition-property: background-color;
+transition-duration: 0.3s;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition: box-shadow 300ms linear;
 
   ::placeholder {
     transition-property: color;

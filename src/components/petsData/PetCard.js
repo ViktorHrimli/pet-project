@@ -11,7 +11,7 @@ export const PetCard = ({ cardData }) => {
   return (
     <Container>
       <PetsUl>
-        {userPets >= 1 ?
+        {userPets.length >= 1 ?
            userPets.map(
               ({
                 urlAvatar,

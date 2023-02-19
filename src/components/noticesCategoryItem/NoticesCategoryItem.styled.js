@@ -141,7 +141,8 @@ export const Try = styled.span`
 `;
 
 export const CardTitle = styled.h3`
-  height: 75px;
+  min-height: 75px;
+  overflow-wrap: break-word;
   color: ${p => p.theme.colors.text};
   font-family: ${p => p.theme.fonts.body};
   font-weight: ${p => p.theme.fontWeights.bolt};

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
     InputCont,
     SearchForm,
@@ -18,7 +19,6 @@ return (
                 name="find"
                 value={value}
                 onChange={handlFindNews}
-                // disabled={isSearch}
             />
             <FindNewsBtn type="submit" >
                     {isSearch ? <IconCross/> : <IconSearch/>}
@@ -27,4 +27,11 @@ return (
         </InputCont>
     </>
 )
+}
+
+NewsSeachInput.propType = {
+    getFindedNews: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    handlFindNews: PropTypes.func.isRequired,
+    isSearch: PropTypes.bool.isRequired,
 }

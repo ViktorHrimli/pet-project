@@ -86,6 +86,7 @@ export const PetPhoto = styled.img`
 `;
 
 export const TitleModalNotice = styled.h3`
+  overflow-wrap: break-word;
   font-size: ${p => p.theme.fontSizes.m};
   font-weight: ${p => p.theme.fontWeights.bold};
   letter-spacing: ${p => p.theme.letterSpacings.min};
@@ -121,6 +122,7 @@ export const CommentsItem = styled.div`
   margin-bottom: 40px;
   width: 100%;
   height: 95px;
+  overflow-wrap: break-word;
   overflow: auto;
   word-wrap: break-word;
 
