@@ -149,7 +149,9 @@ export const deleteButton = styled.button`
 `;
 
 export const PetsList = styled.ul`
-  margin-top: 26px;
+@media screen and (max-width: 767px) {  
+margin-top: 26px;
+}
 `;
 
 export const PetsDataText = styled.p`
