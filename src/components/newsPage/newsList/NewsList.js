@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import { ThreeCircles } from 'react-loader-spinner';
 import { ListOfNews,EmptyRequestText, EmptyRequestImg, IconCross} from "components/newsPage/newsList/NewsList.styled";
 import Section from "components/section/Section";
 import { TitleSection } from "components/section/Section.styled";
 import { NewsItem } from "components/newsPage/newsItem/NewsItem";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchNews } from "../../../redux/news/operations";
-import { selectorNews } from "../../../redux/news/selectors";
+import { selectorNews, selectIsLoading, selectIsPlug } from "../../../redux/news/selectors";
 import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
-// import {ButtonUp} from "components/newsPage/buttonUp/ButtonUp"
 import dog from '../../../images/fiends/dog.jpg';
 
 export const NewsList = () => {
@@ -16,6 +16,10 @@ export const NewsList = () => {
     const [emptyAnswer, setEmptyAnswer] = useState(false);
 
     const dispatch = useDispatch();
+    
+    const isLoading = useSelector(selectIsLoading);
+    const isPlug = useSelector(selectIsPlug);
+
     const news = useSelector(selectorNews);
 
     useEffect(() => {
@@ -69,13 +73,38 @@ export const NewsList = () => {
                 <TitleSection>News</TitleSection>
                 <NewsSeachInput getFindedNews={getFindedNews} value={nameNews} handlFindNews={handlFindNews} isSearch={isSearch} />
                 <ListOfNews>
-                    {
-                        sortNewsList.length > 0 &&
-                        !emptyAnswer ?
+                    {sortNewsList.length > 0 &&
+                        !emptyAnswer ? 
                             sortNewsList.map(({ date, description, title, url, _id }) =>
                                 <NewsItem key={_id} date={date} description={description} title={title} url={url} />)
-                            : <li>
-                                <div style={{ position: 'relative', }}>
+                             : (
+                                <>
+                                {isLoading ? (
+                                    <>
+                                      <ThreeCircles
+                                        height="100"
+                                        width="100"
+                                        color="#f59256"
+                                        display="block"
+                                        wrapperStyle={{
+                                          display: 'block',
+                                          textAlign: 'center',
+                                          left: '50%',
+                                          right: '50%',
+                                          top: '50%',
+                                          bottom: '50%',
+                                        }}
+                                        wrapperClass=""
+                                        visible={true}
+                                        ariaLabel="three-circles-rotating"
+                                        outerCircleColor="#FF6101"
+                                        innerCircleColor="rotating"
+                                        middleCircleColor=""
+                                      />
+                                    </>
+                                  ) : (isPlug &&
+                            <li>
+                                <div style={{ position: 'relative' }}>
                                 <EmptyRequestText >
                                     The search didn't give result, to try again or go back press 
                                 </EmptyRequestText>
@@ -83,9 +112,9 @@ export const NewsList = () => {
                                 </div>
                                 <EmptyRequestImg src={dog} alt='No news' />
                             </li>
-                    }
+                                )}
+                            </>)}
                 </ListOfNews>
-                {/* <ButtonUp/>  */}
             </Section>
         </main>
     )
