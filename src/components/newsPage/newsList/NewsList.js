@@ -8,12 +8,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchNews } from "../../../redux/news/operations";
 import { selectorNews, selectIsLoading } from "../../../redux/news/selectors";
 import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
+import { ButtonUp } from "components/newsPage/buttonUp/ButtonUp";
+import { debounce } from 'lodash';
 import dog from '../../../images/fiends/dog.jpg';
 
 export const NewsList = () => {
     const [nameNews, setNameNews] = useState("");
     const [isSearch, setIsSearch] = useState(false);
     const [emptyAnswer, setEmptyAnswer] = useState(false);
+    const [showButton, setShowButton] = useState(false)
 
     const dispatch = useDispatch();
     
@@ -23,8 +26,21 @@ export const NewsList = () => {
 
     useEffect(() => {
         dispatch(fetchNews());
+        showButtonUp()
         window.scroll({ top: 0 });
-    }, [dispatch,]);
+    }, [dispatch]);
+
+    const showButtonUp = () => {
+        window.addEventListener('scroll', debounce(() => {
+            const documentScroll = document.documentElement.getBoundingClientRect()
+            if (documentScroll.y === 0) {
+                setShowButton(false)
+            }
+            if (documentScroll.y < 0) {
+                setShowButton(true)
+            }
+        }, 100, { leading: true }))
+    };
 
     const handlFindNews = (e) => {
         const { value } = e.currentTarget;
@@ -36,10 +52,10 @@ export const NewsList = () => {
         if (normalizedNameNews === '') {
             return []
         }
-       return  news.filter(item => item.title.toLowerCase().includes(normalizedNameNews));
-    }
+        return news.filter(item => item.title.toLowerCase().includes(normalizedNameNews));
+    };
 
-    const filteredNews = getFilteredNews()
+    const filteredNews = getFilteredNews();
     
     const getFindedNews = (e) => {
         e.preventDefault();
@@ -54,7 +70,7 @@ export const NewsList = () => {
         if (isSearch) {
             setNameNews("");
         }
-    }
+    };
     
     const newsList = isSearch ? filteredNews : news;
 
@@ -63,7 +79,7 @@ export const NewsList = () => {
         const b = new Date(secondNews.date).getTime();
 
         return b - a;
-    })
+    });
     
 
     return (
@@ -114,6 +130,7 @@ export const NewsList = () => {
                                 )}
                             </>)}
                 </ListOfNews>
+                {showButton && <ButtonUp showButton={setShowButton} /> }
             </Section>
         </main>
     )
