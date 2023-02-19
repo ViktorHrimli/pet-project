@@ -2,6 +2,7 @@ import { Container } from 'components/petsData/PetContainer';
 import {CardImg} from 'components/petsData/CardImage.js';
 import { DeleteButton } from 'components/petsData/DeleteButton';
 import { CardMarkUp } from 'components/petsData/PetCardMarkup';
+import {NoPets} from 'components/petsData/NoPets'
 import { PetsDataWrapper, DeleteBtnDiv, PetsListItem, PetsUl} from 'components/petsData/styles/PetsData.styled'
 
 export const PetCard = ({ cardData }) => {
@@ -10,8 +11,8 @@ export const PetCard = ({ cardData }) => {
   return (
     <Container>
       <PetsUl>
-        {userPets
-          ? userPets.map(
+        {userPets ?
+           userPets.map(
               ({
                 urlAvatar,
                 _id,
@@ -31,13 +32,14 @@ export const PetCard = ({ cardData }) => {
                       onDeletePet={onDeletePet}
                      isPetsLoading={isPetsLoading}
                   />
+
                   </DeleteBtnDiv>
                   <CardMarkUp cardData={userPets} id={_id} />
                   </PetsDataWrapper>
                 </PetsListItem>
               )
-            )
-          : <div>Add your pets</div>}
+            ) : <NoPets/>
+           }
       </PetsUl>
     </Container>
   );
