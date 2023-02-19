@@ -39,16 +39,3 @@ const {name, breed, comments, date} = cardData;
 	);
 };
 
-// return (
-//   <PetsList>
-//     {Object.entries(cardData)?.map(([key, value], idx) => (
-//       <li key={`${id}+ ${idx}`} id={id} >
-//         <PetsDataText >
-//           <span>{key}:</span>&nbsp;
-//           {value}
-//         </PetsDataText>
-//       </li>
-//     ))}
-//   </PetsList>
-// );
-// };
