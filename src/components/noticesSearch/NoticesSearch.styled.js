@@ -25,7 +25,7 @@ export const SearchInput = styled.input`
   letter-spacing: ${p => p.theme.letterSpacings.normal};
   width: 100%;
   height: 40px;
-  padding: 0 0 0 12px;
+  padding: 0 35px 0 12px;
   border: none;
   border-radius: ${p => p.theme.radii.normal};
   transition: box-shadow 300ms linear;
@@ -124,7 +124,7 @@ export const Message = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
-  bottom: -16px;
+  bottom: -22px;
   left: 12px;
   font-size: 9px;
   line-height: ${p => p.theme.lineHeights.min};
@@ -132,6 +132,7 @@ export const Message = styled.div`
   color: red;
 
   @media screen and (min-width: 768px) {
+    bottom: -26px;
     font-size: ${p => p.theme.fontSizes.xxxs};
     line-height: ${p => p.theme.lineHeights.min};
     left: 25%;
