@@ -48,11 +48,11 @@ export const InputArea = styled(Field)`
     }
   }
 
-  &:focus {
+  /* &:focus {
     ::placeholder {
-      color: ${p => p.theme.colors.white};
+      color: ${p => p.theme.colors.background};
     }
-  }
+  } */
 `;
 
 export const Message = styled.span`
