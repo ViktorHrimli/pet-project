@@ -2,12 +2,12 @@ import styled from '@emotion/styled';
 import {ReactComponent as plus} from '../../../images/svg/icon-cross-white.svg';
 
 export const AddButton = styled.button`
-cursor: pointer;
-display: flex;
-flex-direction: row-reverse;
-align-items: center;
-justify-content: center;
-};
+	cursor: pointer;
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: center;
+	justify-content: center;
+
 	font-weight: ${p => p.theme.fontWeights.medium};
 	font-size: ${p => p.theme.fontSizes.s};
 	line-height: ${p => p.theme.lineHeights.normal};
@@ -18,21 +18,19 @@ justify-content: center;
     top: -430px;
     right: 32px;
   }
+	
   @media screen and (min-width: 1280px) {
     margin-left: 400px;
-
   }
-}
 `;
 
 export const ButtonName = styled.p`
-margin-right: 15px;
+	margin-right: 15px;
 	margin-bottom: 0;
 	font-size: ${p => p.theme.fontSizes.s};
 	line-height: ${p => p.theme.lineHeights.normal};
   font-weight: ${p => p.theme.fontWeights.medium};
   font-family: ${p => p.theme.fonts.body}
-
 
 @media screen and (min-width: 768px) {
 	padding-right: 12px;

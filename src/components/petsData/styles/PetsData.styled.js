@@ -50,8 +50,7 @@ export const Title = styled.h3`
   line-height: 135%;
   color: #111111;
   margin-bottom: 32px;
-  @media screen and (min-width: 768px) {
-  }
+  
   @media screen and (min-width: 1280px) {
     visibility: visible;
     font-size: 28px;
@@ -140,7 +139,6 @@ right: 0px;
   transition: color 300ms linear, background-color 300ms linear;
 }
 cursor: pointer;
-}
 `;
 
 export const deleteButton = styled.button`
@@ -194,8 +192,15 @@ export const PetsDataItemValue = styled.span`
   font-weight: 400;
 `;
 export const DeleteBtn = styled(TrashIcon)`
-  :hover {
+width: 16px;
+height: 17px;
+opacity: .6;
+  &:hover {
     fill: ${p => p.theme.colors.primary};
     transition: 0.3s;
+  }
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 21px;
   }
 `;
