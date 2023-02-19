@@ -7,7 +7,6 @@ export const InfoItem = styled.div`
   line-height: ${p => p.theme.lineHeights.min};
   letter-spacing: ${p => p.theme.letterSpacings.min};
 
-
   align-items: center;
   display: flex;
   width: 96px;
@@ -15,23 +14,22 @@ export const InfoItem = styled.div`
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.375;
-
   }
 `;
 
 export const Userlabel = styled.label`
-display: flex;
-align-items: center;
-justify-content: center;
-@media screen and (min-width: 768px) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @media screen and (min-width: 768px) {
   }
 `;
 
 export const Form = styled.form`
-justify-content: space-between;
-&:not(:last-child) {
-  margin-bottom: 12px;
-}
+  justify-content: space-between;
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
   @media screen and (min-width: 768px) {
     &:not(:last-child) {
       margin-bottom: 12px;
@@ -42,7 +40,6 @@ justify-content: space-between;
       }
     }
   }
-
 `;
 
 export const EditInputBtn = styled.button`
@@ -66,11 +63,11 @@ export const EditInputBtn = styled.button`
   @media screen and (min-width: 1280px) {
     width: 32px;
     height: 32px;
-    }
   }
 `;
 
 export const EditInput = styled.input`
+  position: relative;
   margin-right: 0px;
   width: 159px;
   font-size: 12px;
@@ -97,15 +94,11 @@ export const EditInput = styled.input`
     ${p => p.theme.lineHeights.max}
   }
   @media screen and (min-width: 1280px) {
-  position: static;
+    position: static;
   }
 `;
 
-
-export const EditInputContainer = styled.div`
-@media screen and (min-width: 1280px) {
-
-`;
+export const EditInputContainer = styled.div``;
 
 export const TextInInput = styled.p`
   font-size: 12px;
@@ -130,7 +123,7 @@ export const Edit = styled.div`
   }
 `;
 export const EditInputBtnSubmit = styled.div`
-cursor: pointer;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,12 +133,9 @@ cursor: pointer;
   border: none;
   background-color: ${p => p.theme.colors.background};
 
-
   @media screen and (min-width: 768px) {
-
     width: 32px;
     height: 32px;
-
   }
   @media screen and (min-width: 1280px) {
     width: 32px;
@@ -158,7 +148,7 @@ export const IconEdit = styled(EditIcon)`
   fill: ${p => p.theme.colors.primary};
   transition: 0.3s;
 }
-`
+`;
 
 export const ErrorMessege = styled.div`
 position: absolute;
@@ -168,5 +158,5 @@ font-size: 8px;
 
 @media screen and (min-width: 768px) {
 font-size: 14px;
-}`
-
+}
+`;

@@ -7,12 +7,13 @@ import {
   favoriteNotices,
   getUserNotices,
 } from 'redux/notices/operations';
-// import { clearItems } from 'redux/notices/slice';
 import {
-  selectItems,
   selectFavoriteItems,
   selectUserItems,
   selectIsLoading,
+  selectSellItems,
+  selectLostItems,
+  selectFreeItems,
 } from 'redux/notices/selectors';
 import { currentNotices } from 'redux/notices/filterSlice';
 import { selectVisibleNotices, selectIsSearch } from 'redux/notices/selectors';
@@ -45,15 +46,15 @@ export const NoticeCategoryList = () => {
   switch (pathName) {
     case 'sell':
       result = 'sell';
-      selected = selectItems;
+      selected = selectSellItems;
       break;
     case 'lost-found':
       result = 'lost-found';
-      selected = selectItems;
+      selected = selectLostItems;
       break;
     case 'for-free':
       result = 'in-good-hands';
-      selected = selectItems;
+      selected = selectFreeItems;
       break;
     case 'favorite':
       selected = selectFavoriteItems;
@@ -97,7 +98,7 @@ export const NoticeCategoryList = () => {
 
   return (
     <>
-      {toRender.length >= 1 ? (
+      {toRender.length ? (
         <>
           <CardList>
             {finishedRender?.map(item => {

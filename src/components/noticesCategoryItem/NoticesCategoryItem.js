@@ -75,9 +75,17 @@ export const NoticeCategoryItem = ({ item }) => {
       );
     }
     const toCurrentWord = () => (toAge > 1 ? 'years' : 'year');
-    return toAge < 1
-      ? 'less than a year'
-      : `${transferNumberToWord} ${toCurrentWord()} `;
+    const lessOneYear = 'less than a year';
+    const normalAge = `${transferNumberToWord} ${toCurrentWord()} `;
+    const overhundred = 'over a hundred years';
+    // let result;
+    if (toAge < 1) {
+      return lessOneYear;
+    } else if (toAge > 99) {
+      return overhundred;
+    } else {
+      return normalAge;
+    }
   }
 
   const correctCategory = category
@@ -103,7 +111,7 @@ export const NoticeCategoryItem = ({ item }) => {
             </span>
           )}
         </Notiece>
-        {isUFavoriteItem ? (
+        {isUFavoriteItem && token ? (
           <Picked onClick={() => dispatch(removeFavoriteNotices(_id))}>
             <PickIcon />
           </Picked>

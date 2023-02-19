@@ -1,8 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// axios.defaults.baseURL = 'https://pets-support-webapp.onrender.com/api';
-
 export const fetchNews = createAsyncThunk(
   'news/fetchAll',
   async (_, thunkAPI) => {
