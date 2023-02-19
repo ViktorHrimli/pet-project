@@ -84,12 +84,9 @@ export const FriendsItem = ({image, name,email,time,address,phone, urlFriend}) =
                                         <p>Email:</p>
                                         <FriendsText>---------------------------------</FriendsText>
                                     </>
-                                    
                                 }
-                                
                             </ItemData>
                             <ItemData>
-                                
                                 {phone ?
                                     <DivCont>
                                         <p style={{ margin: "0" }}>Phone:</p>

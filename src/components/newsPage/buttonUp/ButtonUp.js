@@ -1,6 +1,6 @@
 import {Button} from 'components/newsPage/buttonUp/ButtonUp.styled'
 
-export const ButtonUp = ({setShowButton}) => {
+export const ButtonUp = () => {
 
     const handlClick = () => {
         window.scroll({
