@@ -33,8 +33,6 @@ export const ButtonBack = styled.button`
     color: ${p => p.theme.colors.white};
     background-color: ${p => p.theme.colors.primary};
     transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    /* border: ${p => p.theme.borders.medium};
-    border-color: ${p => p.theme.colors.focus}; */
   }
   @media (min-width: 768px) {
     padding: 10px 28px;
