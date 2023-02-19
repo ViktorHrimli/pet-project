@@ -1,24 +1,25 @@
 import styled from '@emotion/styled';
 
 export const StyledMenu = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  justify-content: flex-end;
-  padding-top: 104px;
+  display: block;
+  padding-top: 40px;
   background: ${p => p.theme.colors.background};
+
   transform: ${({ open }) => (!open ? 'translateX(100%)' : 'translateX(0)')};
-  height: 100vh;
+  height: calc(100vh - 63px);
 
   text-align: center;
   position: absolute;
-  overflow: scroll !important;
-  top: 0;
+  overflow-y: scroll;
+  top: 63px;
   left: 0;
+
   transition: transform 0.3s ease-in-out;
 
   @media (min-width: 768px) {
     padding-top: 130px;
+    top: 0;
+    height: 100vh;
   }
 
   @media (max-width: 1279px) {
