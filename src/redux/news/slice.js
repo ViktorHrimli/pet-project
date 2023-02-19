@@ -5,7 +5,6 @@ const initialState = {
     news: [],
     error: null,
     isLoading: false,
-    isPlug: false,
 };
 
 const newsSlice = createSlice({
@@ -18,10 +17,6 @@ const newsSlice = createSlice({
     [fetchNews.fulfilled](state, action) {
     state.news = action.payload;
     state.isLoading = false;
-    state.isPlug = true;
-    if(state.news.length){
-    state.isPlug = false;
-    }
     state.error = null;
     },
     [fetchNews.rejected](state, action) {

@@ -6,7 +6,7 @@ import { TitleSection } from "components/section/Section.styled";
 import { NewsItem } from "components/newsPage/newsItem/NewsItem";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchNews } from "../../../redux/news/operations";
-import { selectorNews, selectIsLoading, selectIsPlug } from "../../../redux/news/selectors";
+import { selectorNews, selectIsLoading } from "../../../redux/news/selectors";
 import { NewsSeachInput } from "components/newsPage/newsSearchInput/NewsSearchInput";
 import dog from '../../../images/fiends/dog.jpg';
 
@@ -18,7 +18,6 @@ export const NewsList = () => {
     const dispatch = useDispatch();
     
     const isLoading = useSelector(selectIsLoading);
-    const isPlug = useSelector(selectIsPlug);
 
     const news = useSelector(selectorNews);
 
@@ -102,7 +101,7 @@ export const NewsList = () => {
                                         middleCircleColor=""
                                       />
                                     </>
-                                  ) : (isPlug &&
+                                  ) : (
                             <li>
                                 <div style={{ position: 'relative' }}>
                                 <EmptyRequestText >
