@@ -14,14 +14,15 @@ export const dateFn = value => {
 
   const day = new Date().getDate();
   const month = new Date().getMonth();
-  const year = new Date().getFullYear();
 
-  const maxDate = new Date(`${year}, ${month}, ${day}`);
+  const maxDate = new Date(`2024, ${month}, ${day}`);
   const datePet = new Date(formattedDateCheck);
 
-  const ageRange = parseFloat(intlFormatDistance(maxDate, datePet).slice(6, 9));
+  const ageRange = parseInt(
+    intlFormatDistance(maxDate, datePet).slice(6, 9).trim()
+  );
 
-  if (ageRange > 55 || isNaN(ageRange)) return 'false';
+  if (ageRange > 56 || isNaN(ageRange)) return 'false';
 
   return formattedDate;
 };
