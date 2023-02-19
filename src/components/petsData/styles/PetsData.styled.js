@@ -159,11 +159,24 @@ export const PetsDataText = styled.p`
   font-weight: 500;
   font-size: 12px;
   line-height: 1.375;
-  max-width: 580px;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
+`;
+export const PetsDataBox = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.375;
+  width: 100%;
+
+@media screen and (min-width: 768px) {
+  font-size: 16px;
+  width: 471px;
+}
+@media screen and (min-width: 1280px) {
+  width: 580px;
+}
 `;
 
 export const PetsUl = styled.ul``;
@@ -172,10 +185,10 @@ export const EditButton = styled.div`
 `;
 
 export const PetsDataItemKey = styled.span`
-  overflow: hidden;
   font-weight: 500;
   margin-right: 2px;
 `;
+
 export const PetsDataItemValue = styled.span`
   overflow-wrap: break-word;
   font-weight: 400;

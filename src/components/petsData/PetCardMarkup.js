@@ -1,4 +1,4 @@
-import {PetsList, PetsDataText} from 'components/petsData/styles/PetsData.styled'
+import {PetsList, PetsDataText, PetsDataBox} from 'components/petsData/styles/PetsData.styled'
 import { nanoid } from 'nanoid'
 
 import {PetsDataItemKey, PetsDataItemValue } from 'components/petsData/styles/PetsData.styled'
@@ -29,11 +29,11 @@ const {name, breed, comments, date} = cardData;
 				</li>
 
         <li key={nanoid()} >
-					<PetsDataText >
+					<PetsDataBox >
 						<PetsDataItemKey>Comments:&nbsp;
 							<PetsDataItemValue>{comments}</PetsDataItemValue>
 						</PetsDataItemKey>
-					</PetsDataText>
+					</PetsDataBox>
 				</li>
 
 		</PetsList>
