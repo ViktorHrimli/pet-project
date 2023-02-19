@@ -18,27 +18,31 @@ import {
   ButtonNoticeForm,
 } from 'components/modalAddNotice/buttonForm/ButtonForm';
 
-const regexDate = /(^0[1-9]|[12][0-9]|3[01]).(0[1-9]|1[0-2]).(\d{4}$)/;
+import { dateFn, regexDate, textMatch } from 'components/modalAddsPet/helpers';
 
 const schema = Yup.object().shape({
   title: Yup.string()
     .min(2)
     .max(48)
     .required('Field required!')
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!'),
+    .matches(textMatch, 'Incorrect symbol!'),
   name: Yup.string()
     .min(2)
     .max(16)
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!')
-    .required(),
+    .matches(textMatch, 'Incorrect symbol!')
+    .required('Field required!'),
   breed: Yup.string()
     .min(2)
     .max(16)
-    .matches(/^[a-zA-zа-яіїєА-ЯІЇЄ,.! ]+$/, 'Incorrect symbol!')
-    .required(),
+    .matches(textMatch, 'Incorrect symbol!')
+    .required('Field required!'),
   date: Yup.string()
-    .matches(regexDate, 'Date should be a (DD.MM.yyyy)')
-    .required(),
+    .transform(dateFn)
+    .matches(
+      regexDate,
+      'Date should be a (DD.MM.yyyy) after 1970-01-01 and before today!'
+    )
+    .required('Field required!'),
 });
 
 export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
@@ -80,7 +84,7 @@ export const StepOne = ({ step, state, setIsOpen, setIsUseSell }) => {
             <div style={{ position: 'relative' }}>
               <LabelGlobal>
                 <div>
-                  Title ad<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
+                  Title for add<NoticeReqiredSymbol>*</NoticeReqiredSymbol>
                 </div>
 
                 <InputGlobal placeholder="Enter title" name="title" />

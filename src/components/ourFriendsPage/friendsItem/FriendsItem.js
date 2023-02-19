@@ -15,15 +15,13 @@ import {
     TimeList,
     TimeItem,
     Span,
-    TimeCont
+    DivCont
 } from 'components/ourFriendsPage/friendsItem/FriendsItem.styled'
-
-
 
 const duration = 300;
 
 const defaultStyle = {
-  transition: `opacity ${duration}ms ease-in-out`,
+  transition: `opacity ${duration}ms cubic-bezier(0.4, 0, 0.2, 1)`,
   opacity: 0,
 }
 
@@ -34,9 +32,10 @@ const transitionStyles = {
   exited:  { opacity: 0 },
 };
 
-export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) => {
+export const FriendsItem = ({image, name,email,time,address,phone, urlFriend}) => {
     const [timeSchedule, setTimeSchedule] = useState(false);
     const nodeRef = useRef(null);
+    
     const handleToggle = () => {
         setTimeSchedule(state => !state)
     };
@@ -56,11 +55,11 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
                         <ul>
                             <ItemData>
                                 {time ?
-                                    <TimeCont>
+                                    <DivCont>
                                         <p style={{margin: "0"}}> Time:</p>
                                         <Button onClick={handleToggle}>
                                             {time.monday}</Button>
-                                    </TimeCont> :
+                                    </DivCont> :
                                     <>
                                         <p style={{margin: "0"}}>Time:</p> 
                                         <Button disabled style={{ cursor: "inherit" }}>---------------------------------</Button>
@@ -69,18 +68,18 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
                             </ItemData>
                             <ItemData>
                                 Adress:
-                                {!adress ? <FriendsText>---------------------------------</FriendsText> :
-                                    <FriendsText>{adress}</FriendsText>
+                                {!address ? <FriendsText>---------------------------------</FriendsText> :
+                                    <FriendsText>{address}</FriendsText>
                                 }
                             </ItemData>
                             <ItemData>
                                 {email ? 
-                                    <TimeCont>
+                                    <DivCont>
                                         <p style={{margin: "0"}}>Email:</p>
                                         <a href={`mailto:${email}`}>
                                             <FriendsText>{email}</FriendsText>
                                         </a>
-                                    </TimeCont> :
+                                    </DivCont> :
                                     <>
                                         <p>Email:</p>
                                         <FriendsText>---------------------------------</FriendsText>
@@ -92,12 +91,12 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
                             <ItemData>
                                 
                                 {phone ?
-                                    <TimeCont>
+                                    <DivCont>
                                         <p style={{ margin: "0" }}>Phone:</p>
                                         <a href={`tel:${phone}`}>
                                             <FriendsText>{phone}</FriendsText>
                                         </a>
-                                    </TimeCont> :
+                                    </DivCont> :
                                     <>
                                         <p style={{ margin: "0" }}>Phone:</p>
                                         <FriendsText>---------------------------------</FriendsText>
@@ -120,7 +119,7 @@ export const FriendsItem = ({image, name,email,time,adress,phone, urlFriend}) =>
                         <TimeItem>FR<Span>{time.friday}</Span></TimeItem>
                         <TimeItem>SA<Span>{time.saturday}</Span></TimeItem>
                         <TimeItem>SU<Span>{time.sunday}</Span></TimeItem>
-                            </TimeList>
+                    </TimeList>
                         )}
                 </Transition>
                 }           

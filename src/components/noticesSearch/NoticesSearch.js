@@ -12,17 +12,20 @@ import {
   SearchInput,
   IconSearch,
   IconCross,
-  BtnSearch 
+  BtnSearch,
+  Message
 } from "components/noticesSearch/NoticesSearch.styled";
+
+import { RxCrossCircled } from "react-icons/rx";
 
 export const NoticesSearch = () => {
   const [keyword, setKeyword] = useState('');
   const [isSearch, setIsSearch] = useState(false);
+  const [limit, setLimit] = useState(12);
 
   const history = useLocation();
   const dispatch = useDispatch();
 
-  const limit = 1000;
   const pathName = history.pathname.slice(9);
 
   let result;
@@ -50,15 +53,17 @@ export const NoticesSearch = () => {
   const handleChange = (e) => {
     e.preventDefault();
     const form = e.target;
-    setKeyword(form.value.toLowerCase());
+    setKeyword(form.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLimit(1000);
     setIsSearch(prevState => !prevState);
 
     if(isSearch){
       setKeyword("");
+      setLimit(12);
     }
   };
 
@@ -66,7 +71,7 @@ export const NoticesSearch = () => {
     dispatch(getAll({result, limit}))
     dispatch(setFilterNotices(keyword));
     dispatch(setSearchNotices(isSearch));
-  }, [dispatch, isSearch, keyword, result])
+  }, [dispatch, isSearch, keyword, result, limit])
 
   return <SearchForm onSubmit={handleSubmit}>
       <SearchInput
@@ -74,11 +79,14 @@ export const NoticesSearch = () => {
       placeholder="Search"
       name="value"
       value={keyword}
-      disabled={isSearch}
       onChange={handleChange}
       />
       <BtnSearch type="submit">
         {isSearch ? <IconCross/> : <IconSearch/>}
       </BtnSearch>
+      {isSearch && !keyword && <Message>
+        <span style={{marginRight: '3px'}}>The search didn't give result, to try again or go back press</span>
+        <RxCrossCircled size={10}/>
+        </Message>}
     </SearchForm>
 };

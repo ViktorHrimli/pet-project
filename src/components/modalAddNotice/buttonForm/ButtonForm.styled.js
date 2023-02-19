@@ -16,6 +16,7 @@ const AddButton = styled.button`
   border-radius: ${p => p.theme.radii.big};
 
   cursor: pointer;
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 300ms all;
 
   :hover {
     box-shadow: ${p => p.theme.shadows.normal};
@@ -99,6 +100,8 @@ const NoticeButton = styled.button`
 
   border: 1px solid ${p => p.theme.colors.primary};
   border-radius: 40px;
+
+  transition: cubic-bezier(0.39, 0.575, 0.565, 1) 300ms all;
 
   :focus {
     color: ${p => p.theme.colors.white};

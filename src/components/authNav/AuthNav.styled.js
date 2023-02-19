@@ -5,8 +5,6 @@ export const WrapperAuthNav = styled.div`
   display: flex;
   justify-content: center;
   gap: 12px;
-  /* margin-bottom: 20px; */
-  width: 100%;
 
   @media screen and (min-width: 768px) {
     margin-right: 55px;
@@ -16,7 +14,6 @@ export const WrapperAuthNav = styled.div`
   @media screen and (min-width: 1280px) {
     gap: 20px;
     margin-right: 0;
-    width: 100%;
     justify-content: flex-end;
   }
 `;

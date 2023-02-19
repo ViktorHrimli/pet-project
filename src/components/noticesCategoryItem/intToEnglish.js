@@ -1,13 +1,6 @@
 export function intToEnglish(number) {
   const NS = [
-    { value: 1000000000000000000000, str: 'sextillion' },
-    { value: 1000000000000000000, str: 'quintillion' },
-    { value: 1000000000000000, str: 'quadrillion' },
-    { value: 1000000000000, str: 'trillion' },
-    { value: 1000000000, str: 'billion' },
-    { value: 1000000, str: 'million' },
-    { value: 1000, str: 'thousand' },
-    { value: 100, str: 'hundred' },
+    { value: 100, str: 'one hundred' },
     { value: 90, str: 'ninety' },
     { value: 80, str: 'eighty' },
     { value: 70, str: 'seventy' },
