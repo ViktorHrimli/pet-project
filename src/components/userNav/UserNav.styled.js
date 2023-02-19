@@ -6,7 +6,9 @@ export const StyledNavLink = styled(NavLink)`
   justify-content: center;
   align-items: center;
 
-  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+
   width: 164px;
   font-family: ${p => p.theme.fonts.body};
   text-decoration: none;
