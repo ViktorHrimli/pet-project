@@ -31,6 +31,7 @@ border: 0;
 border-radius: ${p => p.theme.radii.normal};
 padding: 0;
 padding-left: 12px;
+padding-right: 35px;
 cursor: pointer;
 outline: none;
 color: ${p => p.theme.colors.black};

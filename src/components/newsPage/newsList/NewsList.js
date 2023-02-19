@@ -35,10 +35,10 @@ export const NewsList = () => {
             const documentScroll = document.documentElement.getBoundingClientRect()
             if (documentScroll.y === 0) {
                 setShowButton(false)
-            }
+            };
             if (documentScroll.y < 0) {
                 setShowButton(true)
-            }
+            };
         }, 100, { leading: true }))
     };
 
@@ -130,7 +130,7 @@ export const NewsList = () => {
                                 )}
                             </>)}
                 </ListOfNews>
-                {showButton && <ButtonUp showButton={setShowButton} /> }
+                {showButton && <ButtonUp/> }
             </Section>
         </main>
     )
