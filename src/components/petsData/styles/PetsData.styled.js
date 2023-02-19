@@ -72,7 +72,7 @@ export const ImageWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     border-radius: 40px;
-    width: 161px;
+    min-width: 161px;
     height: 161px;
     margin-right: 32px;
   }
@@ -138,7 +138,6 @@ right: 0px;
   top: 20px;
   right: 20px;
   transition: color 300ms linear, background-color 300ms linear;
-
 }
 cursor: pointer;
 }
