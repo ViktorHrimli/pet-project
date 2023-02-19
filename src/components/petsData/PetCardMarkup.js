@@ -30,8 +30,9 @@ const {name, breed, comments, date} = cardData;
 
         <li key={nanoid()} >
 					<PetsDataText >
-						<PetsDataItemKey>Comments:&nbsp;<PetsDataItemValue>{comments}</PetsDataItemValue></PetsDataItemKey>
-
+						<PetsDataItemKey>Comments:&nbsp;
+							<PetsDataItemValue>{comments}</PetsDataItemValue>
+						</PetsDataItemKey>
 					</PetsDataText>
 				</li>
 

@@ -173,10 +173,12 @@ export const EditButton = styled.div`
 `;
 
 export const PetsDataItemKey = styled.span`
+  overflow: hidden;
   font-weight: 500;
   margin-right: 2px;
 `;
 export const PetsDataItemValue = styled.span`
+  overflow-wrap: break-word;
   font-weight: 400;
 `;
 export const DeleteBtn = styled(TrashIcon)`
