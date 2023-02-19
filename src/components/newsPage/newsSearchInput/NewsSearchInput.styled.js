@@ -1,24 +1,24 @@
 import styled from '@emotion/styled';
 import { ReactComponent as search } from '../../../images/svg/search.svg';
-import { RxCrossCircled } from "react-icons/rx";
+import { RxCrossCircled } from 'react-icons/rx';
 
 export const InputCont = styled.div`
-width: 280px;
-position: relative;
-margin-bottom: 40px;
+  width: 280px;
+  position: relative;
+  margin-bottom: 40px;
 
-margin-left:auto;
-margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 
   @media screen and (min-width: 768px) {
-  width: 608px;
-  margin-bottom: 60px;
+    width: 608px;
+    margin-bottom: 60px;
   }
 `;
 
 export const SearchForm = styled.form`
-transition: color 300ms ease-in-out;
-`
+  transition: color 300ms ease-in-out;
+`;
 export const FindNews = styled.input`
 font-family: ${p => p.theme.fonts.body};
 font-size: ${p => p.theme.fontSizes.xs};
@@ -40,21 +40,22 @@ background-color: ${p => p.theme.colors.white};
 transition-property: background-color;
 transition-duration: 0.3s;
 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition: box-shadow 300ms linear;
 
-::placeholder {
-      transition-property: color;
-      transition-duration: 0.3s;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
-    }
+  ::placeholder {
+    transition-property: color;
+    transition-duration: 0.3s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-&::placeholder,
-::-webkit-input-placeholder {
-  color: #535353;
-}
-:-ms-input-placeholder {
+  &::placeholder,
+  ::-webkit-input-placeholder {
     color: #535353;
   }
-   
+  :-ms-input-placeholder {
+    color: #535353;
+  }
+
   &:hover {
     ::placeholder {
       color: ${p => p.theme.colors.focus};
@@ -62,10 +63,11 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &:focus {
-  ::placeholder {
-    color: ${p => p.theme.colors.white};
+    box-shadow: 7px 4px 14px ${p => p.theme.colors.focus};
+    ::placeholder {
+      color: ${p => p.theme.colors.white};
+    }
   }
-}
   @media screen and (min-width: 768px) {
     line-height: ${p => p.theme.lineHeights.normal};
     font-size: ${p => p.theme.fontSizes.s};
@@ -73,23 +75,23 @@ transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     padding-left: 20px;
     width: 608px;
     height: 44px;
-}
+  }
 `;
 
 export const FindNewsBtn = styled.button`
-position: absolute;
-bottom: 10px;
-right:13px;
-border: none;
-outline: none;
-display: block;
-padding: 0;
-transition-property: color;
-transition-duration: 0.3s;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+  position: absolute;
+  bottom: 10px;
+  right: 13px;
+  border: none;
+  outline: none;
+  display: block;
+  padding: 0;
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-&:hover,
-&:focus {
+  &:hover,
+  &:focus {
     color: ${p => p.theme.colors.focus};
   }
 `;
@@ -109,7 +111,7 @@ export const IconCross = styled(RxCrossCircled)`
   height: 15px;
   transition-property: color;
   transition-duration: 0.3s;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
     width: 18px;

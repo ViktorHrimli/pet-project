@@ -1,5 +1,5 @@
 import { Container } from 'components/petsData/PetContainer';
-import {CardImg} from 'components/petsData/CardImage.js';
+import {CardImg} from 'components/petsData/CardImage';
 import { DeleteButton } from 'components/petsData/DeleteButton';
 import { CardMarkUp } from 'components/petsData/PetCardMarkup';
 import {NoPets} from 'components/petsData/NoPets'
@@ -11,7 +11,7 @@ export const PetCard = ({ cardData }) => {
   return (
     <Container>
       <PetsUl>
-        {userPets ?
+        {userPets.length >= 1 ?
            userPets.map(
               ({
                 urlAvatar,

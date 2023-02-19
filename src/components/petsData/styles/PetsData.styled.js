@@ -66,8 +66,8 @@ export const Text = styled.div`
 `;
 export const ImageWrapper = styled.div`
   border-radius: 20px;
-  min-width: 240px;
-  min-height: 240px;
+  width: 240px;
+  height: 240px;
   overflow: hidden;
 
   @media screen and (min-width: 768px) {
@@ -173,10 +173,12 @@ export const EditButton = styled.div`
 `;
 
 export const PetsDataItemKey = styled.span`
+  overflow: hidden;
   font-weight: 500;
   margin-right: 2px;
 `;
 export const PetsDataItemValue = styled.span`
+  overflow-wrap: break-word;
   font-weight: 400;
 `;
 export const DeleteBtn = styled(TrashIcon)`
