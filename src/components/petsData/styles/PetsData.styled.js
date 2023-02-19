@@ -72,7 +72,7 @@ export const ImageWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     border-radius: 40px;
-    width: 161px;
+    min-width: 161px;
     height: 161px;
     margin-right: 32px;
   }
@@ -138,7 +138,6 @@ right: 0px;
   top: 20px;
   right: 20px;
   transition: color 300ms linear, background-color 300ms linear;
-
 }
 cursor: pointer;
 }
@@ -160,11 +159,24 @@ export const PetsDataText = styled.p`
   font-weight: 500;
   font-size: 12px;
   line-height: 1.375;
-  max-width: 580px;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
+`;
+export const PetsDataBox = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.375;
+  width: 100%;
+
+@media screen and (min-width: 768px) {
+  font-size: 16px;
+  width: 471px;
+}
+@media screen and (min-width: 1280px) {
+  width: 580px;
+}
 `;
 
 export const PetsUl = styled.ul``;
@@ -173,10 +185,10 @@ export const EditButton = styled.div`
 `;
 
 export const PetsDataItemKey = styled.span`
-  overflow: hidden;
   font-weight: 500;
   margin-right: 2px;
 `;
+
 export const PetsDataItemValue = styled.span`
   overflow-wrap: break-word;
   font-weight: 400;

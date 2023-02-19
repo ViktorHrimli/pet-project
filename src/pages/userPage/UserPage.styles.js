@@ -167,8 +167,6 @@ export const PetsContainerWrapper = styled.div`
     padding-right: 0px;
     margin-top: 0px;
     justify-content: space-between;
-    padding-left: 0px;
-    padding-right: 0px;
   }
 `;
 export const UserInfoContainer = styled.div`
