@@ -15,11 +15,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename='/team-project-react-petly'>
-        <ThemeProvider theme={theme}>
-          <Global styles={GlobalStyles} />
-          <App />
-        </ThemeProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <Global styles={GlobalStyles} />
+            <App />
+          </ThemeProvider>
         </BrowserRouter>
       </PersistGate>
     </Provider>
