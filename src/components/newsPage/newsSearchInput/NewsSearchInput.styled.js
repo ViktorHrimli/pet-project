@@ -58,12 +58,12 @@ transition: box-shadow 300ms linear;
 
   &:hover {
     ::placeholder {
-      color: ${p => p.theme.colors.focus};
+      color: ${p => p.theme.colors.primary};
     }
   }
 
   &:focus {
-    box-shadow: 7px 4px 14px ${p => p.theme.colors.focus};
+    box-shadow: 7px 4px 14px ${p => p.theme.colors.primary};
     ::placeholder {
       color: ${p => p.theme.colors.white};
     }

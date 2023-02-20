@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { ReactComponent as search } from '../../images/svg/search.svg';
-// import { ReactComponent as crossNotice } from '../../images/svg/close-line.svg';
 import { RxCrossCircled } from 'react-icons/rx';
 
 export const SearchForm = styled.form`
@@ -41,7 +40,7 @@ export const SearchInput = styled.input`
 
   &:hover {
     ::placeholder {
-      color: ${p => p.theme.colors.focus};
+      color: ${p => p.theme.colors.primary};
     }
   }
 
@@ -49,7 +48,7 @@ export const SearchInput = styled.input`
     ::placeholder {
       color: ${p => p.theme.colors.white};
     }
-    box-shadow: 7px 4px 14px ${p => p.theme.colors.focus};
+    box-shadow: 7px 4px 14px ${p => p.theme.colors.primary};
   }
 
   outline: none;
