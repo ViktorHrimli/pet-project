@@ -41,7 +41,7 @@ export const SearchInput = styled.input`
 
   &:hover {
     ::placeholder {
-      color: ${p => p.theme.colors.focus};
+      color: ${p => p.theme.colors.primary};
     }
   }
 
@@ -49,7 +49,7 @@ export const SearchInput = styled.input`
     ::placeholder {
       color: ${p => p.theme.colors.white};
     }
-    box-shadow: 7px 4px 14px ${p => p.theme.colors.focus};
+    box-shadow: 7px 4px 14px ${p => p.theme.colors.primary};
   }
 
   outline: none;
