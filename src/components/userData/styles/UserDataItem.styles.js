@@ -5,8 +5,8 @@ export const InfoItem = styled.div`
   font-size: ${p => p.theme.fontSizes.xxxs};
   font-weight: ${p => p.theme.fontWeights.medium};
   line-height: ${p => p.theme.lineHeights.min};
-  letter-spacing: ${p => p.theme.letterSpacings.min};
-
+  letter-spacing: ${p => p.theme.letterSpacings.normal};
+  color: #000000;
   align-items: center;
   display: flex;
   width: 96px;

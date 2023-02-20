@@ -15,12 +15,12 @@ export const AddButton = styled.button`
 
 	@media screen and (min-width: 768px) {
     position: absolute;
-    top: -430px;
+    top: 0;
     right: 32px;
+		width: 138px;
   }
-	
-  @media screen and (min-width: 1280px) {
-    margin-left: 400px;
+	@media screen and (min-width: 768px) {
+		width: 140px;
   }
 `;
 
