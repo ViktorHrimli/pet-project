@@ -50,8 +50,7 @@ export const Title = styled.h3`
   line-height: 135%;
   color: #111111;
   margin-bottom: 32px;
-  @media screen and (min-width: 768px) {
-  }
+  
   @media screen and (min-width: 1280px) {
     visibility: visible;
     font-size: 28px;
@@ -66,12 +65,13 @@ export const Text = styled.div`
 `;
 export const ImageWrapper = styled.div`
   border-radius: 20px;
-  min-width: 240px;
-  min-height: 240px;
+  width: 240px;
+  height: 240px;
   overflow: hidden;
+
   @media screen and (min-width: 768px) {
     border-radius: 40px;
-    width: 161px;
+    min-width: 161px;
     height: 161px;
     margin-right: 32px;
   }
@@ -137,10 +137,8 @@ right: 0px;
   top: 20px;
   right: 20px;
   transition: color 300ms linear, background-color 300ms linear;
-
 }
 cursor: pointer;
-}
 `;
 
 export const deleteButton = styled.button`
@@ -151,7 +149,9 @@ export const deleteButton = styled.button`
 `;
 
 export const PetsList = styled.ul`
-  margin-top: 26px;
+@media screen and (max-width: 767px) {  
+margin-top: 26px;
+}
 `;
 
 export const PetsDataText = styled.p`
@@ -159,11 +159,24 @@ export const PetsDataText = styled.p`
   font-weight: 500;
   font-size: 12px;
   line-height: 1.375;
-  max-width: 580px;
 
   @media screen and (min-width: 768px) {
     font-size: 16px;
   }
+`;
+export const PetsDataBox = styled.div`
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.375;
+  width: 100%;
+
+@media screen and (min-width: 768px) {
+  font-size: 16px;
+  width: 471px;
+}
+@media screen and (min-width: 1280px) {
+  width: 580px;
+}
 `;
 
 export const PetsUl = styled.ul``;
@@ -175,12 +188,21 @@ export const PetsDataItemKey = styled.span`
   font-weight: 500;
   margin-right: 2px;
 `;
+
 export const PetsDataItemValue = styled.span`
+  overflow-wrap: break-word;
   font-weight: 400;
 `;
 export const DeleteBtn = styled(TrashIcon)`
-  :hover {
+width: 16px;
+height: 17px;
+opacity: .6;
+  &:hover {
     fill: ${p => p.theme.colors.primary};
     transition: 0.3s;
+  }
+  @media screen and (min-width: 768px) {
+    width: 20px;
+    height: 21px;
   }
 `;

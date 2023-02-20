@@ -20,7 +20,7 @@ export const ListOfFriends = styled.ul`
 margin-left: auto;
 margin-right: auto;
 margin-top: 0;
-margin-bottom: 0;
+margin-bottom: 100px;
 padding: 0;
 
 @media screen and (min-width: 768px){
@@ -28,9 +28,7 @@ padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(336px, 1fr));
     gap: 32px 32px;
-    margin-bottom: 100px;
-
-};
+}
 
 @media screen and (min-width: 1280px) {
     max-width: 1280px;

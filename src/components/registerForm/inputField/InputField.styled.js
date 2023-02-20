@@ -47,12 +47,6 @@ export const InputArea = styled(Field)`
       line-height: ${p => p.theme.lineHeights.max};
     }
   }
-
-  &:focus {
-    ::placeholder {
-      color: ${p => p.theme.colors.white};
-    }
-  }
 `;
 
 export const Message = styled.span`
@@ -63,10 +57,4 @@ export const Message = styled.span`
   font-size: 10px;
   line-height: calc(1.5);
   color: red;
-
-  /* position: absolute;
-  width: 100%;
-  bottom: -16px;
-  font-size: 10px;
-  color: #8b0000; */
 `;

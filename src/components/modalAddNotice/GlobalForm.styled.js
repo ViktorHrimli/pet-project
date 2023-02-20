@@ -34,6 +34,8 @@ const InputGlobal = styled(Field)`
   border-radius: ${p => p.theme.radii.big};
 
   @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.xs};
+
     line-height: 1.55;
     min-width: 448px;
   }

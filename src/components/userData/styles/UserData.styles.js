@@ -63,11 +63,13 @@ flex-shrink: 1;
   margin-top: 0px;
   bottom: 0px;
 }
-`
+`;
+
 export const PhotoEditText = styled.p`
 margin-bottom: 0px;
 margin-left: 5px;
 transition: color 300ms linear, background-color 300ms linear;
+
 &:hover {
   color: ${p => p.theme.colors.primary};
   stroke: ${p => p.theme.colors.primary};
@@ -81,24 +83,26 @@ color: ${p => p.theme.colors.black}
 @media screen and (min-width: 768px) {
   margin-top: 9px;
   }
-`
+`;
 export const PhotoContainer = styled.div`
 position: relative;
 @media screen and (min-width: 1280px) {
   margin-bottom: 36px;
  }
-`
+`;
 export const EditPhotoBtn = styled.button`
 margin-rigth: 10px;
-`
+`;
 
 export const UserInfoWrapper = styled.div`
 @media screen and (min-width: 768px) {
   display: flex;
 }
-`
+`;
+
 export const UserFormContainer = styled.div`
-margin-top: 100px;`
+margin-top: 100px;
+`;
 
 export const UserPhotoWrapper = styled.div`
 margin-bottom: 68px;
@@ -107,7 +111,8 @@ margin-bottom: 68px;
  }
  @media screen and (min-width: 1280px) {
 
- }`
+ }
+ `;
 
 export const LogOutBtn = styled.button`
 top: -2270px;
@@ -141,25 +146,26 @@ justify-content: center;
 
 @media screen and (min-width: 1280px) {
   margin-top: 44px;
-`
+`;
+
 export const LogOutText = styled.p`
 margin-bottom: 0px;
 margin-left: 8px;
 font-weight: ${p => p.theme.fontWeights.medium};
 font-size: ${p => p.theme.fontSizes.xs};
 line-height: ${p => p.theme.lineHeights.max};
-letter-spacing: ${p => p.theme.letterSpacings.normal}
+letter-spacing: ${p => p.theme.letterSpacings.normal};
+`;
 
-`
 export const PhotoEditSubmitBtn = styled.button`
 display: flex;
 margin-bottom: 0px;
 margin-left: 5px;
 cursor: pointer;
 font-weight: ${p => p.theme.fontWeights.normal};
-font-size: ${p => p.theme.fontSizes.xxxs}
+font-size: ${p => p.theme.fontSizes.xxxs};
 line-height: 22px;
-color: ${p => p.theme.colors.black}
+color: ${p => p.theme.colors.black};
 
 @media screen and (min-width: 768px) {
   margin-top: 9px;
@@ -167,7 +173,8 @@ color: ${p => p.theme.colors.black}
 @media screen and (min-width: 1280px) {
   margin-top: 0px;
 }
-`
+`;
+
 export const PhotoEditSubmitWrapper = styled.div`
 display: flex;
 justify-content: flex-end;
@@ -189,9 +196,10 @@ justify-content: flex-end;
     display: flex;
     justify-content: space-between;
   }
-`
+`;
+
 export const UserWrapper = styled.div`
 align-items: center;
 justify-content: center;
 margin-bottom: 0px;
-`
+`;

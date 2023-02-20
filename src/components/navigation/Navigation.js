@@ -19,12 +19,12 @@ export const Navigation = () => {
     <NavMain>
       {isMobileScreen ? (
         <BurgerZone setOpen={setOpen} open={open}>
-          <Nav setOpen={setOpen} />
           {!token ? (
             <AuthNav setOpen={setOpen} />
           ) : (
             <UserNav setOpen={setOpen} />
           )}
+          <Nav setOpen={setOpen} />
         </BurgerZone>
       ) : (
         <>

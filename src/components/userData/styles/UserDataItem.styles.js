@@ -148,8 +148,15 @@ export const IconEdit = styled(EditIcon)`
   fill: ${p => p.theme.colors.primary};
   transition: 0.3s;
 }
-`
+`;
+
 export const ErrorMessege = styled.div`
 position: absolute;
 margin-left: 10px;
-color: red`;
+color: red;
+font-size: 8px;
+
+@media screen and (min-width: 768px) {
+font-size: 14px;
+}
+`;

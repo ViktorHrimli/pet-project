@@ -64,12 +64,28 @@ const dataTeam = [
     linkedin: 'https://www.linkedin.com/in/andriipidlubnyi/',
   },
   {
+    id: '13',
+    imgUrl: require('../../images/team/Andrii_Kapustnikov.jpg'),
+    name: 'Andrii Kapustnikov',
+    role: 'Frontend developer',
+    linkGit: 'https://github.com/AndreyKapus',
+    linkedin: 'https://www.linkedin.com/in/andrii-kapustnikov-473925254/',
+  },
+  {
     id: '9',
     imgUrl: require('../../images/team/11_Viktor_Hrimli.jpg'),
     name: 'Viktor Hrimli',
-    role: 'Frontend developer',
+    role: 'Full Stack developer',
     linkGit: 'https://github.com/ViktorHrimli',
     linkedin: 'https://www.linkedin.com/in/viktorhrimli/',
+  },
+  {
+    id: '11',
+    imgUrl: require('../../images/team/Artem_Raskhodchikov.jpg'),
+    name: 'Artem Raskhodchikov',
+    role: 'Backend developer',
+    linkGit: 'https://github.com/raskhodchikoff',
+    linkedin: 'https://www.linkedin.com/in/raskhodchikoff/',
   },
   {
     id: '10',
@@ -81,14 +97,6 @@ const dataTeam = [
   },
 
   {
-    id: '11',
-    imgUrl: require('../../images/team/Artem_Raskhodchikov.jpg'),
-    name: 'Artem Raskhodchikov',
-    role: 'Backend developer',
-    linkGit: 'https://github.com/raskhodchikoff',
-    linkedin: 'https://www.linkedin.com/in/raskhodchikoff/',
-  },
-  {
     id: '12',
     imgUrl: require('../../images/team/Kirill_Zerkal.jpg'),
     name: 'Kirill Zerkal',
@@ -96,14 +104,7 @@ const dataTeam = [
     linkGit: 'https://github.com',
     linkedin: 'https://www.linkedin.com/in/kirill-zerkal/',
   },
-  {
-    id: '13',
-    imgUrl: require('../../images/team/Andrii_Kapustnikov.jpg'),
-    name: 'Andrii Kapustnikov',
-    role: 'Frontend developer',
-    linkGit: 'https://github.com/AndreyKapus',
-    linkedin: 'https://www.linkedin.com/in/andrii-kapustnikov-473925254/',
-  },
+
   {
     id: '14',
     imgUrl: require('../../images/team/Artur_Kovalov.jpg'),

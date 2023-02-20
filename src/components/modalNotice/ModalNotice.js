@@ -74,7 +74,7 @@ export const ModalNotice = ({ data, onClose }) => {
   };
 
   function toFormatTitle() {
-    return email.length < 20 ? email : email.slice(0, 20) + '...';
+    return email.length < 10 ? email : email.slice(0, 9) + '...';
   }
 
   const userEmail = useSelector(selectUser);

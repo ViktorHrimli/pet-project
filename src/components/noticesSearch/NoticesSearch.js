@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from 'react-router-dom';
 
 import { setFilterNotices, setSearchNotices } from "redux/notices/filterSlice";
+import { selectVisibleNotices } from 'redux/notices/selectors';
+
 import {
   getAll
 } from 'redux/notices/operations';
@@ -73,6 +75,8 @@ export const NoticesSearch = () => {
     dispatch(setSearchNotices(isSearch));
   }, [dispatch, isSearch, keyword, result, limit])
 
+  const visibleNotices = useSelector(selectVisibleNotices);
+
   return <SearchForm onSubmit={handleSubmit}>
       <SearchInput
       type="text"
@@ -84,7 +88,7 @@ export const NoticesSearch = () => {
       <BtnSearch type="submit">
         {isSearch ? <IconCross/> : <IconSearch/>}
       </BtnSearch>
-      {isSearch && !keyword && <Message>
+      {isSearch && visibleNotices.length <= 1 && <Message>
         <span style={{marginRight: '3px'}}>The search didn't give result, to try again or go back press</span>
         <RxCrossCircled size={10}/>
         </Message>}

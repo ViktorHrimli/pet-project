@@ -1,4 +1,4 @@
-import {PetsList, PetsDataText} from 'components/petsData/styles/PetsData.styled'
+import {PetsList, PetsDataText, PetsDataBox} from 'components/petsData/styles/PetsData.styled'
 import { nanoid } from 'nanoid'
 
 import {PetsDataItemKey, PetsDataItemValue } from 'components/petsData/styles/PetsData.styled'
@@ -29,26 +29,14 @@ const {name, breed, comments, date} = cardData;
 				</li>
 
         <li key={nanoid()} >
-					<PetsDataText >
-						<PetsDataItemKey>Comments:&nbsp;<PetsDataItemValue>{comments}</PetsDataItemValue></PetsDataItemKey>
-
-					</PetsDataText>
+					<PetsDataBox >
+						<PetsDataItemKey>Comments:&nbsp;
+							<PetsDataItemValue>{comments}</PetsDataItemValue>
+						</PetsDataItemKey>
+					</PetsDataBox>
 				</li>
 
 		</PetsList>
 	);
 };
 
-// return (
-//   <PetsList>
-//     {Object.entries(cardData)?.map(([key, value], idx) => (
-//       <li key={`${id}+ ${idx}`} id={id} >
-//         <PetsDataText >
-//           <span>{key}:</span>&nbsp;
-//           {value}
-//         </PetsDataText>
-//       </li>
-//     ))}
-//   </PetsList>
-// );
-// };

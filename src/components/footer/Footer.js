@@ -24,7 +24,6 @@ export default function Footer() {
               <Paragraph>&copy; 2023 | All Rights Reserved |</Paragraph>
             </DeveloperData>
 
-            {/* Modal */}
             <BoxRight>
               <Paragraph>Developed by</Paragraph>
 

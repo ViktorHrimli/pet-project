@@ -9,7 +9,7 @@ export const SectionWrapper = styled.div`
   }
 
   @media screen and (max-width: 767px) {
-    padding: 127px 20px 0;
+    padding: 127px 16px 0;
   }
 
   @media screen and (min-width: 768px) {
@@ -17,7 +17,7 @@ export const SectionWrapper = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    padding: 130px 16px 0;
+    padding: 100px 20px 0;
   }
 `;
 
