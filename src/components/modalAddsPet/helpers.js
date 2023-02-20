@@ -7,20 +7,34 @@ export const dateFn = value => {
 
   const formattedDate = format(invalidDate, 'dd.MM.yyyy');
 
-  const formattedDateCheck = format(invalidDate, 'yyyy.MM.dd').replace(
+  const formattedDateCheck = format(invalidDate, 'yyyy.MM.dd').replaceAll(
     '.',
     ','
   );
 
   const day = new Date().getDate();
   const month = new Date().getMonth();
+  const getsFullYear = new Date().getFullYear();
 
-  const maxDate = new Date(`2024, ${month}, ${day}`);
+  const maxDate = new Date(`${getsFullYear}, ${month + 1}, ${day}`);
   const datePet = new Date(formattedDateCheck);
 
   const ageRange = parseInt(
     intlFormatDistance(maxDate, datePet).slice(6, 9).trim()
   );
+
+  const arrFormattedDateYears = +formattedDate.split('.')[0] < day;
+  const arrFormattedDateMonth = +formattedDate.split('.')[1] <= month + 1;
+  const arrFormattedDateDay = +formattedDate.split('.')[2] <= getsFullYear;
+
+  if (
+    isNaN(ageRange) &&
+    arrFormattedDateYears &&
+    arrFormattedDateMonth &&
+    arrFormattedDateDay
+  ) {
+    return formattedDate;
+  }
 
   if (ageRange > 56 || isNaN(ageRange)) return 'false';
 
