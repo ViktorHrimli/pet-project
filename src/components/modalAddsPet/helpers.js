@@ -16,7 +16,7 @@ export const dateFn = value => {
   const month = new Date().getMonth();
   const getsFullYear = new Date().getFullYear();
 
-  const maxDate = new Date(`${getsFullYear}, ${month + 1}, ${day}`);
+  const maxDate = new Date(`${getsFullYear}, ${month}, ${day}`);
   const datePet = new Date(formattedDateCheck);
 
   const ageRange = parseInt(
@@ -36,7 +36,8 @@ export const dateFn = value => {
     return formattedDate;
   }
 
-  if (ageRange > 56 || isNaN(ageRange)) return 'false';
+  if (ageRange > 56 || isNaN(ageRange) || formattedDate.split('.')[2] < '1970')
+    return 'false';
 
   return formattedDate;
 };
