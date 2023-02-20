@@ -153,9 +153,10 @@ export const AddPetBtnContainer = styled.div`
   @media screen and (min-width: 768px) {
     position: absolute;
     top: 0px;
-    right: 50px;
+    right: 0;
   }
 `;
+
 export const PetsContainerWrapper = styled.div`
   margin-top: 46px;
 
