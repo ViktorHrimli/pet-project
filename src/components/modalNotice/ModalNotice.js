@@ -218,11 +218,12 @@ export const ModalNotice = ({ data, onClose }) => {
                 ) : (
                   <DeleteFromFavoriteButton
                     type="button"
-                    onClick={() =>
+                    onClick={() => {
+                      document.body.style.overflow = '';
                       token
                         ? dispatch(removeFavoriteNotices(_id))
                         : showErrorRegister()
-                    }
+                    }}
                   >
                     <TitleNoticeButton>Delete from </TitleNoticeButton>
                     <IconWhiteHeart />
