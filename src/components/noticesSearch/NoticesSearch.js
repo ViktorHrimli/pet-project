@@ -88,7 +88,7 @@ export const NoticesSearch = () => {
       <BtnSearch type="submit">
         {isSearch ? <IconCross/> : <IconSearch/>}
       </BtnSearch>
-      {isSearch && visibleNotices.length <= 1 && <Message>
+      {isSearch && visibleNotices.length < 1 && <Message>
         <span style={{marginRight: '3px'}}>The search didn't give result, to try again or go back press</span>
         <RxCrossCircled size={10}/>
         </Message>}
