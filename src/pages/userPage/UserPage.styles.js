@@ -84,12 +84,10 @@ export const UserTitle = styled.h2`
   line-height: ${p => p.theme.lineHeights.normal};
   color: #111111;
   @media screen and (min-width: 768px) {
-
     font-size: 28px;
-    line-height: {t => };
+    /* line-height: {t => }; */
   }
   @media screen and (min-width: 1280px) {
-
     font-size: 28px;
     line-height: ${p => p.theme.lineHeights.normal};
   }
@@ -97,7 +95,7 @@ export const UserTitle = styled.h2`
 
 export const Title = styled.h2`
   font-family: 'Manrope';
-  font-weight:  ${p => p.theme.fontWeights.medium};
+  font-weight: ${p => p.theme.fontWeights.medium};
   font-size: ${p => p.theme.fontSizes.s};
   line-height: ${p => p.theme.lineHeights.normal};
   color: ${p => p.theme.colors.black};
@@ -119,22 +117,22 @@ export const Title = styled.h2`
 `;
 
 export const PetTitle = styled.h3`
-margin-bottom: 0px;
-font-family: 'Manrope';
-font-weight: 500;
-font-size: 20px;
-line-height: ${p => p.theme.lineHeights.normal};
-color: #111111;
-@media screen and (min-width: 768px) {
   margin-bottom: 0px;
-  font-size: 28px;
-  line-height: {t => };
-}
-@media screen and (min-width: 1280px) {
-
-  font-size: 28px;
+  font-family: 'Manrope';
+  font-weight: 500;
+  font-size: 20px;
   line-height: ${p => p.theme.lineHeights.normal};
-}`;
+  color: #111111;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0px;
+    font-size: 28px;
+    /* line-height: {t => }; */
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+    line-height: ${p => p.theme.lineHeights.normal};
+  }
+`;
 
 export const UserCardWrapper = styled.div`
   @media screen and (min-width: 1280px) {

@@ -16,7 +16,7 @@ export const AddButton = styled.button`
   font-size: ${p => p.theme.fontSizes.xxxs};
   font-weight: ${p => p.theme.fontWeights.medium};
   line-height: ${p => p.theme.lineHeights.min};
-  
+
   color: ${p => p.theme.colors.white};
   border: none;
   outline: none;
@@ -74,7 +74,7 @@ export const AddButton = styled.button`
 
   @media screen and (min-width: 1280px) {
     left: 1118px;
-  };
+  } ;
 `;
 
 export const ButtonName = styled.span`
@@ -105,7 +105,7 @@ export const Circle = styled.div`
     &:hover {
       background-color: ${p => p.theme.colors.focus};
     }
-    
+
     animation: mymove 3s infinite;
     @keyframes mymove {
       20% {
@@ -125,6 +125,7 @@ export const Circle = styled.div`
         box-shadow: none;
       }
     }
+  }
 `;
 
 export const IconCross = styled(plus)`

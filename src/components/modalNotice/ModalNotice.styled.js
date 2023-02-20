@@ -188,13 +188,14 @@ export const NoticeComments = styled.span`
 export const LableComments = styled.span`
   margin-bottom: 0;
   font-size: ${p => p.theme.fontSizes.xxs};
-  lineHeight: ${p => p.theme.lineHeights.normal};
+  line-height: ${p => p.theme.lineHeights.normal};
   font-weight: 600;
 
-@media screen and (min-width: 768px) {
-  font-size: ${p => p.theme.fontSizes.xs};
-  line-height: ${p => p.theme.lineHeights.max};
-  letter-spacing: ${p => p.theme.letterSpacings.normal};
+  @media screen and (min-width: 768px) {
+    font-size: ${p => p.theme.fontSizes.xs};
+    line-height: ${p => p.theme.lineHeights.max};
+    letter-spacing: ${p => p.theme.letterSpacings.normal};
+  }
 `;
 
 export const ButtonModalWrapper = styled.div`
