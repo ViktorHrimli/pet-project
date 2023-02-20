@@ -158,12 +158,15 @@ export const Link = styled.a`
 `;
 
 export const DateModalNotice = styled.span`
+  overflow-wrap: break-word;
+  width: 122px;
   font-size: ${p => p.theme.fontSizes.xxs};
   font-weight: ${p => p.theme.fontWeights.medium};
 
   @media screen and (min-width: 768px) {
     font-size: ${p => p.theme.fontSizes.xs};
     line-height: ${p => p.theme.lineHeights.max};
+    width: 200px;
   }
 `;
 

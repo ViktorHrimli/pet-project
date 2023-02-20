@@ -77,18 +77,6 @@ export const ModalNotice = ({ data, onClose }) => {
     return email.length < 10 ? email : email.slice(0, 9) + '...';
   }
 
-  function toFormatCity() {
-    return city.length < 10 ? city : city.slice(0, 9) + '...';
-  }
-  
-  function toFormatName() {
-    return name.length < 10 ? name : name.slice(0, 9) + '...';
-  }
-
-  function toFormatBreed() {
-    return breed.length < 10 ? breed : breed.slice(0, 9) + '...';
-  }
-
   const userEmail = useSelector(selectUser);
   let favoriteItem = useSelector(selectFavoriteItems).filter(
     item => item._id === _id
@@ -160,7 +148,7 @@ export const ModalNotice = ({ data, onClose }) => {
                 {title && <TitleModalNotice>{title}</TitleModalNotice>}
                 <InfoItem>
                   <LableNotice>Name:</LableNotice>
-                  {name && <DateModalNotice>{toFormatName()}</DateModalNotice>}
+                  {name && <DateModalNotice>{name}</DateModalNotice>}
                 </InfoItem>
                 <InfoItem>
                   <LableNotice>Birthday:</LableNotice>
@@ -168,11 +156,11 @@ export const ModalNotice = ({ data, onClose }) => {
                 </InfoItem>
                 <InfoItem>
                   <LableNotice>Breed:</LableNotice>
-                  {breed && <DateModalNotice>{toFormatBreed()}</DateModalNotice>}
+                  {breed && <DateModalNotice>{breed}</DateModalNotice>}
                 </InfoItem>
                 <InfoItem>
                   <LableNotice>Place:</LableNotice>
-                  {city && <DateModalNotice>{toFormatCity()}</DateModalNotice>}
+                  {city && <DateModalNotice>{city}</DateModalNotice>}
                 </InfoItem>
                 <InfoItem>
                   <LableNotice>The sex:</LableNotice>
