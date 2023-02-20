@@ -50,7 +50,7 @@ export const Title = styled.h3`
   line-height: 135%;
   color: #111111;
   margin-bottom: 32px;
-  
+
   @media screen and (min-width: 1280px) {
     visibility: visible;
     font-size: 28px;
@@ -149,7 +149,7 @@ export const deleteButton = styled.button`
 `;
 
 export const PetsList = styled.ul`
-@media screen and (max-width: 767px) {  
+@media screen and (max-width: 767px) {
 margin-top: 26px;
 }
 `;
@@ -185,13 +185,35 @@ export const EditButton = styled.div`
 `;
 
 export const PetsDataItemKey = styled.span`
-  font-weight: 500;
+ font-weight: 500;
+ font-size: 14px;
+ line-height: 1.35;
   margin-right: 2px;
+  color: #000000;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.37;
+  }
+  @media screen and (min-width: 1280px) {
+
+  }
+
 `;
 
 export const PetsDataItemValue = styled.span`
   overflow-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.35;
   font-weight: 400;
+  color: #000000;
+
+  @media screen and (min-width: 768px) {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.37;
+  }
 `;
 export const DeleteBtn = styled(TrashIcon)`
 width: 16px;

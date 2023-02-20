@@ -102,15 +102,18 @@ export const Title = styled.h2`
   line-height: ${p => p.theme.lineHeights.normal};
   color: ${p => p.theme.colors.black};
   margin-bottom: 18px;
+  color: #000000;
   @media screen and (min-width: 768px) {
     margin-left: 20px;
     font-size: 28px;
-    line-height: {t => };
+    line-height: 1.35;
     margin-bottom: 40px;
+    color: #000000;
   }
   @media screen and (min-width: 1280px) {
+    color: #000000;
     font-size: 28px;
-    line-height: ${p => p.theme.lineHeights.normal};
+    line-height: 1.35;
     margin-bottom: 24px;
   }
 `;
