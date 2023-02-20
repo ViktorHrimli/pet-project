@@ -15,10 +15,7 @@ export const validationSchema1 = yup.object().shape({
     .email(),
   password: yup
     .string()
-    .matches(
-      passwordRegexp,
-      'Any letters and symbols except spaces. min 7 characters max 32'
-    )
+    .matches(passwordRegexp, 'Any  symbols, min 7 characters max 32')
     .max(32, 'Must be 15 characters or less')
     .min(7, 'Must be at least 7 characters')
     .required('Password is required'),
@@ -27,10 +24,7 @@ export const validationSchema1 = yup.object().shape({
     is: val => (val && val.length > 0 ? true : false),
     then: yup
       .string()
-      .oneOf(
-        [yup.ref('password')],
-        'Both password need to be the same. Please, сonfirm  Password'
-      ),
+      .oneOf([yup.ref('password')], ' Please, сonfirm  Password'),
   }),
 });
 
